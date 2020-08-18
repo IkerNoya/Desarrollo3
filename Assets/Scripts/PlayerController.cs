@@ -29,6 +29,20 @@ public class PlayerController : MonoBehaviour
     // Codigo de testeo
     void Update()
     {
+        Inputs();
+        movement = new Vector3(Input.GetAxis("Horizontal"), 0, 0) * Time.deltaTime;
+        transform.position += movement * speed;
+    }
+    void FixedUpdate()
+    {
+        if (Input.GetKeyDown(KeyCode.Space) && !isJumping)
+        {
+            rb.AddForce(Vector2.up * jumpForce);
+            isJumping = true;
+        }
+    }
+    void Inputs() // Probar despues estados con un switch
+    {
         if (Input.GetKey(KeyCode.D))
         {
             ActivateAnim("IsRunning_R");
@@ -44,16 +58,6 @@ public class PlayerController : MonoBehaviour
         if (isJumping)
         {
             ActivateAnim("IsJumping");
-        }
-        movement = new Vector3(Input.GetAxis("Horizontal"), 0, 0) * Time.deltaTime;
-        transform.position += movement * speed;
-    }
-    void FixedUpdate()
-    {
-        if (Input.GetKeyDown(KeyCode.Space) && !isJumping)
-        {
-            rb.AddForce(Vector2.up * jumpForce);
-            isJumping = true;
         }
     }
     void ActivateAnim(string name)
