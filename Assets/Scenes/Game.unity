@@ -245,7 +245,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 290360529}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.06, y: 0.13, z: -2.6090786}
+  m_LocalPosition: {x: 6.5, y: 0.13, z: -2.6090786}
   m_LocalScale: {x: 1.588125, y: 0.58737, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -635,7 +635,8 @@ MonoBehaviour:
   - IsJumping
   - IsFalling
   - IsRunning_L
-  col: {fileID: 1443454488}
+  hitCooldown: 20
+  hitCounter: 0
 --- !u!1 &1753249178
 GameObject:
   m_ObjectHideFlags: 0
@@ -760,7 +761,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1753249178}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.63, y: -1.4, z: -2.6090786}
+  m_LocalPosition: {x: 1.95, y: -1.4, z: -2.6090786}
   m_LocalScale: {x: 1.588125, y: 0.58737, z: 1}
   m_Children: []
   m_Father: {fileID: 0}

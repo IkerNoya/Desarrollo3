@@ -9,29 +9,92 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float speed;
     [SerializeField] float jumpForce;
     [SerializeField] string[] animNames;
+    [SerializeField] float hitCooldown;
+    [SerializeField] int hitCounter;
+
     Rigidbody2D rb;
-    SpriteRenderer sr;
-    [SerializeField] BoxCollider2D col;
     Animator anim;
+
     bool isJumping=false;
     bool isRunning=false;
     bool isFalling=false;
-    float distanceToGround;
+    bool isAttacking = false;
+
+    float lastHit;
+
     Vector3 movement;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
-        sr = GetComponent<SpriteRenderer>();
-        distanceToGround = col.bounds.extents.y;
     }
 
-    // Codigo de testeo
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            StartCombo();
+        }
+        if (isAttacking)
+        {
+            return;
+        }
+
         Inputs();
         movement = new Vector3(Input.GetAxis("Horizontal"), 0, 0) * Time.deltaTime;
         transform.position += movement * speed;
+    }
+    void StartCombo()
+    {
+        isAttacking = true;
+        if(Time.time - lastHit > hitCooldown)
+        {
+            isAttacking = false;
+            hitCounter = 0;
+        }
+
+        lastHit = Time.time;
+        hitCounter++;
+        if (hitCounter == 1)
+        {
+            anim.SetBool("IsAttacking_1", true);
+        }
+        hitCounter = Mathf.Clamp(hitCounter, 0, 3);
+    }
+    public void Attack1()
+    {
+        if (hitCounter >= 2)
+        {
+            anim.SetBool("IsAttacking_2", true);
+        }
+        else
+        {
+            anim.SetBool("IsAttacking_1", false);
+            hitCounter = 0;
+            isAttacking = false;
+        }
+    }
+    public void Attack2()
+    {
+        if (hitCounter >= 3)
+        {
+            anim.SetBool("IsAttacking_3", true);
+        }
+        else
+        {
+            anim.SetBool("IsAttacking_2", false);
+            hitCounter = 0;
+            isAttacking = false;
+        }
+    }
+    public void Attack3()
+    {
+        anim.SetBool("IsAttacking_1", false);
+        anim.SetBool("IsAttacking_2", false);
+        anim.SetBool("IsAttacking_3", false);
+        isAttacking = false;
+        hitCounter = 0;
     }
     void FixedUpdate()
     {
@@ -60,6 +123,7 @@ public class PlayerController : MonoBehaviour
             ActivateAnim("IsJumping");
         }
     }
+
     void ActivateAnim(string name)
     {
         for(int i = 0; i < animNames.Length; i++)
