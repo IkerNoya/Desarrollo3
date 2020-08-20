@@ -11,18 +11,22 @@ public class PlayerController : MonoBehaviour
     [SerializeField] string[] animNames;
     [SerializeField] float hitCooldown;
     [SerializeField] int hitCounter;
+    [SerializeField] int NoOfJumps;
 
     Rigidbody2D rb;
     Animator anim;
     SpriteRenderer sr;
 
-    bool isJumping=false;
+    bool isGrounded=true;
+    bool jumped=false;
     bool isAttacking = false;
+
+    int jumpAmmount;
 
     float lastHit;
     float direction;
     float LastDirection;
-    float startRunAnim = 0.01f;
+    float startRunAnim = 0.0001f;
 
     Vector3 movement;
 
@@ -32,6 +36,7 @@ public class PlayerController : MonoBehaviour
         anim = GetComponent<Animator>();
         sr = GetComponent<SpriteRenderer>();
         sr.flipX=false;
+        jumpAmmount = NoOfJumps;
     }
 
     void Update()
@@ -60,6 +65,7 @@ public class PlayerController : MonoBehaviour
         {
             sr.flipX = true;
         }
+        Debug.Log(jumpAmmount);
     }
     void StartCombo()
     {
@@ -79,25 +85,35 @@ public class PlayerController : MonoBehaviour
     }
     void FixedUpdate()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && !isJumping)
+        if (jumped)
         {
-            rb.AddForce(Vector2.up * jumpForce);
-            isJumping = true;
+            jumped = false;
+            rb.velocity = new Vector2(0, jumpForce) * Time.fixedDeltaTime;
         }
     }
     void MovementAnimation() // Probar despues estados con un switch
     {
-        if ((direction > startRunAnim || direction < -startRunAnim) && !isAttacking)
+        if ((direction > startRunAnim || direction < -startRunAnim) && !isAttacking && isGrounded)
         {
             ActivateAnim("IsRunning");
         }
-        if(direction < startRunAnim && direction > -startRunAnim)
+        if(direction < startRunAnim && direction > -startRunAnim && isGrounded)
         {
             ActivateAnim("Idle");
         }
-        if (isJumping)
+        if (Input.GetKeyDown(KeyCode.Space) && jumpAmmount>0)
+        {
+            isGrounded = false;
+            jumped = true;
+            jumpAmmount--;
+        }
+        if (rb.velocity.y > 0)
         {
             ActivateAnim("IsJumping");
+        }
+        if(rb.velocity.y < 0)
+        {
+            ActivateAnim("IsFalling");
         }
     }
 
@@ -119,7 +135,8 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.collider.CompareTag("Ground"))
         {
-            isJumping = false;
+            isGrounded = true;
+            jumpAmmount = NoOfJumps;
             anim.SetBool("IsJumping", false);
         } 
     }
