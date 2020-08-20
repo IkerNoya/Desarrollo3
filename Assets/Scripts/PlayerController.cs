@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.UIElements;
 
 public class PlayerController : MonoBehaviour
-{
+{   
     [SerializeField] float speed;
     [SerializeField] float jumpForce;
     [SerializeField] string[] animNames;
@@ -41,15 +41,24 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        direction = Input.GetAxis("Horizontal");
-        if (Input.GetKeyDown(KeyCode.F))
+        if (gameObject.CompareTag("Player_1"))
+            direction = Input.GetAxis("P1_Horizontal");
+        else if (gameObject.CompareTag("Player_2"))
+            direction = Input.GetAxis("P2_Horizontal");
+
+        if (Input.GetKeyDown(KeyCode.F) && isGrounded && gameObject.CompareTag("Player_1"))
+        {
+            isAttacking = true;
+            StartCombo();
+        }
+        else if(Input.GetKeyDown(KeyCode.J) && isGrounded && gameObject.CompareTag("Player_2")) // control auxiliar, cambiar despues
         {
             isAttacking = true;
             StartCombo();
         }
         if(!isAttacking)
         {
-            MovementAnimation();
+            MovementAnimations();
             movement = new Vector3(direction, 0, 0) * Time.deltaTime;
             transform.position += movement * speed;
         }
@@ -65,7 +74,6 @@ public class PlayerController : MonoBehaviour
         {
             sr.flipX = true;
         }
-        Debug.Log(jumpAmmount);
     }
     void StartCombo()
     {
@@ -91,7 +99,7 @@ public class PlayerController : MonoBehaviour
             rb.velocity = new Vector2(0, jumpForce) * Time.fixedDeltaTime;
         }
     }
-    void MovementAnimation() // Probar despues estados con un switch
+    void MovementAnimations()
     {
         if ((direction > startRunAnim || direction < -startRunAnim) && !isAttacking && isGrounded)
         {
@@ -101,17 +109,23 @@ public class PlayerController : MonoBehaviour
         {
             ActivateAnim("Idle");
         }
-        if (Input.GetKeyDown(KeyCode.Space) && jumpAmmount>0)
+        if (Input.GetKeyDown(KeyCode.Space) && jumpAmmount > 0 && gameObject.CompareTag("Player_1"))
         {
             isGrounded = false;
             jumped = true;
             jumpAmmount--;
         }
-        if (rb.velocity.y > 0)
+        else if (Input.GetKeyDown(KeyCode.RightAlt) && jumpAmmount > 0 && gameObject.CompareTag("Player_2"))
+        {
+            isGrounded = false;
+            jumped = true;
+            jumpAmmount--;
+        }
+        if (rb.velocity.y > 0 && !isGrounded)
         {
             ActivateAnim("IsJumping");
         }
-        if(rb.velocity.y < 0)
+        if(rb.velocity.y < 0 && !isGrounded)
         {
             ActivateAnim("IsFalling");
         }
