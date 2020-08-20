@@ -14,13 +14,15 @@ public class PlayerController : MonoBehaviour
 
     Rigidbody2D rb;
     Animator anim;
+    SpriteRenderer sr;
 
     bool isJumping=false;
-    bool isRunning=false;
-    bool isFalling=false;
     bool isAttacking = false;
 
     float lastHit;
+    float direction;
+    float LastDirection;
+    float startRunAnim = 0.01f;
 
     Vector3 movement;
 
@@ -28,26 +30,39 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+        sr = GetComponent<SpriteRenderer>();
+        sr.flipX=false;
     }
 
     void Update()
     {
+        direction = Input.GetAxis("Horizontal");
         if (Input.GetKeyDown(KeyCode.F))
         {
+            isAttacking = true;
             StartCombo();
         }
-        if (isAttacking)
+        if(!isAttacking)
         {
-            return;
+            MovementAnimation();
+            movement = new Vector3(direction, 0, 0) * Time.deltaTime;
+            transform.position += movement * speed;
         }
-
-        Inputs();
-        movement = new Vector3(Input.GetAxis("Horizontal"), 0, 0) * Time.deltaTime;
-        transform.position += movement * speed;
+        if (direction != 0)
+        {
+            LastDirection = direction;
+        }
+        if (LastDirection > 0)
+        {
+            sr.flipX = false;
+        }
+        else
+        {
+            sr.flipX = true;
+        }
     }
     void StartCombo()
     {
-        isAttacking = true;
         if(Time.time - lastHit > hitCooldown)
         {
             isAttacking = false;
@@ -60,8 +75,56 @@ public class PlayerController : MonoBehaviour
         {
             anim.SetBool("IsAttacking_1", true);
         }
-        hitCounter = Mathf.Clamp(hitCounter, 0, 3);
+        hitCounter = Mathf.Clamp(hitCounter, 0, 3); 
     }
+    void FixedUpdate()
+    {
+        if (Input.GetKeyDown(KeyCode.Space) && !isJumping)
+        {
+            rb.AddForce(Vector2.up * jumpForce);
+            isJumping = true;
+        }
+    }
+    void MovementAnimation() // Probar despues estados con un switch
+    {
+        if ((direction > startRunAnim || direction < -startRunAnim) && !isAttacking)
+        {
+            ActivateAnim("IsRunning");
+        }
+        if(direction < startRunAnim && direction > -startRunAnim)
+        {
+            ActivateAnim("Idle");
+        }
+        if (isJumping)
+        {
+            ActivateAnim("IsJumping");
+        }
+    }
+
+    void ActivateAnim(string name)
+    {
+        for(int i = 0; i < animNames.Length; i++)
+        {
+            if (animNames[i] == name)
+            {
+                anim.SetBool(animNames[i], true);
+            }
+            else
+            {
+                anim.SetBool(animNames[i], false);
+            }
+        }
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.collider.CompareTag("Ground"))
+        {
+            isJumping = false;
+            anim.SetBool("IsJumping", false);
+        } 
+    }
+
+    // Animation Events
     public void Attack1()
     {
         if (hitCounter >= 2)
@@ -95,54 +158,5 @@ public class PlayerController : MonoBehaviour
         anim.SetBool("IsAttacking_3", false);
         isAttacking = false;
         hitCounter = 0;
-    }
-    void FixedUpdate()
-    {
-        if (Input.GetKeyDown(KeyCode.Space) && !isJumping)
-        {
-            rb.AddForce(Vector2.up * jumpForce);
-            isJumping = true;
-        }
-    }
-    void Inputs() // Probar despues estados con un switch
-    {
-        if (Input.GetKey(KeyCode.D))
-        {
-            ActivateAnim("IsRunning_R");
-        }
-        else if (Input.GetKey(KeyCode.A))
-        {
-            ActivateAnim("IsRunning_L");
-        }
-        else
-        {
-            ActivateAnim("Idle");
-        }
-        if (isJumping)
-        {
-            ActivateAnim("IsJumping");
-        }
-    }
-
-    void ActivateAnim(string name)
-    {
-        for(int i = 0; i < animNames.Length; i++)
-        {
-            if (animNames[i] == name)
-            {
-                anim.SetBool(animNames[i], true);
-            }
-            else
-            {
-                anim.SetBool(animNames[i], false);
-            }
-        }
-    }
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.collider.CompareTag("Ground"))
-        {
-            isJumping = false;
-        } 
     }
 }
