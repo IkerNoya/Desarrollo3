@@ -121,6 +121,12 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &393845730 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6009352262158777303, guid: 846fd92b08407da43872ffe0ef184281,
+    type: 3}
+  m_PrefabInstance: {fileID: 1254277057870172507}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &488108587
 GameObject:
   m_ObjectHideFlags: 0
@@ -319,6 +325,36 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1254277058642530113, guid: b8802c93dade66c45a2ae3fa6cef9bf4,
+        type: 3}
+      propertyPath: hitCol
+      value: 
+      objectReference: {fileID: 2010437879}
+    - target: {fileID: 1254277058642530113, guid: b8802c93dade66c45a2ae3fa6cef9bf4,
+        type: 3}
+      propertyPath: playerSelect
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1254277058642530113, guid: b8802c93dade66c45a2ae3fa6cef9bf4,
+        type: 3}
+      propertyPath: lives
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 1254277058642530113, guid: b8802c93dade66c45a2ae3fa6cef9bf4,
+        type: 3}
+      propertyPath: hp
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 1254277058642530113, guid: b8802c93dade66c45a2ae3fa6cef9bf4,
+        type: 3}
+      propertyPath: damage
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 1254277058642530114, guid: b8802c93dade66c45a2ae3fa6cef9bf4,
+        type: 3}
+      propertyPath: m_BodyType
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1254277058642530124, guid: b8802c93dade66c45a2ae3fa6cef9bf4,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -378,6 +414,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Player2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6158844133456976017, guid: b8802c93dade66c45a2ae3fa6cef9bf4,
+        type: 3}
+      propertyPath: m_TagString
+      value: HitCollider
+      objectReference: {fileID: 0}
+    - target: {fileID: 6158844133456976017, guid: b8802c93dade66c45a2ae3fa6cef9bf4,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b8802c93dade66c45a2ae3fa6cef9bf4, type: 3}
@@ -462,6 +508,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2010437879 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6158844133456976017, guid: b8802c93dade66c45a2ae3fa6cef9bf4,
+    type: 3}
+  m_PrefabInstance: {fileID: 1709692508}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1254277057870172507
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -469,6 +521,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1254277058642530113, guid: 846fd92b08407da43872ffe0ef184281,
+        type: 3}
+      propertyPath: hitCol
+      value: 
+      objectReference: {fileID: 393845730}
+    - target: {fileID: 1254277058642530113, guid: 846fd92b08407da43872ffe0ef184281,
+        type: 3}
+      propertyPath: lives
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 1254277058642530113, guid: 846fd92b08407da43872ffe0ef184281,
+        type: 3}
+      propertyPath: hp
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 1254277058642530113, guid: 846fd92b08407da43872ffe0ef184281,
+        type: 3}
+      propertyPath: damage
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 1254277058642530124, guid: 846fd92b08407da43872ffe0ef184281,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -528,6 +600,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 1776333442826352657, guid: 846fd92b08407da43872ffe0ef184281,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.77
+      objectReference: {fileID: 0}
+    - target: {fileID: 6009352262158777303, guid: 846fd92b08407da43872ffe0ef184281,
+        type: 3}
+      propertyPath: m_TagString
+      value: HitCollider
+      objectReference: {fileID: 0}
+    - target: {fileID: 6009352262158777303, guid: 846fd92b08407da43872ffe0ef184281,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 846fd92b08407da43872ffe0ef184281, type: 3}

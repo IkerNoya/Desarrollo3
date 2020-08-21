@@ -12,7 +12,14 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float hitCooldown;
     [SerializeField] int hitCounter;
     [SerializeField] int NoOfJumps;
-
+    [SerializeField] int hp;
+    [SerializeField] int damage;
+    [SerializeField] GameObject hitCol;
+    public enum PlayerSelect
+    {
+        player1, player2
+    }
+    public PlayerSelect playerSelect;
     Rigidbody2D rb;
     Animator anim;
     SpriteRenderer sr;
@@ -20,6 +27,9 @@ public class PlayerController : MonoBehaviour
     bool isGrounded=true;
     bool jumped=false;
     bool isAttacking = false;
+    bool canAttack = true;
+    bool isDead = false;
+    bool canMove = true;
 
     int jumpAmmount;
 
@@ -30,6 +40,8 @@ public class PlayerController : MonoBehaviour
 
     Vector3 movement;
 
+    // Investigar error de salto en player 2 (Solucionado, pero investigar bien por que)
+    
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -37,21 +49,24 @@ public class PlayerController : MonoBehaviour
         sr = GetComponent<SpriteRenderer>();
         sr.flipX=false;
         jumpAmmount = NoOfJumps;
+        hitCol.SetActive(false);
     }
 
     void Update()
     {
-        if (gameObject.CompareTag("Player_1"))
+        if (isDead)
+            return;
+        if (playerSelect == PlayerSelect.player1 && canMove)
             direction = Input.GetAxis("P1_Horizontal");
-        else if (gameObject.CompareTag("Player_2"))
+        else if (playerSelect == PlayerSelect.player2 && canMove)
             direction = Input.GetAxis("P2_Horizontal");
 
-        if (Input.GetKeyDown(KeyCode.F) && isGrounded && gameObject.CompareTag("Player_1"))
+        if (Input.GetKeyDown(KeyCode.F) && isGrounded && playerSelect == PlayerSelect.player1 && canAttack)
         {
             isAttacking = true;
             StartCombo();
         }
-        else if(Input.GetKeyDown(KeyCode.J) && isGrounded && gameObject.CompareTag("Player_2")) // control auxiliar, cambiar despues
+        else if(Input.GetKeyDown(KeyCode.J) && isGrounded && playerSelect == PlayerSelect.player2 && canAttack)
         {
             isAttacking = true;
             StartCombo();
@@ -67,12 +82,12 @@ public class PlayerController : MonoBehaviour
             LastDirection = direction;
         }
         if (LastDirection > 0)
-        {
-            sr.flipX = false;
+        { 
+            transform.eulerAngles = new Vector3(0,0,0);
         }
         else
         {
-            sr.flipX = true;
+            transform.eulerAngles = new Vector3(0, 180, 0);
         }
     }
     void StartCombo()
@@ -101,7 +116,7 @@ public class PlayerController : MonoBehaviour
     }
     void MovementAnimations()
     {
-        if ((direction > startRunAnim || direction < -startRunAnim) && !isAttacking && isGrounded)
+        if ((direction > startRunAnim || direction < -startRunAnim) && !isAttacking && isGrounded && canMove)
         {
             ActivateAnim("IsRunning");
         }
@@ -109,23 +124,23 @@ public class PlayerController : MonoBehaviour
         {
             ActivateAnim("Idle");
         }
-        if (Input.GetKeyDown(KeyCode.Space) && jumpAmmount > 0 && gameObject.CompareTag("Player_1"))
+        if (Input.GetKeyDown(KeyCode.Space) && jumpAmmount > 0 && playerSelect == PlayerSelect.player1 && canMove)
         {
             isGrounded = false;
             jumped = true;
             jumpAmmount--;
         }
-        else if (Input.GetKeyDown(KeyCode.RightAlt) && jumpAmmount > 0 && gameObject.CompareTag("Player_2"))
+        else if (Input.GetKeyDown(KeyCode.RightAlt) && jumpAmmount > 0 && playerSelect == PlayerSelect.player2 && canMove)
         {
             isGrounded = false;
             jumped = true;
             jumpAmmount--;
         }
-        if (rb.velocity.y > 0 && !isGrounded)
+        if (rb.velocity.y > 0 && !isGrounded && canMove)
         {
             ActivateAnim("IsJumping");
         }
-        if(rb.velocity.y < 0 && !isGrounded)
+        if(rb.velocity.y < 0 && !isGrounded && canMove)
         {
             ActivateAnim("IsFalling");
         }
@@ -152,12 +167,43 @@ public class PlayerController : MonoBehaviour
             isGrounded = true;
             jumpAmmount = NoOfJumps;
             anim.SetBool("IsJumping", false);
-        } 
+        }
+        if (collision.collider.CompareTag("HitCollider"))
+        {
+            anim.SetBool("Hit",true);
+            canMove = false;
+            hp -= damage;
+            StartCoroutine(HitCooldown());
+            if (hp <= 0)
+            {
+                Dead();
+            }
+        }
+    }
+    void Dead()
+    {
+        isDead = true;
+        anim.SetBool("Dead", true);
+        rb.isKinematic = true;
+        gameObject.GetComponent<BoxCollider2D>().enabled = false;
+    }
+    void Respawn()
+    {
+        rb.isKinematic = false;
+        gameObject.GetComponent<BoxCollider2D>().enabled = true;
+    }
+    IEnumerator HitCooldown()
+    {
+        yield return new WaitForSeconds(0.5f);
+        canMove = true;
+        anim.SetBool("Hit", false);
+        yield return null;
     }
 
     // Animation Events
     public void Attack1()
     {
+        hitCol.SetActive(false);
         if (hitCounter >= 2)
         {
             anim.SetBool("IsAttacking_2", true);
@@ -171,6 +217,7 @@ public class PlayerController : MonoBehaviour
     }
     public void Attack2()
     {
+        hitCol.SetActive(false);
         if (hitCounter >= 3)
         {
             anim.SetBool("IsAttacking_3", true);
@@ -184,10 +231,21 @@ public class PlayerController : MonoBehaviour
     }
     public void Attack3()
     {
+        hitCol.SetActive(false);
         anim.SetBool("IsAttacking_1", false);
         anim.SetBool("IsAttacking_2", false);
         anim.SetBool("IsAttacking_3", false);
         isAttacking = false;
         hitCounter = 0;
+    }
+    public void ActivateHit()
+    {
+        hitCol.SetActive(true);
+    }
+    IEnumerator AttackCooldown()
+    {
+        yield return new WaitForSeconds(0.5f);
+        canAttack = true;
+        yield return null;
     }
 }
