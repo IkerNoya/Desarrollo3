@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] int hp;
     [SerializeField] int lives;
     [SerializeField] int damage;
+    [SerializeField] float joystickAxis;
     [SerializeField] GameObject hitCol;
     [SerializeField] Vector2 InitialPos;
 
@@ -44,7 +45,6 @@ public class PlayerController : MonoBehaviour
 
     Vector3 movement;
 
-    // Investigar error de salto en player 2 (Solucionado, pero investigar bien por que)
     
     void Start()
     {
@@ -62,9 +62,32 @@ public class PlayerController : MonoBehaviour
         if (isDead)
             return;
         if (playerSelect == PlayerSelect.player1 && canMove)
-            direction = Input.GetAxis("P1_Horizontal");
+        {
+            if (Input.GetAxis("P1_Horizontal") >= 0 || Input.GetAxis("P1_Horizontal") <= 0)
+                direction = Input.GetAxis("P1_Horizontal");
+            //else if (Input.GetAxis("P1_Joystick_Horizontal") > joystickAxis || Input.GetAxis("P1_Joystick_Horizontal") < -joystickAxis) // por si el control esta rotito
+            //{
+            //    direction = Input.GetAxis("P1_Joystick_Horizontal");
+            //    Debug.Log(Input.GetAxis("P1_Joystick_Horizontal"));
+            //    if (Input.GetAxis("P1_Joystick_Horizontal") < 0.3f && Input.GetAxis("P1_Joystick_Horizontal") > -0.3f)
+            //    {
+            //        direction = 0;
+            //    }
+            //}
+        }
         else if (playerSelect == PlayerSelect.player2 && canMove)
-            direction = Input.GetAxis("P2_Horizontal");
+        {
+            if (Input.GetAxis("P2_Horizontal") >= 0 || Input.GetAxis("P2_Horizontal") <= 0)
+                direction = Input.GetAxis("P2_Horizontal");
+            //else if (Input.GetAxis("P2_Joystick_Horizontal") > joystickAxis || Input.GetAxis("P2_Joystick_Horizontal") < -joystickAxis) // por si el control esta rotito
+            //{
+            //    direction = Input.GetAxis("P2_Joystick_Horizontal");
+            //    if (Input.GetAxis("P2_Joystick_Horizontal") < 0.3f && Input.GetAxis("P2_Joystick_Horizontal") > -0.3f)
+            //    {
+            //        direction = 0;
+            //    }
+            //}
+        }
 
         if (Input.GetKeyDown(KeyCode.F) && isGrounded && playerSelect == PlayerSelect.player1 && canAttack)
         {
