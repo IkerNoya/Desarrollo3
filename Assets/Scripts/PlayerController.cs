@@ -186,6 +186,14 @@ public class PlayerController : MonoBehaviour
         anim.SetBool("Dead", true);
         rb.isKinematic = true;
         gameObject.GetComponent<BoxCollider2D>().enabled = false;
+        StartCoroutine(SlowMotion());
+    }
+    IEnumerator SlowMotion()
+    {
+        Time.timeScale = 0.5f;
+        yield return new WaitForSeconds(1.5f);
+        Time.timeScale = 1;
+        StopCoroutine(SlowMotion());
     }
     void Respawn()
     {
