@@ -13,18 +13,22 @@ public class PlayerController : MonoBehaviour
     [SerializeField] int hitCounter;
     [SerializeField] int NoOfJumps;
     [SerializeField] int hp;
+    [SerializeField] int lives;
     [SerializeField] int damage;
     [SerializeField] GameObject hitCol;
+    [SerializeField] Vector2 InitialPos;
+
     public enum PlayerSelect
     {
         player1, player2
     }
     public PlayerSelect playerSelect;
+
     Rigidbody2D rb;
     Animator anim;
     SpriteRenderer sr;
 
-    bool isGrounded=true;
+    bool isGrounded=false;
     bool jumped=false;
     bool isAttacking = false;
     bool canAttack = true;
@@ -50,6 +54,7 @@ public class PlayerController : MonoBehaviour
         sr.flipX=false;
         jumpAmmount = NoOfJumps;
         hitCol.SetActive(false);
+        transform.position = new Vector3(InitialPos.x, InitialPos.y,0);
     }
 
     void Update()
@@ -177,7 +182,15 @@ public class PlayerController : MonoBehaviour
             if (hp <= 0)
             {
                 Dead();
+                StartCoroutine(RespawnPlayer());
             }
+        }
+    }
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.collider.CompareTag("Ground"))
+        {
+            isGrounded = false;
         }
     }
     void Dead()
@@ -195,10 +208,21 @@ public class PlayerController : MonoBehaviour
         Time.timeScale = 1;
         StopCoroutine(SlowMotion());
     }
+    IEnumerator RespawnPlayer()
+    {
+        yield return new WaitForSeconds(2.0f);
+        Respawn();
+        StopCoroutine(RespawnPlayer());
+    }
     void Respawn()
     {
         rb.isKinematic = false;
+        hp = 100;
+        isDead = false;
+        lives--;
+        transform.position = new Vector3(InitialPos.x, InitialPos.y, 0);
         gameObject.GetComponent<BoxCollider2D>().enabled = true;
+        anim.SetBool("Dead", false);
     }
     IEnumerator HitCooldown()
     {
