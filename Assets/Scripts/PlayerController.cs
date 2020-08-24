@@ -1,8 +1,5 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public class PlayerController : ComboController
 {   
@@ -38,7 +35,6 @@ public class PlayerController : ComboController
 
     Vector3 movement;
 
-    
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -53,6 +49,7 @@ public class PlayerController : ComboController
     {
         if (isDead)
             return;
+
         switch (playerSelect)
         {
             case PlayerSelect.player1:
@@ -74,6 +71,7 @@ public class PlayerController : ComboController
                 }
                 break;
         }
+
         if(!isAttacking)
         {
             MovementAnimations();

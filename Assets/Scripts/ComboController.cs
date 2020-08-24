@@ -1,24 +1,21 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ComboController : MonoBehaviour
 {
     public float hitCooldown;
-
-    public int hitCounter;
-
-    public bool isAttacking = false; 
-    public bool canAttack = true;
-
     public Animator anim;
     public GameObject hitCol;
+
+    protected int hitCounter;
+    protected bool isAttacking = false; 
+    protected bool canAttack = true;
 
     float lastHit;
 
     public void StartCombo()
     {
-        if (Time.time - lastHit > hitCooldown)
+        if ((Time.time - lastHit) > hitCooldown)
         {
             isAttacking = false;
             hitCounter = 0;
@@ -72,11 +69,5 @@ public class ComboController : MonoBehaviour
     public void ActivateHit()
     {
         hitCol.SetActive(true);
-    }
-    IEnumerator AttackCooldown()
-    {
-        yield return new WaitForSeconds(0.5f);
-        canAttack = true;
-        yield return null;
     }
 }
