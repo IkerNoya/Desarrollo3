@@ -4,19 +4,16 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : ComboController
 {   
     [SerializeField] float speed;
     [SerializeField] float jumpForce;
     [SerializeField] string[] animNames;
-    [SerializeField] float hitCooldown;
-    [SerializeField] int hitCounter;
     [SerializeField] int NoOfJumps;
     [SerializeField] int hp;
     [SerializeField] int lives;
     [SerializeField] int damage;
     [SerializeField] float joystickAxis;
-    [SerializeField] GameObject hitCol;
     [SerializeField] Vector2 InitialPos;
 
     public enum PlayerSelect
@@ -26,19 +23,15 @@ public class PlayerController : MonoBehaviour
     public PlayerSelect playerSelect;
 
     Rigidbody2D rb;
-    Animator anim;
     SpriteRenderer sr;
 
     bool isGrounded=false;
     bool jumped=false;
-    bool isAttacking = false;
-    bool canAttack = true;
     bool isDead = false;
     bool canMove = true;
 
     int jumpAmmount;
 
-    float lastHit;
     float direction;
     float LastDirection;
     float startRunAnim = 0.0001f;
@@ -49,7 +42,6 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        anim = GetComponent<Animator>();
         sr = GetComponent<SpriteRenderer>();
         sr.flipX=false;
         jumpAmmount = NoOfJumps;
@@ -101,22 +93,7 @@ public class PlayerController : MonoBehaviour
             transform.eulerAngles = new Vector3(0, 180, 0);
         }
     }
-    void StartCombo()
-    {
-        if(Time.time - lastHit > hitCooldown)
-        {
-            isAttacking = false;
-            hitCounter = 0;
-        }
-
-        lastHit = Time.time;
-        hitCounter++;
-        if (hitCounter == 1)
-        {
-            anim.SetBool("IsAttacking_1", true);
-        }
-        hitCounter = Mathf.Clamp(hitCounter, 0, 3); 
-    }
+   
     void FixedUpdate()
     {
         if (jumped)
@@ -235,55 +212,6 @@ public class PlayerController : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         canMove = true;
         anim.SetBool("Hit", false);
-        yield return null;
-    }
-
-    // Animation Events
-    public void Attack1()
-    {
-        hitCol.SetActive(false);
-        if (hitCounter >= 2)
-        {
-            anim.SetBool("IsAttacking_2", true);
-        }
-        else
-        {
-            anim.SetBool("IsAttacking_1", false);
-            hitCounter = 0;
-            isAttacking = false;
-        }
-    }
-    public void Attack2()
-    {
-        hitCol.SetActive(false);
-        if (hitCounter >= 3)
-        {
-            anim.SetBool("IsAttacking_3", true);
-        }
-        else
-        {
-            anim.SetBool("IsAttacking_2", false);
-            hitCounter = 0;
-            isAttacking = false;
-        }
-    }
-    public void Attack3()
-    {
-        hitCol.SetActive(false);
-        anim.SetBool("IsAttacking_1", false);
-        anim.SetBool("IsAttacking_2", false);
-        anim.SetBool("IsAttacking_3", false);
-        isAttacking = false;
-        hitCounter = 0;
-    }
-    public void ActivateHit()
-    {
-        hitCol.SetActive(true);
-    }
-    IEnumerator AttackCooldown()
-    {
-        yield return new WaitForSeconds(0.5f);
-        canAttack = true;
         yield return null;
     }
 }
