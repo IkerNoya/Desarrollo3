@@ -35,6 +35,7 @@ public class ComboController : MonoBehaviour
         if (hitCounter >= 2)
         {
             anim.SetBool("IsAttacking_2", true);
+            anim.SetBool("IsAttacking_1", false);
         }
         else
         {

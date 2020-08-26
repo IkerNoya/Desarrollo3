@@ -110,13 +110,13 @@ public class PlayerController : ComboController
         {
             ActivateAnim("Idle");
         }
-        if (Input.GetKeyDown(KeyCode.Space) && jumpAmmount > 0 && playerSelect == PlayerSelect.player1 && canMove)
+        if (Input.GetKeyDown(KeyCode.Space) && jumpAmmount > 0 && playerSelect == PlayerSelect.player1 && canMove && !isAttacking)
         {
             isGrounded = false;
             jumped = true;
             jumpAmmount--;
         }
-        else if (Input.GetKeyDown(KeyCode.RightAlt) && jumpAmmount > 0 && playerSelect == PlayerSelect.player2 && canMove)
+        else if (Input.GetKeyDown(KeyCode.RightAlt) && jumpAmmount > 0 && playerSelect == PlayerSelect.player2 && canMove && !isAttacking)
         {
             isGrounded = false;
             jumped = true;
@@ -125,10 +125,12 @@ public class PlayerController : ComboController
         if (rb.velocity.y > 0 && !isGrounded && canMove)
         {
             ActivateAnim("IsJumping");
+            canAttack = false;
         }
         if(rb.velocity.y < 0 && !isGrounded && canMove)
         {
             ActivateAnim("IsFalling");
+            canAttack = false;
         }
     }
 
@@ -151,6 +153,7 @@ public class PlayerController : ComboController
         if (collision.collider.CompareTag("Ground"))
         {
             isGrounded = true;
+            canAttack = true;
             jumpAmmount = NoOfJumps;
             anim.SetBool("IsJumping", false);
         }
@@ -178,6 +181,7 @@ public class PlayerController : ComboController
         if (collision.collider.CompareTag("Ground"))
         {
             isGrounded = false;
+            canAttack = false;
         }
     }
     void Dead()
