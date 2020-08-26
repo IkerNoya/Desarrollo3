@@ -8,6 +8,7 @@ TagManager:
   - Player_1
   - Player_2
   - HitCollider
+  - OutofBounds
   layers:
   - Default
   - TransparentFX
@@ -21,7 +22,7 @@ TagManager:
   - Player_1
   - Player_2
   - HitCollider
-  - 
+  - OutOfBounds
   - 
   - 
   - 

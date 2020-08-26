@@ -166,6 +166,12 @@ public class PlayerController : ComboController
                 StartCoroutine(RespawnPlayer());
             }
         }
+        if (collision.collider.CompareTag("OutofBounds"))
+        {
+            hp = 0;
+            Dead();
+            StartCoroutine(RespawnPlayer());
+        }
     }
     private void OnCollisionExit2D(Collision2D collision)
     {
