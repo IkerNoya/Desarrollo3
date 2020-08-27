@@ -12,6 +12,9 @@ public class PlayerController : ComboController
     [SerializeField] int damage;
     [SerializeField] float joystickAxis;
     [SerializeField] Vector2 InitialPos;
+    [SerializeField] string playerAxis;
+    [SerializeField] KeyCode attackButton;
+    [SerializeField] KeyCode jumpButton;
 
     public enum PlayerSelect
     {
@@ -49,30 +52,14 @@ public class PlayerController : ComboController
     {
         if (isDead)
             return;
-
-        switch (playerSelect)
+        if (canMove)
+            direction = Input.GetAxis(playerAxis);
+        if (Input.GetKeyDown(attackButton) && isGrounded && canAttack)
         {
-            case PlayerSelect.player1:
-                if(canMove)
-                    direction = Input.GetAxis("P1_Horizontal");
-                if (Input.GetKeyDown(KeyCode.F) && isGrounded && canAttack)
-                {
-                    isAttacking = true;
-                    StartCombo();
-                }
-                break;
-            case PlayerSelect.player2:
-                if(canMove)
-                    direction = Input.GetAxis("P2_Horizontal");
-                if (Input.GetKeyDown(KeyCode.J) && isGrounded && canAttack)
-                {
-                    isAttacking = true;
-                    StartCombo();
-                }
-                break;
+            isAttacking = true;
+            StartCombo();
         }
-
-        if(!isAttacking)
+        if (!isAttacking)
         {
             MovementAnimations();
             movement = new Vector3(direction, 0, 0) * Time.deltaTime;
@@ -110,13 +97,7 @@ public class PlayerController : ComboController
         {
             ActivateAnim("Idle");
         }
-        if (Input.GetKeyDown(KeyCode.Space) && jumpAmmount > 0 && playerSelect == PlayerSelect.player1 && canMove && !isAttacking)
-        {
-            isGrounded = false;
-            jumped = true;
-            jumpAmmount--;
-        }
-        else if (Input.GetKeyDown(KeyCode.RightAlt) && jumpAmmount > 0 && playerSelect == PlayerSelect.player2 && canMove && !isAttacking)
+        if (Input.GetKeyDown(jumpButton) && jumpAmmount > 0 && playerSelect == PlayerSelect.player1 && canMove && !isAttacking)
         {
             isGrounded = false;
             jumped = true;

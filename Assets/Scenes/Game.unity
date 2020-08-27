@@ -936,6 +936,21 @@ PrefabInstance:
       propertyPath: anim
       value: 
       objectReference: {fileID: 186525581}
+    - target: {fileID: 1254277058642530113, guid: b8802c93dade66c45a2ae3fa6cef9bf4,
+        type: 3}
+      propertyPath: attackButton
+      value: 106
+      objectReference: {fileID: 0}
+    - target: {fileID: 1254277058642530113, guid: b8802c93dade66c45a2ae3fa6cef9bf4,
+        type: 3}
+      propertyPath: jumpButton
+      value: 307
+      objectReference: {fileID: 0}
+    - target: {fileID: 1254277058642530113, guid: b8802c93dade66c45a2ae3fa6cef9bf4,
+        type: 3}
+      propertyPath: playerAxis
+      value: P2_Horizontal
+      objectReference: {fileID: 0}
     - target: {fileID: 1254277058642530114, guid: b8802c93dade66c45a2ae3fa6cef9bf4,
         type: 3}
       propertyPath: m_BodyType
@@ -1389,6 +1404,21 @@ PrefabInstance:
         type: 3}
       propertyPath: hitCooldown
       value: 1000000
+      objectReference: {fileID: 0}
+    - target: {fileID: 1254277058642530113, guid: 846fd92b08407da43872ffe0ef184281,
+        type: 3}
+      propertyPath: attackButton
+      value: 102
+      objectReference: {fileID: 0}
+    - target: {fileID: 1254277058642530113, guid: 846fd92b08407da43872ffe0ef184281,
+        type: 3}
+      propertyPath: jumpButton
+      value: 32
+      objectReference: {fileID: 0}
+    - target: {fileID: 1254277058642530113, guid: 846fd92b08407da43872ffe0ef184281,
+        type: 3}
+      propertyPath: playerAxis
+      value: P1_Horizontal
       objectReference: {fileID: 0}
     - target: {fileID: 1254277058642530124, guid: 846fd92b08407da43872ffe0ef184281,
         type: 3}
