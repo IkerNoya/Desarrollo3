@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1254277058642530126}
   - component: {fileID: 1254277058642530114}
   - component: {fileID: 1254277058642530115}
+  - component: {fileID: 348274732858689902}
   - component: {fileID: 1254277058642530113}
   m_Layer: 9
   m_Name: Player
@@ -153,6 +154,24 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.22432281, y: 0.5522593}
   m_EdgeRadius: 0
+--- !u!114 &348274732858689902
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1254277058642530127}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9be020d730ea8594fa6ae4368cecb967, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitCooldown: 10
+  anim: {fileID: 1254277058642530126}
+  hitCol: {fileID: 6009352262158777303}
+  hitCounter: 0
+  isAttacking: 0
+  canAttack: 1
 --- !u!114 &1254277058642530113
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -171,11 +190,17 @@ MonoBehaviour:
   - IsRunning
   - IsJumping
   - IsFalling
-  hitCooldown: 1
-  hitCounter: 0
   NoOfJumps: 2
+  hp: 0
   lives: 0
   damage: 0
+  joystickAxis: 0
+  InitialPos: {x: 0, y: 0}
+  playerAxis: 
+  attackButton: 0
+  jumpButton: 0
+  cc: {fileID: 0}
+  playerSelect: 0
 --- !u!1 &6009352262158777303
 GameObject:
   m_ObjectHideFlags: 0

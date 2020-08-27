@@ -1016,6 +1016,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player2
       objectReference: {fileID: 0}
+    - target: {fileID: 1653515872700901875, guid: b8802c93dade66c45a2ae3fa6cef9bf4,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4305155996537641741, guid: b8802c93dade66c45a2ae3fa6cef9bf4,
+        type: 3}
+      propertyPath: hitCol
+      value: 
+      objectReference: {fileID: 2010437879}
+    - target: {fileID: 4305155996537641741, guid: b8802c93dade66c45a2ae3fa6cef9bf4,
+        type: 3}
+      propertyPath: hitCooldown
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4305155996537641741, guid: b8802c93dade66c45a2ae3fa6cef9bf4,
+        type: 3}
+      propertyPath: anim
+      value: 
+      objectReference: {fileID: 186525581}
     - target: {fileID: 6158844133456976017, guid: b8802c93dade66c45a2ae3fa6cef9bf4,
         type: 3}
       propertyPath: m_TagString
@@ -1403,7 +1423,7 @@ PrefabInstance:
     - target: {fileID: 1254277058642530113, guid: 846fd92b08407da43872ffe0ef184281,
         type: 3}
       propertyPath: hitCooldown
-      value: 1000000
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1254277058642530113, guid: 846fd92b08407da43872ffe0ef184281,
         type: 3}
@@ -1494,6 +1514,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 7810898573456850729, guid: 846fd92b08407da43872ffe0ef184281,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 846fd92b08407da43872ffe0ef184281, type: 3}

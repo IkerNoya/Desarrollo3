@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-public class PlayerController : ComboController
+public class PlayerController : MonoBehaviour
 {   
     [SerializeField] float speed;
     [SerializeField] float jumpForce;
@@ -15,6 +15,7 @@ public class PlayerController : ComboController
     [SerializeField] string playerAxis;
     [SerializeField] KeyCode attackButton;
     [SerializeField] KeyCode jumpButton;
+    ComboController cc;
 
     public enum PlayerSelect
     {
@@ -40,11 +41,12 @@ public class PlayerController : ComboController
 
     void Start()
     {
+        cc = GetComponent<ComboController>();
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
         sr.flipX=false;
         jumpAmmount = NoOfJumps;
-        hitCol.SetActive(false);
+        cc.hitCol.SetActive(false);
         transform.position = new Vector3(InitialPos.x, InitialPos.y,0);
     }
 
@@ -54,12 +56,12 @@ public class PlayerController : ComboController
             return;
         if (canMove)
             direction = Input.GetAxis(playerAxis);
-        if (Input.GetKeyDown(attackButton) && isGrounded && canAttack)
+        if (Input.GetKeyDown(attackButton) && isGrounded && cc.canAttack)
         {
-            isAttacking = true;
-            StartCombo();
+            cc.isAttacking = true;
+            cc.StartCombo();
         }
-        if (!isAttacking)
+        if (!cc.isAttacking)
         {
             MovementAnimations();
             movement = new Vector3(direction, 0, 0) * Time.deltaTime;
@@ -89,7 +91,7 @@ public class PlayerController : ComboController
     }
     void MovementAnimations()
     {
-        if ((direction > startRunAnim || direction < -startRunAnim) && !isAttacking && isGrounded && canMove)
+        if ((direction > startRunAnim || direction < -startRunAnim) && !cc.isAttacking && isGrounded && canMove)
         {
             ActivateAnim("IsRunning");
         }
@@ -97,7 +99,7 @@ public class PlayerController : ComboController
         {
             ActivateAnim("Idle");
         }
-        if (Input.GetKeyDown(jumpButton) && jumpAmmount > 0 && playerSelect == PlayerSelect.player1 && canMove && !isAttacking)
+        if (Input.GetKeyDown(jumpButton) && jumpAmmount > 0 && canMove && !cc.isAttacking)
         {
             isGrounded = false;
             jumped = true;
@@ -106,12 +108,12 @@ public class PlayerController : ComboController
         if (rb.velocity.y > 0 && !isGrounded && canMove)
         {
             ActivateAnim("IsJumping");
-            canAttack = false;
+            cc.canAttack = false;
         }
         if(rb.velocity.y < 0 && !isGrounded && canMove)
         {
             ActivateAnim("IsFalling");
-            canAttack = false;
+            cc.canAttack = false;
         }
     }
 
@@ -121,11 +123,11 @@ public class PlayerController : ComboController
         {
             if (animNames[i] == name)
             {
-                anim.SetBool(animNames[i], true);
+                cc.anim.SetBool(animNames[i], true);
             }
             else
             {
-                anim.SetBool(animNames[i], false);
+                cc.anim.SetBool(animNames[i], false);
             }
         }
     }
@@ -134,13 +136,22 @@ public class PlayerController : ComboController
         if (collision.collider.CompareTag("Ground"))
         {
             isGrounded = true;
-            canAttack = true;
+            cc.canAttack = true;
             jumpAmmount = NoOfJumps;
-            anim.SetBool("IsJumping", false);
+            cc.anim.SetBool("IsJumping", false);
         }
-        if (collision.collider.CompareTag("HitCollider"))
+        if (collision.collider.CompareTag("OutofBounds"))
         {
-            anim.SetBool("Hit",true);
+            hp = 0;
+            Dead();
+            StartCoroutine(RespawnPlayer());
+        }
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("HitCollider"))
+        {
+            cc.anim.SetBool("Hit", true);
             canMove = false;
             hp -= damage;
             StartCoroutine(HitCooldown());
@@ -150,25 +161,19 @@ public class PlayerController : ComboController
                 StartCoroutine(RespawnPlayer());
             }
         }
-        if (collision.collider.CompareTag("OutofBounds"))
-        {
-            hp = 0;
-            Dead();
-            StartCoroutine(RespawnPlayer());
-        }
     }
     private void OnCollisionExit2D(Collision2D collision)
     {
         if (collision.collider.CompareTag("Ground"))
         {
             isGrounded = false;
-            canAttack = false;
+            cc.canAttack = false;
         }
     }
     void Dead()
     {
         isDead = true;
-        anim.SetBool("Dead", true);
+        cc.anim.SetBool("Dead", true);
         rb.isKinematic = true;
         gameObject.GetComponent<BoxCollider2D>().enabled = false;
         StartCoroutine(SlowMotion());
@@ -194,13 +199,13 @@ public class PlayerController : ComboController
         lives--;
         transform.position = new Vector3(InitialPos.x, InitialPos.y, 0);
         gameObject.GetComponent<BoxCollider2D>().enabled = true;
-        anim.SetBool("Dead", false);
+        cc.anim.SetBool("Dead", false);
     }
     IEnumerator HitCooldown()
     {
         yield return new WaitForSeconds(0.5f);
         canMove = true;
-        anim.SetBool("Hit", false);
+        cc.anim.SetBool("Hit", false);
         yield return null;
     }
 }

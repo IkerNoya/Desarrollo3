@@ -6,10 +6,10 @@ public class ComboController : MonoBehaviour
     public float hitCooldown;
     public Animator anim;
     public GameObject hitCol;
+    [HideInInspector] public int hitCounter;
+    [HideInInspector] public bool isAttacking = false;
+    [HideInInspector] public bool canAttack = true;
 
-    protected int hitCounter;
-    protected bool isAttacking = false; 
-    protected bool canAttack = true;
 
     float lastHit;
 
