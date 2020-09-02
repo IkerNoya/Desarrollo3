@@ -35,7 +35,7 @@ public class PlayerController : MonoBehaviour
     bool isDead = false;
     bool canMove = true;
 
-    int hp;
+    int hp =     100;
     int jumpAmmount;
 
     float direction;
@@ -47,7 +47,7 @@ public class PlayerController : MonoBehaviour
     Vector3 initialHealthBarSize;
 
     public delegate void OutOfLives();
-    public event OutOfLives playerIsDead;
+    public static event OutOfLives playerIsDead;
 
     void Start()
     {
@@ -87,6 +87,10 @@ public class PlayerController : MonoBehaviour
         {
             player.transform.eulerAngles = new Vector3(0, 180, 0);
         }
+        if (lives <= 0)
+        {
+            Loose();
+        }
     }
    
     void FixedUpdate()
@@ -123,6 +127,7 @@ public class PlayerController : MonoBehaviour
             ActivateAnim("IsFalling");
             cc.canAttack = false;
         }
+
     }
 
     void ActivateAnim(string name)
@@ -146,6 +151,14 @@ public class PlayerController : MonoBehaviour
         rb.isKinematic = true;
         gameObject.GetComponent<BoxCollider2D>().enabled = false;
         StartCoroutine(SlowMotion());
+    }
+    void Loose()
+    {
+        isDead = true;
+        cc.anim.SetBool("Dead", true);
+        rb.isKinematic = true;
+        gameObject.GetComponent<BoxCollider2D>().enabled = false;
+        StartCoroutine(LooseEvent());
     }
     float hitPercentage(int damage, int barSize)
     {
@@ -190,16 +203,12 @@ public class PlayerController : MonoBehaviour
             healthBar.transform.localScale = healthBarSize;
             canMove = false;
             hp -= damage;
-            lives--;
             StartCoroutine(HitCooldown());
             StartCoroutine(cameraShake.Shake(shakeDuration, shakeMagnitude));
-            if (hp <= 0)
+            if (hp <= 0 && lives > 0)
             {
-                Dead();
-                if (lives > 0)
-                    StartCoroutine(RespawnPlayer());
-                else
-                    playerIsDead();
+                 Dead();
+                 StartCoroutine(RespawnPlayer());
             }
         }
     }
@@ -210,6 +219,13 @@ public class PlayerController : MonoBehaviour
             isGrounded = false;
             cc.canAttack = false;
         }
+    }
+    IEnumerator LooseEvent()
+    {
+        StartCoroutine(SlowMotion());
+        yield return new WaitForSeconds(1.5f);
+        playerIsDead();
+        StopCoroutine(LooseEvent());
     }
     IEnumerator SlowMotion()
     {
