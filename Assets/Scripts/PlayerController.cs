@@ -20,6 +20,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Rigidbody2D rb;
     [SerializeField] SpriteRenderer sr;
     [SerializeField] ComboController cc;
+    [SerializeField] CameraShake cameraShake;
+    [SerializeField] float shakeDuration;
+    [SerializeField] float shakeMagnitude;
     public enum PlayerSelect
     {
         player1, player2
@@ -132,6 +135,32 @@ public class PlayerController : MonoBehaviour
             }
         }
     }
+    void Dead()
+    {
+        isDead = true;
+        cc.anim.SetBool("Dead", true);
+        rb.isKinematic = true;
+        gameObject.GetComponent<BoxCollider2D>().enabled = false;
+        StartCoroutine(SlowMotion());
+    }
+    float hitPercentage(int damage, int barSize)
+    {
+        float maxPercentage = 100;
+        float result = barSize * damage / maxPercentage;
+        return result;
+    }
+    void Respawn()
+    {
+        rb.isKinematic = false;
+        hp = 100;
+        isDead = false;
+        lives--;
+        transform.position = new Vector3(InitialPos.x, InitialPos.y, 0);
+        healthBarSize = initialHealthBarSize;
+        healthBar.transform.localScale = healthBarSize;
+        gameObject.GetComponent<BoxCollider2D>().enabled = true;
+        cc.anim.SetBool("Dead", false);
+    }
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.collider.CompareTag("Ground"))
@@ -158,6 +187,7 @@ public class PlayerController : MonoBehaviour
             canMove = false;
             hp -= damage;
             StartCoroutine(HitCooldown());
+            StartCoroutine(cameraShake.Shake(shakeDuration, shakeMagnitude));
             if (hp <= 0)
             {
                 Dead();
@@ -172,32 +202,6 @@ public class PlayerController : MonoBehaviour
             isGrounded = false;
             cc.canAttack = false;
         }
-    }
-    void Dead()
-    {
-        isDead = true;
-        cc.anim.SetBool("Dead", true);
-        rb.isKinematic = true;
-        gameObject.GetComponent<BoxCollider2D>().enabled = false;
-        StartCoroutine(SlowMotion());
-    }
-    float hitPercentage(int damage, int barSize)
-    {
-        float maxPercentage = 100;
-        float result = barSize * damage / maxPercentage;
-        return result;
-    }
-    void Respawn()
-    {
-        rb.isKinematic = false;
-        hp = 100;
-        isDead = false;
-        lives--;
-        transform.position = new Vector3(InitialPos.x, InitialPos.y, 0);
-        healthBarSize = initialHealthBarSize;
-        healthBar.transform.localScale = healthBarSize;
-        gameObject.GetComponent<BoxCollider2D>().enabled = true;
-        cc.anim.SetBool("Dead", false);
     }
     IEnumerator SlowMotion()
     {
