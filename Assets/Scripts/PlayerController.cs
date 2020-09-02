@@ -1,4 +1,7 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
+using System.Diagnostics.Tracing;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -7,10 +10,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float jumpForce;
     [SerializeField] string[] animNames;
     [SerializeField] int NoOfJumps;
-    [SerializeField] int hp;
     [SerializeField] int lives;
     [SerializeField] int damage;
-    [SerializeField] float joystickAxis;
     [SerializeField] Vector2 InitialPos;
     [SerializeField] string playerAxis;
     [SerializeField] KeyCode attackButton;
@@ -18,7 +19,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField] GameObject healthBar;
     [SerializeField] GameObject player;
     [SerializeField] Rigidbody2D rb;
-    [SerializeField] SpriteRenderer sr;
     [SerializeField] ComboController cc;
     [SerializeField] CameraShake cameraShake;
     [SerializeField] float shakeDuration;
@@ -35,6 +35,7 @@ public class PlayerController : MonoBehaviour
     bool isDead = false;
     bool canMove = true;
 
+    int hp;
     int jumpAmmount;
 
     float direction;
@@ -44,6 +45,9 @@ public class PlayerController : MonoBehaviour
     Vector3 movement;
     Vector3 healthBarSize;
     Vector3 initialHealthBarSize;
+
+    public delegate void OutOfLives();
+    public event OutOfLives playerIsDead;
 
     void Start()
     {
@@ -186,12 +190,16 @@ public class PlayerController : MonoBehaviour
             healthBar.transform.localScale = healthBarSize;
             canMove = false;
             hp -= damage;
+            lives--;
             StartCoroutine(HitCooldown());
             StartCoroutine(cameraShake.Shake(shakeDuration, shakeMagnitude));
             if (hp <= 0)
             {
                 Dead();
-                StartCoroutine(RespawnPlayer());
+                if (lives > 0)
+                    StartCoroutine(RespawnPlayer());
+                else
+                    playerIsDead();
             }
         }
     }
