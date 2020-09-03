@@ -19,8 +19,11 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Rigidbody2D rb;
     [SerializeField] ComboController cc;
     [SerializeField] CameraShake cameraShake;
-    [SerializeField] float shakeDuration;
+    [SerializeField] CameraShake HealthBarShake;
+    [SerializeField] float shakeDuration; 
     [SerializeField] float shakeMagnitude;
+    [SerializeField] float hpShakeDuration;
+    [SerializeField] float hpShakeMagnitude;
     public enum PlayerSelect
     {
         player1, player2
@@ -191,6 +194,7 @@ public class PlayerController : MonoBehaviour
             hp -= damage;
             StartCoroutine(HitCooldown());
             StartCoroutine(cameraShake.Shake(shakeDuration, shakeMagnitude));
+            StartCoroutine(HealthBarShake.Shake(hpShakeDuration, hpShakeMagnitude));
             if (hp <= 0)
             {
                  Dead();
