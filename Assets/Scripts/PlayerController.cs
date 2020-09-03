@@ -87,7 +87,7 @@ public class PlayerController : MonoBehaviour
         {
             player.transform.eulerAngles = new Vector3(0, 180, 0);
         }
-        if (lives <= 0)
+        if (lives < 1)
         {
             Loose();
         }
@@ -205,7 +205,7 @@ public class PlayerController : MonoBehaviour
             hp -= damage;
             StartCoroutine(HitCooldown());
             StartCoroutine(cameraShake.Shake(shakeDuration, shakeMagnitude));
-            if (hp <= 0 && lives > 0)
+            if (hp <= 0 && lives >= 1)
             {
                  Dead();
                  StartCoroutine(RespawnPlayer());
