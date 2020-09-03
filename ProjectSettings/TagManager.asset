@@ -23,9 +23,9 @@ TagManager:
   - Player_2
   - HitCollider
   - OutOfBounds
-  - 
-  - 
-  - 
+  - FrameHB
+  - HealthBar
+  - PlayerHP
   - 
   - 
   - 
