@@ -1,6 +1,5 @@
 ﻿using System.Collections;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -8,7 +7,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float jumpForce;
     [SerializeField] string[] animNames;
     [SerializeField] int NoOfJumps;
-    [SerializeField] int lives;
     [SerializeField] int damage;
     [SerializeField] Vector2 InitialPos;
     [SerializeField] string playerAxis;
@@ -16,10 +14,11 @@ public class PlayerController : MonoBehaviour
     [SerializeField] KeyCode jumpButton;
     [SerializeField] GameObject healthBar;
     [SerializeField] GameObject player;
-    [SerializeField] Rigidbody2D rb;
-    [SerializeField] ComboController cc;
+    [SerializeField] Rigidbody2D rigidBody;
+    [SerializeField] ComboController comboController;
     [SerializeField] CameraShake cameraShake;
     [SerializeField] CameraShake HealthBarShake;
+    [SerializeField] SlowMotion slowMotion;
     [SerializeField] float shakeDuration; 
     [SerializeField] float shakeMagnitude;
     [SerializeField] float hpShakeDuration;
@@ -54,7 +53,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         jumpAmmount = NoOfJumps;
-        cc.hitCol.SetActive(false);
+        comboController.hitCol.SetActive(false);
         transform.position = new Vector3(InitialPos.x, InitialPos.y,0);
         healthBarSize = healthBar.transform.localScale;
         initialHealthBarSize = healthBar.transform.localScale;
@@ -66,12 +65,12 @@ public class PlayerController : MonoBehaviour
             return;
         if (canMove)
             direction = Input.GetAxis(playerAxis);
-        if (Input.GetKeyDown(attackButton) && isGrounded && cc.canAttack)
+        if (Input.GetKeyDown(attackButton) && isGrounded && comboController.canAttack)
         {
-            cc.isAttacking = true;
-            cc.StartCombo();
+            comboController.isAttacking = true;
+            comboController.StartCombo();
         }
-        if (!cc.isAttacking)
+        if (!comboController.isAttacking)
         {
             MovementAnimations();
             movement = new Vector3(direction, 0, 0) * Time.deltaTime;
@@ -96,12 +95,12 @@ public class PlayerController : MonoBehaviour
         if (jumped)
         {
             jumped = false;
-            rb.velocity = new Vector2(0, jumpForce) * Time.fixedDeltaTime;
+            rigidBody.velocity = new Vector2(0, jumpForce) * Time.fixedDeltaTime;
         }
     }
     void MovementAnimations()
     {
-        if ((direction > startRunAnim || direction < -startRunAnim) && !cc.isAttacking && isGrounded && canMove)
+        if ((direction > startRunAnim || direction < -startRunAnim) && !comboController.isAttacking && isGrounded && canMove)
         {
             ActivateAnim("IsRunning");
         }
@@ -109,21 +108,21 @@ public class PlayerController : MonoBehaviour
         {
             ActivateAnim("Idle");
         }
-        if (Input.GetKeyDown(jumpButton) && jumpAmmount > 0 && canMove && !cc.isAttacking)
+        if (Input.GetKeyDown(jumpButton) && jumpAmmount > 0 && canMove && !comboController.isAttacking)
         {
             isGrounded = false;
             jumped = true;
             jumpAmmount--;
         }
-        if (rb.velocity.y > 0 && !isGrounded && canMove)
+        if (rigidBody.velocity.y > 0 && !isGrounded && canMove)
         {
             ActivateAnim("IsJumping");
-            cc.canAttack = false;
+            comboController.canAttack = false;
         }
-        if(rb.velocity.y < 0 && !isGrounded && canMove)
+        if(rigidBody.velocity.y < 0 && !isGrounded && canMove)
         {
             ActivateAnim("IsFalling");
-            cc.canAttack = false;
+            comboController.canAttack = false;
         }
 
     }
@@ -146,9 +145,9 @@ public class PlayerController : MonoBehaviour
     {
         isDead = true;
         anim.SetBool("Dead", true);
-        rb.isKinematic = true;
+        rigidBody.isKinematic = true;
         gameObject.GetComponent<BoxCollider2D>().enabled = false;
-        StartCoroutine(SlowMotion());
+        StartCoroutine(slowMotion.ActivateSlowMotion(1.5f, 0.5f));
     }
     float hitPercentage(int damage, int barSize)
     {
@@ -158,10 +157,9 @@ public class PlayerController : MonoBehaviour
     }
     void Respawn()
     {
-        rb.isKinematic = false;
+        rigidBody.isKinematic = false;
         hp = 100;
         isDead = false;
-        lives--;
         transform.position = new Vector3(InitialPos.x, InitialPos.y, 0);
         healthBarSize = initialHealthBarSize;
         healthBar.transform.localScale = healthBarSize;
@@ -173,7 +171,7 @@ public class PlayerController : MonoBehaviour
         if (collision.collider.CompareTag("Ground"))
         {
             isGrounded = true;
-            cc.canAttack = true;
+            comboController.canAttack = true;
             jumpAmmount = NoOfJumps;
             anim.SetBool("IsJumping", false);
         }
@@ -208,22 +206,15 @@ public class PlayerController : MonoBehaviour
         if (collision.collider.CompareTag("Ground"))
         {
             isGrounded = false;
-            cc.canAttack = false;
+            comboController.canAttack = false;
         }
     }
     IEnumerator LooseEvent()
     {
-        StartCoroutine(SlowMotion());
+        StartCoroutine(slowMotion.ActivateSlowMotion(1.5f, 0.5f));
         yield return new WaitForSeconds(1.5f);
         playerIsDead();
         StopCoroutine(LooseEvent());
-    }
-    IEnumerator SlowMotion()
-    {
-        Time.timeScale = 0.5f;
-        yield return new WaitForSeconds(1.5f);
-        Time.timeScale = 1;
-        StopCoroutine(SlowMotion());
     }
     IEnumerator RespawnPlayer()
     {
