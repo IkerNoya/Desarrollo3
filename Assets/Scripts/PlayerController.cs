@@ -8,7 +8,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField] string[] animNames;
     [SerializeField] int NoOfJumps;
     [SerializeField] int damage;
-    [SerializeField] Vector2 InitialPos;
     [SerializeField] string playerAxis;
     [SerializeField] KeyCode attackButton;
     [SerializeField] KeyCode jumpButton;
@@ -23,6 +22,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float shakeMagnitude;
     [SerializeField] float hpShakeDuration;
     [SerializeField] float hpShakeMagnitude;
+    [SerializeField] Vector2 InitialPos;
     public enum PlayerSelect
     {
         player1, player2
@@ -50,13 +50,17 @@ public class PlayerController : MonoBehaviour
     public delegate void OutOfLives();
     public static event OutOfLives playerIsDead;
 
+    Camera cam;
+
     void Start()
     {
+        cam = Camera.main;
         jumpAmmount = NoOfJumps;
         comboController.hitCol.SetActive(false);
         transform.position = new Vector3(InitialPos.x, InitialPos.y,0);
         healthBarSize = healthBar.transform.localScale;
         initialHealthBarSize = healthBar.transform.localScale;
+        InitialPos = cam.WorldToScreenPoint(transform.localPosition);
     }
 
     void Update()
@@ -149,7 +153,7 @@ public class PlayerController : MonoBehaviour
         gameObject.GetComponent<BoxCollider2D>().enabled = false;
         StartCoroutine(slowMotion.ActivateSlowMotion(1.5f, 0.5f));
     }
-    float hitPercentage(int damage, int barSize)
+    float HitPercentage(int damage, int barSize)
     {
         float maxPercentage = 100;
         float result = barSize * damage / maxPercentage;
@@ -160,7 +164,7 @@ public class PlayerController : MonoBehaviour
         rigidBody.isKinematic = false;
         hp = 100;
         isDead = false;
-        transform.position = new Vector3(InitialPos.x, InitialPos.y, 0);
+        transform.position = cam.ScreenToWorldPoint(new Vector3(InitialPos.x, InitialPos.y, 0));
         healthBarSize = initialHealthBarSize;
         healthBar.transform.localScale = healthBarSize;
         gameObject.GetComponent<BoxCollider2D>().enabled = true;
@@ -187,7 +191,7 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.CompareTag("HitCollider"))
         {
             anim.SetBool("Hit", true);
-            healthBarSize.x -= hitPercentage(damage, 1);
+            healthBarSize.x -= HitPercentage(damage, 1);
             healthBar.transform.localScale = healthBarSize;
             canMove = false;
             hp -= damage;
