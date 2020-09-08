@@ -14,7 +14,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] string playerAxis;
     [SerializeField] KeyCode attackButton;
     [SerializeField] KeyCode jumpButton;
-    [SerializeField] Image healthBar;
+    [SerializeField] GameObject healthBar;
     [SerializeField] GameObject player;
     [SerializeField] Rigidbody2D rb;
     [SerializeField] ComboController cc;
@@ -30,6 +30,7 @@ public class PlayerController : MonoBehaviour
     }
     public PlayerSelect playerSelect;
 
+    public Animator anim;
 
     bool isGrounded=false;
     bool jumped=false;
@@ -55,8 +56,8 @@ public class PlayerController : MonoBehaviour
         jumpAmmount = NoOfJumps;
         cc.hitCol.SetActive(false);
         transform.position = new Vector3(InitialPos.x, InitialPos.y,0);
-        healthBarSize = healthBar.rectTransform.localScale;
-        initialHealthBarSize = healthBar.rectTransform.localScale;
+        healthBarSize = healthBar.transform.localScale;
+        initialHealthBarSize = healthBar.transform.localScale;
     }
 
     void Update()
@@ -133,18 +134,18 @@ public class PlayerController : MonoBehaviour
         {
             if (animNames[i] == name)
             {
-                cc.anim.SetBool(animNames[i], true);
+                anim.SetBool(animNames[i], true);
             }
             else
             {
-                cc.anim.SetBool(animNames[i], false);
+                anim.SetBool(animNames[i], false);
             }
         }
     }
     void Dead()
     {
         isDead = true;
-        cc.anim.SetBool("Dead", true);
+        anim.SetBool("Dead", true);
         rb.isKinematic = true;
         gameObject.GetComponent<BoxCollider2D>().enabled = false;
         StartCoroutine(SlowMotion());
@@ -163,9 +164,9 @@ public class PlayerController : MonoBehaviour
         lives--;
         transform.position = new Vector3(InitialPos.x, InitialPos.y, 0);
         healthBarSize = initialHealthBarSize;
-        healthBar.rectTransform.localScale = healthBarSize;
+        healthBar.transform.localScale = healthBarSize;
         gameObject.GetComponent<BoxCollider2D>().enabled = true;
-        cc.anim.SetBool("Dead", false);
+        anim.SetBool("Dead", false);
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -174,7 +175,7 @@ public class PlayerController : MonoBehaviour
             isGrounded = true;
             cc.canAttack = true;
             jumpAmmount = NoOfJumps;
-            cc.anim.SetBool("IsJumping", false);
+            anim.SetBool("IsJumping", false);
         }
         if (collision.collider.CompareTag("OutofBounds"))
         {
@@ -187,9 +188,9 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("HitCollider"))
         {
-            cc.anim.SetBool("Hit", true);
+            anim.SetBool("Hit", true);
             healthBarSize.x -= hitPercentage(damage, 1);
-            healthBar.rectTransform.localScale = healthBarSize;
+            healthBar.transform.localScale = healthBarSize;
             canMove = false;
             hp -= damage;
             StartCoroutine(HitCooldown());
@@ -234,7 +235,7 @@ public class PlayerController : MonoBehaviour
     {
         yield return new WaitForSeconds(0.5f);
         canMove = true;
-        cc.anim.SetBool("Hit", false);
+        anim.SetBool("Hit", false);
         yield return null;
     }
 }

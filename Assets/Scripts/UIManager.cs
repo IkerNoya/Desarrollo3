@@ -3,9 +3,9 @@ using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
-    public void OnClickPlay()
+    public void ChangeScene(string scene)
     {
-        SceneManager.LoadScene("Game");
+        SceneManager.LoadScene(scene);
     }
     public void OnClickQuit()
     {

@@ -4,7 +4,7 @@ using UnityEngine;
 public class ComboController : MonoBehaviour
 {
     public float hitCooldown;
-    public Animator anim;
+    [SerializeField] PlayerController playerAnim;
     public GameObject hitCol;
     [HideInInspector] public int hitCounter;
     [HideInInspector] public bool isAttacking = false;
@@ -25,7 +25,7 @@ public class ComboController : MonoBehaviour
         hitCounter++;
         if (hitCounter == 1)
         {
-            anim.SetBool("IsAttacking_1", true);
+            playerAnim.anim.SetBool("IsAttacking_1", true);
         }
         hitCounter = Mathf.Clamp(hitCounter, 0, 3);
     }
@@ -34,12 +34,12 @@ public class ComboController : MonoBehaviour
         hitCol.SetActive(false);
         if (hitCounter >= 2)
         {
-            anim.SetBool("IsAttacking_2", true);
-            anim.SetBool("IsAttacking_1", false);
+            playerAnim.anim.SetBool("IsAttacking_2", true);
+            playerAnim.anim.SetBool("IsAttacking_1", false);
         }
         else
         {
-            anim.SetBool("IsAttacking_1", false);
+            playerAnim.anim.SetBool("IsAttacking_1", false);
             hitCounter = 0;
             isAttacking = false;
         }
@@ -49,11 +49,11 @@ public class ComboController : MonoBehaviour
         hitCol.SetActive(false);
         if (hitCounter >= 3)
         {
-            anim.SetBool("IsAttacking_3", true);
+            playerAnim.anim.SetBool("IsAttacking_3", true);
         }
         else
         {
-            anim.SetBool("IsAttacking_2", false);
+            playerAnim.anim.SetBool("IsAttacking_2", false);
             hitCounter = 0;
             isAttacking = false;
         }
@@ -61,9 +61,9 @@ public class ComboController : MonoBehaviour
     public void Attack3()
     {
         hitCol.SetActive(false);
-        anim.SetBool("IsAttacking_1", false);
-        anim.SetBool("IsAttacking_2", false);
-        anim.SetBool("IsAttacking_3", false);
+        playerAnim.anim.SetBool("IsAttacking_1", false);
+        playerAnim.anim.SetBool("IsAttacking_2", false);
+        playerAnim.anim.SetBool("IsAttacking_3", false);
         isAttacking = false;
         hitCounter = 0;
     }
