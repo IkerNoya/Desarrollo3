@@ -5,7 +5,7 @@ public class GameManager : MonoBehaviour
 {
     void Start()
     {
-        PlayerController.playerIsDead += EndGame;
+        PlayerController.endGame += EndGame;
     }
     void Update()
     {
@@ -17,6 +17,6 @@ public class GameManager : MonoBehaviour
     }
     private void OnDisable()
     {
-        PlayerController.playerIsDead -= EndGame;
+        PlayerController.endGame -= EndGame;
     }
 }

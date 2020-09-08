@@ -47,8 +47,8 @@ public class PlayerController : MonoBehaviour
     Vector3 healthBarSize;
     Vector3 initialHealthBarSize;
 
-    public delegate void OutOfLives();
-    public static event OutOfLives playerIsDead;
+    public delegate void EndGame();
+    public static event EndGame endGame;
 
     Camera cam;
 
@@ -204,6 +204,11 @@ public class PlayerController : MonoBehaviour
                  StartCoroutine(RespawnPlayer());
             }
         }
+        if (collision.gameObject.CompareTag("Crown"))
+        {
+            Destroy(collision.gameObject);
+            StartCoroutine(EndEvent());
+        }
     }
     private void OnCollisionExit2D(Collision2D collision)
     {
@@ -213,12 +218,12 @@ public class PlayerController : MonoBehaviour
             comboController.canAttack = false;
         }
     }
-    IEnumerator LooseEvent()
+    IEnumerator EndEvent()
     {
         StartCoroutine(slowMotion.ActivateSlowMotion(1.5f, 0.5f));
         yield return new WaitForSeconds(1.5f);
-        playerIsDead();
-        StopCoroutine(LooseEvent());
+        endGame();
+        yield break;
     }
     IEnumerator RespawnPlayer()
     {
