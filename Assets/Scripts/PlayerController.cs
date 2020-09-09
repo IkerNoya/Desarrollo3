@@ -229,7 +229,7 @@ public class PlayerController : MonoBehaviour
     {
         yield return new WaitForSeconds(2.0f);
         Respawn();
-        StopCoroutine(RespawnPlayer());
+        yield break;
     }
     IEnumerator HitCooldown()
     {
