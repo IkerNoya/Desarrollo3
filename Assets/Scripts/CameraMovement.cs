@@ -1,24 +1,25 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class CameraMovement : MonoBehaviour
 {
-    [SerializeField] GameObject player1;
-    [SerializeField] GameObject player2;
-    Vector3 movePosition;
-    void Start()
-    {
-        movePosition = new Vector3(0f, 8f, -10f);
-    }
+    [SerializeField] GameObject crown;
+    [SerializeField] float speed;
+    float lastY;
 
-
+    Vector3 direction;
     void Update()
     {
-        if(player1.transform.localPosition.y > 4f || player2.transform.localPosition.y > 4f)
+        if(crown!=null)
         {
-            transform.position = Vector3.Lerp(transform.position, movePosition, 0.1f);
+            direction = crown.transform.position - transform.position;
+            lastY = crown.transform.position.y;
         }
+        direction = new Vector3(0, direction.y, 0);
+        if (transform.position.y < lastY) 
+            transform.position += direction * speed * Time.deltaTime;
     }
 }
