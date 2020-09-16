@@ -2,7 +2,7 @@
 using UnityEngine.EventSystems;
 
 
-public class UIMenu : MonoBehaviour
+public class UIMenus : MonoBehaviour
 {
     [SerializeField] GameObject playButton;
 
