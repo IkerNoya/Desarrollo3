@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -11,7 +12,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] string playerAxis;
     [SerializeField] KeyCode attackButton;
     [SerializeField] KeyCode jumpButton;
-    [SerializeField] GameObject healthBar;
+    [SerializeField] Image healthBar;
     [SerializeField] GameObject player;
     [SerializeField] Rigidbody2D rigidBody;
     [SerializeField] ComboController comboController;
@@ -48,8 +49,6 @@ public class PlayerController : MonoBehaviour
     float startRunAnim = 0.0001f;
 
     Vector3 movement;
-    Vector3 healthBarSize;
-    Vector3 initialHealthBarSize;
 
     public delegate void EndGame();
     public static event EndGame endGame;
@@ -62,8 +61,6 @@ public class PlayerController : MonoBehaviour
         jumpAmmount = NoOfJumps;
         comboController.hitCol.SetActive(false);
         transform.position = new Vector3(InitialPos.x, InitialPos.y,InitialPos.z);
-        healthBarSize = healthBar.transform.localScale;
-        initialHealthBarSize = healthBar.transform.localScale;
         InitialPos = cam.WorldToScreenPoint(transform.localPosition);
     }
 
@@ -108,6 +105,7 @@ public class PlayerController : MonoBehaviour
             anim.SetBool("IsFalling", false);
         }
         wasGrounded = isGrounded;
+        healthBar.fillAmount = HitPercentage(hp, 1f);
     }
    
     void FixedUpdate()
@@ -169,7 +167,7 @@ public class PlayerController : MonoBehaviour
         gameObject.GetComponent<BoxCollider2D>().enabled = false;
         StartCoroutine(slowMotion.ActivateSlowMotion(1.5f, 0.5f));
     }
-    float HitPercentage(int damage, int barSize)
+    float HitPercentage(int damage, float barSize)
     {
         float maxPercentage = 100;
         float result = barSize * damage / maxPercentage;
@@ -181,8 +179,6 @@ public class PlayerController : MonoBehaviour
         hp = 100;
         isDead = false;
         transform.position = cam.ScreenToWorldPoint(new Vector3(InitialPos.x, InitialPos.y, InitialPos.z));
-        healthBarSize = initialHealthBarSize;
-        healthBar.transform.localScale = healthBarSize;
         gameObject.GetComponent<BoxCollider2D>().enabled = true;
         anim.SetBool("Dead", false);
     }
@@ -191,6 +187,8 @@ public class PlayerController : MonoBehaviour
         if (collision.collider.CompareTag("OutofBounds"))
         {
             hp = 0;
+            healthBar.fillAmount = 0f;
+            StartCoroutine(HealthBarShake.Shake(hpShakeDuration, hpShakeMagnitude));
             Dead();
             StartCoroutine(RespawnPlayer());
         }
@@ -200,8 +198,6 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.CompareTag("HitCollider"))
         {
             anim.SetBool("Hit", true);
-            healthBarSize.x -= HitPercentage(damage, 1);
-            healthBar.transform.localScale = healthBarSize;
             canMove = false;
             hp -= damage;
             StartCoroutine(HitCooldown());
@@ -210,6 +206,7 @@ public class PlayerController : MonoBehaviour
             if (hp <= 0)
             {
                  Dead();
+                 healthBar.fillAmount = 0f;
                  StartCoroutine(RespawnPlayer());
             }
         }
