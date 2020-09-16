@@ -14,6 +14,9 @@ TextureImporter:
   - first:
       213: 4976274401295337057
     second: Attack1_3
+  - first:
+      213: -5639509438907974925
+    second: Attack1_4
   externalObjects: {}
   serializedVersion: 11
   mipmaps:

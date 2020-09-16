@@ -22,7 +22,10 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float shakeMagnitude;
     [SerializeField] float hpShakeDuration;
     [SerializeField] float hpShakeMagnitude;
-    [SerializeField] Vector2 InitialPos;
+    [SerializeField] Vector3 InitialPos;
+    [SerializeField] BoxCollider2D playerCollider;
+    [SerializeField] float distanceToGround = 0.01f;
+    [SerializeField] LayerMask groundLayer;
     public enum PlayerSelect
     {
         player1, player2
@@ -31,12 +34,13 @@ public class PlayerController : MonoBehaviour
 
     public Animator anim;
 
-    bool isGrounded=false;
-    bool jumped=false;
+    bool isGrounded = false;
+    bool  wasGrounded = false;
+    bool jumped = false;
     bool isDead = false;
     bool canMove = true;
 
-    int hp =     100;
+    int hp = 100;
     int jumpAmmount;
 
     float direction;
@@ -57,7 +61,7 @@ public class PlayerController : MonoBehaviour
         cam = Camera.main;
         jumpAmmount = NoOfJumps;
         comboController.hitCol.SetActive(false);
-        transform.position = new Vector3(InitialPos.x, InitialPos.y,0);
+        transform.position = new Vector3(InitialPos.x, InitialPos.y,InitialPos.z);
         healthBarSize = healthBar.transform.localScale;
         initialHealthBarSize = healthBar.transform.localScale;
         InitialPos = cam.WorldToScreenPoint(transform.localPosition);
@@ -65,6 +69,7 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        Debug.Log(playerCollider.bounds.min.y);
         if (isDead)
             return;
         if (canMove)
@@ -92,6 +97,17 @@ public class PlayerController : MonoBehaviour
         {
             player.transform.eulerAngles = new Vector3(0, 180, 0);
         }
+        isGrounded = Physics2D.Raycast(transform.position, Vector2.down, distanceToGround, groundLayer);
+        if (isGrounded && !wasGrounded)
+        {
+            wasGrounded = true;
+            Debug.DrawRay(transform.position, Vector2.down, Color.red);
+            comboController.canAttack = true;
+            jumpAmmount = NoOfJumps;
+            anim.SetBool("IsJumping", false);
+            anim.SetBool("IsFalling", false);
+        }
+        wasGrounded = isGrounded;
     }
    
     void FixedUpdate()
@@ -164,7 +180,7 @@ public class PlayerController : MonoBehaviour
         rigidBody.isKinematic = false;
         hp = 100;
         isDead = false;
-        transform.position = cam.ScreenToWorldPoint(new Vector3(InitialPos.x, InitialPos.y, 0));
+        transform.position = cam.ScreenToWorldPoint(new Vector3(InitialPos.x, InitialPos.y, InitialPos.z));
         healthBarSize = initialHealthBarSize;
         healthBar.transform.localScale = healthBarSize;
         gameObject.GetComponent<BoxCollider2D>().enabled = true;
@@ -172,13 +188,6 @@ public class PlayerController : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.collider.CompareTag("Ground"))
-        {
-            isGrounded = true;
-            comboController.canAttack = true;
-            jumpAmmount = NoOfJumps;
-            anim.SetBool("IsJumping", false);
-        }
         if (collision.collider.CompareTag("OutofBounds"))
         {
             hp = 0;
@@ -224,7 +233,7 @@ public class PlayerController : MonoBehaviour
         yield return new WaitForSeconds(1.5f);
         endGame();
         yield break;
-    }
+    }   
     IEnumerator RespawnPlayer()
     {
         yield return new WaitForSeconds(2.0f);
