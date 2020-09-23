@@ -10,6 +10,7 @@ TagManager:
   - HitCollider
   - OutofBounds
   - Crown
+  - Walls
   layers:
   - Default
   - TransparentFX
@@ -28,7 +29,7 @@ TagManager:
   - HealthBar
   - PlayerHP
   - Crown
-  - 
+  - Walls
   - 
   - 
   - 

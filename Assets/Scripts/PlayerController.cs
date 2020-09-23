@@ -40,6 +40,7 @@ public class PlayerController : MonoBehaviour
     bool jumped = false;
     bool isDead = false;
     bool canMove = true;
+    bool canWallJump = true;
 
     int hp = 100;
     int jumpAmmount;
@@ -101,6 +102,7 @@ public class PlayerController : MonoBehaviour
             Debug.DrawRay(transform.position, Vector2.down, Color.red);
             comboController.canAttack = true;
             jumpAmmount = NoOfJumps;
+            canWallJump = true;
             anim.SetBool("IsJumping", false);
             anim.SetBool("IsFalling", false);
         }
@@ -191,6 +193,11 @@ public class PlayerController : MonoBehaviour
             StartCoroutine(HealthBarShake.Shake(hpShakeDuration, hpShakeMagnitude));
             Dead();
             StartCoroutine(RespawnPlayer());
+        }
+        if (collision.collider.CompareTag("Walls") && !isGrounded && canWallJump)
+        {
+            jumpAmmount = 2;
+            canWallJump = false;
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)
