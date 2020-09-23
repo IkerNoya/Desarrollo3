@@ -2705,6 +2705,26 @@ PrefabInstance:
       propertyPath: attackButton
       value: 305
       objectReference: {fileID: 0}
+    - target: {fileID: 5764141369675785951, guid: 9342dd73a39486b4da82c2afa2922bcd,
+        type: 3}
+      propertyPath: wallStickiness
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5764141369675785951, guid: 9342dd73a39486b4da82c2afa2922bcd,
+        type: 3}
+      propertyPath: distanceToWall
+      value: 0.45
+      objectReference: {fileID: 0}
+    - target: {fileID: 5764141369675785951, guid: 9342dd73a39486b4da82c2afa2922bcd,
+        type: 3}
+      propertyPath: joystickAxis
+      value: P2_Joystick_Horizontal
+      objectReference: {fileID: 0}
+    - target: {fileID: 5764141369675785951, guid: 9342dd73a39486b4da82c2afa2922bcd,
+        type: 3}
+      propertyPath: wallLayer.m_Bits
+      value: 131072
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9342dd73a39486b4da82c2afa2922bcd, type: 3}
 --- !u!1001 &6182286347763801502
@@ -2880,7 +2900,7 @@ PrefabInstance:
     - target: {fileID: 7385656094127984219, guid: 1b144169dcebb7b4091566ace2f50730,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 13.01
+      value: 12.62
       objectReference: {fileID: 0}
     - target: {fileID: 7385656095280367408, guid: 1b144169dcebb7b4091566ace2f50730,
         type: 3}
@@ -3064,7 +3084,32 @@ PrefabInstance:
     - target: {fileID: 9180644113613020855, guid: fc79662f102093c4e99dd88d345bc744,
         type: 3}
       propertyPath: distanceToWall
-      value: 0.4
+      value: 0.45
+      objectReference: {fileID: 0}
+    - target: {fileID: 9180644113613020855, guid: fc79662f102093c4e99dd88d345bc744,
+        type: 3}
+      propertyPath: joystickAxis
+      value: P1_Joystick_Horizontal
+      objectReference: {fileID: 0}
+    - target: {fileID: 9180644113613020855, guid: fc79662f102093c4e99dd88d345bc744,
+        type: 3}
+      propertyPath: attackButtonKM
+      value: 102
+      objectReference: {fileID: 0}
+    - target: {fileID: 9180644113613020855, guid: fc79662f102093c4e99dd88d345bc744,
+        type: 3}
+      propertyPath: attackButtonJoystick
+      value: 330
+      objectReference: {fileID: 0}
+    - target: {fileID: 9180644113613020855, guid: fc79662f102093c4e99dd88d345bc744,
+        type: 3}
+      propertyPath: jumpButtonKM
+      value: 32
+      objectReference: {fileID: 0}
+    - target: {fileID: 9180644113613020855, guid: fc79662f102093c4e99dd88d345bc744,
+        type: 3}
+      propertyPath: jumpButtonJoystick
+      value: 331
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fc79662f102093c4e99dd88d345bc744, type: 3}

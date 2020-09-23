@@ -14,11 +14,14 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float distanceToGround = 0.01f;
     [SerializeField] float distanceToWall = 0.01f;
     [SerializeField] string[] animNames;
+    [SerializeField] string playerAxis;
+    [SerializeField] string joystickAxis;
     [SerializeField] int NoOfJumps;
     [SerializeField] int damage;
-    [SerializeField] string playerAxis;
-    [SerializeField] KeyCode attackButton;
-    [SerializeField] KeyCode jumpButton;
+    [SerializeField] KeyCode attackButtonKM;
+    [SerializeField] KeyCode attackButtonJoystick;
+    [SerializeField] KeyCode jumpButtonKM;
+    [SerializeField] KeyCode jumpButtonJoystick;
     [SerializeField] Image healthBar;
     [SerializeField] GameObject player;
     [SerializeField] Rigidbody2D rigidBody;
@@ -51,10 +54,9 @@ public class PlayerController : MonoBehaviour
 
     float direction;
     float LastDirection;
-    float startRunAnim = 0.0001f;
+    float runAxisLimit = 0.75f;
 
     Vector2 movement;
-    Vector2 lastVelocity;
 
     public delegate void EndGame();
     public static event EndGame endGame;
@@ -76,10 +78,12 @@ public class PlayerController : MonoBehaviour
             return;
         if (canMove)
         {
-            direction = Input.GetAxis(playerAxis);
+            direction = Input.GetAxis(playerAxis) + Input.GetAxis(joystickAxis);
+            if (direction < runAxisLimit && direction > -runAxisLimit)
+                direction = 0;
             movement = new Vector2(direction, 0) * speed;
         }
-        if (Input.GetKeyDown(attackButton) && isGrounded && comboController.canAttack)
+        if ((Input.GetKeyDown(attackButtonKM) || Input.GetKeyDown(attackButtonJoystick)) && isGrounded && comboController.canAttack)
         {
             comboController.isAttacking = true;
             comboController.StartCombo();
@@ -119,7 +123,7 @@ public class PlayerController : MonoBehaviour
         }
         wasGrounded = isGrounded;
         healthBar.fillAmount = HitPercentage(hp, 1f);
-        Debug.DrawRay(transform.position, Vector3.right, Color.red);
+        Debug.Log(direction);
     }
    
     void FixedUpdate()
@@ -135,21 +139,20 @@ public class PlayerController : MonoBehaviour
         }
         if (isInWall && !isGrounded)
         {
-            Debug.Log("Entro");
             rigidBody.velocity = new Vector2(movement.x, wallStickiness);
         }
     }
     void MovementAnimations()
     {
-        if ((direction > startRunAnim || direction < -startRunAnim) && !comboController.isAttacking && isGrounded && canMove)
+        if ((direction > runAxisLimit || direction < -runAxisLimit) && !comboController.isAttacking && isGrounded && canMove)
         {
             ActivateAnim("IsRunning");
         }
-        if(direction < startRunAnim && direction > -startRunAnim && isGrounded)
+        if(direction < runAxisLimit && direction > -runAxisLimit && isGrounded)
         {
             ActivateAnim("Idle");
         }
-        if (Input.GetKeyDown(jumpButton) && jumpAmmount > 0 && canMove && !comboController.isAttacking)
+        if ((Input.GetKeyDown(jumpButtonKM) || Input.GetKeyDown(jumpButtonJoystick)) && jumpAmmount > 0 && canMove && !comboController.isAttacking)
         {
             isGrounded = false;
             jumped = true;
