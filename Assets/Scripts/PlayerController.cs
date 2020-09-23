@@ -5,7 +5,14 @@ using UnityEngine.UI;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] float speed;
+    [SerializeField] float wallStickiness;
     [SerializeField] float jumpForce;
+    [SerializeField] float shakeDuration; 
+    [SerializeField] float shakeMagnitude;
+    [SerializeField] float hpShakeDuration;
+    [SerializeField] float hpShakeMagnitude;
+    [SerializeField] float distanceToGround = 0.01f;
+    [SerializeField] float distanceToWall = 0.01f;
     [SerializeField] string[] animNames;
     [SerializeField] int NoOfJumps;
     [SerializeField] int damage;
@@ -19,14 +26,10 @@ public class PlayerController : MonoBehaviour
     [SerializeField] CameraShake cameraShake;
     [SerializeField] CameraShake HealthBarShake;
     [SerializeField] SlowMotion slowMotion;
-    [SerializeField] float shakeDuration; 
-    [SerializeField] float shakeMagnitude;
-    [SerializeField] float hpShakeDuration;
-    [SerializeField] float hpShakeMagnitude;
-    [SerializeField] Vector3 InitialPos;
     [SerializeField] BoxCollider2D playerCollider;
-    [SerializeField] float distanceToGround = 0.01f;
+    [SerializeField] Vector3 InitialPos;
     [SerializeField] LayerMask groundLayer;
+    [SerializeField] LayerMask wallLayer;
     public enum PlayerSelect
     {
         player1, player2
@@ -41,6 +44,7 @@ public class PlayerController : MonoBehaviour
     bool isDead = false;
     bool canMove = true;
     bool canWallJump = true;
+    bool isInWall = false;
 
     int hp = 100;
     int jumpAmmount;
@@ -49,7 +53,8 @@ public class PlayerController : MonoBehaviour
     float LastDirection;
     float startRunAnim = 0.0001f;
 
-    Vector3 movement;
+    Vector2 movement;
+    Vector2 lastVelocity;
 
     public delegate void EndGame();
     public static event EndGame endGame;
@@ -67,11 +72,13 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(playerCollider.bounds.min.y);
         if (isDead)
             return;
         if (canMove)
+        {
             direction = Input.GetAxis(playerAxis);
+            movement = new Vector2(direction, 0) * speed;
+        }
         if (Input.GetKeyDown(attackButton) && isGrounded && comboController.canAttack)
         {
             comboController.isAttacking = true;
@@ -80,8 +87,6 @@ public class PlayerController : MonoBehaviour
         if (!comboController.isAttacking)
         {
             MovementAnimations();
-            movement = new Vector3(direction, 0, 0) * Time.deltaTime;
-            transform.position += movement * speed;
         }
         if (direction != 0)
         {
@@ -96,6 +101,12 @@ public class PlayerController : MonoBehaviour
             player.transform.eulerAngles = new Vector3(0, 180, 0);
         }
         isGrounded = Physics2D.Raycast(transform.position, Vector2.down, distanceToGround, groundLayer);
+        if(direction>0)
+            isInWall = Physics2D.Raycast(transform.position, Vector2.right, distanceToWall, wallLayer);
+        else
+        {
+            isInWall = Physics2D.Raycast(transform.position, Vector2.left, distanceToWall, wallLayer);
+        }
         if (isGrounded && !wasGrounded)
         {
             wasGrounded = true;
@@ -108,14 +119,24 @@ public class PlayerController : MonoBehaviour
         }
         wasGrounded = isGrounded;
         healthBar.fillAmount = HitPercentage(hp, 1f);
+        Debug.DrawRay(transform.position, Vector3.right, Color.red);
     }
    
     void FixedUpdate()
     {
+        if(canMove)
+        {
+            rigidBody.velocity = new Vector2(movement.x, rigidBody.velocity.y);
+        }
         if (jumped)
         {
             jumped = false;
             rigidBody.velocity = new Vector2(0, jumpForce) * Time.fixedDeltaTime;
+        }
+        if (isInWall && !isGrounded)
+        {
+            Debug.Log("Entro");
+            rigidBody.velocity = new Vector2(movement.x, wallStickiness);
         }
     }
     void MovementAnimations()
@@ -222,6 +243,7 @@ public class PlayerController : MonoBehaviour
             Destroy(collision.gameObject);
             StartCoroutine(EndEvent());
         }
+
     }
     private void OnCollisionExit2D(Collision2D collision)
     {
