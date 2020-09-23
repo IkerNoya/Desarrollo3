@@ -42,7 +42,7 @@ public class PlayerController : MonoBehaviour
     public Animator anim;
 
     bool isGrounded = false;
-    bool  wasGrounded = false;
+    bool wasGrounded = false;
     bool jumped = false;
     bool isDead = false;
     bool canMove = true;
@@ -86,6 +86,8 @@ public class PlayerController : MonoBehaviour
         if ((Input.GetKeyDown(attackButtonKM) || Input.GetKeyDown(attackButtonJoystick)) && isGrounded && comboController.canAttack)
         {
             comboController.isAttacking = true;
+            canMove = false;
+            rigidBody.velocity = Vector2.zero;
             comboController.StartCombo();
         }
         if (!comboController.isAttacking)
@@ -207,6 +209,10 @@ public class PlayerController : MonoBehaviour
         transform.position = cam.ScreenToWorldPoint(new Vector3(InitialPos.x, InitialPos.y, InitialPos.z));
         gameObject.GetComponent<BoxCollider2D>().enabled = true;
         anim.SetBool("Dead", false);
+    }
+    public void SetCanMove(bool value)
+    {
+        canMove = value;
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {

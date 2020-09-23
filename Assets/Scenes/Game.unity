@@ -2725,6 +2725,26 @@ PrefabInstance:
       propertyPath: wallLayer.m_Bits
       value: 131072
       objectReference: {fileID: 0}
+    - target: {fileID: 5764141369675785951, guid: 9342dd73a39486b4da82c2afa2922bcd,
+        type: 3}
+      propertyPath: attackButtonKM
+      value: 306
+      objectReference: {fileID: 0}
+    - target: {fileID: 5764141369675785951, guid: 9342dd73a39486b4da82c2afa2922bcd,
+        type: 3}
+      propertyPath: attackButtonJoystick
+      value: 330
+      objectReference: {fileID: 0}
+    - target: {fileID: 5764141369675785951, guid: 9342dd73a39486b4da82c2afa2922bcd,
+        type: 3}
+      propertyPath: jumpButtonKM
+      value: 273
+      objectReference: {fileID: 0}
+    - target: {fileID: 5764141369675785951, guid: 9342dd73a39486b4da82c2afa2922bcd,
+        type: 3}
+      propertyPath: jumpButtonJoystick
+      value: 331
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9342dd73a39486b4da82c2afa2922bcd, type: 3}
 --- !u!1001 &6182286347763801502

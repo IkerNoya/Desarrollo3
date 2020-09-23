@@ -18,6 +18,7 @@ public class ComboController : MonoBehaviour
         if ((Time.time - lastHit) > hitCooldown)
         {
             isAttacking = false;
+            playerAnim.SetCanMove(true);
             hitCounter = 0;
         }
 
@@ -42,6 +43,7 @@ public class ComboController : MonoBehaviour
             playerAnim.anim.SetBool("IsAttacking_1", false);
             hitCounter = 0;
             isAttacking = false;
+            playerAnim.SetCanMove(true);
         }
     }
     public void Attack2()
@@ -56,6 +58,7 @@ public class ComboController : MonoBehaviour
             playerAnim.anim.SetBool("IsAttacking_2", false);
             hitCounter = 0;
             isAttacking = false;
+            playerAnim.SetCanMove(true);
         }
     }
     public void Attack3()
@@ -65,6 +68,7 @@ public class ComboController : MonoBehaviour
         playerAnim.anim.SetBool("IsAttacking_2", false);
         playerAnim.anim.SetBool("IsAttacking_3", false);
         isAttacking = false;
+        playerAnim.SetCanMove(true);
         hitCounter = 0;
     }
     public void ActivateHit()
