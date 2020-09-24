@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -32,7 +33,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] BoxCollider2D playerCollider;
     [SerializeField] Vector3 InitialPos;
     [SerializeField] LayerMask groundLayer;
-    [SerializeField] LayerMask wallLayer;
+    [SerializeField] LayerMask layerWallL;
+    [SerializeField] LayerMask layerWallR;
     public enum PlayerSelect
     {
         player1, player2
@@ -48,13 +50,17 @@ public class PlayerController : MonoBehaviour
     bool canMove = true;
     bool canWallJump = true;
     bool isInWall = false;
+    bool wallJump = false;
+    bool isLeftWall = false;
+    bool isRighttWall = false;
 
     int hp = 100;
     int jumpAmmount;
 
     float direction;
     float LastDirection;
-    float runAxisLimit = 0.75f;
+    readonly float runAxisLimit = 0.75f;
+    float t = 0;
 
     Vector2 movement;
 
@@ -83,13 +89,7 @@ public class PlayerController : MonoBehaviour
                 direction = 0;
             movement = new Vector2(direction, 0) * speed;
         }
-        if ((Input.GetKeyDown(attackButtonKM) || Input.GetKeyDown(attackButtonJoystick)) && isGrounded && comboController.canAttack)
-        {
-            comboController.isAttacking = true;
-            canMove = false;
-            rigidBody.velocity = Vector2.zero;
-            comboController.StartCombo();
-        }
+        Inputs();
         if (!comboController.isAttacking)
         {
             MovementAnimations();
@@ -107,16 +107,19 @@ public class PlayerController : MonoBehaviour
             player.transform.eulerAngles = new Vector3(0, 180, 0);
         }
         isGrounded = Physics2D.Raycast(transform.position, Vector2.down, distanceToGround, groundLayer);
-        if(direction>0)
-            isInWall = Physics2D.Raycast(transform.position, Vector2.right, distanceToWall, wallLayer);
-        else
+        if(direction > runAxisLimit)
         {
-            isInWall = Physics2D.Raycast(transform.position, Vector2.left, distanceToWall, wallLayer);
+            isInWall = Physics2D.Raycast(transform.position, Vector2.right, distanceToWall, layerWallR);
+            Debug.DrawRay(transform.position, Vector2.right, Color.green);
+        }
+        else if(direction < -runAxisLimit)
+        {
+            isInWall = Physics2D.Raycast(transform.position, Vector2.left, distanceToWall, layerWallL);
+            Debug.DrawRay(transform.position, Vector2.left, Color.green);
         }
         if (isGrounded && !wasGrounded)
         {
             wasGrounded = true;
-            Debug.DrawRay(transform.position, Vector2.down, Color.red);
             comboController.canAttack = true;
             jumpAmmount = NoOfJumps;
             canWallJump = true;
@@ -125,23 +128,44 @@ public class PlayerController : MonoBehaviour
         }
         wasGrounded = isGrounded;
         healthBar.fillAmount = HitPercentage(hp, 1f);
-        Debug.Log(direction);
     }
    
     void FixedUpdate()
     {
-        if(canMove)
+        t -= Time.fixedDeltaTime;
+        if(canMove && t <= 0)
         {
             rigidBody.velocity = new Vector2(movement.x, rigidBody.velocity.y);
         }
-        if (jumped)
+        if (jumped && t <= 0)
         {
             jumped = false;
-            rigidBody.velocity = new Vector2(0, jumpForce) * Time.fixedDeltaTime;
+            rigidBody.velocity = new Vector2(0, jumpForce);
         }
-        if (isInWall && !isGrounded)
+        if (isInWall && !isGrounded && t <= 0)
         {
             rigidBody.velocity = new Vector2(movement.x, wallStickiness);
+        }
+        if(isInWall && wallJump && isLeftWall && (Input.GetKeyDown(jumpButtonKM) || Input.GetKeyDown(jumpButtonJoystick)))
+        {
+            t = 0.1f;
+            rigidBody.velocity = new Vector2(jumpForce, jumpForce / 2);
+        }
+    }
+    void Inputs()
+    {
+        if ((Input.GetKeyDown(attackButtonKM) || Input.GetKeyDown(attackButtonJoystick)) && isGrounded && comboController.canAttack)
+        {
+            comboController.isAttacking = true;
+            canMove = false;
+            rigidBody.velocity = Vector2.zero;
+            comboController.StartCombo();
+        }
+        if ((Input.GetKeyDown(jumpButtonKM) || Input.GetKeyDown(jumpButtonJoystick)) && jumpAmmount > 0 && canMove && !comboController.isAttacking)
+        {
+            isGrounded = false;
+            jumped = true;
+            jumpAmmount--;
         }
     }
     void MovementAnimations()
@@ -153,12 +177,6 @@ public class PlayerController : MonoBehaviour
         if(direction < runAxisLimit && direction > -runAxisLimit && isGrounded)
         {
             ActivateAnim("Idle");
-        }
-        if ((Input.GetKeyDown(jumpButtonKM) || Input.GetKeyDown(jumpButtonJoystick)) && jumpAmmount > 0 && canMove && !comboController.isAttacking)
-        {
-            isGrounded = false;
-            jumped = true;
-            jumpAmmount--;
         }
         if (rigidBody.velocity.y > 0 && !isGrounded && canMove)
         {
@@ -228,6 +246,17 @@ public class PlayerController : MonoBehaviour
         {
             jumpAmmount = 2;
             canWallJump = false;
+            if (collision.collider.gameObject.layer == layerWallL)
+            {
+                isLeftWall = true;
+                isRighttWall = false;
+            }
+            if (collision.collider.gameObject.layer == layerWallR)
+            {
+                isLeftWall = false;
+                isRighttWall = true;
+            }
+            wallJump = true;
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)
@@ -260,6 +289,12 @@ public class PlayerController : MonoBehaviour
         {
             isGrounded = false;
             comboController.canAttack = false;
+        }
+        if (collision.collider.CompareTag("Walls"))
+        {
+            isLeftWall = false;
+            isRighttWall = false;
+            wallJump = false;
         }
     }
     IEnumerator EndEvent()
