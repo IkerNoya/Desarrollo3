@@ -73,10 +73,6 @@ public class PlayerController : MonoBehaviour
 
     Vector2 movement;
 
-
-    public delegate void EndGame();
-    public static event EndGame endGame;
-
     Camera cam;
 
     void Start()
@@ -307,11 +303,6 @@ public class PlayerController : MonoBehaviour
                  StartCoroutine(RespawnPlayer());
             }
         }
-        if (collision.gameObject.CompareTag("Crown"))
-        {
-            Destroy(collision.gameObject);
-            StartCoroutine(EndEvent());
-        }
 
     }
     private void OnCollisionExit2D(Collision2D collision)
@@ -326,13 +317,6 @@ public class PlayerController : MonoBehaviour
             state = State.Falling;
         }
     }
-    IEnumerator EndEvent()
-    {
-        StartCoroutine(slowMotion.ActivateSlowMotion(1.5f, 0.5f));
-        yield return new WaitForSeconds(1.5f);
-        endGame();
-        yield break;
-    }   
     IEnumerator RespawnPlayer()
     {
         yield return new WaitForSeconds(2.0f);

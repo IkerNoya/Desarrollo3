@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour
     float distanceToGoal;
     void Start()
     {
-        PlayerController.endGame += EndGame;
+        //UIGame.endGame += EndGame;
         map.fillAmount = 0f;
         cam = Camera.main;
         if(target!=null)
@@ -37,6 +37,6 @@ public class GameManager : MonoBehaviour
     }
     private void OnDisable()
     {
-        PlayerController.endGame -= EndGame;
+        //UIGame.endGame -= EndGame;
     }
 }
