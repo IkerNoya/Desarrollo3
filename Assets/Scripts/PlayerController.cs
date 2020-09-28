@@ -1,5 +1,9 @@
 ﻿using System;
 using System.Collections;
+using Unity.Mathematics;
+using UnityEditor;
+using UnityEditor.Experimental.GraphView;
+using UnityEditor.U2D;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -39,7 +43,12 @@ public class PlayerController : MonoBehaviour
     {
         player1, player2
     }
+    public enum State
+    {
+        Grounded, Jumping, Falling, InWall, WallJump
+    }
     public PlayerSelect playerSelect;
+    State state;
 
     public Animator anim;
 
@@ -50,19 +59,20 @@ public class PlayerController : MonoBehaviour
     bool canMove = true;
     bool canWallJump = true;
     bool isInWall = false;
-    bool wallJump = false;
-    bool isLeftWall = false;
-    bool isRighttWall = false;
+    bool jumpInWall = false;
+    bool wallJump;
+    bool leftOrRighWall = false; // true = left, false = right;
 
     int hp = 100;
     int jumpAmmount;
 
     float direction;
     float LastDirection;
-    readonly float runAxisLimit = 0.75f;
-    float t = 0;
+    float lastVelocity;
+    readonly float runAxisLimit = 0.10f;
 
     Vector2 movement;
+
 
     public delegate void EndGame();
     public static event EndGame endGame;
@@ -76,6 +86,7 @@ public class PlayerController : MonoBehaviour
         comboController.hitCol.SetActive(false);
         transform.position = new Vector3(InitialPos.x, InitialPos.y,InitialPos.z);
         InitialPos = cam.WorldToScreenPoint(transform.localPosition);
+        wallJump = true;
     }
 
     void Update()
@@ -85,8 +96,6 @@ public class PlayerController : MonoBehaviour
         if (canMove)
         {
             direction = Input.GetAxis(playerAxis) + Input.GetAxis(joystickAxis);
-            if (direction < runAxisLimit && direction > -runAxisLimit)
-                direction = 0;
             movement = new Vector2(direction, 0) * speed;
         }
         Inputs();
@@ -107,15 +116,17 @@ public class PlayerController : MonoBehaviour
             player.transform.eulerAngles = new Vector3(0, 180, 0);
         }
         isGrounded = Physics2D.Raycast(transform.position, Vector2.down, distanceToGround, groundLayer);
-        if(direction > runAxisLimit)
+        if(direction > 0 && wallJump)
         {
             isInWall = Physics2D.Raycast(transform.position, Vector2.right, distanceToWall, layerWallR);
-            Debug.DrawRay(transform.position, Vector2.right, Color.green);
         }
-        else if(direction < -runAxisLimit)
+        else if(direction < 0 && wallJump)
         {
             isInWall = Physics2D.Raycast(transform.position, Vector2.left, distanceToWall, layerWallL);
-            Debug.DrawRay(transform.position, Vector2.left, Color.green);
+        }
+        else if (!wallJump)
+        {
+            isInWall = false;
         }
         if (isGrounded && !wasGrounded)
         {
@@ -126,31 +137,47 @@ public class PlayerController : MonoBehaviour
             anim.SetBool("IsJumping", false);
             anim.SetBool("IsFalling", false);
         }
+        if (isGrounded && !jumped) state = State.Grounded;
+        else if (jumped) state = State.Jumping;
+        else if (!isGrounded && isInWall) state = State.InWall;
         wasGrounded = isGrounded;
         healthBar.fillAmount = HitPercentage(hp, 1f);
+        Debug.Log(state);
     }
    
     void FixedUpdate()
     {
-        t -= Time.fixedDeltaTime;
-        if(canMove && t <= 0)
+        if (canMove && rigidBody !=null )
         {
-            rigidBody.velocity = new Vector2(movement.x, rigidBody.velocity.y);
+            switch (state)
+            {
+                case State.Grounded:
+                    rigidBody.velocity = new Vector2(movement.x, rigidBody.velocity.y);
+                    break;
+
+                case State.Jumping:
+                        lastVelocity = 0;
+                        rigidBody.velocity = new Vector2(0, jumpForce);
+                        jumped = false;
+                        state = State.Falling;
+                    break;
+
+                case State.Falling:
+                    rigidBody.velocity = new Vector2(movement.x + lastVelocity, rigidBody.velocity.y);
+                    if (Mathf.Abs(rigidBody.velocity.x) >= speed)
+                        rigidBody.velocity = new Vector2(speed * Mathf.Sign(rigidBody.velocity.x), rigidBody.velocity.y);
+                    break;
+
+                case State.InWall:
+                    rigidBody.velocity = new Vector2(movement.x, wallStickiness);
+                    if (jumpInWall)
+                    {
+                        StartCoroutine(WallJumpCoolDown());
+                    }
+                    break;
+            }
         }
-        if (jumped && t <= 0)
-        {
-            jumped = false;
-            rigidBody.velocity = new Vector2(0, jumpForce);
-        }
-        if (isInWall && !isGrounded && t <= 0)
-        {
-            rigidBody.velocity = new Vector2(movement.x, wallStickiness);
-        }
-        if(isInWall && wallJump && isLeftWall && (Input.GetKeyDown(jumpButtonKM) || Input.GetKeyDown(jumpButtonJoystick)))
-        {
-            t = 0.1f;
-            rigidBody.velocity = new Vector2(jumpForce, jumpForce / 2);
-        }
+        
     }
     void Inputs()
     {
@@ -166,6 +193,10 @@ public class PlayerController : MonoBehaviour
             isGrounded = false;
             jumped = true;
             jumpAmmount--;
+        }
+        if((Input.GetKeyDown(jumpButtonKM) || Input.GetKeyDown(jumpButtonJoystick)) && isInWall)
+        {
+            jumpInWall = true;
         }
     }
     void MovementAnimations()
@@ -234,7 +265,7 @@ public class PlayerController : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.collider.CompareTag("OutofBounds"))
+        if (collision.gameObject.CompareTag("OutofBounds"))
         {
             hp = 0;
             healthBar.fillAmount = 0f;
@@ -242,21 +273,21 @@ public class PlayerController : MonoBehaviour
             Dead();
             StartCoroutine(RespawnPlayer());
         }
-        if (collision.collider.CompareTag("Walls") && !isGrounded && canWallJump)
+        if (collision.gameObject.CompareTag("Walls"))
         {
-            jumpAmmount = 2;
-            canWallJump = false;
-            if (collision.collider.gameObject.layer == layerWallL)
+            if (!isGrounded && canWallJump)
             {
-                isLeftWall = true;
-                isRighttWall = false;
+                jumpAmmount = 2;
+                canWallJump = false;
             }
-            if (collision.collider.gameObject.layer == layerWallR)
+            if(transform.position.x > collision.transform.position.x)
             {
-                isLeftWall = false;
-                isRighttWall = true;
+                leftOrRighWall = true;
             }
-            wallJump = true;
+            else
+            {
+                leftOrRighWall = false;
+            }
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)
@@ -285,16 +316,14 @@ public class PlayerController : MonoBehaviour
     }
     private void OnCollisionExit2D(Collision2D collision)
     {
-        if (collision.collider.CompareTag("Ground"))
+        if (collision.gameObject.CompareTag("Ground"))
         {
             isGrounded = false;
             comboController.canAttack = false;
         }
-        if (collision.collider.CompareTag("Walls"))
+        if (collision.gameObject.CompareTag("Walls"))
         {
-            isLeftWall = false;
-            isRighttWall = false;
-            wallJump = false;
+            state = State.Falling;
         }
     }
     IEnumerator EndEvent()
@@ -315,6 +344,29 @@ public class PlayerController : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         canMove = true;
         anim.SetBool("Hit", false);
+        yield return null;
+    }
+    IEnumerator WallJumpCoolDown()
+    {
+        wallJump = false;
+        if (jumpAmmount > 0)
+        {
+            if (leftOrRighWall)
+            {
+                rigidBody.velocity = new Vector2(jumpForce / 2 + movement.x, jumpForce);
+                LastDirection = 1;
+            }
+            else
+            {
+                rigidBody.velocity = new Vector2(-jumpForce/2 + movement.x, jumpForce);
+                LastDirection = -1;
+            }
+            lastVelocity = rigidBody.velocity.x;
+        }
+        yield return new WaitForSeconds(0.2f);
+        state = State.Falling;
+        jumpInWall = false;
+        wallJump = true;
         yield return null;
     }
 }
