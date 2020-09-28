@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections;
-using Unity.Mathematics;
-using UnityEditor;
-using UnityEditor.Experimental.GraphView;
-using UnityEditor.U2D;
+﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -138,7 +133,6 @@ public class PlayerController : MonoBehaviour
         else if (!isGrounded && isInWall) state = State.InWall;
         wasGrounded = isGrounded;
         healthBar.fillAmount = HitPercentage(hp, 1f);
-        Debug.Log(state);
     }
    
     void FixedUpdate()

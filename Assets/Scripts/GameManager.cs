@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using System.Text.RegularExpressions;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -6,13 +8,14 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField] Image map;
     [SerializeField] Transform target;
+    [SerializeField] SlowMotion slowMotion;
     [SerializeField] float offset;
 
     Camera cam;
     float distanceToGoal;
     void Start()
     {
-        //UIGame.endGame += EndGame;
+        CapturePoint.EndGame += ChangeScene;
         map.fillAmount = 0f;
         cam = Camera.main;
         if(target!=null)
@@ -31,12 +34,19 @@ public class GameManager : MonoBehaviour
             map.fillAmount = progress;
         }
     }
-    void EndGame()
+    void ChangeScene(CapturePoint capture)
     {
-        SceneManager.LoadScene("End");
+        StartCoroutine(EndGameEvent(1.5f));
     }
     private void OnDisable()
     {
-        //UIGame.endGame -= EndGame;
+        CapturePoint.EndGame -= ChangeScene;
+    }
+    IEnumerator EndGameEvent(float time)
+    {
+        StartCoroutine(slowMotion.ActivateSlowMotion(time, 0.5f));
+        yield return new WaitForSeconds(time);
+        SceneManager.LoadScene("End");
+        yield return null;
     }
 }

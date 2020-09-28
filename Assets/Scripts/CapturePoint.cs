@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,9 +6,11 @@ public class CapturePoint : MonoBehaviour
 {
     [SerializeField] GameObject captureSprites;
     [SerializeField] Image captureContent;
-    float captureTime;
+    [SerializeField] float captureAmmount;
     bool p1Capturing;
     bool p2Capturing;
+
+    public static event Action<CapturePoint> EndGame;
     enum State
     {
         Capturing, Blocked, Empty
@@ -26,49 +27,58 @@ public class CapturePoint : MonoBehaviour
     
     void Update()
     {
-        switch(state)
+        switch (state)
         {
             case State.Capturing:
+                captureSprites.SetActive(true);
                 if (p1Capturing && p2Capturing) state = State.Blocked;
                 if (!p1Capturing && !p2Capturing) state = State.Empty;
-                captureContent.fillAmount += captureTime * Time.deltaTime;
-                if(captureContent.fillAmount >= 1 && p1Capturing)
+                captureContent.fillAmount += captureAmmount * Time.deltaTime;
+                if (captureContent.fillAmount >= 1 && p1Capturing)
                 {
-
+                    EndGame(this);
                 }
-                if(captureContent.fillAmount >= 1 && p2Capturing)
+                if (captureContent.fillAmount >= 1 && p2Capturing)
                 {
-
+                    EndGame(this);
                 }
                 break;
+
             case State.Blocked:
+                captureSprites.SetActive(true);
                 if ((p1Capturing && !p2Capturing) || (!p1Capturing && p2Capturing)) state = State.Capturing;
                 if (!p1Capturing && !p2Capturing) state = State.Empty;
                 break;
+
             case State.Empty:
+                captureSprites.SetActive(false);
                 if ((p1Capturing && !p2Capturing) || (!p1Capturing && p2Capturing)) state = State.Capturing;
                 captureContent.fillAmount = 0;
                 break;
         }
+        Debug.Log(p1Capturing);
     }
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (other.gameObject.CompareTag("Player_1"))
+        
+        if (collision.gameObject.CompareTag("Player_1"))
         {
             p1Capturing = true;
+            captureContent.color = Color.cyan;
         }
-        if (other.gameObject.CompareTag("player_2"))
+        if (collision.gameObject.CompareTag("Player_2"))
         {
             p2Capturing = true;
+            captureContent.color = Color.red;
         }
     }
-    private void OnTriggerExit(Collider other)
+    private void OnTriggerExit2D(Collider2D collision)
     {
-        if (other.gameObject.CompareTag("Player_1"))
+        if (collision.gameObject.CompareTag("Player_1"))
         {
             p1Capturing = false;
         }
-        if (other.gameObject.CompareTag("player_2"))
+        if (collision.gameObject.CompareTag("Player_2"))
         {
             p2Capturing = false;
         }
