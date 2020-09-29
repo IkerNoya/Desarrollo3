@@ -56,7 +56,6 @@ public class CapturePoint : MonoBehaviour
                 captureContent.fillAmount = 0;
                 break;
         }
-        Debug.Log(p1Capturing);
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {

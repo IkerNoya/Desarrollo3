@@ -21,7 +21,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] KeyCode jumpButtonJoystick;
     [SerializeField] GameObject player;
     [SerializeField] Rigidbody2D rigidBody;
-    [SerializeField] ComboController comboController;
+    [SerializeField] CombatController comboController;
     [SerializeField] CameraShake cameraShake;
     [SerializeField] SlowMotion slowMotion;
     [SerializeField] BoxCollider2D playerCollider;

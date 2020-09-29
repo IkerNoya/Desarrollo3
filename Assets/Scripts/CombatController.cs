@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-public class ComboController : MonoBehaviour
+public class CombatController : MonoBehaviour
 {
     public float hitCooldown;
     [SerializeField] PlayerController playerAnim;
