@@ -134,6 +134,7 @@ public class PlayerController : MonoBehaviour
         else if (jumped) state = State.Jumping;
         else if (!isGrounded && isInWall) state = State.InWall;
         wasGrounded = isGrounded;
+        Debug.DrawRay(transform.position, Vector2.down, Color.red);
     }
    
     void FixedUpdate()
