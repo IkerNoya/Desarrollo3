@@ -6,13 +6,19 @@ public class CombatController : MonoBehaviour
     public float hitCooldown;
     [SerializeField] PlayerController playerAnim;
     public GameObject hitCol;
+    public GameObject parryCol;
     [HideInInspector] public int hitCounter;
     [HideInInspector] public bool isAttacking = false;
     [HideInInspector] public bool canAttack = true;
+    [HideInInspector] public bool canParry = true;
 
 
     float lastHit;
+    private void Start()
+    {
 
+        parryCol.SetActive(false);
+    }
     public void StartCombo()
     {
         if ((Time.time - lastHit) > hitCooldown)
@@ -74,5 +80,22 @@ public class CombatController : MonoBehaviour
     public void ActivateHit()
     {
         hitCol.SetActive(true);
+    }
+    public void DeactivateParry()
+    {
+        parryCol.SetActive(false);
+        canParry = true;
+        playerAnim.anim.SetBool("Parry", false);
+        StartCoroutine(WaitToAttack());
+    }
+    public void ActivateParry()
+    {
+        parryCol.SetActive(true);
+        canParry = false; 
+    }
+    IEnumerator WaitToAttack()
+    {
+        yield return new WaitForSeconds(1f);
+        canAttack = true;
     }
 }

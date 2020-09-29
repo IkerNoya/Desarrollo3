@@ -11,6 +11,7 @@ TagManager:
   - OutofBounds
   - Crown
   - Walls
+  - ParryCol
   layers:
   - Default
   - TransparentFX
@@ -31,7 +32,7 @@ TagManager:
   - Crown
   - Wall_L
   - Wall_R
-  - 
+  - ParryCol
   - 
   - 
   - 

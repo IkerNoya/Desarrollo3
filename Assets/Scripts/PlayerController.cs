@@ -7,8 +7,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float speed;
     [SerializeField] float wallStickiness;
     [SerializeField] float jumpForce;
-    [SerializeField] float shakeDuration;
-    [SerializeField] float shakeMagnitude;
     [SerializeField] float distanceToGround = 0.01f;
     [SerializeField] float distanceToWall = 0.01f;
     [SerializeField] string[] animNames;
@@ -19,16 +17,17 @@ public class PlayerController : MonoBehaviour
     [SerializeField] KeyCode attackButtonJoystick;
     [SerializeField] KeyCode jumpButtonKM;
     [SerializeField] KeyCode jumpButtonJoystick;
+    [SerializeField] KeyCode parryButtonKM;
+    [SerializeField] KeyCode parryButtonJoystick;
     [SerializeField] GameObject player;
     [SerializeField] Rigidbody2D rigidBody;
-    [SerializeField] CombatController comboController;
-    [SerializeField] CameraShake cameraShake;
     [SerializeField] SlowMotion slowMotion;
     [SerializeField] BoxCollider2D playerCollider;
     [SerializeField] Vector3 InitialPos;
     [SerializeField] LayerMask groundLayer;
     [SerializeField] LayerMask layerWallL;
     [SerializeField] LayerMask layerWallR;
+    [SerializeField] GameObject enemy;
     public enum PlayerSelect
     {
         player1, player2
@@ -38,6 +37,10 @@ public class PlayerController : MonoBehaviour
         Grounded, Jumping, Falling, InWall, WallJump
     }
     public int damage;
+    public float shakeDuration;
+    public float shakeMagnitude;
+    public CombatController comboController;
+    public CameraShake cameraShake;
     public PlayerSelect playerSelect;
     State state;
 
@@ -70,7 +73,12 @@ public class PlayerController : MonoBehaviour
 
     public static Action<PlayerController> takeDamage;
     public static Action<PlayerController> EmptyHP;
+    public static Action<PlayerController> Zoom;
 
+    private void Awake()
+    {
+        Parry.parryEffect += ParryHit;
+    }
     void Start()
     {
         cam = Camera.main;
@@ -147,6 +155,7 @@ public class PlayerController : MonoBehaviour
             if (leftOrRighWall) LastDirection = 1;
             else LastDirection = -1;
         }
+        Debug.Log(comboController.canAttack);
     }
 
     void FixedUpdate()
@@ -191,6 +200,14 @@ public class PlayerController : MonoBehaviour
         }
 
     }
+
+    #region FUNCTIONS
+
+    public void SetCanMove(bool value)
+    {
+        canMove = value;
+    }
+
     void Inputs()
     {
         if ((Input.GetKeyDown(attackButtonKM) || Input.GetKeyDown(attackButtonJoystick)) && isGrounded && comboController.canAttack)
@@ -210,7 +227,13 @@ public class PlayerController : MonoBehaviour
         {
             jumpInWall = true;
         }
+        if((Input.GetKeyDown(parryButtonKM) || Input.GetKeyDown(parryButtonJoystick) && isGrounded && comboController.canAttack))
+        {
+            comboController.canParry = false;
+            anim.SetBool("Parry", true);
+        }
     }
+
     void MovementAnimations()
     {
         if ((direction > runAxisLimit || direction < -runAxisLimit) && !comboController.isAttacking && isGrounded && canMove)
@@ -249,6 +272,7 @@ public class PlayerController : MonoBehaviour
             }
         }
     }
+
     void Dead()
     {
         isDead = true;
@@ -257,6 +281,7 @@ public class PlayerController : MonoBehaviour
         gameObject.GetComponent<BoxCollider2D>().enabled = false;
         StartCoroutine(slowMotion.ActivateSlowMotion(1.5f, 0.5f));
     }
+
     void Respawn()
     {
         rigidBody.isKinematic = false;
@@ -266,10 +291,21 @@ public class PlayerController : MonoBehaviour
         gameObject.GetComponent<BoxCollider2D>().enabled = true;
         anim.SetBool("Dead", false);
     }
-    public void SetCanMove(bool value)
+
+    void ParryHit(Parry p)
     {
-        canMove = value;
+        enemy.GetComponent<PlayerController>().anim.SetBool("Hit", true);
+        StartCoroutine(HitCooldown());
+        enemy.GetComponent<PlayerController>().canMove = false;
+        StartCoroutine(slowMotion.ActivateSlowMotion(1f, 0.5f)); 
+        StartCoroutine(cameraShake.Shake(shakeDuration, shakeMagnitude));
+        enemy.GetComponent<PlayerController>().comboController.canAttack = false;
+        Zoom(this);
     }
+
+    #endregion
+
+    #region COLLISIONS
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("OutofBounds"))
@@ -298,8 +334,9 @@ public class PlayerController : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("HitCollider"))
+        if (collision.gameObject.CompareTag("HitCollider") && comboController.canParry && collision.gameObject.layer != gameObject.layer)
         {
+            Debug.Log("ENtra");
             anim.SetBool("Hit", true);
             canMove = false;
             hp -= damage;
@@ -327,6 +364,10 @@ public class PlayerController : MonoBehaviour
             state = State.Falling;
         }
     }
+    #endregion
+
+    #region COROUTINES
+
     IEnumerator RespawnPlayer()
     {
         yield return new WaitForSeconds(2.0f);
@@ -360,5 +401,11 @@ public class PlayerController : MonoBehaviour
         jumpInWall = false;
         wallJump = true;
         yield return null;
+    }
+    #endregion COROUTINES
+
+    private void OnDisable()
+    {
+        Parry.parryEffect -= ParryHit;
     }
 }
