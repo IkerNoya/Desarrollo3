@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,25 +10,20 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float jumpForce;
     [SerializeField] float shakeDuration; 
     [SerializeField] float shakeMagnitude;
-    [SerializeField] float hpShakeDuration;
-    [SerializeField] float hpShakeMagnitude;
     [SerializeField] float distanceToGround = 0.01f;
     [SerializeField] float distanceToWall = 0.01f;
     [SerializeField] string[] animNames;
     [SerializeField] string playerAxis;
     [SerializeField] string joystickAxis;
     [SerializeField] int NoOfJumps;
-    [SerializeField] int damage;
     [SerializeField] KeyCode attackButtonKM;
     [SerializeField] KeyCode attackButtonJoystick;
     [SerializeField] KeyCode jumpButtonKM;
     [SerializeField] KeyCode jumpButtonJoystick;
-    [SerializeField] Image healthBar;
     [SerializeField] GameObject player;
     [SerializeField] Rigidbody2D rigidBody;
     [SerializeField] ComboController comboController;
     [SerializeField] CameraShake cameraShake;
-    [SerializeField] CameraShake HealthBarShake;
     [SerializeField] SlowMotion slowMotion;
     [SerializeField] BoxCollider2D playerCollider;
     [SerializeField] Vector3 InitialPos;
@@ -42,6 +38,7 @@ public class PlayerController : MonoBehaviour
     {
         Grounded, Jumping, Falling, InWall, WallJump
     }
+    public int damage;
     public PlayerSelect playerSelect;
     State state;
 
@@ -58,7 +55,9 @@ public class PlayerController : MonoBehaviour
     bool wallJump;
     bool leftOrRighWall = false; // true = left, false = right;
 
-    int hp = 100;
+    [HideInInspector]
+    public int hp = 100;
+
     int jumpAmmount;
 
     float direction;
@@ -69,6 +68,9 @@ public class PlayerController : MonoBehaviour
     Vector2 movement;
 
     Camera cam;
+
+    public static Action<PlayerController> takeDamage;
+    public static Action<PlayerController> EmptyHP;
 
     void Start()
     {
@@ -132,7 +134,6 @@ public class PlayerController : MonoBehaviour
         else if (jumped) state = State.Jumping;
         else if (!isGrounded && isInWall) state = State.InWall;
         wasGrounded = isGrounded;
-        healthBar.fillAmount = HitPercentage(hp, 1f);
     }
    
     void FixedUpdate()
@@ -234,12 +235,6 @@ public class PlayerController : MonoBehaviour
         gameObject.GetComponent<BoxCollider2D>().enabled = false;
         StartCoroutine(slowMotion.ActivateSlowMotion(1.5f, 0.5f));
     }
-    float HitPercentage(int damage, float barSize)
-    {
-        float maxPercentage = 100;
-        float result = barSize * damage / maxPercentage;
-        return result;
-    }
     void Respawn()
     {
         rigidBody.isKinematic = false;
@@ -258,9 +253,8 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.CompareTag("OutofBounds"))
         {
             hp = 0;
-            healthBar.fillAmount = 0f;
-            StartCoroutine(HealthBarShake.Shake(hpShakeDuration, hpShakeMagnitude));
             Dead();
+            EmptyHP(this);
             StartCoroutine(RespawnPlayer());
         }
         if (collision.gameObject.CompareTag("Walls"))
@@ -289,11 +283,11 @@ public class PlayerController : MonoBehaviour
             hp -= damage;
             StartCoroutine(HitCooldown());
             StartCoroutine(cameraShake.Shake(shakeDuration, shakeMagnitude));
-            StartCoroutine(HealthBarShake.Shake(hpShakeDuration, hpShakeMagnitude));
+            takeDamage(this);
             if (hp <= 0)
             {
                  Dead();
-                 healthBar.fillAmount = 0f;
+                 EmptyHP(this);
                  StartCoroutine(RespawnPlayer());
             }
         }
