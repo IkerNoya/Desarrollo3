@@ -1708,7 +1708,7 @@ AnimatorStateTransition:
   - m_ConditionMode: 1
     m_ConditionEvent: Hit
     m_EventTreshold: 0
-  - m_ConditionMode: 2
+  - m_ConditionMode: 1
     m_ConditionEvent: IsAttacking_1
     m_EventTreshold: 0
   - m_ConditionMode: 2
@@ -2507,7 +2507,7 @@ AnimatorStateMachine:
     m_Position: {x: 640, y: -480, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -7325179713096741916}
-    m_Position: {x: 725, y: -345, z: 0}
+    m_Position: {x: 1250, y: -700, z: 0}
   m_ChildStateMachines:
   - serializedVersion: 1
     m_StateMachine: {fileID: -947511935208847853}

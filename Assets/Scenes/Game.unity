@@ -2645,6 +2645,16 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 9296e82caa0ec5a458e27a156a522610, type: 2}
+    - target: {fileID: 1225701374215469157, guid: 9342dd73a39486b4da82c2afa2922bcd,
+        type: 3}
+      propertyPath: m_Offset.x
+      value: 0.86103106
+      objectReference: {fileID: 0}
+    - target: {fileID: 1225701374215469157, guid: 9342dd73a39486b4da82c2afa2922bcd,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 3.8204813
+      objectReference: {fileID: 0}
     - target: {fileID: 1225701374320304568, guid: 9342dd73a39486b4da82c2afa2922bcd,
         type: 3}
       propertyPath: cameraShake
@@ -2961,6 +2971,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 4395031985576335759, guid: fc79662f102093c4e99dd88d345bc744,
+        type: 3}
+      propertyPath: m_Offset.x
+      value: 0.88982105
+      objectReference: {fileID: 0}
+    - target: {fileID: 4395031985576335759, guid: fc79662f102093c4e99dd88d345bc744,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 3.7629013
       objectReference: {fileID: 0}
     - target: {fileID: 4395031986943511720, guid: fc79662f102093c4e99dd88d345bc744,
         type: 3}
