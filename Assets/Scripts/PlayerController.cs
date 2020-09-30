@@ -111,7 +111,7 @@ public class PlayerController : MonoBehaviour
         {
             player.transform.eulerAngles = new Vector3(0, 0, 0);
         }
-        else if(LastDirection < 0 && !isInWall)
+        else if (LastDirection < 0 && !isInWall)
         {
             player.transform.eulerAngles = new Vector3(0, 180, 0);
         }
@@ -155,7 +155,7 @@ public class PlayerController : MonoBehaviour
             if (leftOrRighWall) LastDirection = 1;
             else LastDirection = -1;
         }
-        Debug.Log(comboController.canAttack);
+
     }
 
     void FixedUpdate()
@@ -202,7 +202,7 @@ public class PlayerController : MonoBehaviour
     }
 
     #region FUNCTIONS
-     
+
     public void SetCanMove(bool value)
     {
         canMove = value;
@@ -277,13 +277,14 @@ public class PlayerController : MonoBehaviour
     {
         isDead = true;
         anim.SetBool("Dead", true);
+        rigidBody.simulated = false;
         gameObject.GetComponent<BoxCollider2D>().enabled = false;
         StartCoroutine(slowMotion.ActivateSlowMotion(1.5f, 0.5f));
     }
 
     void Respawn()
     {
-        rigidBody.isKinematic = false;
+        rigidBody.simulated = true;
         hp = 100;
         isDead = false;
         transform.position = cam.ScreenToWorldPoint(new Vector3(InitialPos.x, InitialPos.y, InitialPos.z));

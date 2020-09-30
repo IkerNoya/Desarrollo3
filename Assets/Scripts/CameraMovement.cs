@@ -60,6 +60,8 @@ public class CameraMovement : MonoBehaviour
             yield return new WaitForSeconds(time);
             cam.orthographicSize = Mathf.Lerp(cam.orthographicSize, originalSize, 0.8f);
             transform.position = Vector3.Lerp(transform.position, LastPos, 0.8f);
+            if (!player1.GetComponent<PlayerController>().comboController.canAttack) player1.GetComponent<PlayerController>().comboController.canAttack = true;
+            if (!player2.GetComponent<PlayerController>().comboController.canAttack) player2.GetComponent<PlayerController>().comboController.canAttack = true;
             yield return null;
         }
     }
