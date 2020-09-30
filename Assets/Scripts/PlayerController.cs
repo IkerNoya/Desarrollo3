@@ -155,7 +155,7 @@ public class PlayerController : MonoBehaviour
             if (leftOrRighWall) LastDirection = 1;
             else LastDirection = -1;
         }
-
+        Debug.DrawRay(transform.position, Vector3.down, Color.green);
     }
 
     void FixedUpdate()
@@ -334,20 +334,22 @@ public class PlayerController : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("HitCollider") && comboController.canParry && collision.gameObject.layer != gameObject.layer)
+        if (collision.gameObject.CompareTag("HitCollider") && collision.gameObject.layer != gameObject.layer)
         {
-            Debug.Log("ENtra");
-            anim.SetBool("Hit", true);
-            canMove = false;
-            hp -= damage;
-            StartCoroutine(HitCooldown());
-            StartCoroutine(cameraShake.Shake(shakeDuration, shakeMagnitude));
-            takeDamage(this);
-            if (hp <= 0)
+            if (comboController.canParry) // Decides wether you can suffer damage or not
             {
-                Dead();
-                EmptyHP(this);
-                StartCoroutine(RespawnPlayer());
+                anim.SetBool("Hit", true);
+                canMove = false;
+                hp -= damage;
+                StartCoroutine(HitCooldown());
+                StartCoroutine(cameraShake.Shake(shakeDuration, shakeMagnitude));
+                takeDamage(this);
+                if (hp <= 0)
+                {
+                    Dead();
+                    EmptyHP(this);
+                    StartCoroutine(RespawnPlayer());
+                }
             }
         }
 

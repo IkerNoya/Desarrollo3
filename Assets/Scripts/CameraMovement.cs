@@ -15,6 +15,7 @@ public class CameraMovement : MonoBehaviour
     Vector3 LastPos;
     bool canZoom;
     Vector3 direction;
+    float lerpInterpolations = 0.8f;
     void Awake()
     {
         PlayerController.Zoom += ZoomOnPlayer;
@@ -55,11 +56,11 @@ public class CameraMovement : MonoBehaviour
             middlePoint.x = player1.transform.position.x + (player2.transform.position.x - player1.transform.position.x) / 2;
             middlePoint.y = player1.transform.position.y + (player2.transform.position.y - player1.transform.position.y) / 2;
             middlePoint.z = transform.position.z;
-            cam.orthographicSize = Mathf.Lerp(cam.orthographicSize, wantedSize, 0.8f);
-            transform.position = Vector3.Lerp(transform.position, middlePoint, 0.8f);
+            cam.orthographicSize = Mathf.Lerp(cam.orthographicSize, wantedSize, lerpInterpolations);
+            transform.position = Vector3.Lerp(transform.position, middlePoint, lerpInterpolations);
             yield return new WaitForSeconds(time);
-            cam.orthographicSize = Mathf.Lerp(cam.orthographicSize, originalSize, 0.8f);
-            transform.position = Vector3.Lerp(transform.position, LastPos, 0.8f);
+            cam.orthographicSize = Mathf.Lerp(cam.orthographicSize, originalSize, lerpInterpolations);
+            transform.position = Vector3.Lerp(transform.position, LastPos, lerpInterpolations);
             if (!player1.GetComponent<PlayerController>().comboController.canAttack) player1.GetComponent<PlayerController>().comboController.canAttack = true;
             if (!player2.GetComponent<PlayerController>().comboController.canAttack) player2.GetComponent<PlayerController>().comboController.canAttack = true;
             yield return null;
