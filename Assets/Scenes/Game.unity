@@ -2640,6 +2640,11 @@ PrefabInstance:
       propertyPath: parryCol
       value: 
       objectReference: {fileID: 1360774938}
+    - target: {fileID: 1225701373364830908, guid: 9342dd73a39486b4da82c2afa2922bcd,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 9296e82caa0ec5a458e27a156a522610, type: 2}
     - target: {fileID: 1225701374320304568, guid: 9342dd73a39486b4da82c2afa2922bcd,
         type: 3}
       propertyPath: cameraShake
@@ -2729,6 +2734,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Player 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1225701374430052507, guid: 9342dd73a39486b4da82c2afa2922bcd,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9342dd73a39486b4da82c2afa2922bcd, type: 3}
@@ -3011,6 +3021,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Player 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4395031986943511727, guid: fc79662f102093c4e99dd88d345bc744,
+        type: 3}
+      propertyPath: m_GravityScale
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 4395031987110380140, guid: fc79662f102093c4e99dd88d345bc744,
         type: 3}

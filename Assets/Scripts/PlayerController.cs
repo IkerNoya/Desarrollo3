@@ -202,7 +202,7 @@ public class PlayerController : MonoBehaviour
     }
 
     #region FUNCTIONS
-
+     
     public void SetCanMove(bool value)
     {
         canMove = value;
@@ -277,7 +277,6 @@ public class PlayerController : MonoBehaviour
     {
         isDead = true;
         anim.SetBool("Dead", true);
-        rigidBody.isKinematic = true;
         gameObject.GetComponent<BoxCollider2D>().enabled = false;
         StartCoroutine(slowMotion.ActivateSlowMotion(1.5f, 0.5f));
     }
