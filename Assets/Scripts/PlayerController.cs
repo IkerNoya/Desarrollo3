@@ -9,24 +9,31 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float jumpForce;
     [SerializeField] float distanceToGround = 0.01f;
     [SerializeField] float distanceToWall = 0.01f;
+    [SpaceAttribute]
     [SerializeField] string[] animNames;
+    [SpaceAttribute]
     [SerializeField] string playerAxis;
     [SerializeField] string joystickAxis;
-    [SerializeField] int NoOfJumps;
+    [SerializeField] int noOfJumps;
+    [SpaceAttribute]
     [SerializeField] KeyCode attackButtonKM;
     [SerializeField] KeyCode attackButtonJoystick;
     [SerializeField] KeyCode jumpButtonKM;
     [SerializeField] KeyCode jumpButtonJoystick;
     [SerializeField] KeyCode parryButtonKM;
     [SerializeField] KeyCode parryButtonJoystick;
+    [SpaceAttribute]
     [SerializeField] GameObject player;
     [SerializeField] Rigidbody2D rigidBody;
     [SerializeField] SlowMotion slowMotion;
     [SerializeField] BoxCollider2D playerCollider;
+    [SpaceAttribute]
     [SerializeField] Vector3 InitialPos;
+    [SpaceAttribute]
     [SerializeField] LayerMask groundLayer;
     [SerializeField] LayerMask layerWallL;
     [SerializeField] LayerMask layerWallR;
+    [SpaceAttribute]
     [SerializeField] GameObject enemy;
     public enum PlayerSelect
     {
@@ -41,9 +48,10 @@ public class PlayerController : MonoBehaviour
     public float shakeMagnitude;
     public CombatController comboController;
     public CameraShake cameraShake;
+    [SpaceAttribute]
     public PlayerSelect playerSelect;
     State state;
-
+    [SpaceAttribute]
     public Animator anim;
 
     bool isGrounded = false;
@@ -82,7 +90,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         cam = Camera.main;
-        jumpAmmount = NoOfJumps;
+        jumpAmmount = noOfJumps;
         comboController.hitCol.SetActive(false);
         transform.position = new Vector3(InitialPos.x, InitialPos.y, InitialPos.z);
         InitialPos = cam.WorldToScreenPoint(transform.localPosition);
@@ -138,7 +146,7 @@ public class PlayerController : MonoBehaviour
         {
             wasGrounded = true;
             comboController.canAttack = true;
-            jumpAmmount = NoOfJumps;
+            jumpAmmount = noOfJumps;
             canWallJump = true;
             anim.SetBool("IsJumping", false);
             anim.SetBool("IsFalling", false);
