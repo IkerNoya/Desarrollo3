@@ -4,28 +4,28 @@ using UnityEngine.UI;
 
 public class HPController : MonoBehaviour
 {
+    #region VARIABLES
     [SerializeField] PlayerController player;
     [SerializeField] CameraShake HealthBarShake;
     [SerializeField] Image healthBar;
     [SerializeField] float hpShakeDuration;
     [SerializeField] float hpShakeMagnitude;
     float healthbarSize = 1f;
+    #endregion
 
+    #region BASE_FUNCTIONS
     private void Awake()
     {
         PlayerController.EmptyHP += HPEmpty;
         PlayerController.takeDamage += TakeDamage;
     }
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
     void Update()
     {
         healthBar.fillAmount = HitPercentage(player.hp, healthbarSize);
     }
+    #endregion
+
+    #region FUNCTIONS
     float HitPercentage(int damage, float barSize)
     {
         float maxPercentage = 100;
@@ -41,9 +41,13 @@ public class HPController : MonoBehaviour
          healthBar.fillAmount = 0f;
          StartCoroutine(HealthBarShake.Shake(hpShakeDuration, hpShakeMagnitude));
     }
+    #endregion
+
+    #region BASE_FUCTIONS
     private void OnDisable()
     {
         PlayerController.EmptyHP -= HPEmpty;
         PlayerController.takeDamage -= TakeDamage;
     }
+    #endregion
 }

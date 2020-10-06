@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class CameraMovement : MonoBehaviour
 {
+    #region VARIABLES
     [SerializeField] GameObject crown;
     [SerializeField] float speed;
     [SerializeField] float offset;
@@ -16,6 +17,9 @@ public class CameraMovement : MonoBehaviour
     bool canZoom;
     Vector3 direction;
     float lerpInterpolations = 0.8f;
+    #endregion
+
+    #region BASE_FUNCTIONS
     void Awake()
     {
         PlayerController.Zoom += ZoomOnPlayer;
@@ -42,11 +46,16 @@ public class CameraMovement : MonoBehaviour
                     
         if(!canZoom) LastPos = transform.position;
     }
+    #endregion
+
+    #region FUNCTIONS
     void ZoomOnPlayer(PlayerController pc)
     {
         StartCoroutine(ZoomIn(1f));
     }
+    #endregion
 
+    #region COROUTINES
     IEnumerator ZoomIn(float time)
     {
         canZoom = true;
@@ -56,9 +65,13 @@ public class CameraMovement : MonoBehaviour
             middlePoint.x = player1.transform.position.x + (player2.transform.position.x - player1.transform.position.x) / 2;
             middlePoint.y = player1.transform.position.y + (player2.transform.position.y - player1.transform.position.y) / 2;
             middlePoint.z = transform.position.z;
-            cam.orthographicSize = Mathf.Lerp(cam.orthographicSize, wantedSize, lerpInterpolations);
-            transform.position = Vector3.Lerp(transform.position, middlePoint, lerpInterpolations);
-            yield return new WaitForSeconds(time);
+            float t = 0;
+            while (cam.orthographicSize > wantedSize)
+            {
+                t += Time.deltaTime * 5;
+                cam.orthographicSize = Mathf.Lerp(cam.orthographicSize, wantedSize, t);
+                transform.position = Vector3.Lerp(transform.position, middlePoint, t);
+            }
             cam.orthographicSize = Mathf.Lerp(cam.orthographicSize, originalSize, lerpInterpolations);
             transform.position = Vector3.Lerp(transform.position, LastPos, lerpInterpolations);
             if (!player1.GetComponent<PlayerController>().comboController.canAttack) player1.GetComponent<PlayerController>().comboController.canAttack = true;
@@ -66,9 +79,12 @@ public class CameraMovement : MonoBehaviour
             yield return null;
         }
     }
+    #endregion
 
+    #region BASE_FUNCTIONS
     private void OnDisable()
     {
         PlayerController.Zoom -= ZoomOnPlayer;
     }
+    #endregion
 }

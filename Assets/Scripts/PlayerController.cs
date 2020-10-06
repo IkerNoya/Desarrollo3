@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    #region Variables
     [SerializeField] float speed;
     [SerializeField] float wallStickiness;
     [SerializeField] float jumpForce;
@@ -78,11 +79,15 @@ public class PlayerController : MonoBehaviour
     Vector2 movement;
 
     Camera cam;
+    #endregion
 
+    #region Actions
     public static Action<PlayerController> takeDamage;
     public static Action<PlayerController> EmptyHP;
     public static Action<PlayerController> Zoom;
+    #endregion
 
+    #region BASE_FUNCTIONS
     private void Awake()
     {
         Parry.parryEffect += ParryHit;
@@ -173,6 +178,7 @@ public class PlayerController : MonoBehaviour
             switch (state)
             {
                 case State.Grounded:
+                    jumpAmmount = 2;
                     rigidBody.velocity = new Vector2(movement.x, rigidBody.velocity.y);
                     break;
 
@@ -208,6 +214,7 @@ public class PlayerController : MonoBehaviour
         }
 
     }
+    #endregion
 
     #region FUNCTIONS
 
@@ -215,7 +222,7 @@ public class PlayerController : MonoBehaviour
     {
         canMove = value;
     }
-
+    
     void Inputs()
     {
         if ((Input.GetKeyDown(attackButtonKM) || Input.GetKeyDown(attackButtonJoystick)) && isGrounded && comboController.canAttack)
@@ -227,6 +234,7 @@ public class PlayerController : MonoBehaviour
         }
         if ((Input.GetKeyDown(jumpButtonKM) || Input.GetKeyDown(jumpButtonJoystick)) && jumpAmmount > 0 && canMove && !comboController.isAttacking)
         {
+            state = State.Jumping; 
             isGrounded = false;
             jumped = true;
             jumpAmmount--;
@@ -414,8 +422,10 @@ public class PlayerController : MonoBehaviour
     }
     #endregion COROUTINES
 
+    #region BASE_FUNCTIONS
     private void OnDisable()
     {
         Parry.parryEffect -= ParryHit;
     }
+    #endregion
 }

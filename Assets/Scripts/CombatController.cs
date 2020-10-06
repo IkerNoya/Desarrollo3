@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class CombatController : MonoBehaviour
 {
+    #region VARIABLES
     public float hitCooldown;
     [SerializeField] PlayerController playerAnim;
     public GameObject hitCol;
@@ -12,13 +13,18 @@ public class CombatController : MonoBehaviour
     [HideInInspector] public bool canAttack = true;
     [HideInInspector] public bool canParry = true;
 
-
     float lastHit;
+    #endregion
+
+    #region BASE_FUNCTIONS
     private void Start()
     {
 
         parryCol.SetActive(false);
     }
+    #endregion
+
+    #region FUNCTIONS
     public void StartCombo()
     {
         if ((Time.time - lastHit) > hitCooldown)
@@ -36,6 +42,9 @@ public class CombatController : MonoBehaviour
         }
         hitCounter = Mathf.Clamp(hitCounter, 0, 3);
     }
+    #endregion
+
+    #region ANIMATIONS_EVENTS
     public void Attack1()
     {
         hitCol.SetActive(false);
@@ -93,9 +102,13 @@ public class CombatController : MonoBehaviour
         parryCol.SetActive(true);
         canParry = false; 
     }
+    #endregion
+
+    #region COROUTINES
     IEnumerator WaitToAttack()
     {
         yield return new WaitForSeconds(1f);
         canAttack = true;
     }
+    #endregion
 }
