@@ -26,7 +26,6 @@ public class PlayerController : MonoBehaviour
     [SpaceAttribute]
     [SerializeField] GameObject player;
     [SerializeField] Rigidbody2D rigidBody;
-    [SerializeField] SlowMotion slowMotion;
     [SerializeField] BoxCollider2D playerCollider;
     [SpaceAttribute]
     [SerializeField] Vector3 InitialPos;
@@ -36,6 +35,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] LayerMask layerWallR;
     [SpaceAttribute]
     [SerializeField] GameObject enemy;
+    [SpaceAttribute]
+    public SlowMotion slowMotion;
     public enum PlayerSelect
     {
         player1, player2
@@ -358,7 +359,6 @@ public class PlayerController : MonoBehaviour
                 canMove = false;
                 hp -= damage;
                 StartCoroutine(HitCooldown());
-                StartCoroutine(cameraShake.Shake(shakeDuration, shakeMagnitude));
                 takeDamage(this);
                 if (hp <= 0)
                 {

@@ -102,6 +102,10 @@ public class CombatController : MonoBehaviour
         parryCol.SetActive(true);
         canParry = false; 
     }
+    public void ShakeOnThirdHit()
+    {
+        StartCoroutine(playerAnim.cameraShake.Shake(playerAnim.shakeDuration, playerAnim.shakeMagnitude));
+    }
     #endregion
 
     #region COROUTINES

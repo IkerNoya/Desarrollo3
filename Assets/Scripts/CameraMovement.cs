@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using UnityEditor.UIElements;
 using UnityEngine;
 
 public class CameraMovement : MonoBehaviour
@@ -17,6 +18,7 @@ public class CameraMovement : MonoBehaviour
     bool canZoom;
     Vector3 direction;
     float lerpInterpolations = 0.8f;
+    float t = 0;
     #endregion
 
     #region BASE_FUNCTIONS
@@ -43,8 +45,24 @@ public class CameraMovement : MonoBehaviour
 
         if (transform.position.y < lastY-offset) 
             transform.position += direction * speed * Time.deltaTime;
-                    
-        if(!canZoom) LastPos = transform.position;
+
+        if (canZoom)
+        {
+            t += Time.deltaTime * lerpInterpolations;
+            Vector3 middlePoint;
+            middlePoint.x = player1.transform.position.x + (player2.transform.position.x - player1.transform.position.x) / 2;
+            middlePoint.y = player1.transform.position.y + (player2.transform.position.y - player1.transform.position.y) / 2;
+            middlePoint.z = transform.position.z;
+            cam.orthographicSize = Mathf.Lerp(cam.orthographicSize, wantedSize, t);
+            transform.position = Vector3.Lerp(transform.position, middlePoint, t);
+        }
+        else
+        {
+            t += Time.deltaTime * lerpInterpolations;
+            cam.orthographicSize = Mathf.Lerp(cam.orthographicSize, originalSize, t);
+            transform.position = Vector3.Lerp(transform.position, LastPos, t);
+            LastPos = transform.position;
+        }
     }
     #endregion
 
@@ -61,19 +79,11 @@ public class CameraMovement : MonoBehaviour
         canZoom = true;
         if (player1 != null && player2 != null)
         {
-            Vector3 middlePoint;
-            middlePoint.x = player1.transform.position.x + (player2.transform.position.x - player1.transform.position.x) / 2;
-            middlePoint.y = player1.transform.position.y + (player2.transform.position.y - player1.transform.position.y) / 2;
-            middlePoint.z = transform.position.z;
-            float t = 0;
-            while (cam.orthographicSize > wantedSize)
-            {
-                t += Time.deltaTime * 5;
-                cam.orthographicSize = Mathf.Lerp(cam.orthographicSize, wantedSize, t);
-                transform.position = Vector3.Lerp(transform.position, middlePoint, t);
-            }
-            cam.orthographicSize = Mathf.Lerp(cam.orthographicSize, originalSize, lerpInterpolations);
-            transform.position = Vector3.Lerp(transform.position, LastPos, lerpInterpolations);
+            t = 0;
+            canZoom = true;
+            yield return new WaitForSeconds(time);
+            t = 0;
+            canZoom = false;
             if (!player1.GetComponent<PlayerController>().comboController.canAttack) player1.GetComponent<PlayerController>().comboController.canAttack = true;
             if (!player2.GetComponent<PlayerController>().comboController.canAttack) player2.GetComponent<PlayerController>().comboController.canAttack = true;
             yield return null;
