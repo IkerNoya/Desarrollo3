@@ -645,7 +645,7 @@ AnimatorStateTransition:
   m_TransitionDuration: 0.01639313
   m_TransitionOffset: 0
   m_ExitTime: 0.000000018081607
-  m_HasExitTime: 1
+  m_HasExitTime: 0
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
@@ -1645,7 +1645,7 @@ AnimatorStateTransition:
   m_TransitionDuration: 0.010487287
   m_TransitionOffset: 0
   m_ExitTime: 0
-  m_HasExitTime: 1
+  m_HasExitTime: 0
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
@@ -2285,7 +2285,7 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 0.25
+  m_TransitionDuration: 0.010610104
   m_TransitionOffset: 0
   m_ExitTime: 0.75
   m_HasExitTime: 0
@@ -2525,7 +2525,7 @@ AnimatorStateMachine:
   m_ChildStates:
   - serializedVersion: 1
     m_State: {fileID: -5740211118211945918}
-    m_Position: {x: 440, y: -40, z: 0}
+    m_Position: {x: 510, y: 10, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -7560367427381410439}
     m_Position: {x: 120, y: 140, z: 0}
@@ -2549,7 +2549,7 @@ AnimatorStateMachine:
     m_Position: {x: 450, y: 430, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -8276655822925621162}
-    m_Position: {x: -160, y: 140, z: 0}
+    m_Position: {x: -260, y: 130, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 6371498193329925534}
     m_Position: {x: 700, y: -390, z: 0}
@@ -2559,7 +2559,7 @@ AnimatorStateMachine:
   m_ChildStateMachines:
   - serializedVersion: 1
     m_StateMachine: {fileID: -947511935208847853}
-    m_Position: {x: 270, y: -410, z: 0}
+    m_Position: {x: 240, y: -490, z: 0}
   m_AnyStateTransitions:
   - {fileID: 4251349924449104500}
   m_EntryTransitions: []
@@ -2595,10 +2595,10 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 0.24364395
+  m_TransitionDuration: 0.08132507
   m_TransitionOffset: 0
   m_ExitTime: 0.24999991
-  m_HasExitTime: 1
+  m_HasExitTime: 0
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
   m_OrderedInterruption: 1

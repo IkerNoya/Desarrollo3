@@ -17,12 +17,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] string joystickAxis;
     [SerializeField] int noOfJumps;
     [SpaceAttribute]
-    [SerializeField] KeyCode attackButtonKM;
-    [SerializeField] KeyCode attackButtonJoystick;
     [SerializeField] KeyCode jumpButtonKM;
     [SerializeField] KeyCode jumpButtonJoystick;
-    [SerializeField] KeyCode parryButtonKM;
-    [SerializeField] KeyCode parryButtonJoystick;
     [SpaceAttribute]
     [SerializeField] GameObject player;
     [SerializeField] Rigidbody2D rigidBody;
@@ -66,6 +62,7 @@ public class PlayerController : MonoBehaviour
     bool jumpInWall = false;
     bool wallJump;
     bool leftOrRighWall = false; // true = left, false = right;
+    bool wj = false;
 
     [HideInInspector]
     public int hp = 100;
@@ -91,7 +88,7 @@ public class PlayerController : MonoBehaviour
     #region BASE_FUNCTIONS
     private void Awake()
     {
-        Parry.parryEffect += ParryHit;
+     
     }
     void Start()
     {
@@ -101,31 +98,25 @@ public class PlayerController : MonoBehaviour
         transform.position = new Vector3(InitialPos.x, InitialPos.y, InitialPos.z);
         InitialPos = cam.WorldToScreenPoint(transform.localPosition);
         wallJump = true;
+        Time.timeScale = 1;
     }
 
     void Update()
     {
-        if (isDead)
+        if (isDead||!canMove)
             return;
-        if (canMove)
-        {
-            direction = Input.GetAxis(playerAxis) + Input.GetAxis(joystickAxis);
-            movement = new Vector2(direction, 0) * speed;
-        }
+        direction = Input.GetAxis(playerAxis) + Input.GetAxis(joystickAxis);
+        movement = new Vector2(direction, 0) * speed;
         Inputs();
-        if (!comboController.isAttacking)
-        {
-            MovementAnimations();
-        }
         if (direction != 0)
         {
             LastDirection = direction;
         }
-        if (LastDirection > 0 && !isInWall)
+        if (LastDirection > 0/* && !isInWall*/)
         {
             player.transform.eulerAngles = new Vector3(0, 0, 0);
         }
-        else if (LastDirection < 0 && !isInWall)
+        else if (LastDirection < 0/* && !isInWall*/)
         {
             player.transform.eulerAngles = new Vector3(0, 180, 0);
         }
@@ -144,32 +135,24 @@ public class PlayerController : MonoBehaviour
         }
         if (!isInWall && !isGrounded)
         {
-            anim.SetBool("WallSlide", false);
-            anim.SetBool("WallStick", false);
-            anim.SetBool("WallJump", false);
+            ResetWallJump();
         }
         if (isGrounded && !wasGrounded)
         {
-            wasGrounded = true;
-            comboController.canAttack = true;
-            jumpAmmount = noOfJumps;
+            ResetWallJump();
+            anim.ResetTrigger("Jump");
             canWallJump = true;
-            anim.SetBool("IsJumping", false);
-            anim.SetBool("IsFalling", false);
-            anim.SetBool("WallSlide", false);
-            anim.SetBool("WallStick", false);
-            anim.SetBool("WallJump", false);
+            wasGrounded = true;
+            jumpAmmount = noOfJumps;
         }
         if (isGrounded && !jumped) state = State.Grounded;
         else if (jumped) state = State.Jumping;
         else if (!isGrounded && isInWall) state = State.InWall;
         wasGrounded = isGrounded;
-        if (anim.GetBool("IsFalling"))
-        {
-            if (leftOrRighWall) LastDirection = 1;
-            else LastDirection = -1;
-        }
-        Debug.DrawRay(transform.position, Vector3.down, Color.green);
+        anim.SetBool("Grounded", isGrounded);
+        anim.SetFloat("VelocityY", rigidBody.velocity.y);
+        anim.SetFloat("VelocityX", Mathf.Abs(direction));
+        if (wj) anim.SetTrigger("WJ");
     }
 
     void FixedUpdate()
@@ -179,11 +162,16 @@ public class PlayerController : MonoBehaviour
             switch (state)
             {
                 case State.Grounded:
-                    jumpAmmount = 2;
-                    rigidBody.velocity = new Vector2(movement.x, rigidBody.velocity.y);
+                    if (canMove)
+                    {
+                        ResetWallJump();
+                        jumpAmmount = 2;
+                        rigidBody.velocity = new Vector2(movement.x, rigidBody.velocity.y);
+                    }
                     break;
 
                 case State.Jumping:
+                    anim.SetTrigger("Jump");
                     lastVelocity = 0;
                     rigidBody.velocity = new Vector2(movement.x, jumpForce);
                     jumped = false;
@@ -197,20 +185,18 @@ public class PlayerController : MonoBehaviour
                     break;
 
                 case State.InWall:
-                    anim.SetBool("WallStick", true);
-                    anim.SetBool("WallSlide", true);
-                    rigidBody.velocity = new Vector2(movement.x, wallStickiness);
-                    if (jumpInWall)
+                    if (!isGrounded) 
                     {
-                        anim.SetBool("WallJump", true);
-                        anim.SetBool("WallStick", false);
-                        anim.SetBool("WallSlide", false);
-                        if (leftOrRighWall) LastDirection = 1;
-                        else LastDirection = -1;
-
-                        StartCoroutine(WallJumpCoolDown());
+                        anim.ResetTrigger("Jump");
+                        StartCoroutine(WallSlideTransition(0.1403281f));
+                        rigidBody.velocity = new Vector2(movement.x, wallStickiness);
+                        if (jumpInWall)
+                        {
+                            StartCoroutine(WallJumpCoolDown(0.1f));
+                        }
                     }
-                    break;
+                        break;
+
             }
         }
 
@@ -226,14 +212,8 @@ public class PlayerController : MonoBehaviour
     
     void Inputs()
     {
-        if ((Input.GetKeyDown(attackButtonKM) || Input.GetKeyDown(attackButtonJoystick)) && isGrounded && comboController.canAttack)
-        {
-            comboController.isAttacking = true;
-            canMove = false;
-            rigidBody.velocity = Vector2.zero;
-            comboController.StartCombo();
-        }
-        if ((Input.GetKeyDown(jumpButtonKM) || Input.GetKeyDown(jumpButtonJoystick)) && jumpAmmount > 0 && canMove && !comboController.isAttacking)
+
+        if ((Input.GetKeyDown(jumpButtonKM) || Input.GetKeyDown(jumpButtonJoystick)) && jumpAmmount > 0 && canMove && !comboController.IsAttacking)
         {
             state = State.Jumping; 
             isGrounded = false;
@@ -244,56 +224,18 @@ public class PlayerController : MonoBehaviour
         {
             jumpInWall = true;
         }
-        if((Input.GetKeyDown(parryButtonKM) || Input.GetKeyDown(parryButtonJoystick) && isGrounded && comboController.canAttack))
-        {
-            comboController.canParry = false;
-            anim.SetBool("Parry", true);
-        }
     }
-
-    void MovementAnimations()
+    void ResetWallJump()
     {
-        if ((direction > runAxisLimit || direction < -runAxisLimit) && !comboController.isAttacking && isGrounded && canMove)
-        {
-            ActivateAnim("IsRunning");
-        }
-        if (direction < runAxisLimit && direction > -runAxisLimit && isGrounded && !isInWall)
-        {
-            ActivateAnim("Idle");
-        }
-        if (rigidBody.velocity.y > 0 && !isGrounded && canMove && !jumpInWall)
-        {
-            ActivateAnim("IsJumping");
-            anim.SetBool("IsFalling", false);
-            comboController.canAttack = false;
-        }
-        if (rigidBody.velocity.y < 0 && !isGrounded && canMove && !isInWall)
-        {
-            ActivateAnim("IsFalling");
-            comboController.canAttack = false;
-        }
-
+        anim.SetBool("WallSlide", false);
+        anim.SetBool("WallStick", false);
+        anim.SetBool("WallJump", false);
+        anim.ResetTrigger("WJ");
     }
-
-    void ActivateAnim(string name)
-    {
-        for (int i = 0; i < animNames.Length; i++)
-        {
-            if (animNames[i] == name)
-            {
-                anim.SetBool(animNames[i], true);
-            }
-            else
-            {
-                anim.SetBool(animNames[i], false);
-            }
-        }
-    }
-
     void Dead()
     {
         isDead = true;
-        anim.SetBool("Dead", true);
+       
         rigidBody.simulated = false;
         gameObject.GetComponent<BoxCollider2D>().enabled = false;
         StartCoroutine(slowMotion.ActivateSlowMotion(1.5f, 0.5f));
@@ -306,20 +248,12 @@ public class PlayerController : MonoBehaviour
         isDead = false;
         transform.position = cam.ScreenToWorldPoint(new Vector3(InitialPos.x, InitialPos.y, InitialPos.z));
         gameObject.GetComponent<BoxCollider2D>().enabled = true;
-        anim.SetBool("Dead", false);
+       
     }
-
-    void ParryHit(Parry p)
+    public bool GetCanMove()
     {
-        enemy.GetComponent<PlayerController>().anim.SetBool("Hit", true);
-        StartCoroutine(HitCooldown());
-        enemy.GetComponent<PlayerController>().canMove = false;
-        StartCoroutine(slowMotion.ActivateSlowMotion(1f, 0.5f)); 
-        StartCoroutine(cameraShake.Shake(shakeDuration, shakeMagnitude));
-        enemy.GetComponent<PlayerController>().comboController.canAttack = false;
-        Zoom(this);
+        return canMove;
     }
-
     #endregion
 
     #region COLLISIONS
@@ -353,20 +287,20 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("HitCollider") && collision.gameObject.layer != gameObject.layer)
         {
-            if (comboController.canParry) // Decides wether you can suffer damage or not
-            {
-                anim.SetBool("Hit", true);
-                canMove = false;
-                hp -= damage;
-                StartCoroutine(HitCooldown());
-                takeDamage(this);
-                if (hp <= 0)
-                {
-                    Dead();
-                    EmptyHP(this);
-                    StartCoroutine(RespawnPlayer());
-                }
-            }
+            //if (comboController.GetCanParry()) // Decides wether you can suffer damage or not
+            //{
+                
+            //    canMove = false;
+            //    hp -= damage;
+            //    StartCoroutine(HitCooldown());
+            //    takeDamage(this);
+            //    if (hp <= 0)
+            //    {
+            //        Dead();
+            //        EmptyHP(this);
+            //        StartCoroutine(RespawnPlayer());
+            //    }
+            //}
         }
 
     }
@@ -375,7 +309,6 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.CompareTag("Ground"))
         {
             isGrounded = false;
-            comboController.canAttack = false;
         }
         if (collision.gameObject.CompareTag("Walls"))
         {
@@ -386,6 +319,14 @@ public class PlayerController : MonoBehaviour
 
     #region COROUTINES
 
+    IEnumerator WallSlideTransition(float animTime)
+    {
+        anim.SetBool("WallStick", true);
+        yield return new WaitForSeconds(animTime);
+        anim.SetBool("WallStick", false);
+        anim.SetBool("WallSlide", true);
+        yield return null;
+    }
     IEnumerator RespawnPlayer()
     {
         yield return new WaitForSeconds(2.0f);
@@ -396,36 +337,36 @@ public class PlayerController : MonoBehaviour
     {
         yield return new WaitForSeconds(0.5f);
         canMove = true;
-        anim.SetBool("Hit", false);
+       
         yield return null;
     }
-    IEnumerator WallJumpCoolDown()
+    IEnumerator WallJumpCoolDown(float JumpTimer)
     {
+        wj = true;
+        anim.SetTrigger("Jump");
         wallJump = false;
-        if (jumpAmmount > 0)
+        yield return new WaitForSeconds(JumpTimer);
+        if (jumpAmmount > 0) 
         {
+            ResetWallJump();
             if (leftOrRighWall)
             {
-                rigidBody.velocity = new Vector2(jumpForce / 2 + movement.x, jumpForce);
+                rigidBody.velocity = new Vector2(jumpForce / 2, jumpForce);
             }
             else
             {
-                rigidBody.velocity = new Vector2(-jumpForce / 2 + movement.x, jumpForce);
+                rigidBody.velocity = new Vector2(-jumpForce / 2, jumpForce);
+
             }
             lastVelocity = rigidBody.velocity.x;
         }
         yield return new WaitForSeconds(0.2f);
         state = State.Falling;
+        wj = false;
         jumpInWall = false;
         wallJump = true;
         yield return null;
     }
     #endregion COROUTINES
 
-    #region BASE_FUNCTIONS
-    private void OnDisable()
-    {
-        Parry.parryEffect -= ParryHit;
-    }
-    #endregion
 }

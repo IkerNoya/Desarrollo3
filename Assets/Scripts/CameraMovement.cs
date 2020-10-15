@@ -84,8 +84,6 @@ public class CameraMovement : MonoBehaviour
             yield return new WaitForSeconds(time);
             t = 0;
             canZoom = false;
-            if (!player1.GetComponent<PlayerController>().comboController.canAttack) player1.GetComponent<PlayerController>().comboController.canAttack = true;
-            if (!player2.GetComponent<PlayerController>().comboController.canAttack) player2.GetComponent<PlayerController>().comboController.canAttack = true;
             yield return null;
         }
     }

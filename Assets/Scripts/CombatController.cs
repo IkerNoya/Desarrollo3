@@ -1,118 +1,145 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Transactions;
 using UnityEngine;
 
 public class CombatController : MonoBehaviour
 {
-    #region VARIABLES
-    public float hitCooldown;
-    [SerializeField] PlayerController playerAnim;
-    public GameObject hitCol;
-    public GameObject parryCol;
-    [HideInInspector] public int hitCounter;
-    [HideInInspector] public bool isAttacking = false;
-    [HideInInspector] public bool canAttack = true;
-    [HideInInspector] public bool canParry = true;
+	[SerializeField]
+	private int hitIndex;
+	[SerializeField]
+	private float hitCooldown;
+	[SerializeField]
+	private string currentComboName;
+	[Serializable]
+	public class Combo
+	{
+		public string ComboName;
+		public List<ComboHit> comboData;
+	}
+	public List<Combo> combos;
+	private Combo currentCombo;
 
-    float lastHit;
-    #endregion
+	private Dictionary<string, Combo> combosByID;
 
-    #region BASE_FUNCTIONS
-    private void Start()
-    {
+	[Serializable]
+	public class ComboHit
+	{
+		public float cooldown = 0.5f;
+		public float hitDuration = 0.1f;
+		public float damage = 10;
+		public KeyCode comboKey;
+		public KeyCode keyBeingPressed;
+		public AnimationClip clip;
+		public bool critical;
+	}
 
-        parryCol.SetActive(false);
-    }
-    #endregion
+	public Animator animator;
+	public AnimatorOverrideController overrider;
+	public GameObject hitCol;
 
-    #region FUNCTIONS
-    public void StartCombo()
-    {
-        if ((Time.time - lastHit) > hitCooldown)
-        {
-            isAttacking = false;
-            playerAnim.SetCanMove(true);
-            hitCounter = 0;
-        }
+	bool isAttacking = false;
+	public bool IsAttacking => isAttacking;
 
-        lastHit = Time.time;
-        hitCounter++;
-        if (hitCounter == 1)
-        {
-            playerAnim.anim.SetBool("IsAttacking_1", true);
-        }
-        hitCounter = Mathf.Clamp(hitCounter, 0, 3);
-    }
-    #endregion
+	private int comboLimit = 3;
 
-    #region ANIMATIONS_EVENTS
-    public void Attack1()
-    {
-        hitCol.SetActive(false);
-        if (hitCounter >= 2)
-        {
-            playerAnim.anim.SetBool("IsAttacking_2", true);
-            playerAnim.anim.SetBool("IsAttacking_1", false);
-        }
-        else
-        {
-            playerAnim.anim.SetBool("IsAttacking_1", false);
-            hitCounter = 0;
-            isAttacking = false;
-            playerAnim.SetCanMove(true);
-        }
-    }
-    public void Attack2()
-    {
-        hitCol.SetActive(false);
-        if (hitCounter >= 3)
-        {
-            playerAnim.anim.SetBool("IsAttacking_3", true);
-        }
-        else
-        {
-            playerAnim.anim.SetBool("IsAttacking_2", false);
-            hitCounter = 0;
-            isAttacking = false;
-            playerAnim.SetCanMove(true);
-        }
-    }
-    public void Attack3()
-    {
-        hitCol.SetActive(false);
-        playerAnim.anim.SetBool("IsAttacking_1", false);
-        playerAnim.anim.SetBool("IsAttacking_2", false);
-        playerAnim.anim.SetBool("IsAttacking_3", false);
-        isAttacking = false;
-        playerAnim.SetCanMove(true);
-        hitCounter = 0;
-    }
-    public void ActivateHit()
-    {
-        hitCol.SetActive(true);
-    }
-    public void DeactivateParry()
-    {
-        parryCol.SetActive(false);
-        canParry = true;
-        playerAnim.anim.SetBool("Parry", false);
-        StartCoroutine(WaitToAttack());
-    }
-    public void ActivateParry()
-    {
-        parryCol.SetActive(true);
-        canParry = false; 
-    }
-    public void ShakeOnThirdHit()
-    {
-        StartCoroutine(playerAnim.cameraShake.Shake(playerAnim.shakeDuration, playerAnim.shakeMagnitude));
-    }
-    #endregion
+	PlayerController player;
 
-    #region COROUTINES
-    IEnumerator WaitToAttack()
-    {
-        yield return new WaitForSeconds(1f);
-        canAttack = true;
-    }
-    #endregion
+	public event Action OnComboCanceled;
+
+	float timer = 0;
+
+	private void Start()
+	{
+		combosByID = new Dictionary<string, Combo>();
+
+		Time.timeScale = 0.5f;
+
+		player = GetComponentInParent<PlayerController>();
+
+		foreach (Combo combo in combos)
+		{
+			combosByID.Add(combo.ComboName, combo);
+		}
+	}
+
+	void Update()
+	{
+		if (currentCombo == null)
+		{
+			timer += Time.deltaTime;
+			foreach (Combo combo in combos)
+			{
+				ComboHit comboHit = combo.comboData[0];
+				if (Input.GetKeyDown(comboHit.comboKey) && timer >= comboHit.hitDuration)
+				{
+					timer = 0;
+					player.SetCanMove(false);
+					StartCombo(combo);
+					break;
+				}
+			}
+		}
+		else
+		{
+			if (hitIndex < currentCombo.comboData.Count)
+			{
+                timer += Time.deltaTime;
+                if (Input.GetKeyDown(currentCombo.comboData[hitIndex].comboKey) && timer >= currentCombo.comboData[hitIndex].hitDuration)
+				{
+					timer = 0;
+					AttackAction();
+				}
+			}
+		}
+
+		hitCooldown -= Time.deltaTime;
+		if (hitCooldown <= 0)
+			CancelCombo();
+	}
+
+	void StartCombo(Combo combo)
+	{
+		currentCombo = combo;
+		currentComboName = currentCombo.ComboName;
+		AttackAction();
+	}
+
+	public void AttackAction()
+	{
+		comboLimit = currentCombo.comboData.Count;
+		hitCooldown = currentCombo.comboData[hitIndex].cooldown;
+		overrider["Hit"] = currentCombo.comboData[hitIndex].clip;
+		hitIndex++;
+		animator.SetTrigger("Hit");
+		SetHitAnim();
+	}
+
+	public void CancelCombo()
+	{
+		currentComboName = "";
+		hitIndex = 0;
+		currentCombo = null;
+		player.SetCanMove(true);
+		OnComboCanceled?.Invoke();
+	}
+
+	void SetHitAnim()
+	{
+		float anim = hitIndex / (float)comboLimit;
+		//animator.SetFloat("ComboIndexFloat", anim);
+	}
+
+	public void ActivateHit()
+	{
+		hitCol.SetActive(true);
+		StartCoroutine(DeactivateHitIn(0.1f));
+	}
+
+	IEnumerator DeactivateHitIn(float t)
+	{
+		yield return new WaitForSeconds(t);
+		hitCol.SetActive(false);
+	}
 }
