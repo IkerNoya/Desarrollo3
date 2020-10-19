@@ -3200,7 +3200,13 @@ PrefabInstance:
       propertyPath: distanceToGround
       value: 0.9
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 4395031987110380140, guid: fc79662f102093c4e99dd88d345bc744,
+        type: 3}
+      propertyPath: jumpForce
+      value: 11
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 4395031985313786523, guid: fc79662f102093c4e99dd88d345bc744, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: fc79662f102093c4e99dd88d345bc744, type: 3}
 --- !u!1001 &6182286347763801502
 PrefabInstance:

@@ -46,23 +46,23 @@ public class CameraMovement : MonoBehaviour
         if (transform.position.y < lastY-offset) 
             transform.position += direction * speed * Time.deltaTime;
 
-        if (canZoom)
-        {
-            t += Time.deltaTime * lerpInterpolations;
-            Vector3 middlePoint;
-            middlePoint.x = player1.transform.position.x + (player2.transform.position.x - player1.transform.position.x) / 2;
-            middlePoint.y = player1.transform.position.y + (player2.transform.position.y - player1.transform.position.y) / 2;
-            middlePoint.z = transform.position.z;
-            cam.orthographicSize = Mathf.Lerp(cam.orthographicSize, wantedSize, t);
-            transform.position = Vector3.Lerp(transform.position, middlePoint, t);
-        }
-        else
-        {
-            t += Time.deltaTime * lerpInterpolations;
-            cam.orthographicSize = Mathf.Lerp(cam.orthographicSize, originalSize, t);
-            transform.position = Vector3.Lerp(transform.position, LastPos, t);
-            LastPos = transform.position;
-        }
+        //if (canZoom)
+        //{
+        //    t += Time.deltaTime * lerpInterpolations;
+        //    Vector3 middlePoint;
+        //    middlePoint.x = player1.transform.position.x + (player2.transform.position.x - player1.transform.position.x) / 2;
+        //    middlePoint.y = player1.transform.position.y + (player2.transform.position.y - player1.transform.position.y) / 2;
+        //    middlePoint.z = transform.position.z;
+        //    cam.orthographicSize = Mathf.Lerp(cam.orthographicSize, wantedSize, t);
+        //    transform.position = Vector3.Lerp(transform.position, middlePoint, t);
+        //}
+        //else
+        //{
+        //    t += Time.deltaTime * lerpInterpolations;
+        //    cam.orthographicSize = Mathf.Lerp(cam.orthographicSize, originalSize, t);
+        //    transform.position = Vector3.Lerp(transform.position, LastPos, t);
+        //    LastPos = transform.position;
+        //}
     }
     #endregion
 

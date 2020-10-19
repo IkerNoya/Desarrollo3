@@ -92,7 +92,7 @@ public class PlayerController : MonoBehaviour
     }
     void Start()
     {
-        cam = Camera.main;
+        cam = Camera.main; 
         jumpAmmount = noOfJumps;
         comboController.hitCol.SetActive(false);
         transform.position = new Vector3(InitialPos.x, InitialPos.y, InitialPos.z);
@@ -287,20 +287,16 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("HitCollider") && collision.gameObject.layer != gameObject.layer)
         {
-            //if (comboController.GetCanParry()) // Decides wether you can suffer damage or not
-            //{
-                
-            //    canMove = false;
-            //    hp -= damage;
-            //    StartCoroutine(HitCooldown());
-            //    takeDamage(this);
-            //    if (hp <= 0)
-            //    {
-            //        Dead();
-            //        EmptyHP(this);
-            //        StartCoroutine(RespawnPlayer());
-            //    }
-            //}
+            canMove = false;
+            hp -= damage;
+            StartCoroutine(HitCooldown());
+            takeDamage(this);
+            if (hp <= 0)
+            {
+                Dead();
+                EmptyHP(this);
+                StartCoroutine(RespawnPlayer());
+            }
         }
 
     }
