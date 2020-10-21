@@ -111,7 +111,7 @@ public class PlayerController : MonoBehaviour
             movement = Vector3.zero;
             rigidBody.velocity = Vector3.zero;
         }
-        
+            
         direction = Input.GetAxis(playerAxis) + Input.GetAxis(joystickAxis);
         movement = new Vector2(direction, 0) * speed;
         Inputs();
