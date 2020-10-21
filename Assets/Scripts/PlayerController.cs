@@ -287,6 +287,8 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("HitCollider") && collision.gameObject.layer != gameObject.layer)
         {
+            // add force later
+            anim.SetTrigger("Damage");
             canMove = false;
             hp -= damage;
             StartCoroutine(HitCooldown());
