@@ -1013,7 +1013,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 357522980}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 549b197b7de9ca64eabbb6add0cf2770, type: 3}
   m_Name: 
@@ -2665,7 +2665,7 @@ PrefabInstance:
     - target: {fileID: 1225701373364830904, guid: 9342dd73a39486b4da82c2afa2922bcd,
         type: 3}
       propertyPath: combos.Array.data[0].comboData.Array.data[0].cooldown
-      value: 1
+      value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 1225701373364830904, guid: 9342dd73a39486b4da82c2afa2922bcd,
         type: 3}
@@ -2690,7 +2690,7 @@ PrefabInstance:
     - target: {fileID: 1225701373364830904, guid: 9342dd73a39486b4da82c2afa2922bcd,
         type: 3}
       propertyPath: combos.Array.data[0].comboData.Array.data[1].cooldown
-      value: 1
+      value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 1225701373364830904, guid: 9342dd73a39486b4da82c2afa2922bcd,
         type: 3}
@@ -2715,7 +2715,7 @@ PrefabInstance:
     - target: {fileID: 1225701373364830904, guid: 9342dd73a39486b4da82c2afa2922bcd,
         type: 3}
       propertyPath: combos.Array.data[0].comboData.Array.data[2].cooldown
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 1225701373364830904, guid: 9342dd73a39486b4da82c2afa2922bcd,
         type: 3}
@@ -2730,7 +2730,7 @@ PrefabInstance:
     - target: {fileID: 1225701373364830904, guid: 9342dd73a39486b4da82c2afa2922bcd,
         type: 3}
       propertyPath: combos.Array.data[0].comboData.Array.data[2].comboKey
-      value: 102
+      value: 274
       objectReference: {fileID: 0}
     - target: {fileID: 1225701373364830904, guid: 9342dd73a39486b4da82c2afa2922bcd,
         type: 3}
@@ -2761,7 +2761,7 @@ PrefabInstance:
     - target: {fileID: 1225701373364830904, guid: 9342dd73a39486b4da82c2afa2922bcd,
         type: 3}
       propertyPath: combos.Array.data[0].comboData.Array.data[2].keyBeingPressed
-      value: 274
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1225701373364830908, guid: 9342dd73a39486b4da82c2afa2922bcd,
         type: 3}
@@ -3125,7 +3125,7 @@ PrefabInstance:
     - target: {fileID: 4395031985313786517, guid: fc79662f102093c4e99dd88d345bc744,
         type: 3}
       propertyPath: combos.Array.data[0].comboData.Array.data[0].cooldown
-      value: 0.5
+      value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 4395031985313786517, guid: fc79662f102093c4e99dd88d345bc744,
         type: 3}
@@ -3150,7 +3150,7 @@ PrefabInstance:
     - target: {fileID: 4395031985313786517, guid: fc79662f102093c4e99dd88d345bc744,
         type: 3}
       propertyPath: combos.Array.data[0].comboData.Array.data[1].cooldown
-      value: 0.5
+      value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 4395031985313786517, guid: fc79662f102093c4e99dd88d345bc744,
         type: 3}
@@ -3283,6 +3283,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4395031986943511722, guid: fc79662f102093c4e99dd88d345bc744,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4395031986943511727, guid: fc79662f102093c4e99dd88d345bc744,
         type: 3}
       propertyPath: m_GravityScale
@@ -3322,6 +3327,11 @@ PrefabInstance:
         type: 3}
       propertyPath: jumpForce
       value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 4395031987110380140, guid: fc79662f102093c4e99dd88d345bc744,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 4395031985313786523, guid: fc79662f102093c4e99dd88d345bc744, type: 3}

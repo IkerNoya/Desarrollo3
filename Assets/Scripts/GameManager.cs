@@ -22,6 +22,7 @@ public class GameManager : MonoBehaviour
         CapturePoint.EndGame += ChangeScene;
         map.fillAmount = 0f;
         cam = Camera.main;
+        Time.timeScale = 1;
         if(target!=null)
             distanceToGoal = target.position.y - cam.transform.position.y - offset;
     }
