@@ -103,8 +103,16 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        if (isDead||!canMove)
+        if (isDead)
             return;
+        if (!canMove)
+        {
+            direction = 0;
+            movement = Vector3.zero;
+            rigidBody.velocity = Vector3.zero;
+        }
+        Debug.Log(rigidBody.velocity);
+        Debug.Log(direction);
         direction = Input.GetAxis(playerAxis) + Input.GetAxis(joystickAxis);
         movement = new Vector2(direction, 0) * speed;
         Inputs();
@@ -289,7 +297,7 @@ public class PlayerController : MonoBehaviour
         {
             // add force later
             anim.SetTrigger("Damage");
-            canMove = false;
+            StartCoroutine(TakeDamage(0.75f));
             hp -= damage;
             StartCoroutine(HitCooldown());
             takeDamage(this);
@@ -363,6 +371,13 @@ public class PlayerController : MonoBehaviour
         wj = false;
         jumpInWall = false;
         wallJump = true;
+        yield return null;
+    }
+    IEnumerator TakeDamage(float time)
+    {
+        canMove = false;
+        yield return new WaitForSeconds(time);
+        canMove = true;
         yield return null;
     }
     #endregion COROUTINES
