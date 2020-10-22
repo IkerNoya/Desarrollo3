@@ -6,12 +6,9 @@ using UnityEngine;
 
 public class CombatController : MonoBehaviour
 {
-	[SerializeField]
-	private int hitIndex;
-	[SerializeField]
-	private float hitCooldown;
-	[SerializeField]
-	private string currentComboName;
+	[SerializeField] int hitIndex;
+	[SerializeField] float hitCooldown;
+	[SerializeField] string currentComboName;
 	[Serializable]
 	public class Combo
 	{
@@ -42,7 +39,7 @@ public class CombatController : MonoBehaviour
 	bool isAttacking = false;
 	public bool IsAttacking => isAttacking;
 
-	private int comboLimit = 3;
+	int comboLimit = 3;
 
 	PlayerController player;
 
@@ -50,7 +47,7 @@ public class CombatController : MonoBehaviour
 
 	float timer = 0;
 
-	private void Start()
+	void Start()
 	{
 		combosByID = new Dictionary<string, Combo>();
 
