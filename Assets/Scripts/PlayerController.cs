@@ -10,28 +10,28 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float jumpForce;
     [SerializeField] float distanceToGround = 0.01f;
     [SerializeField] float distanceToWall = 0.01f;
-    [SpaceAttribute]
+    [Space]
     [SerializeField] string[] animNames;
-    [SpaceAttribute]
+    [Space]
     [SerializeField] string playerAxis;
     [SerializeField] string joystickAxis;
     [SerializeField] int noOfJumps;
-    [SpaceAttribute]
+    [Space]
     [SerializeField] KeyCode jumpButtonKM;
     [SerializeField] KeyCode jumpButtonJoystick;
-    [SpaceAttribute]
+    [Space]
     [SerializeField] GameObject player;
     [SerializeField] Rigidbody2D rigidBody;
     [SerializeField] BoxCollider2D playerCollider;
-    [SpaceAttribute]
+    [Space]
     [SerializeField] Vector3 InitialPos;
-    [SpaceAttribute]
+    [Space]
     [SerializeField] LayerMask groundLayer;
     [SerializeField] LayerMask layerWallL;
     [SerializeField] LayerMask layerWallR;
-    [SpaceAttribute]
+    [Space]
     [SerializeField] GameObject enemy;
-    [SpaceAttribute]
+    [Space]
     public SlowMotion slowMotion;
     public enum PlayerSelect
     {
@@ -46,10 +46,10 @@ public class PlayerController : MonoBehaviour
     public float shakeMagnitude;
     public CombatController comboController;
     public CameraShake cameraShake;
-    [SpaceAttribute]
+    [Space]
     public PlayerSelect playerSelect;
     State state;
-    [SpaceAttribute]
+    [Space]
     public Animator anim;
 
     bool isGrounded = false;
@@ -63,6 +63,8 @@ public class PlayerController : MonoBehaviour
     bool wallJump;
     bool leftOrRighWall = false; // true = left, false = right;
     bool wj = false;
+
+    ParryController parryController;
 
     [HideInInspector]
     public int hp = 100;
@@ -98,7 +100,8 @@ public class PlayerController : MonoBehaviour
         transform.position = new Vector3(InitialPos.x, InitialPos.y, InitialPos.z);
         InitialPos = cam.WorldToScreenPoint(transform.localPosition);
         wallJump = true;
-        Time.timeScale = 1;
+        parryController = GetComponentInChildren<ParryController>();
+        Time.timeScale = 1; // Dont touch for now
     }
 
     void Update()
@@ -245,7 +248,7 @@ public class PlayerController : MonoBehaviour
        
         rigidBody.simulated = false;
         gameObject.GetComponent<BoxCollider2D>().enabled = false;
-        StartCoroutine(slowMotion.ActivateSlowMotion(1.5f, 0.5f));
+        //StartCoroutine(slowMotion.ActivateSlowMotion(1.5f, 0.5f));
     }
 
     void Respawn()
@@ -296,7 +299,7 @@ public class PlayerController : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("HitCollider") && collision.gameObject.layer != gameObject.layer)
+        if (collision.gameObject.CompareTag("HitCollider") && collision.gameObject.layer != gameObject.layer && !parryController.GetBlockDamage())
         {
             // add force later
             anim.SetTrigger("Damage");

@@ -236,21 +236,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1225701374251679743}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &103319451
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 103319448}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 68bc1b92721bb2644860336c6e4d289c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  parryKeyKM: 0
-  parryKeyJoystick: 0
-  duration: 0
 --- !u!50 &103319452
 Rigidbody2D:
   serializedVersion: 4
@@ -903,7 +888,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 357522980}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 549b197b7de9ca64eabbb6add0cf2770, type: 3}
   m_Name: 
@@ -1938,74 +1923,11 @@ Transform:
   m_Father: {fileID: 357522981}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1360774938
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1360774939}
-  - component: {fileID: 1360774940}
-  m_Layer: 10
-  m_Name: ParryCollider
-  m_TagString: ParryCol
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &1360774939
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1360774938}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.77, y: -0.207, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1424244038}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &1360774940
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1360774938}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.33185768, y: -1.0001807}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.5159588, y: 3.377656}
-  m_EdgeRadius: 0
 --- !u!1 &1418373337 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4395031986943511722, guid: fc79662f102093c4e99dd88d345bc744,
     type: 3}
   m_PrefabInstance: {fileID: 4395031986078868595}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &1424244038 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1225701373364830905, guid: 9342dd73a39486b4da82c2afa2922bcd,
-    type: 3}
-  m_PrefabInstance: {fileID: 1225701374251679743}
   m_PrefabAsset: {fileID: 0}
 --- !u!224 &1434456755 stripped
 RectTransform:
@@ -2276,6 +2198,28 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1798681325 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1225701373364830909, guid: 9342dd73a39486b4da82c2afa2922bcd,
+    type: 3}
+  m_PrefabInstance: {fileID: 1225701374251679743}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1798681329
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1798681325}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68bc1b92721bb2644860336c6e4d289c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parryKeyKM: 305
+  parryKeyJoystick: 372
+  duration: 0.2
+  enemy: {fileID: 1418373337}
 --- !u!1 &1858559752
 GameObject:
   m_ObjectHideFlags: 0
@@ -2747,7 +2691,7 @@ PrefabInstance:
         type: 3}
       propertyPath: parryCol
       value: 
-      objectReference: {fileID: 1360774938}
+      objectReference: {fileID: 0}
     - target: {fileID: 1225701373364830904, guid: 9342dd73a39486b4da82c2afa2922bcd,
         type: 3}
       propertyPath: combos.Array.data[0].comboData.Array.data[0].cooldown
@@ -2853,6 +2797,31 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SortingOrder
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1225701373364830907, guid: 9342dd73a39486b4da82c2afa2922bcd,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1225701373364830907, guid: 9342dd73a39486b4da82c2afa2922bcd,
+        type: 3}
+      propertyPath: m_Offset.x
+      value: 1.3627987
+      objectReference: {fileID: 0}
+    - target: {fileID: 1225701373364830907, guid: 9342dd73a39486b4da82c2afa2922bcd,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: -1.0224886
+      objectReference: {fileID: 0}
+    - target: {fileID: 1225701373364830907, guid: 9342dd73a39486b4da82c2afa2922bcd,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 0.44550896
+      objectReference: {fileID: 0}
+    - target: {fileID: 1225701373364830907, guid: 9342dd73a39486b4da82c2afa2922bcd,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 3.2872734
       objectReference: {fileID: 0}
     - target: {fileID: 1225701373364830908, guid: 9342dd73a39486b4da82c2afa2922bcd,
         type: 3}
@@ -2978,7 +2947,7 @@ PrefabInstance:
     - target: {fileID: 1225701374430052507, guid: 9342dd73a39486b4da82c2afa2922bcd,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9342dd73a39486b4da82c2afa2922bcd, type: 3}
@@ -3456,7 +3425,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parryKeyKM: 101
   parryKeyJoystick: 352
-  duration: 0.1
+  duration: 0.2
+  enemy: {fileID: 191250276}
 --- !u!61 &4395031986078868598
 BoxCollider2D:
   m_ObjectHideFlags: 0
