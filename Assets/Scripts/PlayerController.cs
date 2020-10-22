@@ -261,6 +261,10 @@ public class PlayerController : MonoBehaviour
     {
         return canMove;
     }
+    public bool GetGrounded()
+    {
+        return isGrounded;
+    }
     #endregion
 
     #region COLLISIONS

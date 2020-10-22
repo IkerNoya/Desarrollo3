@@ -248,6 +248,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68bc1b92721bb2644860336c6e4d289c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  parryKeyKM: 0
+  parryKeyJoystick: 0
+  duration: 0
 --- !u!50 &103319452
 Rigidbody2D:
   serializedVersion: 4
@@ -910,63 +913,6 @@ MonoBehaviour:
   offset: 1
   player1: {fileID: 1418373337}
   player2: {fileID: 191250276}
---- !u!1 &364930984
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 364930986}
-  - component: {fileID: 364930985}
-  m_Layer: 9
-  m_Name: ParryCollider
-  m_TagString: ParryCol
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!61 &364930985
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 364930984}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.33185768, y: -1.0001807}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.5159588, y: 3.377656}
-  m_EdgeRadius: 0
---- !u!4 &364930986
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 364930984}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.77, y: -0.20699993, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 934170343}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &365324897
 GameObject:
   m_ObjectHideFlags: 0
@@ -1782,12 +1728,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 791853957215057345, guid: 36e9a9b6b89f1414d97dd26f69495762,
     type: 3}
   m_PrefabInstance: {fileID: 791853958108439398}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &934170343 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4395031985313786516, guid: fc79662f102093c4e99dd88d345bc744,
-    type: 3}
-  m_PrefabInstance: {fileID: 4395031986078868595}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &1108284146 stripped
 MonoBehaviour:
@@ -3038,7 +2978,7 @@ PrefabInstance:
     - target: {fileID: 1225701374430052507, guid: 9342dd73a39486b4da82c2afa2922bcd,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9342dd73a39486b4da82c2afa2922bcd, type: 3}
@@ -3266,7 +3206,7 @@ PrefabInstance:
         type: 3}
       propertyPath: parryCol
       value: 
-      objectReference: {fileID: 364930984}
+      objectReference: {fileID: 0}
     - target: {fileID: 4395031985313786517, guid: fc79662f102093c4e99dd88d345bc744,
         type: 3}
       propertyPath: animator
@@ -3494,8 +3434,7 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 4395031985313786523, guid: fc79662f102093c4e99dd88d345bc744, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fc79662f102093c4e99dd88d345bc744, type: 3}
 --- !u!1 &4395031986078868596 stripped
 GameObject:
@@ -3515,6 +3454,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68bc1b92721bb2644860336c6e4d289c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  parryKeyKM: 101
+  parryKeyJoystick: 352
+  duration: 0.1
+--- !u!61 &4395031986078868598
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4395031986078868596}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 1.3627987, y: -1.0224886}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 9.44, y: 7.15}
+    newSize: {x: 1.6, y: 1.11}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.44550896, y: 3.2872734}
+  m_EdgeRadius: 0
 --- !u!1001 &6182286347763801502
 PrefabInstance:
   m_ObjectHideFlags: 0
