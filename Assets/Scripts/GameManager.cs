@@ -7,7 +7,6 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     #region VARIABLES
-    [SerializeField] Image map;
     [SerializeField] Transform target;
     [SerializeField] SlowMotion slowMotion;
     [SerializeField] float offset;
@@ -20,7 +19,6 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         CapturePoint.EndGame += ChangeScene;
-        map.fillAmount = 0f;
         cam = Camera.main;
         Time.timeScale = 1;
         if(target!=null)
@@ -28,16 +26,6 @@ public class GameManager : MonoBehaviour
     }
     void Update()
     {
-        if (target != null)
-        {
-            float currentCameraDistance = target.position.y - cam.transform.position.y - offset;
-            float progress = 1f - (currentCameraDistance / distanceToGoal);
-            if (cam.transform.position.y >= target.position.y - offset)
-            {
-                map.fillAmount = 1f;
-            }
-            map.fillAmount = progress;
-        }
     }
     #endregion
 
