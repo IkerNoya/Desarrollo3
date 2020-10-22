@@ -56,8 +56,6 @@ public class ParryController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("HitCollider"))
         {
-            Debug.Log("PARRY");
-            enemyValues.anim.ResetTrigger("Hit");
             enemyValues.anim.SetTrigger("Damage");
             //zoom
         }
