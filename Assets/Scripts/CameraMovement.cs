@@ -74,7 +74,7 @@ public class CameraMovement : MonoBehaviour
     #region FUNCTIONS
     void ZoomOnPlayer(ParryController pc)
     {
-        StartCoroutine(ZoomIn(1f));
+        StartCoroutine(ZoomIn(0.5f));
     }
     #endregion
 

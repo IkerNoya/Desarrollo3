@@ -11,6 +11,7 @@ public class ParryController : MonoBehaviour
     [SerializeField] float duration;
     [Space]
     [SerializeField] GameObject enemy;
+    [SerializeField] SlowMotion slowMotion;
     PlayerController enemyValues;
     bool blockDamage = false;
 
@@ -57,8 +58,8 @@ public class ParryController : MonoBehaviour
         if (collision.gameObject.CompareTag("HitCollider"))
         {
             enemyValues.anim.SetTrigger("Damage");
+            StartCoroutine(slowMotion.ActivateSlowMotion(0.5f, 0.5f));
             parryEffect(this);
-            //zoom
         }
     }
 
