@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1225701373364830908}
   - component: {fileID: 1225701373364830907}
   - component: {fileID: 1225701373364830904}
+  - component: {fileID: 1798681329}
   m_Layer: 10
   m_Name: Sprite
   m_TagString: Player_2
@@ -73,7 +74,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 10
   m_Sprite: {fileID: 21300000, guid: 06aa6ce465a737c44b202d9b206fc87d, type: 3}
   m_Color: {r: 0.6792453, g: 0.17621931, b: 0.19813785, a: 1}
   m_FlipX: 0
@@ -95,7 +96,7 @@ Animator:
   m_GameObject: {fileID: 1225701373364830909}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 9296e82caa0ec5a458e27a156a522610, type: 2}
+  m_Controller: {fileID: 22100000, guid: 98f734826625fe046a0fa149fb1c8841, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -111,13 +112,13 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1225701373364830909}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.018534131, y: 0}
+  m_Offset: {x: 1.3627987, y: -1.0224886}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -128,7 +129,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.18725456, y: 0.5522593}
+  m_Size: {x: 0.44550896, y: 3.2872734}
   m_EdgeRadius: 0
 --- !u!114 &1225701373364830904
 MonoBehaviour:
@@ -142,12 +143,52 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9be020d730ea8594fa6ae4368cecb967, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hitIndex: 0
   hitCooldown: 10
-  playerAnim: {fileID: 1225701374320304568}
+  currentComboName: 
+  combos:
+  - ComboName: 
+    comboData:
+    - cooldown: 0.75
+      hitDuration: 0.3
+      damage: 10
+      comboKey: 274
+      keyBeingPressed: 0
+      clip: {fileID: 7400000, guid: a3dcd7ef378353b4d901685aad3bbf93, type: 2}
+      critical: 0
+    - cooldown: 0.75
+      hitDuration: 0.4
+      damage: 10
+      comboKey: 274
+      keyBeingPressed: 0
+      clip: {fileID: 7400000, guid: be97a3c927dd8ed43a00ba53286eaa00, type: 2}
+      critical: 0
+    - cooldown: 0.5
+      hitDuration: 0.3
+      damage: 15
+      comboKey: 274
+      keyBeingPressed: 0
+      clip: {fileID: 7400000, guid: 3298dd0f89379ce4589c3decb98a11b7, type: 2}
+      critical: 1
+  animator: {fileID: 1225701373364830908}
+  overrider: {fileID: 22100000, guid: 98f734826625fe046a0fa149fb1c8841, type: 2}
   hitCol: {fileID: 1225701374215469159}
-  hitCounter: 0
-  isAttacking: 0
-  canAttack: 1
+--- !u!114 &1798681329
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1225701373364830909}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68bc1b92721bb2644860336c6e4d289c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parryKeyKM: 305
+  parryKeyJoystick: 372
+  duration: 0.2
+  enemy: {fileID: 0}
 --- !u!1 &1225701374215469159
 GameObject:
   m_ObjectHideFlags: 0
@@ -158,6 +199,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1225701374215469158}
   - component: {fileID: 1225701374215469157}
+  - component: {fileID: 103319452}
   m_Layer: 10
   m_Name: HitCollider
   m_TagString: HitCollider
@@ -192,7 +234,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 1.1777196, y: -0.88886213}
+  m_Offset: {x: 0.86103106, y: -0.88886213}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -203,8 +245,29 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 3.1871042, y: 0.39429188}
+  m_Size: {x: 3.8204813, y: 0.39429188}
   m_EdgeRadius: 0
+--- !u!50 &103319452
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1225701374215469159}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 7
 --- !u!1 &1225701374430052507
 GameObject:
   m_ObjectHideFlags: 0
@@ -251,12 +314,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f443ee232d1caa4ca15368096a2a191, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 7
   wallStickiness: -1.5
-  jumpForce: 10
-  shakeDuration: 0.25
-  shakeMagnitude: 0.1
-  distanceToGround: 1
+  jumpForce: 11
+  distanceToGround: 0.9
   distanceToWall: 0.8
   animNames:
   - IsRunning
@@ -264,16 +325,11 @@ MonoBehaviour:
   - IsFalling
   playerAxis: P2_Horizontal
   joystickAxis: P2_Joystick_Horizontal
-  NoOfJumps: 2
-  attackButtonKM: 274
-  attackButtonJoystick: 370
+  noOfJumps: 0
   jumpButtonKM: 273
   jumpButtonJoystick: 371
   player: {fileID: 1225701374430052507}
   rigidBody: {fileID: 1225701374430052504}
-  comboController: {fileID: 1225701373364830904}
-  cameraShake: {fileID: 0}
-  slowMotion: {fileID: 0}
   playerCollider: {fileID: 1225701374430052505}
   InitialPos: {x: 4.12, y: -0.35, z: -5.24609}
   groundLayer:
@@ -285,7 +341,13 @@ MonoBehaviour:
   layerWallR:
     serializedVersion: 2
     m_Bits: 262144
+  enemy: {fileID: 0}
+  slowMotion: {fileID: 0}
   damage: 10
+  shakeDuration: 0.25
+  shakeMagnitude: 0.1
+  comboController: {fileID: 1225701373364830904}
+  cameraShake: {fileID: 0}
   playerSelect: 1
   anim: {fileID: 1225701373364830908}
   hp: 100
@@ -330,7 +392,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 2
+  m_GravityScale: 2.5
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 0
