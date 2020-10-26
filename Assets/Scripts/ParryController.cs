@@ -57,6 +57,7 @@ public class ParryController : MonoBehaviour
         if (collision.gameObject.CompareTag("HitCollider"))
         {
             enemyValues.anim.SetTrigger("Damage");
+            parryEffect(this);
             //zoom
         }
     }
