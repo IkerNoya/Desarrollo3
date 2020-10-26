@@ -84,7 +84,6 @@ public class PlayerController : MonoBehaviour
     #region Actions
     public static Action<PlayerController> takeDamage;
     public static Action<PlayerController> EmptyHP;
-    public static Action<PlayerController> Zoom;
     #endregion
 
     #region BASE_FUNCTIONS

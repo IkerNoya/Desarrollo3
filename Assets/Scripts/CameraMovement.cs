@@ -15,15 +15,17 @@ public class CameraMovement : MonoBehaviour
     float lastY;
     Vector3 LastPos;
     bool canZoom;
+    bool canMove = true;
     Vector3 direction;
     float lerpInterpolations = 0.8f;
     float t = 0;
+    float xPos;
     #endregion
 
     #region BASE_FUNCTIONS
     void Awake()
     {
-        PlayerController.Zoom += ZoomOnPlayer;
+        ParryController.parryEffect += ZoomOnPlayer;
     }
     private void Start()
     {
@@ -34,6 +36,7 @@ public class CameraMovement : MonoBehaviour
         }
         cam = Camera.main;
         originalSize = cam.orthographicSize;
+        xPos = transform.position.x;
     }
     void Update()
     {
@@ -42,33 +45,36 @@ public class CameraMovement : MonoBehaviour
             lastY = crown.transform.position.y;
         }
 
-        if (transform.position.y < lastY-offset) 
+        if (transform.position.y < lastY-offset)
+        {
             transform.position += direction * speed * Time.deltaTime;
+            LastPos = transform.position;
+        }
 
-        //if (canZoom)
-        //{
-        //    t += Time.deltaTime * lerpInterpolations;
-        //    Vector3 middlePoint;
-        //    middlePoint.x = player1.transform.position.x + (player2.transform.position.x - player1.transform.position.x) / 2;
-        //    middlePoint.y = player1.transform.position.y + (player2.transform.position.y - player1.transform.position.y) / 2;
-        //    middlePoint.z = transform.position.z;
-        //    cam.orthographicSize = Mathf.Lerp(cam.orthographicSize, wantedSize, t);
-        //    transform.position = Vector3.Lerp(transform.position, middlePoint, t);
-        //}
-        //else
-        //{
-        //    t += Time.deltaTime * lerpInterpolations;
-        //    cam.orthographicSize = Mathf.Lerp(cam.orthographicSize, originalSize, t);
-        //    transform.position = Vector3.Lerp(transform.position, LastPos, t);
-        //    LastPos = transform.position;
-        //}
+        if (canZoom && !canMove)
+        {
+            t += Time.deltaTime * lerpInterpolations;
+            Vector3 middlePoint;
+            middlePoint.x = player1.transform.position.x + (player2.transform.position.x - player1.transform.position.x) / 2;
+            middlePoint.y = player1.transform.position.y + (player2.transform.position.y - player1.transform.position.y) / 2;
+            middlePoint.z = transform.position.z;
+            cam.orthographicSize = Mathf.Lerp(cam.orthographicSize, wantedSize, t);
+            transform.position = Vector3.Lerp(transform.position, middlePoint, t);
+        }
+        else if(!canZoom)
+        {
+            t += Time.deltaTime * lerpInterpolations;
+            cam.orthographicSize = Mathf.Lerp(cam.orthographicSize, originalSize, t);
+            transform.position = Vector3.Lerp(transform.position, new Vector3(xPos, LastPos.y, LastPos.z), t);
+            canMove = true;
+        }
     }
     #endregion
 
     #region FUNCTIONS
-    void ZoomOnPlayer(PlayerController pc)
+    void ZoomOnPlayer(ParryController pc)
     {
-        StartCoroutine(ZoomIn(1f));
+        StartCoroutine(ZoomIn(0.5f));
     }
     #endregion
 
@@ -76,6 +82,7 @@ public class CameraMovement : MonoBehaviour
     IEnumerator ZoomIn(float time)
     {
         canZoom = true;
+        canMove = false;
         if (player1 != null && player2 != null)
         {
             t = 0;
@@ -83,6 +90,7 @@ public class CameraMovement : MonoBehaviour
             yield return new WaitForSeconds(time);
             t = 0;
             canZoom = false;
+            canMove = true;
             yield return null;
         }
     }
@@ -91,7 +99,7 @@ public class CameraMovement : MonoBehaviour
     #region BASE_FUNCTIONS
     private void OnDisable()
     {
-        PlayerController.Zoom -= ZoomOnPlayer;
+        ParryController.parryEffect -= ZoomOnPlayer;
     }
     #endregion
 }
