@@ -41,7 +41,6 @@ public class PlayerController : MonoBehaviour
     {
         Grounded, Jumping, Falling, InWall, WallJump
     }
-    public int damage;
     public float shakeDuration;
     public float shakeMagnitude;
     public CombatController comboController;
@@ -67,7 +66,7 @@ public class PlayerController : MonoBehaviour
     ParryController parryController;
 
     [HideInInspector]
-    public int hp = 100;
+    public float hp = 100;
 
     int jumpAmmount;
 
@@ -303,7 +302,7 @@ public class PlayerController : MonoBehaviour
             // add force later
             anim.SetTrigger("Damage");
             StartCoroutine(TakeDamage(0.75f));
-            hp -= damage;
+            hp -= collision.gameObject.GetComponentInParent<CombatController>().GetDamage();
             StartCoroutine(HitCooldown());
             takeDamage(this);
             if (hp <= 0)

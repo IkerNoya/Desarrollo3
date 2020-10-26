@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices.WindowsRuntime;
 using System.Transactions;
 using UnityEngine;
 
@@ -9,6 +10,7 @@ public class CombatController : MonoBehaviour
 	[SerializeField] int hitIndex;
 	[SerializeField] float hitCooldown;
 	[SerializeField] string currentComboName;
+	float damage;
 	[Serializable]
 	public class Combo
 	{
@@ -73,6 +75,7 @@ public class CombatController : MonoBehaviour
 				{
 					timer = 0;
 					player.SetCanMove(false);
+					damage = comboHit.damage;
 					StartCombo(combo);
 					break;
 				}
@@ -83,9 +86,10 @@ public class CombatController : MonoBehaviour
 			if (hitIndex < currentCombo.comboData.Count)
 			{
                 timer += Time.deltaTime;
-                if (Input.GetKeyDown(currentCombo.comboData[hitIndex].comboKey) && timer >= currentCombo.comboData[hitIndex].hitDuration)
+				if (Input.GetKeyDown(currentCombo.comboData[hitIndex].comboKey) && timer >= currentCombo.comboData[hitIndex].hitDuration)
 				{
 					timer = 0;
+					damage = currentCombo.comboData[hitIndex].damage;
 					AttackAction();
 				}
 			}
@@ -128,6 +132,10 @@ public class CombatController : MonoBehaviour
 		//animator.SetFloat("ComboIndexFloat", anim);
 	}
 
+	public float GetDamage()
+	{
+		return damage;
+	}
 	public void ActivateHit()
 	{
 		hitCol.SetActive(true);

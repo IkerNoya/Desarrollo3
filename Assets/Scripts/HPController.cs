@@ -21,7 +21,7 @@ public class HPController : MonoBehaviour
     }
     void Update()
     {
-        healthBar.fillAmount = HitPercentage(player.hp, healthbarSize);
+        healthBar.fillAmount = HitPercentage((int)player.hp, healthbarSize);
     }
     #endregion
 
