@@ -11,6 +11,7 @@ public class CombatController : MonoBehaviour
 	[SerializeField] float hitCooldown;
 	[SerializeField] string currentComboName;
 	float damage;
+	bool criticalDamage;
 	[Serializable]
 	public class Combo
 	{
@@ -76,6 +77,7 @@ public class CombatController : MonoBehaviour
 					timer = 0;
 					player.SetCanMove(false);
 					damage = comboHit.damage;
+					criticalDamage = comboHit.critical;
 					StartCombo(combo);
 					break;
 				}
@@ -90,6 +92,7 @@ public class CombatController : MonoBehaviour
 				{
 					timer = 0;
 					damage = currentCombo.comboData[hitIndex].damage;
+					criticalDamage = currentCombo.comboData[hitIndex].critical;
 					AttackAction();
 				}
 			}
@@ -119,6 +122,7 @@ public class CombatController : MonoBehaviour
 
 	public void CancelCombo()
 	{
+		criticalDamage = false;
 		currentComboName = "";
 		hitIndex = 0;
 		currentCombo = null;
@@ -135,6 +139,10 @@ public class CombatController : MonoBehaviour
 	public float GetDamage()
 	{
 		return damage;
+	}
+	public bool GetCriticalDamageValue()
+	{
+		return criticalDamage;
 	}
 	public void ActivateHit()
 	{

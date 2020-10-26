@@ -62,6 +62,7 @@ public class PlayerController : MonoBehaviour
     bool wallJump;
     bool leftOrRighWall = false; // true = left, false = right;
     bool wj = false;
+    bool isCriticalHit;
 
     ParryController parryController;
 
@@ -303,6 +304,8 @@ public class PlayerController : MonoBehaviour
             anim.SetTrigger("Damage");
             StartCoroutine(TakeDamage(0.75f));
             hp -= collision.gameObject.GetComponentInParent<CombatController>().GetDamage();
+            isCriticalHit = collision.gameObject.GetComponentInParent<CombatController>().GetCriticalDamageValue();
+            if (isCriticalHit) StartCoroutine(cameraShake.Shake(shakeDuration, shakeMagnitude));
             StartCoroutine(HitCooldown());
             takeDamage(this);
             if (hp <= 0)
@@ -382,6 +385,11 @@ public class PlayerController : MonoBehaviour
         canMove = false;
         yield return new WaitForSeconds(time);
         canMove = true;
+        yield return null;
+    }
+    IEnumerator CriticalHit() // Complete when i download the animation
+    {
+        //animacion de critico
         yield return null;
     }
     #endregion COROUTINES
