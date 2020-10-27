@@ -861,7 +861,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 357522980}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 549b197b7de9ca64eabbb6add0cf2770, type: 3}
   m_Name: 
@@ -2147,7 +2147,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1858559753
 Transform:
   m_ObjectHideFlags: 0
@@ -2612,6 +2612,11 @@ PrefabInstance:
       propertyPath: cameraShake
       value: 
       objectReference: {fileID: 519420030}
+    - target: {fileID: 1225701374320304568, guid: 9342dd73a39486b4da82c2afa2922bcd,
+        type: 3}
+      propertyPath: distanceToWall
+      value: 0.45
+      objectReference: {fileID: 0}
     - target: {fileID: 1225701374430052506, guid: 9342dd73a39486b4da82c2afa2922bcd,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2671,6 +2676,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Player 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1225701374430052507, guid: 9342dd73a39486b4da82c2afa2922bcd,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9342dd73a39486b4da82c2afa2922bcd, type: 3}
@@ -2969,6 +2979,11 @@ PrefabInstance:
       propertyPath: cameraShake
       value: 
       objectReference: {fileID: 519420030}
+    - target: {fileID: 4395031987110380140, guid: fc79662f102093c4e99dd88d345bc744,
+        type: 3}
+      propertyPath: distanceToWall
+      value: 0.45
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fc79662f102093c4e99dd88d345bc744, type: 3}
 --- !u!1001 &6182286347763801502
