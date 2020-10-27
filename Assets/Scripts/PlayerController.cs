@@ -130,6 +130,8 @@ public class PlayerController : MonoBehaviour
             player.transform.eulerAngles = new Vector3(0, 180, 0);
         }
         isGrounded = Physics2D.Raycast(transform.position, Vector2.down, distanceToGround, groundLayer);
+        if (Physics2D.Raycast(transform.position, Vector2.right, distanceToWall) || Physics2D.Raycast(transform.position, Vector2.left, distanceToWall)) isInWall = true;
+        else isInWall = false;
         if (isGrounded && !wasGrounded)
         {
             ResetWallJump();
