@@ -149,6 +149,7 @@ public class PlayerController : MonoBehaviour
             {
                 case State.Grounded:
                     jumpInWall = false;
+                    ResetWallJump();
                     if (LastDirection > 0)
                     {
                         player.transform.eulerAngles = new Vector3(0, 0, 0);
@@ -159,7 +160,6 @@ public class PlayerController : MonoBehaviour
                     }
                     if (canMove)
                     {
-                        ResetWallJump();
                         jumpAmmount = 2;
                         rigidBody.velocity = new Vector2(movement.x, rigidBody.velocity.y);
                     }
@@ -183,6 +183,7 @@ public class PlayerController : MonoBehaviour
 
                 case State.Falling:
                     jumpInWall = false;
+                    ResetWallJump();
                     if (LastDirection > 0)
                     {
                         player.transform.eulerAngles = new Vector3(0, 0, 0);
@@ -191,7 +192,6 @@ public class PlayerController : MonoBehaviour
                     {
                         player.transform.eulerAngles = new Vector3(0, 180, 0);
                     }   
-                    ResetWallJump();
                     rigidBody.velocity = new Vector2(movement.x + lastVelocity, rigidBody.velocity.y);
                     if (Mathf.Abs(rigidBody.velocity.x) >= speed)
                         rigidBody.velocity = new Vector2(speed * Mathf.Sign(rigidBody.velocity.x), rigidBody.velocity.y);
@@ -199,11 +199,21 @@ public class PlayerController : MonoBehaviour
 
                 case State.InWall:
                     anim.ResetTrigger("Jump");
-                    if(leftOrRighWall) player.transform.eulerAngles = new Vector3(0, 180, 0);
-                    else player.transform.eulerAngles = new Vector3(0, 0, 0); 
+                    if (leftOrRighWall)
+                    {
+                        if (movement.x < 0)
+                            movement.x = 0;
+                        rigidBody.velocity = new Vector2(movement.x, wallStickiness); // limit movement to the right side
+                    }
+                    else if (!leftOrRighWall)
+                    {
+                        if (movement.x > 0)
+                            movement.x = 0;
+                        rigidBody.velocity = new Vector2(movement.x, wallStickiness); // limit movement to the left side
+                    }
                     StartCoroutine(WallSlideTransition(0.1403281f));
-                    rigidBody.velocity = new Vector2(movement.x, wallStickiness);
-                    if (jumpInWall)
+                    
+                    if (jumpInWall && jumpAmmount>0)
                     {
                         StartCoroutine(WallJumpCoolDown(0.2f));
                     }
@@ -354,11 +364,29 @@ public class PlayerController : MonoBehaviour
     }
    IEnumerator WallJumpCoolDown(float JumpTimer)
    {
-        if (leftOrRighWall) rigidBody.velocity = new Vector2(jumpForce / 2, jumpForce);
-        else rigidBody.velocity = new Vector2(-jumpForce / 2, jumpForce);
-        lastVelocity = rigidBody.velocity.x;
-        yield return new WaitForSeconds(JumpTimer);
+        wj = true;
+        anim.SetTrigger("Jump");
+        wallJump = false;
+        if (jumpAmmount > 0)
+        {
+            ResetWallJump();
+            if (leftOrRighWall)
+            {
+                LastDirection = 1;
+                rigidBody.velocity = new Vector2(jumpForce / 2, jumpForce);
+            }
+            else
+            {
+                LastDirection = -1;
+                rigidBody.velocity = new Vector2(-jumpForce / 2, jumpForce);
+            }
+            lastVelocity = rigidBody.velocity.x;
+        }
+        yield return new WaitForSeconds(0.1f);
         state = State.Falling;
+        wj = false;
+        jumpInWall = false;
+        wallJump = true;
         yield return null;
     }
     IEnumerator TakeDamage(float time)
