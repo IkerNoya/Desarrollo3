@@ -63,6 +63,7 @@ public class PlayerController : MonoBehaviour
     bool leftOrRighWall = false; // true = left, false = right;
     bool wj = false;
     bool isCriticalHit;
+    bool isWallJumping = false;
 
     ParryController parryController;
 
@@ -87,10 +88,6 @@ public class PlayerController : MonoBehaviour
     #endregion
 
     #region BASE_FUNCTIONS
-    private void Awake()
-    {
-     
-    }
     void Start()
     {
         cam = Camera.main; 
@@ -113,7 +110,8 @@ public class PlayerController : MonoBehaviour
             movement = Vector3.zero;
             rigidBody.velocity = Vector3.zero;
         }
-        direction = Input.GetAxis(playerAxis) + Input.GetAxis(joystickAxis);
+        if(!isWallJumping)
+            direction = Input.GetAxis(playerAxis) + Input.GetAxis(joystickAxis);
         movement = new Vector2(direction, 0) * speed;
         Inputs();
         if (direction != 0)
@@ -140,6 +138,7 @@ public class PlayerController : MonoBehaviour
         anim.SetFloat("VelocityY", rigidBody.velocity.y);
         anim.SetFloat("VelocityX", Mathf.Abs(direction));
         if (wj) anim.SetTrigger("WJ");
+        Debug.Log(lastVelocity);
     }
 
     void FixedUpdate()
@@ -149,6 +148,7 @@ public class PlayerController : MonoBehaviour
             switch (state)
             {
                 case State.Grounded:
+                    jumpInWall = false;
                     if (LastDirection > 0)
                     {
                         player.transform.eulerAngles = new Vector3(0, 0, 0);
@@ -182,6 +182,7 @@ public class PlayerController : MonoBehaviour
                     break;
 
                 case State.Falling:
+                    jumpInWall = false;
                     if (LastDirection > 0)
                     {
                         player.transform.eulerAngles = new Vector3(0, 0, 0);
@@ -202,6 +203,10 @@ public class PlayerController : MonoBehaviour
                     else player.transform.eulerAngles = new Vector3(0, 0, 0); 
                     StartCoroutine(WallSlideTransition(0.1403281f));
                     rigidBody.velocity = new Vector2(movement.x, wallStickiness);
+                    if (jumpInWall)
+                    {
+                        StartCoroutine(WallJumpCoolDown(0.2f));
+                    }
                     break;
 
             }
@@ -347,33 +352,15 @@ public class PlayerController : MonoBehaviour
        
         yield return null;
     }
-    //IEnumerator WallJumpCoolDown(float JumpTimer)
-    //{
-    //    wj = true;
-    //    anim.SetTrigger("Jump");
-    //    wallJump = false;
-    //    yield return new WaitForSeconds(JumpTimer);
-    //    if (jumpAmmount > 0) 
-    //    {
-    //        ResetWallJump();
-    //        if (leftOrRighWall)
-    //        {
-    //            rigidBody.velocity = new Vector2(jumpForce / 2, jumpForce);
-    //        }
-    //        else
-    //        {
-    //            rigidBody.velocity = new Vector2(-jumpForce / 2, jumpForce);
-
-    //        }
-    //        lastVelocity = rigidBody.velocity.x;
-    //    }
-    //    yield return new WaitForSeconds(0.2f);
-    //    state = State.Falling;
-    //    wj = false;
-    //    jumpInWall = false;
-    //    wallJump = true;
-    //    yield return null;
-    //}
+   IEnumerator WallJumpCoolDown(float JumpTimer)
+   {
+        if (leftOrRighWall) rigidBody.velocity = new Vector2(jumpForce / 2, jumpForce);
+        else rigidBody.velocity = new Vector2(-jumpForce / 2, jumpForce);
+        lastVelocity = rigidBody.velocity.x;
+        yield return new WaitForSeconds(JumpTimer);
+        state = State.Falling;
+        yield return null;
+    }
     IEnumerator TakeDamage(float time)
     {
         canMove = false;
