@@ -121,31 +121,15 @@ public class PlayerController : MonoBehaviour
         {
             LastDirection = direction;
         }
-        if (LastDirection > 0/* && !isInWall*/)
+        if (LastDirection > 0)
         {
             player.transform.eulerAngles = new Vector3(0, 0, 0);
         }
-        else if (LastDirection < 0/* && !isInWall*/)
+        else if (LastDirection < 0)
         {
             player.transform.eulerAngles = new Vector3(0, 180, 0);
         }
         isGrounded = Physics2D.Raycast(transform.position, Vector2.down, distanceToGround, groundLayer);
-        if (direction > 0 && wallJump)
-        {
-            isInWall = Physics2D.Raycast(transform.position, Vector2.right, distanceToWall, layerWallR);
-        }
-        else if (direction < 0 && wallJump)
-        {
-            isInWall = Physics2D.Raycast(transform.position, Vector2.left, distanceToWall, layerWallL);
-        }
-        else if (!wallJump)
-        {
-            isInWall = false;
-        }
-        if (!isInWall && !isGrounded)
-        {
-            ResetWallJump();
-        }
         if (isGrounded && !wasGrounded)
         {
             ResetWallJump();
@@ -194,16 +178,7 @@ public class PlayerController : MonoBehaviour
                     break;
 
                 case State.InWall:
-                    if (!isGrounded) 
-                    {
-                        anim.ResetTrigger("Jump");
-                        StartCoroutine(WallSlideTransition(0.1403281f));
-                        rigidBody.velocity = new Vector2(movement.x, wallStickiness);
-                        if (jumpInWall)
-                        {
-                            StartCoroutine(WallJumpCoolDown(0.1f));
-                        }
-                    }
+
                         break;
 
             }
