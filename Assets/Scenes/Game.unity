@@ -2622,6 +2622,16 @@ PrefabInstance:
       propertyPath: slowMotion
       value: 
       objectReference: {fileID: 1506143536}
+    - target: {fileID: 1225701373364830909, guid: 9342dd73a39486b4da82c2afa2922bcd,
+        type: 3}
+      propertyPath: m_Layer
+      value: 19
+      objectReference: {fileID: 0}
+    - target: {fileID: 1225701374215469159, guid: 9342dd73a39486b4da82c2afa2922bcd,
+        type: 3}
+      propertyPath: m_Layer
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 1225701374320304568, guid: 9342dd73a39486b4da82c2afa2922bcd,
         type: 3}
       propertyPath: enemy
@@ -2705,7 +2715,7 @@ PrefabInstance:
     - target: {fileID: 1225701374430052507, guid: 9342dd73a39486b4da82c2afa2922bcd,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9342dd73a39486b4da82c2afa2922bcd, type: 3}
@@ -2919,6 +2929,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4395031985313786519, guid: fc79662f102093c4e99dd88d345bc744,
+        type: 3}
+      propertyPath: m_Layer
+      value: 19
+      objectReference: {fileID: 0}
+    - target: {fileID: 4395031985576335752, guid: fc79662f102093c4e99dd88d345bc744,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 4395031986078868597, guid: fc79662f102093c4e99dd88d345bc744,
         type: 3}
       propertyPath: enemy

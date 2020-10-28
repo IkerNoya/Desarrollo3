@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    #region Variables
+    #region Variables1
     [SerializeField] float speed;
     [SerializeField] float wallStickiness;
     [SerializeField] float jumpForce;
