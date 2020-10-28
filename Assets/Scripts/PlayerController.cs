@@ -63,6 +63,7 @@ public class PlayerController : MonoBehaviour
     bool leftOrRighWall = false; // true = left, false = right;
     bool wj = false;
     bool isCriticalHit;
+    bool isWallJumping = false;
 
     ParryController parryController;
 
@@ -87,10 +88,6 @@ public class PlayerController : MonoBehaviour
     #endregion
 
     #region BASE_FUNCTIONS
-    private void Awake()
-    {
-     
-    }
     void Start()
     {
         cam = Camera.main; 
@@ -113,39 +110,17 @@ public class PlayerController : MonoBehaviour
             movement = Vector3.zero;
             rigidBody.velocity = Vector3.zero;
         }
-            
-        direction = Input.GetAxis(playerAxis) + Input.GetAxis(joystickAxis);
+        if(!isWallJumping)
+            direction = Input.GetAxis(playerAxis) + Input.GetAxis(joystickAxis);
         movement = new Vector2(direction, 0) * speed;
         Inputs();
         if (direction != 0)
         {
             LastDirection = direction;
         }
-        if (LastDirection > 0/* && !isInWall*/)
-        {
-            player.transform.eulerAngles = new Vector3(0, 0, 0);
-        }
-        else if (LastDirection < 0/* && !isInWall*/)
-        {
-            player.transform.eulerAngles = new Vector3(0, 180, 0);
-        }
         isGrounded = Physics2D.Raycast(transform.position, Vector2.down, distanceToGround, groundLayer);
-        if (direction > 0 && wallJump)
-        {
-            isInWall = Physics2D.Raycast(transform.position, Vector2.right, distanceToWall, layerWallR);
-        }
-        else if (direction < 0 && wallJump)
-        {
-            isInWall = Physics2D.Raycast(transform.position, Vector2.left, distanceToWall, layerWallL);
-        }
-        else if (!wallJump)
-        {
-            isInWall = false;
-        }
-        if (!isInWall && !isGrounded)
-        {
-            ResetWallJump();
-        }
+        if (Physics2D.Raycast(transform.position, Vector2.right, distanceToWall, layerWallR) || Physics2D.Raycast(transform.position, Vector2.left, distanceToWall, layerWallL)) isInWall = true;
+        else isInWall = false;
         if (isGrounded && !wasGrounded)
         {
             ResetWallJump();
@@ -157,6 +132,7 @@ public class PlayerController : MonoBehaviour
         if (isGrounded && !jumped) state = State.Grounded;
         else if (jumped) state = State.Jumping;
         else if (!isGrounded && isInWall) state = State.InWall;
+        else if (rigidBody.velocity.y < wallStickiness && !isInWall) state = State.Falling;
         wasGrounded = isGrounded;
         anim.SetBool("Grounded", isGrounded);
         anim.SetFloat("VelocityY", rigidBody.velocity.y);
@@ -171,15 +147,32 @@ public class PlayerController : MonoBehaviour
             switch (state)
             {
                 case State.Grounded:
+                    jumpInWall = false;
+                    ResetWallJump();
+                    if (LastDirection > 0)
+                    {
+                        player.transform.eulerAngles = new Vector3(0, 0, 0);
+                    }
+                    else if (LastDirection < 0)
+                    {
+                        player.transform.eulerAngles = new Vector3(0, 180, 0);
+                    }
                     if (canMove)
                     {
-                        ResetWallJump();
                         jumpAmmount = 2;
                         rigidBody.velocity = new Vector2(movement.x, rigidBody.velocity.y);
                     }
                     break;
 
                 case State.Jumping:
+                    if (LastDirection > 0)
+                    {
+                        player.transform.eulerAngles = new Vector3(0, 0, 0);
+                    }
+                    else if (LastDirection < 0)
+                    {
+                        player.transform.eulerAngles = new Vector3(0, 180, 0);
+                    }
                     anim.SetTrigger("Jump");
                     lastVelocity = 0;
                     rigidBody.velocity = new Vector2(movement.x, jumpForce);
@@ -188,23 +181,42 @@ public class PlayerController : MonoBehaviour
                     break;
 
                 case State.Falling:
+                    jumpInWall = false;
+                    ResetWallJump();
+                    if (LastDirection > 0)
+                    {
+                        player.transform.eulerAngles = new Vector3(0, 0, 0);
+                    }
+                    else if (LastDirection < 0)
+                    {
+                        player.transform.eulerAngles = new Vector3(0, 180, 0);
+                    }   
                     rigidBody.velocity = new Vector2(movement.x + lastVelocity, rigidBody.velocity.y);
                     if (Mathf.Abs(rigidBody.velocity.x) >= speed)
                         rigidBody.velocity = new Vector2(speed * Mathf.Sign(rigidBody.velocity.x), rigidBody.velocity.y);
                     break;
 
                 case State.InWall:
-                    if (!isGrounded) 
+                    anim.ResetTrigger("Jump");
+                    if (leftOrRighWall)
                     {
-                        anim.ResetTrigger("Jump");
-                        StartCoroutine(WallSlideTransition(0.1403281f));
-                        rigidBody.velocity = new Vector2(movement.x, wallStickiness);
-                        if (jumpInWall)
-                        {
-                            StartCoroutine(WallJumpCoolDown(0.1f));
-                        }
+                        if (movement.x < 0)
+                            movement.x = 0;
+                        rigidBody.velocity = new Vector2(movement.x, wallStickiness); // limit movement to the right side
                     }
-                        break;
+                    else if (!leftOrRighWall)
+                    {
+                        if (movement.x > 0)
+                            movement.x = 0;
+                        rigidBody.velocity = new Vector2(movement.x, wallStickiness); // limit movement to the left side
+                    }
+                    StartCoroutine(WallSlideTransition(0.1403281f));
+                    
+                    if (jumpInWall && jumpAmmount>0)
+                    {
+                        StartCoroutine(WallJumpCoolDown(0.2f));
+                    }
+                    break;
 
             }
         }
@@ -323,10 +335,6 @@ public class PlayerController : MonoBehaviour
         {
             isGrounded = false;
         }
-        if (collision.gameObject.CompareTag("Walls"))
-        {
-            state = State.Falling;
-        }
     }
     #endregion
 
@@ -353,27 +361,24 @@ public class PlayerController : MonoBehaviour
        
         yield return null;
     }
-    IEnumerator WallJumpCoolDown(float JumpTimer)
-    {
+   IEnumerator WallJumpCoolDown(float JumpTimer)
+   {
         wj = true;
         anim.SetTrigger("Jump");
         wallJump = false;
-        yield return new WaitForSeconds(JumpTimer);
-        if (jumpAmmount > 0) 
+        ResetWallJump();
+        if (leftOrRighWall)
         {
-            ResetWallJump();
-            if (leftOrRighWall)
-            {
-                rigidBody.velocity = new Vector2(jumpForce / 2, jumpForce);
-            }
-            else
-            {
-                rigidBody.velocity = new Vector2(-jumpForce / 2, jumpForce);
-
-            }
-            lastVelocity = rigidBody.velocity.x;
+            LastDirection = 1;
+            rigidBody.velocity = new Vector2(jumpForce / 2, jumpForce);
         }
-        yield return new WaitForSeconds(0.2f);
+        else
+        {
+            LastDirection = -1;
+            rigidBody.velocity = new Vector2(-jumpForce / 2, jumpForce);
+        }
+        lastVelocity = rigidBody.velocity.x;
+        yield return new WaitForSeconds(0.1f);
         state = State.Falling;
         wj = false;
         jumpInWall = false;
