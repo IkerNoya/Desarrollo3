@@ -19,6 +19,8 @@ public class PlayerController : MonoBehaviour
     [Space]
     [SerializeField] KeyCode jumpButtonKM;
     [SerializeField] KeyCode jumpButtonJoystick;
+    [SerializeField] KeyCode dashButtonKM;
+    [SerializeField] KeyCode dashButtonJoystick;
     [Space]
     [SerializeField] GameObject player;
     [SerializeField] Rigidbody2D rigidBody;
@@ -39,7 +41,7 @@ public class PlayerController : MonoBehaviour
     }
     public enum State
     {
-        Grounded, Jumping, Falling, InWall, WallJump
+        Grounded, Jumping, Falling, InWall, WallJump, Dash
     }
     public float shakeDuration;
     public float shakeMagnitude;
@@ -59,11 +61,11 @@ public class PlayerController : MonoBehaviour
     bool canWallJump = true;
     bool isInWall = false;
     bool jumpInWall = false;
-    bool wallJump;
     bool leftOrRighWall = false; // true = left, false = right;
     bool wj = false;
     bool isCriticalHit;
-    bool isWallJumping = false;
+    bool canDash = true;
+    bool isDashing = false;
 
     ParryController parryController;
 
@@ -75,7 +77,10 @@ public class PlayerController : MonoBehaviour
     float direction;
     float LastDirection;
     float lastVelocity;
+    float lastDashVelocity;
     readonly float runAxisLimit = 0.10f;
+    float dashCooldown = 0;
+    float dashDuration = 0;
 
     Vector2 movement;
 
@@ -95,7 +100,6 @@ public class PlayerController : MonoBehaviour
         comboController.hitCol.SetActive(false);
         transform.position = new Vector3(InitialPos.x, InitialPos.y, InitialPos.z);
         InitialPos = cam.WorldToScreenPoint(transform.localPosition);
-        wallJump = true;
         parryController = GetComponentInChildren<ParryController>();
         Time.timeScale = 1; // Dont touch for now
     }
@@ -110,8 +114,7 @@ public class PlayerController : MonoBehaviour
             movement = Vector3.zero;
             rigidBody.velocity = Vector3.zero;
         }
-        if(!isWallJumping)
-            direction = Input.GetAxis(playerAxis) + Input.GetAxis(joystickAxis);
+        direction = Input.GetAxis(playerAxis) + Input.GetAxis(joystickAxis);
         movement = new Vector2(direction, 0) * speed;
         Inputs();
         if (direction != 0)
@@ -129,10 +132,29 @@ public class PlayerController : MonoBehaviour
             wasGrounded = true;
             jumpAmmount = noOfJumps;
         }
-        if (isGrounded && !jumped) state = State.Grounded;
+        if (!canDash)
+        {
+            dashCooldown += Time.deltaTime;
+            if(dashCooldown > 2)
+            {
+                dashCooldown = 0;
+                canDash = true;
+            } 
+        }
+        if (isDashing)
+        {
+            dashDuration += Time.deltaTime;
+            if(dashDuration > 0.15f)
+            {
+                dashDuration = 0;
+                if (isGrounded) state = State.Grounded;
+                else state = State.Falling;
+            }
+        }
+        if (isGrounded && !jumped && !isDashing) state = State.Grounded;
         else if (jumped) state = State.Jumping;
         else if (!isGrounded && isInWall) state = State.InWall;
-        else if (rigidBody.velocity.y < wallStickiness && !isInWall) state = State.Falling;
+        else if (rigidBody.velocity.y < wallStickiness && !isInWall && !isGrounded) state = State.Falling;
         wasGrounded = isGrounded;
         anim.SetBool("Grounded", isGrounded);
         anim.SetFloat("VelocityY", rigidBody.velocity.y);
@@ -147,6 +169,7 @@ public class PlayerController : MonoBehaviour
             switch (state)
             {
                 case State.Grounded:
+                    isDashing = false;
                     jumpInWall = false;
                     ResetWallJump();
                     if (LastDirection > 0)
@@ -217,6 +240,10 @@ public class PlayerController : MonoBehaviour
                         StartCoroutine(WallJumpCoolDown(0.2f));
                     }
                     break;
+                case State.Dash:
+                    rigidBody.velocity = new Vector2(jumpForce * 3 * Mathf.Sign(lastDashVelocity), 0);
+                    isDashing = true;
+                    break;
 
             }
         }
@@ -244,6 +271,13 @@ public class PlayerController : MonoBehaviour
         if ((Input.GetKeyDown(jumpButtonKM) || Input.GetKeyDown(jumpButtonJoystick)) && isInWall)
         {
             jumpInWall = true;
+        }
+        if(Input.GetKeyDown(dashButtonKM) || Input.GetKeyDown(dashButtonJoystick) && !isInWall && canDash)
+        {
+            lastDashVelocity = movement.x;
+            canDash = false;
+            isDashing = true;
+            state = State.Dash;
         }
     }
     void ResetWallJump()
@@ -365,7 +399,6 @@ public class PlayerController : MonoBehaviour
    {
         wj = true;
         anim.SetTrigger("Jump");
-        wallJump = false;
         ResetWallJump();
         if (leftOrRighWall)
         {
@@ -382,7 +415,6 @@ public class PlayerController : MonoBehaviour
         state = State.Falling;
         wj = false;
         jumpInWall = false;
-        wallJump = true;
         yield return null;
     }
     IEnumerator TakeDamage(float time)
