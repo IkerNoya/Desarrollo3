@@ -138,7 +138,6 @@ public class PlayerController : MonoBehaviour
         anim.SetFloat("VelocityY", rigidBody.velocity.y);
         anim.SetFloat("VelocityX", Mathf.Abs(direction));
         if (wj) anim.SetTrigger("WJ");
-        Debug.Log(lastVelocity);
     }
 
     void FixedUpdate()
@@ -367,21 +366,18 @@ public class PlayerController : MonoBehaviour
         wj = true;
         anim.SetTrigger("Jump");
         wallJump = false;
-        if (jumpAmmount > 0)
+        ResetWallJump();
+        if (leftOrRighWall)
         {
-            ResetWallJump();
-            if (leftOrRighWall)
-            {
-                LastDirection = 1;
-                rigidBody.velocity = new Vector2(jumpForce / 2, jumpForce);
-            }
-            else
-            {
-                LastDirection = -1;
-                rigidBody.velocity = new Vector2(-jumpForce / 2, jumpForce);
-            }
-            lastVelocity = rigidBody.velocity.x;
+            LastDirection = 1;
+            rigidBody.velocity = new Vector2(jumpForce / 2, jumpForce);
         }
+        else
+        {
+            LastDirection = -1;
+            rigidBody.velocity = new Vector2(-jumpForce / 2, jumpForce);
+        }
+        lastVelocity = rigidBody.velocity.x;
         yield return new WaitForSeconds(0.1f);
         state = State.Falling;
         wj = false;
