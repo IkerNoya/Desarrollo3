@@ -24,9 +24,7 @@ public class GameManager : MonoBehaviour
         if(target!=null)
             distanceToGoal = target.position.y - cam.transform.position.y - offset;
     }
-    void Update()
-    {
-    }
+
     #endregion
 
     #region FUNCTIONS
@@ -48,6 +46,7 @@ public class GameManager : MonoBehaviour
     {
         StartCoroutine(slowMotion.ActivateSlowMotion(time, 0.5f));
         yield return new WaitForSeconds(time);
+        Time.timeScale = 1;
         SceneManager.LoadScene("End");
         yield return null;
     }
