@@ -29,7 +29,8 @@ public class CombatController : MonoBehaviour
 		public float cooldown = 0.5f;
 		public float hitDuration = 0.1f;
 		public float damage = 10;
-		public KeyCode comboKey;
+		public KeyCode comboKeyKM;
+		public KeyCode comboKeyJoystick;
 		public KeyCode keyBeingPressed;
 		public AnimationClip clip;
 		public bool critical;
@@ -54,8 +55,6 @@ public class CombatController : MonoBehaviour
 	{
 		combosByID = new Dictionary<string, Combo>();
 
-		Time.timeScale = 0.5f;
-
 		player = GetComponentInParent<PlayerController>();
 
 		foreach (Combo combo in combos)
@@ -72,7 +71,7 @@ public class CombatController : MonoBehaviour
 			foreach (Combo combo in combos)
 			{
 				ComboHit comboHit = combo.comboData[0];
-				if (Input.GetKeyDown(comboHit.comboKey) && timer >= comboHit.hitDuration && player.GetGrounded())
+				if (Input.GetKeyDown(comboHit.comboKeyKM) || Input.GetKeyDown(comboHit.comboKeyJoystick) && timer >= comboHit.hitDuration && player.GetGrounded())
 				{
 					timer = 0;
 					player.SetCanMove(false);
@@ -88,7 +87,7 @@ public class CombatController : MonoBehaviour
 			if (hitIndex < currentCombo.comboData.Count)
 			{
                 timer += Time.deltaTime;
-				if (Input.GetKeyDown(currentCombo.comboData[hitIndex].comboKey) && timer >= currentCombo.comboData[hitIndex].hitDuration && player.GetGrounded())
+				if (Input.GetKeyDown(currentCombo.comboData[hitIndex].comboKeyKM) || Input.GetKeyDown(currentCombo.comboData[hitIndex].comboKeyJoystick) && timer >= currentCombo.comboData[hitIndex].hitDuration && player.GetGrounded())
 				{
 					timer = 0;
 					damage = currentCombo.comboData[hitIndex].damage;
