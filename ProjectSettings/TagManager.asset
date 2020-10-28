@@ -24,7 +24,7 @@ TagManager:
   - Floor
   - Player_1
   - Player_2
-  - HitCollider
+  - HitCollider_P1
   - OutOfBounds
   - FrameHB
   - HealthBar
@@ -33,7 +33,7 @@ TagManager:
   - Wall_L
   - Wall_R
   - ParryCol
-  - 
+  - HitCollider_P2
   - 
   - 
   - 
