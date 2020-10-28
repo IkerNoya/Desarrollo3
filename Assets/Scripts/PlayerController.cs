@@ -152,9 +152,9 @@ public class PlayerController : MonoBehaviour
             }
         }
         if (isGrounded && !jumped && !isDashing) state = State.Grounded;
-        else if (jumped) state = State.Jumping;
+        else if (jumped && !isDashing) state = State.Jumping;
         else if (!isGrounded && isInWall) state = State.InWall;
-        else if (rigidBody.velocity.y < wallStickiness && !isInWall && !isGrounded) state = State.Falling;
+        else if (rigidBody.velocity.y < wallStickiness && !isInWall && !isGrounded && !isDashing) state = State.Falling;
         wasGrounded = isGrounded;
         anim.SetBool("Grounded", isGrounded);
         anim.SetFloat("VelocityY", rigidBody.velocity.y);
@@ -277,6 +277,7 @@ public class PlayerController : MonoBehaviour
             lastDashVelocity = movement.x;
             canDash = false;
             isDashing = true;
+            anim.SetTrigger("Dash");
             state = State.Dash;
         }
     }
