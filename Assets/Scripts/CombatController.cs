@@ -71,7 +71,7 @@ public class CombatController : MonoBehaviour
 			foreach (Combo combo in combos)
 			{
 				ComboHit comboHit = combo.comboData[0];
-				if (Input.GetKeyDown(comboHit.comboKeyKM) || Input.GetKeyDown(comboHit.comboKeyJoystick) && timer >= comboHit.hitDuration && player.GetGrounded())
+				if ((Input.GetKeyDown(comboHit.comboKeyKM) || Input.GetKeyDown(comboHit.comboKeyJoystick)) && timer >= comboHit.hitDuration && player.GetGrounded())
 				{
 					timer = 0;
 					player.SetCanMove(false);
@@ -87,7 +87,7 @@ public class CombatController : MonoBehaviour
 			if (hitIndex < currentCombo.comboData.Count)
 			{
                 timer += Time.deltaTime;
-				if (Input.GetKeyDown(currentCombo.comboData[hitIndex].comboKeyKM) || Input.GetKeyDown(currentCombo.comboData[hitIndex].comboKeyJoystick) && timer >= currentCombo.comboData[hitIndex].hitDuration && player.GetGrounded())
+				if ((Input.GetKeyDown(currentCombo.comboData[hitIndex].comboKeyKM) || Input.GetKeyDown(currentCombo.comboData[hitIndex].comboKeyJoystick)) && timer >= currentCombo.comboData[hitIndex].hitDuration && player.GetGrounded())
 				{
 					timer = 0;
 					damage = currentCombo.comboData[hitIndex].damage;
