@@ -2680,7 +2680,7 @@ PrefabInstance:
     - target: {fileID: 1225701374320304568, guid: 9342dd73a39486b4da82c2afa2922bcd,
         type: 3}
       propertyPath: distanceToWall
-      value: 0.45
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 1225701374430052506, guid: 9342dd73a39486b4da82c2afa2922bcd,
         type: 3}
