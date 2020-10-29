@@ -2622,20 +2622,24 @@ PrefabInstance:
       propertyPath: slowMotion
       value: 
       objectReference: {fileID: 1506143536}
+    - target: {fileID: 1798681329, guid: 9342dd73a39486b4da82c2afa2922bcd, type: 3}
+      propertyPath: parryKeyKM
+      value: 274
+      objectReference: {fileID: 0}
     - target: {fileID: 1225701373364830904, guid: 9342dd73a39486b4da82c2afa2922bcd,
         type: 3}
       propertyPath: combos.Array.data[0].comboData.Array.data[0].comboKeyKM
-      value: 274
+      value: 305
       objectReference: {fileID: 0}
     - target: {fileID: 1225701373364830904, guid: 9342dd73a39486b4da82c2afa2922bcd,
         type: 3}
       propertyPath: combos.Array.data[0].comboData.Array.data[1].comboKeyKM
-      value: 274
+      value: 305
       objectReference: {fileID: 0}
     - target: {fileID: 1225701373364830904, guid: 9342dd73a39486b4da82c2afa2922bcd,
         type: 3}
       propertyPath: combos.Array.data[0].comboData.Array.data[2].comboKeyKM
-      value: 274
+      value: 305
       objectReference: {fileID: 0}
     - target: {fileID: 1225701373364830904, guid: 9342dd73a39486b4da82c2afa2922bcd,
         type: 3}
@@ -2681,6 +2685,16 @@ PrefabInstance:
         type: 3}
       propertyPath: distanceToWall
       value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1225701374320304568, guid: 9342dd73a39486b4da82c2afa2922bcd,
+        type: 3}
+      propertyPath: dashButtonKM
+      value: 256
+      objectReference: {fileID: 0}
+    - target: {fileID: 1225701374320304568, guid: 9342dd73a39486b4da82c2afa2922bcd,
+        type: 3}
+      propertyPath: dashButtonJoystick
+      value: 373
       objectReference: {fileID: 0}
     - target: {fileID: 1225701374430052506, guid: 9342dd73a39486b4da82c2afa2922bcd,
         type: 3}
@@ -2994,6 +3008,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 19
       objectReference: {fileID: 0}
+    - target: {fileID: 4395031985313786522, guid: fc79662f102093c4e99dd88d345bc744,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 4395031985576335752, guid: fc79662f102093c4e99dd88d345bc744,
         type: 3}
       propertyPath: m_Layer
@@ -3103,6 +3122,11 @@ PrefabInstance:
         type: 3}
       propertyPath: dashButtonJoystick
       value: 353
+      objectReference: {fileID: 0}
+    - target: {fileID: 4395031987110380140, guid: fc79662f102093c4e99dd88d345bc744,
+        type: 3}
+      propertyPath: jumpButtonKM
+      value: 119
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fc79662f102093c4e99dd88d345bc744, type: 3}

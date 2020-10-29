@@ -221,18 +221,7 @@ public class PlayerController : MonoBehaviour
 
                 case State.InWall:
                     anim.ResetTrigger("Jump");
-                    if (leftOrRighWall)
-                    {
-                        if (movement.x < 0)
-                            movement.x = 0;
-                        rigidBody.velocity = new Vector2(movement.x, wallStickiness); // limit movement to the right side
-                    }
-                    else if (!leftOrRighWall)
-                    {
-                        if (movement.x > 0)
-                            movement.x = 0;
-                        rigidBody.velocity = new Vector2(movement.x, wallStickiness); // limit movement to the left side
-                    }
+                    rigidBody.velocity = new Vector2(0, wallStickiness); // limit movement to the right side
                     StartCoroutine(WallSlideTransition(0.1403281f));
                     
                     if (jumpInWall && jumpAmmount>0)
