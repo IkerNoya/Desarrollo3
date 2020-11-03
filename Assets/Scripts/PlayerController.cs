@@ -122,7 +122,13 @@ public class PlayerController : MonoBehaviour
             LastDirection = direction;
         }
         isGrounded = Physics2D.Raycast(transform.position, Vector2.down, distanceToGround, groundLayer);
-        if (Physics2D.Raycast(transform.position, Vector2.right, distanceToWall, layerWallR) || Physics2D.Raycast(transform.position, Vector2.left, distanceToWall, layerWallL)) isInWall = true;
+        if ((Physics2D.Raycast(transform.position, Vector2.right, distanceToWall, layerWallR) || Physics2D.Raycast(transform.position, Vector2.left, distanceToWall, layerWallL)) && !isGrounded)
+        {
+            canWallJump = false;
+            jumpAmmount = 2;
+            isInWall = true;
+        }
+
         else isInWall = false;
         if (isGrounded && !wasGrounded)
         {
@@ -223,12 +229,12 @@ public class PlayerController : MonoBehaviour
                     anim.ResetTrigger("Jump");
                     rigidBody.velocity = new Vector2(0, wallStickiness); // limit movement to the right side
                     StartCoroutine(WallSlideTransition(0.1403281f));
-                    
                     if (jumpInWall && jumpAmmount>0)
                     {
                         StartCoroutine(WallJumpCoolDown(0.2f));
                     }
                     break;
+
                 case State.Dash:
                     rigidBody.velocity = new Vector2(jumpForce * 3 * Mathf.Sign(lastDashVelocity), 0);
                     isDashing = true;
@@ -319,11 +325,6 @@ public class PlayerController : MonoBehaviour
         }
         if (collision.gameObject.CompareTag("Walls"))
         {
-            if (!isGrounded && canWallJump)
-            {
-                jumpAmmount = 2;
-                canWallJump = false;
-            }
             if (transform.position.x > collision.transform.position.x)
             {
                 leftOrRighWall = true;
