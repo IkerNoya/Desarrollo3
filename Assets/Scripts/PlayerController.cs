@@ -289,8 +289,10 @@ public class PlayerController : MonoBehaviour
     void Respawn()
     {
         rigidBody.simulated = true;
+        rigidBody.velocity = Vector2.zero;
         hp = 100;
         isDead = false;
+        isDashing = false;
         transform.position = cam.ScreenToWorldPoint(new Vector3(InitialPos.x, InitialPos.y, InitialPos.z));
         gameObject.GetComponent<BoxCollider2D>().enabled = true;
        
