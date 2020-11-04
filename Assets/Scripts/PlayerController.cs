@@ -181,10 +181,12 @@ public class PlayerController : MonoBehaviour
                     if (LastDirection > 0)
                     {
                         player.transform.eulerAngles = new Vector3(0, 0, 0);
+                        lastDashVelocity = 1;
                     }
                     else if (LastDirection < 0)
                     {
                         player.transform.eulerAngles = new Vector3(0, 180, 0);
+                        lastDashVelocity = -1;
                     }
                     if (canMove)
                     {
@@ -197,10 +199,12 @@ public class PlayerController : MonoBehaviour
                     if (LastDirection > 0)
                     {
                         player.transform.eulerAngles = new Vector3(0, 0, 0);
+                        lastDashVelocity = 1;
                     }
                     else if (LastDirection < 0)
                     {
                         player.transform.eulerAngles = new Vector3(0, 180, 0);
+                        lastDashVelocity = -1;
                     }
                     anim.SetTrigger("Jump");
                     lastVelocity = 0;
@@ -215,11 +219,13 @@ public class PlayerController : MonoBehaviour
                     if (LastDirection > 0)
                     {
                         player.transform.eulerAngles = new Vector3(0, 0, 0);
+                        lastDashVelocity = 1;
                     }
                     else if (LastDirection < 0)
                     {
                         player.transform.eulerAngles = new Vector3(0, 180, 0);
-                    }   
+                        lastDashVelocity = -1;
+                    }
                     rigidBody.velocity = new Vector2(movement.x + lastVelocity, rigidBody.velocity.y);
                     if (Mathf.Abs(rigidBody.velocity.x) >= speed)
                         rigidBody.velocity = new Vector2(speed * Mathf.Sign(rigidBody.velocity.x), rigidBody.velocity.y);
@@ -237,6 +243,7 @@ public class PlayerController : MonoBehaviour
 
                 case State.Dash:
                     rigidBody.velocity = new Vector2(jumpForce * 3 * Mathf.Sign(lastDashVelocity), 0);
+                    lastVelocity = rigidBody.velocity.x;
                     isDashing = true;
                     break;
 
@@ -269,7 +276,6 @@ public class PlayerController : MonoBehaviour
         }
         if(Input.GetKeyDown(dashButtonKM) || Input.GetKeyDown(dashButtonJoystick) && !isInWall && canDash)
         {
-            lastDashVelocity = movement.x;
             canDash = false;
             isDashing = true;
             anim.SetTrigger("Dash");
