@@ -243,6 +243,7 @@ public class PlayerController : MonoBehaviour
 
                 case State.Dash:
                     rigidBody.velocity = new Vector2(jumpForce * 3 * Mathf.Sign(lastDashVelocity), 0);
+                    lastVelocity = rigidBody.velocity.x;
                     isDashing = true;
                     break;
 
