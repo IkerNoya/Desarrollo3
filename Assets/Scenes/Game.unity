@@ -2656,6 +2656,16 @@ PrefabInstance:
       propertyPath: combos.Array.data[0].comboData.Array.data[2].comboKeyJoystick
       value: 370
       objectReference: {fileID: 0}
+    - target: {fileID: 1225701373364830907, guid: 9342dd73a39486b4da82c2afa2922bcd,
+        type: 3}
+      propertyPath: m_Offset.x
+      value: 0.4933324
+      objectReference: {fileID: 0}
+    - target: {fileID: 1225701373364830907, guid: 9342dd73a39486b4da82c2afa2922bcd,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 1.5455065
+      objectReference: {fileID: 0}
     - target: {fileID: 1225701373364830909, guid: 9342dd73a39486b4da82c2afa2922bcd,
         type: 3}
       propertyPath: m_Layer
@@ -3028,6 +3038,16 @@ PrefabInstance:
       propertyPath: slowMotion
       value: 
       objectReference: {fileID: 1506143536}
+    - target: {fileID: 4395031986078868598, guid: fc79662f102093c4e99dd88d345bc744,
+        type: 3}
+      propertyPath: m_Offset.x
+      value: 0.4933324
+      objectReference: {fileID: 0}
+    - target: {fileID: 4395031986078868598, guid: fc79662f102093c4e99dd88d345bc744,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 1.5455065
+      objectReference: {fileID: 0}
     - target: {fileID: 4395031986943511720, guid: fc79662f102093c4e99dd88d345bc744,
         type: 3}
       propertyPath: m_LocalPosition.x
