@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
 
 public class ParryController : MonoBehaviour
@@ -12,13 +13,20 @@ public class ParryController : MonoBehaviour
     [Space]
     [SerializeField] GameObject enemy;
     [SerializeField] SlowMotion slowMotion;
+    [SerializeField] float parryCooldown;
+
     PlayerController enemyValues;
     bool blockDamage = false;
+    bool canParry = false;
 
     float canMoveTimerOffset = 0.3f; // multiplication applied in coroutine to delay movement
+    float cooldownTimer = 0;
+
     PlayerController player;
     BoxCollider2D parryCol;
     Animator anim;
+    CombatController cc;
+    
 
     public static event Action<ParryController> parryEffect;
     void Start()
@@ -28,14 +36,29 @@ public class ParryController : MonoBehaviour
         player = GetComponentInParent<PlayerController>();
         parryCol.enabled = false;
         enemyValues = enemy.GetComponent<PlayerController>();
+        cc = GetComponent<CombatController>();
     }
     void Update()
     {
-        if((Input.GetKeyDown(parryKeyKM) || Input.GetKeyDown(parryKeyJoystick)) && player.GetGrounded())
+        if(cooldownTimer >= parryCooldown)
+        {
+            canParry = true;
+        }
+        Debug.Log(cooldownTimer);
+        cooldownTimer += Time.deltaTime;
+        if (!canParry)
+            return;
+        ParryInput();
+    }
+    void ParryInput()
+    {
+        if ((Input.GetKeyDown(parryKeyKM) || Input.GetKeyDown(parryKeyJoystick)) && player.GetGrounded() && !cc.IsAttacking)
         {
             anim.SetTrigger("Parry");
             player.SetCanMove(false);
             StartCoroutine(ParryColliderTime(duration));
+            cooldownTimer = 0;
+            canParry = false;
         }
     }
     public bool GetBlockDamage()
@@ -55,7 +78,7 @@ public class ParryController : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("HitCollider"))
+        if (collision.gameObject.CompareTag("HitCollider") && collision.gameObject.tag != gameObject.tag)
         {
             enemyValues.anim.SetTrigger("Damage");
             StartCoroutine(slowMotion.ActivateSlowMotion(0.5f, 0.5f));

@@ -101,7 +101,6 @@ public class PlayerController : MonoBehaviour
         transform.position = new Vector3(InitialPos.x, InitialPos.y, InitialPos.z);
         InitialPos = cam.WorldToScreenPoint(transform.localPosition);
         parryController = GetComponentInChildren<ParryController>();
-        Time.timeScale = 1; // Dont touch for now
     }
 
     void Update()
@@ -343,7 +342,7 @@ public class PlayerController : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("HitCollider") && collision.gameObject.layer != gameObject.layer && !parryController.GetBlockDamage() && !isDashing)
+        if (collision.gameObject.CompareTag("HitCollider") && collision.gameObject.layer != gameObject.layer && !parryController.GetBlockDamage() && !isDashing && collision.gameObject != gameObject)
         {
             // add force later
             anim.SetTrigger("Damage");

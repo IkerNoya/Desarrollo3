@@ -32,9 +32,9 @@ TagManager:
   - Crown
   - Wall_L
   - Wall_R
-  - ParryCol
+  - ParryCol_P1
   - HitCollider_P2
-  - 
+  - ParryCol_P2
   - 
   - 
   - 

@@ -2713,6 +2713,10 @@ PrefabInstance:
       propertyPath: parryKeyKM
       value: 274
       objectReference: {fileID: 0}
+    - target: {fileID: 1798681329, guid: 9342dd73a39486b4da82c2afa2922bcd, type: 3}
+      propertyPath: parryCooldown
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 1225701373364830904, guid: 9342dd73a39486b4da82c2afa2922bcd,
         type: 3}
       propertyPath: combos.Array.data[0].comboData.Array.data[0].comboKeyKM
@@ -2756,7 +2760,7 @@ PrefabInstance:
     - target: {fileID: 1225701373364830909, guid: 9342dd73a39486b4da82c2afa2922bcd,
         type: 3}
       propertyPath: m_Layer
-      value: 19
+      value: 21
       objectReference: {fileID: 0}
     - target: {fileID: 1225701374215469159, guid: 9342dd73a39486b4da82c2afa2922bcd,
         type: 3}
@@ -3125,6 +3129,11 @@ PrefabInstance:
       propertyPath: slowMotion
       value: 
       objectReference: {fileID: 1506143536}
+    - target: {fileID: 4395031986078868597, guid: fc79662f102093c4e99dd88d345bc744,
+        type: 3}
+      propertyPath: parryCooldown
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4395031986078868598, guid: fc79662f102093c4e99dd88d345bc744,
         type: 3}
       propertyPath: m_Offset.x
