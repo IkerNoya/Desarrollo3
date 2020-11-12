@@ -50,33 +50,9 @@ public class CameraMovement : MonoBehaviour
         middleScreenPoint = cam.ViewportToWorldPoint(new Vector2(0, 0.5f)); // opengl screenSize = -1 to 1
         upperScreenPoint = cam.ViewportToWorldPoint(new Vector2(0, 0.75f));
 
-        //Vector2 player1Pos = cam.WorldToViewportPoint(player1.transform.position);
-        Vector2 player1Pos = player1.transform.position;
-        //Vector2 player2Pos = cam.WorldToViewportPoint(player2.transform.position);
-        Vector2 player2Pos = player2.transform.position;
-        
-
-        if ((player1Pos.y < middleScreenPoint.y && player1Pos.y < upperScreenPoint.y)
-        || (player2Pos.y < middleScreenPoint.y && player2Pos.y < upperScreenPoint.y))
-        {
-            speed = lowSpeed;
-            Debug.Log("Low");
-        }
-        if ((player1Pos.y > middleScreenPoint.y && player1Pos.y < upperScreenPoint.y)
-        || (player2Pos.y > middleScreenPoint.y && player2Pos.y < upperScreenPoint.y))
-        {
-            speed = midSpeed;
-            Debug.Log("Mid");
-        }   
-        if ((player1Pos.y > middleScreenPoint.y && player1Pos.y > upperScreenPoint.y)
-        || (player2Pos.y > middleScreenPoint.y && player2Pos.y > upperScreenPoint.y))
-        {
-            speed = highSpeed;
-            Debug.Log("High");
-        }
-        Debug.Log(speed);
-        //Debug.Log("midScreen: " + middleScreenPoint);
-        //Debug.Log("upScreen: " + upperScreenPoint);
+        if (canMove)
+            SpeedChange();
+ 
     }
     void LateUpdate()
     {
@@ -114,7 +90,25 @@ public class CameraMovement : MonoBehaviour
     }
     void SpeedChange()
     {
-        
+        Vector2 player1Pos = player1.transform.position;
+        Vector2 player2Pos = player2.transform.position;
+
+
+        if ((player1Pos.y < middleScreenPoint.y && player1Pos.y < upperScreenPoint.y)
+        || (player2Pos.y < middleScreenPoint.y && player2Pos.y < upperScreenPoint.y))
+        {
+            speed = lowSpeed;
+        }
+        if ((player1Pos.y > middleScreenPoint.y && player1Pos.y < upperScreenPoint.y)
+        || (player2Pos.y > middleScreenPoint.y && player2Pos.y < upperScreenPoint.y))
+        {
+            speed = midSpeed;
+        }
+        if ((player1Pos.y > middleScreenPoint.y && player1Pos.y > upperScreenPoint.y)
+        || (player2Pos.y > middleScreenPoint.y && player2Pos.y > upperScreenPoint.y))
+        {
+            speed = highSpeed;
+        }
     }
     #endregion
 

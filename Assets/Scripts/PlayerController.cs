@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections;
+using System.Runtime.Remoting.Metadata.W3cXsd2001;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    #region Variables1
+    #region VARIABLES
     [SerializeField] float speed;
     [SerializeField] float wallStickiness;
     [SerializeField] float jumpForce;
@@ -34,6 +35,11 @@ public class PlayerController : MonoBehaviour
     [Space]
     [SerializeField] GameObject enemy;
     [Space]
+    [SerializeField] float knockBackForce;
+    [SerializeField] float criticalKnockBackForce;
+    #endregion
+
+    #region PUBLIC_VARIABLES
     public SlowMotion slowMotion;
     public enum PlayerSelect
     {
@@ -52,7 +58,9 @@ public class PlayerController : MonoBehaviour
     State state;
     [Space]
     public Animator anim;
+    #endregion
 
+    #region PRIVATE_VARIABLES
     bool isGrounded = false;
     bool wasGrounded = false;
     bool jumped = false;
@@ -344,12 +352,22 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("HitCollider") && collision.gameObject.layer != gameObject.layer && !parryController.GetBlockDamage() && !isDashing && collision.gameObject != gameObject)
         {
-            // add force later
+            isCriticalHit = collision.gameObject.GetComponentInParent<CombatController>().GetCriticalDamageValue();
+            Vector3 direction = collision.gameObject.transform.position - transform.position;
+            direction.Normalize();
+            Debug.Log(direction);
             anim.SetTrigger("Damage");
             StartCoroutine(TakeDamage(0.75f));
             hp -= collision.gameObject.GetComponentInParent<CombatController>().GetDamage();
-            isCriticalHit = collision.gameObject.GetComponentInParent<CombatController>().GetCriticalDamageValue();
-            if (isCriticalHit) StartCoroutine(cameraShake.Shake(shakeDuration, shakeMagnitude));
+            if (isCriticalHit)
+            {
+                rigidBody.AddForce(new Vector2(-direction.x * criticalKnockBackForce, rigidBody.velocity.y));
+                StartCoroutine(cameraShake.Shake(shakeDuration, shakeMagnitude));
+            }
+            else
+            {
+                rigidBody.AddForce(new Vector2(-direction.x * knockBackForce, rigidBody.velocity.y));
+            }
             StartCoroutine(HitCooldown());
             takeDamage(this);
             if (hp <= 0)

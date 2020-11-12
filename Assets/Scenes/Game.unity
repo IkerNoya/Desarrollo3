@@ -2799,6 +2799,16 @@ PrefabInstance:
       propertyPath: dashButtonJoystick
       value: 373
       objectReference: {fileID: 0}
+    - target: {fileID: 1225701374320304568, guid: 9342dd73a39486b4da82c2afa2922bcd,
+        type: 3}
+      propertyPath: knockBackForce
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 1225701374320304568, guid: 9342dd73a39486b4da82c2afa2922bcd,
+        type: 3}
+      propertyPath: criticalKnockBackForce
+      value: 3000
+      objectReference: {fileID: 0}
     - target: {fileID: 1225701374430052506, guid: 9342dd73a39486b4da82c2afa2922bcd,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3245,6 +3255,16 @@ PrefabInstance:
         type: 3}
       propertyPath: jumpButtonKM
       value: 119
+      objectReference: {fileID: 0}
+    - target: {fileID: 4395031987110380140, guid: fc79662f102093c4e99dd88d345bc744,
+        type: 3}
+      propertyPath: knockBackForce
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 4395031987110380140, guid: fc79662f102093c4e99dd88d345bc744,
+        type: 3}
+      propertyPath: criticalKnockBackForce
+      value: 3000
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fc79662f102093c4e99dd88d345bc744, type: 3}
