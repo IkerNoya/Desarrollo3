@@ -20,9 +20,9 @@ This is a game (still in development) developed by students from <a href="https:
 ## Credits
 
 - **Iker Noya** - *Programming*
-- **Franco Zeromski** - *Art*
-- **Isidro Santos Ortega** - *Art*
-- **Alan Briz** - *Art*
+- **Franco Zeromski** - *Character Artist*
+- **Isidro Santos Ortega** - *Level Artist*
+- **Alan Briz** - *UI Artist*
 - **Fernando Alonso** - *Audio*
 - **Dante Delli Carpini** - *Audio*
 - **Ezequiel Martinez** - *Audio*
