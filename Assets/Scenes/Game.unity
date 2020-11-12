@@ -867,7 +867,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   crown: {fileID: 293373260}
-  speed: 0.05
+  lowSpeed: 0.015
+  midSpeed: 0.035
+  highSpeed: 0.05
   offset: 1
   player1: {fileID: 1418373337}
   player2: {fileID: 191250276}

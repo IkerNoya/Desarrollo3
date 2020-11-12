@@ -5,7 +5,9 @@ public class CameraMovement : MonoBehaviour
 {
     #region VARIABLES
     [SerializeField] GameObject crown;
-    [SerializeField] float speed;
+    [SerializeField] float lowSpeed;
+    [SerializeField] float midSpeed;
+    [SerializeField] float highSpeed;
     [SerializeField] float offset;
     [SerializeField] GameObject player1;
     [SerializeField] GameObject player2;
@@ -13,6 +15,8 @@ public class CameraMovement : MonoBehaviour
     float wantedSize = 4;
     float originalSize;
     float lastY;
+    Vector2 middleScreenPoint;
+    Vector2 upperScreenPoint;
     Vector3 LastPos;
     bool canZoom;
     bool canMove = true;
@@ -20,6 +24,7 @@ public class CameraMovement : MonoBehaviour
     float lerpInterpolations = 0.8f;
     float t = 0;
     float xPos;
+    float speed;
     #endregion
 
     #region BASE_FUNCTIONS
@@ -27,23 +32,54 @@ public class CameraMovement : MonoBehaviour
     {
         ParryController.parryEffect += ZoomOnPlayer;
     }
-    private void Start()
+    void Start()
     {
         if (crown != null)
         {
             direction = crown.transform.position - transform.position;
             direction = new Vector3(0, direction.y, 0);
+            lastY = crown.transform.position.y;
         }
         cam = Camera.main;
         originalSize = cam.orthographicSize;
         xPos = transform.position.x;
+        
     }
     void Update()
     {
-        if(crown!=null)
+        middleScreenPoint = cam.ViewportToWorldPoint(new Vector2(0, 0.5f)); // opengl screenSize = -1 to 1
+        upperScreenPoint = cam.ViewportToWorldPoint(new Vector2(0, 0.75f));
+
+        //Vector2 player1Pos = cam.WorldToViewportPoint(player1.transform.position);
+        Vector2 player1Pos = player1.transform.position;
+        //Vector2 player2Pos = cam.WorldToViewportPoint(player2.transform.position);
+        Vector2 player2Pos = player2.transform.position;
+        
+
+        if ((player1Pos.y < middleScreenPoint.y && player1Pos.y < upperScreenPoint.y)
+        || (player2Pos.y < middleScreenPoint.y && player2Pos.y < upperScreenPoint.y))
         {
-            lastY = crown.transform.position.y;
+            speed = lowSpeed;
+            Debug.Log("Low");
         }
+        if ((player1Pos.y > middleScreenPoint.y && player1Pos.y < upperScreenPoint.y)
+        || (player2Pos.y > middleScreenPoint.y && player2Pos.y < upperScreenPoint.y))
+        {
+            speed = midSpeed;
+            Debug.Log("Mid");
+        }   
+        if ((player1Pos.y > middleScreenPoint.y && player1Pos.y > upperScreenPoint.y)
+        || (player2Pos.y > middleScreenPoint.y && player2Pos.y > upperScreenPoint.y))
+        {
+            speed = highSpeed;
+            Debug.Log("High");
+        }
+        Debug.Log(speed);
+        //Debug.Log("midScreen: " + middleScreenPoint);
+        //Debug.Log("upScreen: " + upperScreenPoint);
+    }
+    void LateUpdate()
+    {
 
         if (transform.position.y < lastY-offset)
         {
@@ -75,6 +111,10 @@ public class CameraMovement : MonoBehaviour
     void ZoomOnPlayer(ParryController pc)
     {
         StartCoroutine(ZoomIn(0.5f));
+    }
+    void SpeedChange()
+    {
+        
     }
     #endregion
 

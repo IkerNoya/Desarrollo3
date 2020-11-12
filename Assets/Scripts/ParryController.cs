@@ -44,7 +44,6 @@ public class ParryController : MonoBehaviour
         {
             canParry = true;
         }
-        Debug.Log(cooldownTimer);
         cooldownTimer += Time.deltaTime;
         if (!canParry)
             return;
@@ -78,7 +77,7 @@ public class ParryController : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("HitCollider") && collision.gameObject.tag != gameObject.tag)
+        if (collision.gameObject.CompareTag("HitCollider"))
         {
             enemyValues.anim.SetTrigger("Damage");
             StartCoroutine(slowMotion.ActivateSlowMotion(0.5f, 0.5f));
