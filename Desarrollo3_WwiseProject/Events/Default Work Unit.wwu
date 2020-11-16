@@ -81,6 +81,16 @@
 								</Reference>
 							</ReferenceList>
 						</Action>
+						<Action Name="" ID="{B874F712-F3BF-4175-97E4-53D32D22BE24}" ShortID="636630027">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Dash" ID="{04DD2D2E-C14E-454E-A661-6ABEAAFAAFEF}" WorkUnitID="{16016A4F-AD9D-4A09-AA0F-576A97D5EE42}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
 					</ChildrenList>
 				</Event>
 				<Event Name="PopUp_PlayerWins" ID="{C5E058DC-9CEA-497B-BFA0-520C628B0783}"/>
