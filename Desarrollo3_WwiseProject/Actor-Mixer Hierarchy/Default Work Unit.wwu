@@ -1,6 +1,434 @@
 <?xml version="1.0" encoding="utf-8"?>
 <WwiseDocument Type="WorkUnit" ID="{16016A4F-AD9D-4A09-AA0F-576A97D5EE42}" SchemaVersion="97">
 	<AudioObjects>
-		<WorkUnit Name="Default Work Unit" ID="{16016A4F-AD9D-4A09-AA0F-576A97D5EE42}" PersistMode="Standalone"/>
+		<WorkUnit Name="Default Work Unit" ID="{16016A4F-AD9D-4A09-AA0F-576A97D5EE42}" PersistMode="Standalone">
+			<ChildrenList>
+				<RandomSequenceContainer Name="Salto" ID="{7D70A104-B3B0-411B-A995-0A74578CBE5C}" ShortID="561433229">
+					<PropertyList>
+						<Property Name="NormalOrShuffle" Type="int16" Value="0"/>
+						<Property Name="Pitch" Type="int32">
+							<ValueList>
+								<Value>130</Value>
+							</ValueList>
+							<ModifierList>
+								<ModifierInfo>
+									<Modifier Name="" ID="{DE677388-674A-43A8-83A9-C277F2CC0CAA}">
+										<PropertyList>
+											<Property Name="Enabled" Type="bool" Value="True"/>
+											<Property Name="Max" Type="Real64" Value="130"/>
+											<Property Name="Min" Type="Real64" Value="-30"/>
+										</PropertyList>
+									</Modifier>
+								</ModifierInfo>
+							</ModifierList>
+						</Property>
+					</PropertyList>
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{806D56C7-89DC-4910-BD41-BCACBB474B89}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0159F99E-D8EC-44F5-82B8-9D5327BE8D95}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<Sound Name="SFX_Salto_01" ID="{F8E49C3F-9F02-4A5D-8578-7DB21D06734B}" ShortID="824491312">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{806D56C7-89DC-4910-BD41-BCACBB474B89}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0159F99E-D8EC-44F5-82B8-9D5327BE8D95}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="SFX_Salto" ID="{8848F519-19DE-4532-BC17-913B431AC097}">
+									<PropertyList>
+										<Property Name="FadeInDuration" Type="Real64" Value="0.0243868673155388"/>
+										<Property Name="FadeOutDuration" Type="Real64" Value="0.040649928652968"/>
+										<Property Name="LoopBegin" Type="Real64" Value="0.377058486955638"/>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+										<Property Name="TrimBegin" Type="Real64" Value="0.281386930563909"/>
+										<Property Name="TrimEnd" Type="Real64" Value="0.666395480758671"/>
+									</PropertyList>
+									<Language>SFX</Language>
+									<AudioFile>SFX_Salto.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="621957689"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="SFX_Salto" ID="{8848F519-19DE-4532-BC17-913B431AC097}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="SFX_Salto_02" ID="{5BE2C517-A492-4A11-918F-A62861F1E530}" ShortID="941620072">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{806D56C7-89DC-4910-BD41-BCACBB474B89}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0159F99E-D8EC-44F5-82B8-9D5327BE8D95}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="SFX_Salto" ID="{A4CDF64C-5E56-44A2-AAA0-AAA816199EEA}">
+									<PropertyList>
+										<Property Name="FadeInDuration" Type="Real64" Value="0.0302846518376647"/>
+										<Property Name="FadeOutDuration" Type="Real64" Value="0.0128127373159357"/>
+										<Property Name="LoopBegin" Type="Real64" Value="2.39584175749013"/>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+										<Property Name="TrimBegin" Type="Real64" Value="2.32478930510176"/>
+										<Property Name="TrimEnd" Type="Real64" Value="2.57801884793466"/>
+									</PropertyList>
+									<Language>SFX</Language>
+									<AudioFile>SFX_Salto.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="747274110"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="SFX_Salto" ID="{A4CDF64C-5E56-44A2-AAA0-AAA816199EEA}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="SFX_Salto_03" ID="{3345B8F8-AF38-464C-B1C3-E28EB3DBB21C}" ShortID="1066948793">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-1</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{806D56C7-89DC-4910-BD41-BCACBB474B89}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0159F99E-D8EC-44F5-82B8-9D5327BE8D95}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="SFX_Salto" ID="{8496D23F-0E56-46A6-B5BD-19C2B3EB0577}">
+									<PropertyList>
+										<Property Name="FadeInDuration" Type="Real64" Value="0.104542695154812"/>
+										<Property Name="FadeOutDuration" Type="Real64" Value="0.0740979733707317"/>
+										<Property Name="LoopBegin" Type="Real64" Value="4.39150722925424"/>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+										<Property Name="TrimBegin" Type="Real64" Value="4.30044149295917"/>
+										<Property Name="TrimEnd" Type="Real64" Value="4.62737928684018"/>
+									</PropertyList>
+									<Language>SFX</Language>
+									<AudioFile>SFX_Salto.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="731081151"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="SFX_Salto" ID="{8496D23F-0E56-46A6-B5BD-19C2B3EB0577}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="SFX_Salto_04" ID="{BBD2F7B3-2465-4A6A-B1D4-7669C40B662C}" ShortID="177556444">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{806D56C7-89DC-4910-BD41-BCACBB474B89}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0159F99E-D8EC-44F5-82B8-9D5327BE8D95}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="SFX_Salto" ID="{884F893A-0EA8-41AA-A901-2B63514A6F78}">
+									<PropertyList>
+										<Property Name="FadeInDuration" Type="Real64" Value="0.115061802982517"/>
+										<Property Name="FadeOutDuration" Type="Real64" Value="0.110459330863218"/>
+										<Property Name="LoopBegin" Type="Real64" Value="6.40009691375169"/>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+										<Property Name="TrimBegin" Type="Real64" Value="6.32119739170653"/>
+										<Property Name="TrimEnd" Type="Real64" Value="6.60783828472993"/>
+									</PropertyList>
+									<Language>SFX</Language>
+									<AudioFile>SFX_Salto.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="806087017"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="SFX_Salto" ID="{884F893A-0EA8-41AA-A901-2B63514A6F78}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="SFX_Salto_05" ID="{F3751305-2B3B-4BBF-9BDD-85EF56080FD0}" ShortID="5232392">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{806D56C7-89DC-4910-BD41-BCACBB474B89}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0159F99E-D8EC-44F5-82B8-9D5327BE8D95}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="SFX_Salto" ID="{497590F1-678D-4D40-83B1-DE27F407A12C}">
+									<PropertyList>
+										<Property Name="FadeInDuration" Type="Real64" Value="0.0857712167430371"/>
+										<Property Name="FadeOutDuration" Type="Real64" Value="0.0751821776389576"/>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+										<Property Name="TrimBegin" Type="Real64" Value="8.23111843507276"/>
+										<Property Name="TrimEnd" Type="Real64" Value="8.56694488782692"/>
+									</PropertyList>
+									<Language>SFX</Language>
+									<AudioFile>SFX_Salto.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="984583022"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="SFX_Salto" ID="{497590F1-678D-4D40-83B1-DE27F407A12C}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="SFX_Salto_06" ID="{D8FF004B-0BE2-44AC-A5B4-03E7B3F2D64F}" ShortID="804100093">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{806D56C7-89DC-4910-BD41-BCACBB474B89}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0159F99E-D8EC-44F5-82B8-9D5327BE8D95}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="SFX_Salto" ID="{6BA5CE5D-8F29-471C-B570-3167F04FFC25}">
+									<PropertyList>
+										<Property Name="FadeInDuration" Type="Real64" Value="0.0166274167749982"/>
+										<Property Name="FadeOutDuration" Type="Real64" Value="0.0341299607486825"/>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+										<Property Name="TrimBegin" Type="Real64" Value="10.2735820994074"/>
+										<Property Name="TrimEnd" Type="Real64" Value="10.5669777911076"/>
+									</PropertyList>
+									<Language>SFX</Language>
+									<AudioFile>SFX_Salto.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="873666959"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="SFX_Salto" ID="{6BA5CE5D-8F29-471C-B570-3167F04FFC25}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+					</ChildrenList>
+				</RandomSequenceContainer>
+				<RandomSequenceContainer Name="Dash" ID="{04DD2D2E-C14E-454E-A661-6ABEAAFAAFEF}" ShortID="656635821">
+					<PropertyList>
+						<Property Name="NormalOrShuffle" Type="int16" Value="0"/>
+					</PropertyList>
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{806D56C7-89DC-4910-BD41-BCACBB474B89}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0159F99E-D8EC-44F5-82B8-9D5327BE8D95}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<Sound Name="SFX_Dash1" ID="{0CCCF465-F247-4C92-AD34-8226BA5D10BC}" ShortID="842753145">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{806D56C7-89DC-4910-BD41-BCACBB474B89}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0159F99E-D8EC-44F5-82B8-9D5327BE8D95}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="SFX_Dash1" ID="{DC8AAFCB-CA28-4992-BAA1-DBD352804028}">
+									<Language>SFX</Language>
+									<AudioFile>SFX_Dash1.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="337669942"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="SFX_Dash1" ID="{DC8AAFCB-CA28-4992-BAA1-DBD352804028}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="SFX_Dash2" ID="{83F7DDFA-4BE7-45EF-902C-54C286714519}" ShortID="73759086">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{806D56C7-89DC-4910-BD41-BCACBB474B89}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0159F99E-D8EC-44F5-82B8-9D5327BE8D95}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="SFX_Dash2" ID="{F4B9B68D-DC8F-4031-A45E-E1034879E6CA}">
+									<Language>SFX</Language>
+									<AudioFile>SFX_Dash2.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="679655236"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="SFX_Dash2" ID="{F4B9B68D-DC8F-4031-A45E-E1034879E6CA}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="SFX_Dash3" ID="{E9565987-B96E-4283-A2B6-FE76475D9FF7}" ShortID="256022195">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{806D56C7-89DC-4910-BD41-BCACBB474B89}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0159F99E-D8EC-44F5-82B8-9D5327BE8D95}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="SFX_Dash3" ID="{AF99EE4D-9C17-4DD6-979B-13D18E7C7314}">
+									<Language>SFX</Language>
+									<AudioFile>SFX_Dash3.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="494298104"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="SFX_Dash3" ID="{AF99EE4D-9C17-4DD6-979B-13D18E7C7314}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+					</ChildrenList>
+				</RandomSequenceContainer>
+				<Sound Name="SFX_Ataque1" ID="{89FDF9DC-D0E2-40AC-8A14-EEA1F09B464C}" ShortID="466922683">
+					<PropertyList>
+						<Property Name="Inclusion" Type="bool">
+							<ValueList>
+								<Value>False</Value>
+							</ValueList>
+						</Property>
+						<Property Name="Pitch" Type="int32">
+							<ModifierList>
+								<ModifierInfo>
+									<Modifier Name="" ID="{D062CF7F-2F8A-4CB8-9201-E807F5386C16}"/>
+								</ModifierInfo>
+							</ModifierList>
+						</Property>
+						<Property Name="Volume" Type="Real64">
+							<ValueList>
+								<Value>-4</Value>
+							</ValueList>
+						</Property>
+					</PropertyList>
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{806D56C7-89DC-4910-BD41-BCACBB474B89}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0159F99E-D8EC-44F5-82B8-9D5327BE8D95}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<AudioFileSource Name="SFX_Ataque1" ID="{24FEDA3B-3CEE-4CEA-916B-1CAF914DE7DF}">
+							<PropertyList>
+								<Property Name="LoopBegin" Type="Real64" Value="0.338867615582192"/>
+								<Property Name="LoopEnd" Type="Real64" Value="0.475267158961187"/>
+								<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+							</PropertyList>
+							<Language>SFX</Language>
+							<AudioFile>SFX_Ataque1.wav</AudioFile>
+							<MediaIDList>
+								<MediaID ID="243701649"/>
+							</MediaIDList>
+						</AudioFileSource>
+					</ChildrenList>
+					<ActiveSourceList>
+						<ActiveSource Name="SFX_Ataque1" ID="{24FEDA3B-3CEE-4CEA-916B-1CAF914DE7DF}" Platform="Linked"/>
+					</ActiveSourceList>
+				</Sound>
+				<Sound Name="SFX_Ataque2" ID="{E0D0CDD4-DF00-4D19-B287-82D9C724A558}" ShortID="734480882">
+					<PropertyList>
+						<Property Name="Inclusion" Type="bool">
+							<ValueList>
+								<Value>False</Value>
+							</ValueList>
+						</Property>
+						<Property Name="Pitch" Type="int32">
+							<ModifierList>
+								<ModifierInfo>
+									<Modifier Name="" ID="{5B854519-2FDB-45DF-9D82-A0C335EE0055}"/>
+								</ModifierInfo>
+							</ModifierList>
+						</Property>
+						<Property Name="Volume" Type="Real64">
+							<ValueList>
+								<Value>-4</Value>
+							</ValueList>
+						</Property>
+					</PropertyList>
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{806D56C7-89DC-4910-BD41-BCACBB474B89}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0159F99E-D8EC-44F5-82B8-9D5327BE8D95}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<AudioFileSource Name="SFX_Ataque2" ID="{1E1A9F36-15F2-4CA3-B28D-7941A06F3953}">
+							<Language>SFX</Language>
+							<AudioFile>SFX_Ataque2.wav</AudioFile>
+							<MediaIDList>
+								<MediaID ID="843570142"/>
+							</MediaIDList>
+						</AudioFileSource>
+					</ChildrenList>
+					<ActiveSourceList>
+						<ActiveSource Name="SFX_Ataque2" ID="{1E1A9F36-15F2-4CA3-B28D-7941A06F3953}" Platform="Linked"/>
+					</ActiveSourceList>
+				</Sound>
+				<Sound Name="SFX_Ataque3" ID="{B7154AAE-C07E-4051-AFE1-C28082B260D6}" ShortID="602669113">
+					<PropertyList>
+						<Property Name="Inclusion" Type="bool">
+							<ValueList>
+								<Value>False</Value>
+							</ValueList>
+						</Property>
+						<Property Name="Pitch" Type="int32">
+							<ModifierList>
+								<ModifierInfo>
+									<Modifier Name="" ID="{678E03B3-3782-4085-890B-D38F9E6DAFB1}"/>
+								</ModifierInfo>
+							</ModifierList>
+						</Property>
+						<Property Name="Volume" Type="Real64">
+							<ValueList>
+								<Value>-4</Value>
+							</ValueList>
+						</Property>
+					</PropertyList>
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{806D56C7-89DC-4910-BD41-BCACBB474B89}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0159F99E-D8EC-44F5-82B8-9D5327BE8D95}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<AudioFileSource Name="SFX_Ataque3" ID="{28ECA894-D6B2-41EC-B39D-F3FB6170FAA6}">
+							<Language>SFX</Language>
+							<AudioFile>SFX_Ataque3.wav</AudioFile>
+							<MediaIDList>
+								<MediaID ID="9785755"/>
+							</MediaIDList>
+						</AudioFileSource>
+					</ChildrenList>
+					<ActiveSourceList>
+						<ActiveSource Name="SFX_Ataque3" ID="{28ECA894-D6B2-41EC-B39D-F3FB6170FAA6}" Platform="Linked"/>
+					</ActiveSourceList>
+				</Sound>
+			</ChildrenList>
+		</WorkUnit>
 	</AudioObjects>
 </WwiseDocument>
