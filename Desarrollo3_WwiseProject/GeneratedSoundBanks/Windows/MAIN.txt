@@ -1,0 +1,51 @@
+Event	ID	Name			Wwise Object Path	Notes
+	34185445	Menu_PlayerWins			\Default Work Unit\Menu_PlayerWins	
+	251416149	Corrida			\Default Work Unit\Corrida	
+	622800721	Captura_DeObjetivo			\Default Work Unit\Captura_DeObjetivo	
+	855909868	Ataque2			\Default Work Unit\Ataque2	
+	855909871	Ataque1			\Default Work Unit\Ataque1	
+	928907744	Inicia_Menu			\Default Work Unit\Inicia_Menu	
+	1078793336	Inicia_SeleccionDePantalla			\Default Work Unit\Inicia_SeleccionDePantalla	
+	1171167445	Tirado_Idle			\Default Work Unit\Tirado_Idle	
+	1190877053	Inicia_Juego			\Default Work Unit\Inicia_Juego	
+	1230222675	Salto_Pared			\Default Work Unit\Salto_Pared	
+	1436561225	Tocar_Boton			\Default Work Unit\UI\Tocar_Boton	
+	1560490425	Caida_Plataforma			\Default Work Unit\Caida_Plataforma	
+	1725143731	Inicia_SeleccionDePersonajes			\Default Work Unit\Inicia_SeleccionDePersonajes	
+	1867172427	Ataque3_Critico			\Default Work Unit\Ataque3_Critico	
+	1942692385	Dash			\Default Work Unit\Dash	
+	2156697475	Unmute			\Default Work Unit\UI\Unmute	
+	2170009971	Menu_Pausa			\Default Work Unit\Menu_Pausa	
+	2286640609	Subir_BajarFX			\Default Work Unit\UI\Subir_BajarFX	
+	2658298240	Inicio			\Default Work Unit\UI\Inicio	
+	2660185452	Parry_ZoomIn			\Default Work Unit\Parry_ZoomIn	
+	2922467479	Inicia_Opciones			\Default Work Unit\Inicia_Opciones	
+	2948438984	Salto			\Default Work Unit\Salto	
+	2974103762	Mute			\Default Work Unit\UI\Mute	
+	3050044219	Cursor_SobreBoton			\Default Work Unit\UI\Cursor_SobreBoton	
+	3076648345	Parry			\Default Work Unit\Parry	
+	3092587489	Pausa			\Default Work Unit\UI\Pausa	
+	3306940243	Press_Start			\Default Work Unit\UI\Press_Start	
+	3406505131	Despausar			\Default Work Unit\UI\Despausar	
+	3415848950	Deslizamiento_Pared			\Default Work Unit\Deslizamiento_Pared	
+	3489696737	Subir_BajarVolumen			\Default Work Unit\UI\Subir_BajarVolumen	
+	3775992877	Damage_Jugador2			\Default Work Unit\Damage_Jugador2	
+	3775992878	Damage_Jugador1			\Default Work Unit\Damage_Jugador1	
+	3817817792	DamageCritico_Jugador2			\Default Work Unit\DamageCritico_Jugador2	
+	3817817795	DamageCritico_Jugador1			\Default Work Unit\DamageCritico_Jugador1	
+	4126746240	Inicia_Creditos			\Default Work Unit\Inicia_Creditos	
+	4149406826	PopUp_PlayerWins			\Default Work Unit\PopUp_PlayerWins	
+
+In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	104763891	PLAY	D:\MATSF.ER\IMAGE CAMPUS\TRABAJO CON DESARROLLO\REPO Wwise\tower-of-vertigo\Desarrollo3_WwiseProject\.cache\Windows\SFX\PLAY_9031291B.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\PLAY		444688
+	337669942	SFX_Dash1	D:\MATSF.ER\IMAGE CAMPUS\TRABAJO CON DESARROLLO\REPO Wwise\tower-of-vertigo\Desarrollo3_WwiseProject\.cache\Windows\SFX\SFX_Dash1_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dash\SFX_Dash1		270784
+	494298104	SFX_Dash3	D:\MATSF.ER\IMAGE CAMPUS\TRABAJO CON DESARROLLO\REPO Wwise\tower-of-vertigo\Desarrollo3_WwiseProject\.cache\Windows\SFX\SFX_Dash3_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dash\SFX_Dash3		238144
+	621957689	SFX_Salto_01	D:\MATSF.ER\IMAGE CAMPUS\TRABAJO CON DESARROLLO\REPO Wwise\tower-of-vertigo\Desarrollo3_WwiseProject\.cache\Windows\SFX\SFX_Salto_A6B74E23.wem		\Actor-Mixer Hierarchy\Default Work Unit\Salto\SFX_Salto_01		37024
+	679655236	SFX_Dash2	D:\MATSF.ER\IMAGE CAMPUS\TRABAJO CON DESARROLLO\REPO Wwise\tower-of-vertigo\Desarrollo3_WwiseProject\.cache\Windows\SFX\SFX_Dash2_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dash\SFX_Dash2		282304
+	731081151	SFX_Salto_03	D:\MATSF.ER\IMAGE CAMPUS\TRABAJO CON DESARROLLO\REPO Wwise\tower-of-vertigo\Desarrollo3_WwiseProject\.cache\Windows\SFX\SFX_Salto_C79191F2.wem		\Actor-Mixer Hierarchy\Default Work Unit\Salto\SFX_Salto_03		31450
+	747274110	SFX_Salto_02	D:\MATSF.ER\IMAGE CAMPUS\TRABAJO CON DESARROLLO\REPO Wwise\tower-of-vertigo\Desarrollo3_WwiseProject\.cache\Windows\SFX\SFX_Salto_6294ED36.wem		\Actor-Mixer Hierarchy\Default Work Unit\Salto\SFX_Salto_02		24374
+	806087017	SFX_Salto_04	D:\MATSF.ER\IMAGE CAMPUS\TRABAJO CON DESARROLLO\REPO Wwise\tower-of-vertigo\Desarrollo3_WwiseProject\.cache\Windows\SFX\SFX_Salto_D68205B3.wem		\Actor-Mixer Hierarchy\Default Work Unit\Salto\SFX_Salto_04		27582
+	873666959	SFX_Salto_06	D:\MATSF.ER\IMAGE CAMPUS\TRABAJO CON DESARROLLO\REPO Wwise\tower-of-vertigo\Desarrollo3_WwiseProject\.cache\Windows\SFX\SFX_Salto_40DC6169.wem		\Actor-Mixer Hierarchy\Default Work Unit\Salto\SFX_Salto_06		28230
+	976709489	CLICK_BOTON	D:\MATSF.ER\IMAGE CAMPUS\TRABAJO CON DESARROLLO\REPO Wwise\tower-of-vertigo\Desarrollo3_WwiseProject\.cache\Windows\SFX\CLICK_BOTON_9B0CA1C0.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\CLICK_BOTON		114744
+	984583022	SFX_Salto_05	D:\MATSF.ER\IMAGE CAMPUS\TRABAJO CON DESARROLLO\REPO Wwise\tower-of-vertigo\Desarrollo3_WwiseProject\.cache\Windows\SFX\SFX_Salto_949E477E.wem		\Actor-Mixer Hierarchy\Default Work Unit\Salto\SFX_Salto_05		32302
+
