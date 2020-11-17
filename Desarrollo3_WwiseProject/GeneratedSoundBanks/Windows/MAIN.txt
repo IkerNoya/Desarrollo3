@@ -45,18 +45,18 @@ State	ID	Name	State Group			Notes
 	2607556080	Menu	Musicas			
 
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
-	104763891	PLAY	D:\MATSF.ER\IMAGE CAMPUS\TRABAJO CON DESARROLLO\REPO Wwise\tower-of-vertigo\Desarrollo3_WwiseProject\.cache\Windows\SFX\PLAY_9031291B.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\PLAY		444688
-	337669942	SFX_Dash1	D:\MATSF.ER\IMAGE CAMPUS\TRABAJO CON DESARROLLO\REPO Wwise\tower-of-vertigo\Desarrollo3_WwiseProject\.cache\Windows\SFX\SFX_Dash1_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dash\SFX_Dash1		270784
-	494298104	SFX_Dash3	D:\MATSF.ER\IMAGE CAMPUS\TRABAJO CON DESARROLLO\REPO Wwise\tower-of-vertigo\Desarrollo3_WwiseProject\.cache\Windows\SFX\SFX_Dash3_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dash\SFX_Dash3		238144
-	621957689	SFX_Salto_01	D:\MATSF.ER\IMAGE CAMPUS\TRABAJO CON DESARROLLO\REPO Wwise\tower-of-vertigo\Desarrollo3_WwiseProject\.cache\Windows\SFX\SFX_Salto_A6B74E23.wem		\Actor-Mixer Hierarchy\Default Work Unit\Salto\SFX_Salto_01		37024
-	679655236	SFX_Dash2	D:\MATSF.ER\IMAGE CAMPUS\TRABAJO CON DESARROLLO\REPO Wwise\tower-of-vertigo\Desarrollo3_WwiseProject\.cache\Windows\SFX\SFX_Dash2_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dash\SFX_Dash2		282304
-	731081151	SFX_Salto_03	D:\MATSF.ER\IMAGE CAMPUS\TRABAJO CON DESARROLLO\REPO Wwise\tower-of-vertigo\Desarrollo3_WwiseProject\.cache\Windows\SFX\SFX_Salto_C79191F2.wem		\Actor-Mixer Hierarchy\Default Work Unit\Salto\SFX_Salto_03		31450
-	747274110	SFX_Salto_02	D:\MATSF.ER\IMAGE CAMPUS\TRABAJO CON DESARROLLO\REPO Wwise\tower-of-vertigo\Desarrollo3_WwiseProject\.cache\Windows\SFX\SFX_Salto_6294ED36.wem		\Actor-Mixer Hierarchy\Default Work Unit\Salto\SFX_Salto_02		24374
-	806087017	SFX_Salto_04	D:\MATSF.ER\IMAGE CAMPUS\TRABAJO CON DESARROLLO\REPO Wwise\tower-of-vertigo\Desarrollo3_WwiseProject\.cache\Windows\SFX\SFX_Salto_D68205B3.wem		\Actor-Mixer Hierarchy\Default Work Unit\Salto\SFX_Salto_04		27582
-	828680542	Menu17_11	D:\MATSF.ER\IMAGE CAMPUS\TRABAJO CON DESARROLLO\REPO Wwise\tower-of-vertigo\Desarrollo3_WwiseProject\.cache\Windows\SFX\Menu17_11_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\Musicas\Menu\Menu17_11\Menu17_11		3043188
-	834273055	Transition_M_G_17_11	D:\MATSF.ER\IMAGE CAMPUS\TRABAJO CON DESARROLLO\REPO Wwise\tower-of-vertigo\Desarrollo3_WwiseProject\.cache\Windows\SFX\Transition_M_G_17_11_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\Musicas\Transition_M_G_17_11\Transition_M_G_17_11		1217352
-	873666959	SFX_Salto_06	D:\MATSF.ER\IMAGE CAMPUS\TRABAJO CON DESARROLLO\REPO Wwise\tower-of-vertigo\Desarrollo3_WwiseProject\.cache\Windows\SFX\SFX_Salto_40DC6169.wem		\Actor-Mixer Hierarchy\Default Work Unit\Salto\SFX_Salto_06		28230
-	930660109	InGame17_11	D:\MATSF.ER\IMAGE CAMPUS\TRABAJO CON DESARROLLO\REPO Wwise\tower-of-vertigo\Desarrollo3_WwiseProject\.cache\Windows\SFX\InGame17_11_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\Musicas\InGame\InGame17_11\InGame17_11		6415860
-	976709489	CLICK_BOTON	D:\MATSF.ER\IMAGE CAMPUS\TRABAJO CON DESARROLLO\REPO Wwise\tower-of-vertigo\Desarrollo3_WwiseProject\.cache\Windows\SFX\CLICK_BOTON_9B0CA1C0.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\CLICK_BOTON		114744
-	984583022	SFX_Salto_05	D:\MATSF.ER\IMAGE CAMPUS\TRABAJO CON DESARROLLO\REPO Wwise\tower-of-vertigo\Desarrollo3_WwiseProject\.cache\Windows\SFX\SFX_Salto_949E477E.wem		\Actor-Mixer Hierarchy\Default Work Unit\Salto\SFX_Salto_05		32302
+	104763891	PLAY	C:\Users\Iker\Desktop\Desarrollo3\Desarrollo3_WwiseProject\.cache\Windows\SFX\PLAY_9031291B.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\PLAY		444688
+	337669942	SFX_Dash1	C:\Users\Iker\Desktop\Desarrollo3\Desarrollo3_WwiseProject\.cache\Windows\SFX\SFX_Dash1_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dash\SFX_Dash1		270784
+	494298104	SFX_Dash3	C:\Users\Iker\Desktop\Desarrollo3\Desarrollo3_WwiseProject\.cache\Windows\SFX\SFX_Dash3_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dash\SFX_Dash3		238144
+	621957689	SFX_Salto_01	C:\Users\Iker\Desktop\Desarrollo3\Desarrollo3_WwiseProject\.cache\Windows\SFX\SFX_Salto_A6B74E23.wem		\Actor-Mixer Hierarchy\Default Work Unit\Salto\SFX_Salto_01		37024
+	679655236	SFX_Dash2	C:\Users\Iker\Desktop\Desarrollo3\Desarrollo3_WwiseProject\.cache\Windows\SFX\SFX_Dash2_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dash\SFX_Dash2		282304
+	731081151	SFX_Salto_03	C:\Users\Iker\Desktop\Desarrollo3\Desarrollo3_WwiseProject\.cache\Windows\SFX\SFX_Salto_C79191F2.wem		\Actor-Mixer Hierarchy\Default Work Unit\Salto\SFX_Salto_03		31450
+	747274110	SFX_Salto_02	C:\Users\Iker\Desktop\Desarrollo3\Desarrollo3_WwiseProject\.cache\Windows\SFX\SFX_Salto_6294ED36.wem		\Actor-Mixer Hierarchy\Default Work Unit\Salto\SFX_Salto_02		24374
+	806087017	SFX_Salto_04	C:\Users\Iker\Desktop\Desarrollo3\Desarrollo3_WwiseProject\.cache\Windows\SFX\SFX_Salto_D68205B3.wem		\Actor-Mixer Hierarchy\Default Work Unit\Salto\SFX_Salto_04		27582
+	828680542	Menu17_11	C:\Users\Iker\Desktop\Desarrollo3\Desarrollo3_WwiseProject\.cache\Windows\SFX\Menu17_11_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\Musicas\Menu\Menu17_11\Menu17_11		3043188
+	834273055	Transition_M_G_17_11	C:\Users\Iker\Desktop\Desarrollo3\Desarrollo3_WwiseProject\.cache\Windows\SFX\Transition_M_G_17_11_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\Musicas\Transition_M_G_17_11\Transition_M_G_17_11		1217352
+	873666959	SFX_Salto_06	C:\Users\Iker\Desktop\Desarrollo3\Desarrollo3_WwiseProject\.cache\Windows\SFX\SFX_Salto_40DC6169.wem		\Actor-Mixer Hierarchy\Default Work Unit\Salto\SFX_Salto_06		28230
+	930660109	InGame17_11	C:\Users\Iker\Desktop\Desarrollo3\Desarrollo3_WwiseProject\.cache\Windows\SFX\InGame17_11_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\Musicas\InGame\InGame17_11\InGame17_11		6415860
+	976709489	CLICK_BOTON	C:\Users\Iker\Desktop\Desarrollo3\Desarrollo3_WwiseProject\.cache\Windows\SFX\CLICK_BOTON_9B0CA1C0.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\CLICK_BOTON		114744
+	984583022	SFX_Salto_05	C:\Users\Iker\Desktop\Desarrollo3\Desarrollo3_WwiseProject\.cache\Windows\SFX\SFX_Salto_949E477E.wem		\Actor-Mixer Hierarchy\Default Work Unit\Salto\SFX_Salto_05		32302
 
