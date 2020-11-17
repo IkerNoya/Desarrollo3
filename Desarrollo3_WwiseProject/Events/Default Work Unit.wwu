@@ -1,6 +1,139 @@
 <?xml version="1.0" encoding="utf-8"?>
 <WwiseDocument Type="WorkUnit" ID="{E2A5E9A0-6ABC-430E-8629-42F8911E4A7E}" SchemaVersion="97">
 	<Events>
-		<WorkUnit Name="Default Work Unit" ID="{E2A5E9A0-6ABC-430E-8629-42F8911E4A7E}" PersistMode="Standalone"/>
+		<WorkUnit Name="Default Work Unit" ID="{E2A5E9A0-6ABC-430E-8629-42F8911E4A7E}" PersistMode="Standalone">
+			<ChildrenList>
+				<Event Name="Inicia_Menu" ID="{05F2B052-9DC5-4132-A7F4-8B5B317F11B8}"/>
+				<Event Name="Inicia_SeleccionDePantalla" ID="{452392A2-C469-47BE-A8C1-304E6F506C34}"/>
+				<Event Name="Inicia_SeleccionDePersonajes" ID="{BCC5B6AD-CD43-4142-B3BF-EB7C6A296B28}"/>
+				<Event Name="Inicia_Creditos" ID="{944E55D7-E635-4824-BA79-F59E6AF307B3}"/>
+				<Event Name="Inicia_Opciones" ID="{F9EF24FC-1425-4635-821B-8A061BEF971C}"/>
+				<Event Name="Inicia_Juego" ID="{9B202B97-8207-41B8-AB25-36D6E564940F}"/>
+				<Event Name="Menu_Pausa" ID="{F719D5DF-69DF-463F-A551-07854D5EDFAA}"/>
+				<Event Name="Menu_PlayerWins" ID="{D3E0C674-585F-48BD-85E1-7BFFB8C74F96}"/>
+				<Event Name="Ataque1" ID="{7A92B696-FAB1-40C2-91E8-19404C8AB028}">
+					<ChildrenList>
+						<Action Name="" ID="{4F3628E2-56F9-4D8F-9F9F-D4C611BEDE3F}" ShortID="901627623">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="SFX_Ataque1" ID="{89FDF9DC-D0E2-40AC-8A14-EEA1F09B464C}" WorkUnitID="{16016A4F-AD9D-4A09-AA0F-576A97D5EE42}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Ataque2" ID="{E58B4495-810F-49FC-9F67-F1C63F88C3C4}">
+					<ChildrenList>
+						<Action Name="" ID="{79AA0FCD-4B14-45D8-8D2B-B03043DF02A7}" ShortID="758180080">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="SFX_Ataque2" ID="{E0D0CDD4-DF00-4D19-B287-82D9C724A558}" WorkUnitID="{16016A4F-AD9D-4A09-AA0F-576A97D5EE42}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Ataque3_Critico" ID="{5487F132-C183-41D1-83D2-72804E7AD621}">
+					<ChildrenList>
+						<Action Name="" ID="{BC8C85D7-8810-44B5-8634-CB1C3EB71029}" ShortID="408159875">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="SFX_Ataque3" ID="{B7154AAE-C07E-4051-AFE1-C28082B260D6}" WorkUnitID="{16016A4F-AD9D-4A09-AA0F-576A97D5EE42}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Salto" ID="{5799CA1B-B07C-4360-BC39-A05ADAFB85C9}">
+					<ChildrenList>
+						<Action Name="" ID="{A54C0031-B46D-4692-9E34-1FC82569D34A}" ShortID="718683800">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Salto" ID="{7D70A104-B3B0-411B-A995-0A74578CBE5C}" WorkUnitID="{16016A4F-AD9D-4A09-AA0F-576A97D5EE42}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Caida_Plataforma" ID="{0C1A7EB0-9CD2-4885-B35B-54E8DC6F041E}"/>
+				<Event Name="Damage_Jugador1" ID="{4FB7D1EC-9E50-472A-AC14-9E8493CB502C}"/>
+				<Event Name="DamageCritico_Jugador1" ID="{B0F15C97-8641-450F-9C1E-FFD2B09AB5A3}"/>
+				<Event Name="Damage_Jugador2" ID="{E3CE2654-2D1C-4AD9-8EED-666A5401E737}"/>
+				<Event Name="DamageCritico_Jugador2" ID="{96E7CEDD-191C-4DE9-9870-BD506978F48B}"/>
+				<Event Name="Parry" ID="{BB02CBBF-5AE5-494C-BA68-0CDDF3DE0B3D}"/>
+				<Event Name="Parry_ZoomIn" ID="{A69A5620-BFDE-4514-BB59-D4B0F4577A6A}"/>
+				<Event Name="Dash" ID="{55101FA1-C841-4A37-8436-C9228D9CC452}">
+					<ChildrenList>
+						<Action Name="" ID="{B8BCD1F1-FE60-468D-9495-50D83258C00F}" ShortID="100135554">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Dash" ID="{04DD2D2E-C14E-454E-A661-6ABEAAFAAFEF}" WorkUnitID="{16016A4F-AD9D-4A09-AA0F-576A97D5EE42}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{B874F712-F3BF-4175-97E4-53D32D22BE24}" ShortID="636630027">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Dash" ID="{04DD2D2E-C14E-454E-A661-6ABEAAFAAFEF}" WorkUnitID="{16016A4F-AD9D-4A09-AA0F-576A97D5EE42}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="PopUp_PlayerWins" ID="{C5E058DC-9CEA-497B-BFA0-520C628B0783}"/>
+				<Event Name="Deslizamiento_Pared" ID="{5A55E872-3305-47A0-B0AF-F602823E7046}"/>
+				<Event Name="Salto_Pared" ID="{FB08CC22-8811-4916-9798-ED1AE6A28A7E}"/>
+				<Event Name="Corrida" ID="{885E3B40-C609-46E0-98C5-69CFFAFC1A46}"/>
+				<Event Name="Tirado_Idle" ID="{BAE26CD6-210A-418B-9C99-0BEC731C77B0}"/>
+				<Event Name="Captura_DeObjetivo" ID="{B8BE11C1-4636-4046-B6A0-D7BB9FAA0F95}"/>
+				<Folder Name="UI" ID="{A680E0A5-128A-44FA-ACD2-D80DE4C29786}" ShortID="1061966278">
+					<ChildrenList>
+						<Event Name="Cursor_SobreBoton" ID="{1787EA07-FD21-42EF-9EF3-278FF1A27DFA}"/>
+						<Event Name="Inicio" ID="{68A26959-4A8D-4BD3-8A3F-B19B164A470A}">
+							<ChildrenList>
+								<Action Name="" ID="{2CA6EEB2-6C4A-4F28-B107-37D9BF3862AE}" ShortID="862499365">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="ENTRADA_IMAGE_CAMPUS_3" ID="{D4051989-059C-46C5-BB3F-A6C568E3A6C7}" WorkUnitID="{16016A4F-AD9D-4A09-AA0F-576A97D5EE42}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Press_Start" ID="{090F3FFF-17AF-472E-9BFC-66E58C61DC30}">
+							<ChildrenList>
+								<Action Name="" ID="{FCC102FB-B686-455B-962E-2A229115813D}" ShortID="816725573">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="PLAY" ID="{3936A3D9-C034-4C24-B10D-38EA10D4E70D}" WorkUnitID="{16016A4F-AD9D-4A09-AA0F-576A97D5EE42}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Tocar_Boton" ID="{581D9898-8D5B-44DB-9A70-87E0FA00F740}">
+							<ChildrenList>
+								<Action Name="" ID="{7CF4C5F3-4EFA-4D69-A9DD-AF461DFBC86B}" ShortID="1494546">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="CLICK_BOTON" ID="{E2EC233D-3174-41B8-8514-151B5991678E}" WorkUnitID="{16016A4F-AD9D-4A09-AA0F-576A97D5EE42}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Subir_BajarVolumen" ID="{C0F645E1-FE58-42C2-9640-FA5D7E0E55B3}"/>
+						<Event Name="Subir_BajarFX" ID="{F9FA7149-B0F0-493F-A9C7-16B6FDB68CA7}"/>
+						<Event Name="Mute" ID="{F01CBEF8-EFF9-4926-BF5F-903D4B85FA1A}"/>
+						<Event Name="Unmute" ID="{E7E74AD8-C668-4C25-9CC2-D450EE91AF2D}"/>
+						<Event Name="Pausa" ID="{A91EB62F-EB44-4D31-AD80-FA9EDE7B4539}"/>
+						<Event Name="Despausar" ID="{BD87BFD9-3E42-41EB-A6AA-4B46D58C2EB9}"/>
+					</ChildrenList>
+				</Folder>
+			</ChildrenList>
+		</WorkUnit>
 	</Events>
 </WwiseDocument>

@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <WwiseDocument Type="WorkUnit" ID="{4E1D69E8-5CFF-4F0F-A8A5-8C8A7BFC32DA}" SchemaVersion="97">
 	<Effects>
-		<WorkUnit Name="Default Work Unit" ID="{4E1D69E8-5CFF-4F0F-A8A5-8C8A7BFC32DA}" PersistMode="Standalone"/>
+		<WorkUnit Name="Default Work Unit" ID="{4E1D69E8-5CFF-4F0F-A8A5-8C8A7BFC32DA}" PersistMode="Standalone">
+			<ChildrenList>
+				<Effect Name="Ataque1" ID="{1EC64182-D4BB-4527-9300-C7EB229D2787}" PluginName="Wwise Pitch Shifter" CompanyID="0" PluginID="136" PluginType="3">
+					<PropertyList>
+						<Property Name="Pitch" Type="Real32" Value="200"/>
+					</PropertyList>
+				</Effect>
+			</ChildrenList>
+		</WorkUnit>
 	</Effects>
 </WwiseDocument>
