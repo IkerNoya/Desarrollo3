@@ -303,6 +303,7 @@
 										<Property Name="DestinationContextType" Type="int16" Value="2"/>
 										<Property Name="ExitSourceAt" Type="int16" Value="0"/>
 										<Property Name="SourceContextType" Type="int16" Value="2"/>
+										<Property Name="UseTransitionObject" Type="bool" Value="True"/>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="DestinationContextObject">
@@ -312,7 +313,9 @@
 											<ObjectRef Name="Menu" ID="{1C64D44B-725C-472D-B80C-945D1FB085EE}" WorkUnitID="{2A083CF5-CBF9-4D43-9A54-51921883C426}"/>
 										</Reference>
 									</ReferenceList>
-									<TransitionInfo/>
+									<TransitionInfo>
+										<TransitionObjectRef Name="Transition_M_G_17_11" ID="{B60695E9-961B-4264-876D-F77123AEDD60}" WorkUnitID="{2A083CF5-CBF9-4D43-9A54-51921883C426}"/>
+									</TransitionInfo>
 								</MusicTransition>
 								<MusicTransition Name="Transition" ID="{C5C71968-917F-4B69-BB14-DC891F418EF4}">
 									<PropertyList>
