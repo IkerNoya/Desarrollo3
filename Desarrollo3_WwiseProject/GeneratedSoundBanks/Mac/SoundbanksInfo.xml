@@ -1,20 +1,169 @@
 <?xml version="1.0" encoding="utf-8"?>
 <SoundBanksInfo Platform="Mac" BasePlatform="Mac" SchemaVersion="12" SoundbankVersion="135">
 	<RootPaths>
-		<ProjectRoot>C:\Users\Iker\Desktop\Desarrollo3\Desarrollo3_WwiseProject\</ProjectRoot>
-		<SourceFilesRoot>C:\Users\Iker\Desktop\Desarrollo3\Desarrollo3_WwiseProject\.cache\Mac\</SourceFilesRoot>
-		<SoundBanksRoot>C:\Users\Iker\Desktop\Desarrollo3\Desarrollo3_WwiseProject\GeneratedSoundBanks\Mac\</SoundBanksRoot>
+		<ProjectRoot>D:\MATSF.ER\IMAGE CAMPUS\TRABAJO CON DESARROLLO\REPO Wwise\tower-of-vertigo\Desarrollo3_WwiseProject\</ProjectRoot>
+		<SourceFilesRoot>D:\MATSF.ER\IMAGE CAMPUS\TRABAJO CON DESARROLLO\REPO Wwise\tower-of-vertigo\Desarrollo3_WwiseProject\.cache\Mac\</SourceFilesRoot>
+		<SoundBanksRoot>D:\MATSF.ER\IMAGE CAMPUS\TRABAJO CON DESARROLLO\REPO Wwise\tower-of-vertigo\Desarrollo3_WwiseProject\GeneratedSoundBanks\Mac\</SoundBanksRoot>
 		<ExternalSourcesInputFile></ExternalSourcesInputFile>
-		<ExternalSourcesOutputRoot>C:\Users\Iker\Desktop\Desarrollo3\Desarrollo3_WwiseProject\GeneratedSoundBanks\Mac</ExternalSourcesOutputRoot>
+		<ExternalSourcesOutputRoot>D:\MATSF.ER\IMAGE CAMPUS\TRABAJO CON DESARROLLO\REPO Wwise\tower-of-vertigo\Desarrollo3_WwiseProject\GeneratedSoundBanks\Mac</ExternalSourcesOutputRoot>
 	</RootPaths>
 	<DialogueEvents/>
 	<StreamedFiles/>
 	<MediaFilesNotInAnyBank/>
 	<SoundBanks>
-		<SoundBank Id="1355168291" Language="SFX" Hash="2953616821">
+		<SoundBank Id="1355168291" Language="SFX" Hash="3377849438">
 			<ObjectPath>Init</ObjectPath>
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
+		</SoundBank>
+		<SoundBank Id="3161908922" Language="SFX" Hash="1143465986">
+			<ObjectPath>\SoundBanks\Default Work Unit\MAIN</ObjectPath>
+			<ShortName>MAIN</ShortName>
+			<Path>MAIN.bnk</Path>
+			<IncludedEvents>
+				<Event Id="855909871" Name="Ataque1" ObjectPath="\Events\Default Work Unit\Ataque1" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="855909868" Name="Ataque2" ObjectPath="\Events\Default Work Unit\Ataque2" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="1867172427" Name="Ataque3_Critico" ObjectPath="\Events\Default Work Unit\Ataque3_Critico" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="1560490425" Name="Caida_Plataforma" ObjectPath="\Events\Default Work Unit\Caida_Plataforma" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="622800721" Name="Captura_DeObjetivo" ObjectPath="\Events\Default Work Unit\Captura_DeObjetivo" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="251416149" Name="Corrida" ObjectPath="\Events\Default Work Unit\Corrida" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="3050044219" Name="Cursor_SobreBoton" ObjectPath="\Events\Default Work Unit\UI\Cursor_SobreBoton" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="3775992878" Name="Damage_Jugador1" ObjectPath="\Events\Default Work Unit\Damage_Jugador1" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="3775992877" Name="Damage_Jugador2" ObjectPath="\Events\Default Work Unit\Damage_Jugador2" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="3817817795" Name="DamageCritico_Jugador1" ObjectPath="\Events\Default Work Unit\DamageCritico_Jugador1" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="3817817792" Name="DamageCritico_Jugador2" ObjectPath="\Events\Default Work Unit\DamageCritico_Jugador2" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="1942692385" Name="Dash" ObjectPath="\Events\Default Work Unit\Dash" DurationType="OneShot" DurationMin="1.240000" DurationMax="1.470000">
+					<IncludedMemoryFiles>
+						<File Id="337669942" Language="SFX">
+							<ShortName>SFX_Dash1.wav</ShortName>
+							<Path>SFX\SFX_Dash1_10C4C929.wem</Path>
+						</File>
+						<File Id="494298104" Language="SFX">
+							<ShortName>SFX_Dash3.wav</ShortName>
+							<Path>SFX\SFX_Dash3_10C4C929.wem</Path>
+						</File>
+						<File Id="679655236" Language="SFX">
+							<ShortName>SFX_Dash2.wav</ShortName>
+							<Path>SFX\SFX_Dash2_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="3415848950" Name="Deslizamiento_Pared" ObjectPath="\Events\Default Work Unit\Deslizamiento_Pared" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="3406505131" Name="Despausar" ObjectPath="\Events\Default Work Unit\UI\Despausar" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="4126746240" Name="Inicia_Creditos" ObjectPath="\Events\Default Work Unit\Inicia_Creditos" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="1190877053" Name="Inicia_Juego" ObjectPath="\Events\Default Work Unit\Inicia_Juego" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000">
+					<ActionSetState>
+						<ActionSetStateEntry Id="984691642" Name="InGame" ObjectPath="\States\Default Work Unit\Musicas\InGame"/>
+					</ActionSetState>
+				</Event>
+				<Event Id="928907744" Name="Inicia_Menu" ObjectPath="\Events\Default Work Unit\Inicia_Menu" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000">
+					<ActionSetState>
+						<ActionSetStateEntry Id="2607556080" Name="Menu" ObjectPath="\States\Default Work Unit\Musicas\Menu"/>
+					</ActionSetState>
+				</Event>
+				<Event Id="2922467479" Name="Inicia_Opciones" ObjectPath="\Events\Default Work Unit\Inicia_Opciones" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="1078793336" Name="Inicia_SeleccionDePantalla" ObjectPath="\Events\Default Work Unit\Inicia_SeleccionDePantalla" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="1725143731" Name="Inicia_SeleccionDePersonajes" ObjectPath="\Events\Default Work Unit\Inicia_SeleccionDePersonajes" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="2658298240" Name="Inicio" ObjectPath="\Events\Default Work Unit\UI\Inicio" DurationType="Infinite">
+					<IncludedMemoryFiles>
+						<File Id="828680542" Language="SFX">
+							<ShortName>Menu17_11.wav</ShortName>
+							<Path>SFX\Menu17_11_D79FB2B7.wem</Path>
+						</File>
+						<File Id="834273055" Language="SFX">
+							<ShortName>Transition_M_G_17_11.wav</ShortName>
+							<Path>SFX\Transition_M_G_17_11_D79FB2B7.wem</Path>
+						</File>
+						<File Id="930660109" Language="SFX">
+							<ShortName>InGame17_11.wav</ShortName>
+							<Path>SFX\InGame17_11_D79FB2B7.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+					<SwitchContainers>
+						<SwitchContainer SwitchValue="{0FF5B1B2-3152-4183-8A5A-4D68B54609BC}">
+							<Media>
+								<File Id="930660109"/>
+							</Media>
+						</SwitchContainer>
+						<SwitchContainer SwitchValue="{DD6E15B2-1CD0-4F55-BA1E-D509058C9593}">
+							<Media>
+								<File Id="828680542"/>
+							</Media>
+						</SwitchContainer>
+					</SwitchContainers>
+				</Event>
+				<Event Id="2170009971" Name="Menu_Pausa" ObjectPath="\Events\Default Work Unit\Menu_Pausa" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="34185445" Name="Menu_PlayerWins" ObjectPath="\Events\Default Work Unit\Menu_PlayerWins" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="2974103762" Name="Mute" ObjectPath="\Events\Default Work Unit\UI\Mute" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="3076648345" Name="Parry" ObjectPath="\Events\Default Work Unit\Parry" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="2660185452" Name="Parry_ZoomIn" ObjectPath="\Events\Default Work Unit\Parry_ZoomIn" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="3092587489" Name="Pausa" ObjectPath="\Events\Default Work Unit\UI\Pausa" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="4149406826" Name="PopUp_PlayerWins" ObjectPath="\Events\Default Work Unit\PopUp_PlayerWins" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="3306940243" Name="Press_Start" ObjectPath="\Events\Default Work Unit\UI\Press_Start" DurationType="OneShot" DurationMin="2.520548" DurationMax="2.520548">
+					<IncludedMemoryFiles>
+						<File Id="104763891" Language="SFX">
+							<ShortName>PLAY.wav</ShortName>
+							<Path>SFX\PLAY_9031291B.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="2948438984" Name="Salto" ObjectPath="\Events\Default Work Unit\Salto" DurationType="OneShot" DurationMin="0.217917" DurationMax="0.363400">
+					<IncludedMemoryFiles>
+						<File Id="621957689" Language="SFX">
+							<ShortName>SFX_Salto.wav</ShortName>
+							<Path>SFX\SFX_Salto_A6B74E23.wem</Path>
+						</File>
+						<File Id="731081151" Language="SFX">
+							<ShortName>SFX_Salto.wav</ShortName>
+							<Path>SFX\SFX_Salto_C79191F2.wem</Path>
+						</File>
+						<File Id="747274110" Language="SFX">
+							<ShortName>SFX_Salto.wav</ShortName>
+							<Path>SFX\SFX_Salto_6294ED36.wem</Path>
+						</File>
+						<File Id="806087017" Language="SFX">
+							<ShortName>SFX_Salto.wav</ShortName>
+							<Path>SFX\SFX_Salto_D68205B3.wem</Path>
+						</File>
+						<File Id="873666959" Language="SFX">
+							<ShortName>SFX_Salto.wav</ShortName>
+							<Path>SFX\SFX_Salto_40DC6169.wem</Path>
+						</File>
+						<File Id="984583022" Language="SFX">
+							<ShortName>SFX_Salto.wav</ShortName>
+							<Path>SFX\SFX_Salto_949E477E.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="1230222675" Name="Salto_Pared" ObjectPath="\Events\Default Work Unit\Salto_Pared" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="2286640609" Name="Subir_BajarFX" ObjectPath="\Events\Default Work Unit\UI\Subir_BajarFX" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="3489696737" Name="Subir_BajarVolumen" ObjectPath="\Events\Default Work Unit\UI\Subir_BajarVolumen" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="1171167445" Name="Tirado_Idle" ObjectPath="\Events\Default Work Unit\Tirado_Idle" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="1436561225" Name="Tocar_Boton" ObjectPath="\Events\Default Work Unit\UI\Tocar_Boton" DurationType="OneShot" DurationMin="0.650120" DurationMax="0.650120">
+					<IncludedMemoryFiles>
+						<File Id="976709489" Language="SFX">
+							<ShortName>CLICK_BOTON.wav</ShortName>
+							<Path>SFX\CLICK_BOTON_9B0CA1C0.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="2156697475" Name="Unmute" ObjectPath="\Events\Default Work Unit\UI\Unmute" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+			</IncludedEvents>
+			<StateGroups>
+				<StateGroup Id="984691642" Name="InGame" ObjectPath="\States\Default Work Unit\Musicas\InGame">
+					<States/>
+				</StateGroup>
+				<StateGroup Id="2607556080" Name="Menu" ObjectPath="\States\Default Work Unit\Musicas\Menu">
+					<States/>
+				</StateGroup>
+				<StateGroup Id="3830703178" Name="Musicas" ObjectPath="\States\Default Work Unit\Musicas">
+					<States>
+						<State Id="748895195" Name="None" ObjectPath="\States\Default Work Unit\Musicas\None"/>
+						<State Id="2607556080" Name="Menu" ObjectPath="\States\Default Work Unit\Musicas\Menu"/>
+						<State Id="984691642" Name="InGame" ObjectPath="\States\Default Work Unit\Musicas\InGame"/>
+					</States>
+				</StateGroup>
+			</StateGroups>
 		</SoundBank>
 	</SoundBanks>
 </SoundBanksInfo>
