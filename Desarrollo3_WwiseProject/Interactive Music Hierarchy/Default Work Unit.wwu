@@ -322,7 +322,6 @@
 										<Property Name="DestinationContextType" Type="int16" Value="2"/>
 										<Property Name="ExitSourceAt" Type="int16" Value="0"/>
 										<Property Name="SourceContextType" Type="int16" Value="2"/>
-										<Property Name="UseTransitionObject" Type="bool" Value="True"/>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="DestinationContextObject">
@@ -332,9 +331,7 @@
 											<ObjectRef Name="InGame" ID="{72A002E6-4E20-423B-966E-560FFA4B656F}" WorkUnitID="{2A083CF5-CBF9-4D43-9A54-51921883C426}"/>
 										</Reference>
 									</ReferenceList>
-									<TransitionInfo>
-										<TransitionObjectRef Name="Transition_M_G_17_11" ID="{B60695E9-961B-4264-876D-F77123AEDD60}" WorkUnitID="{2A083CF5-CBF9-4D43-9A54-51921883C426}"/>
-									</TransitionInfo>
+									<TransitionInfo/>
 								</MusicTransition>
 							</ChildrenList>
 							<TransitionInfo/>
