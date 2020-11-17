@@ -3,22 +3,12 @@
 	<Events>
 		<WorkUnit Name="Default Work Unit" ID="{E2A5E9A0-6ABC-430E-8629-42F8911E4A7E}" PersistMode="Standalone">
 			<ChildrenList>
-				<Event Name="Inicio" ID="{68A26959-4A8D-4BD3-8A3F-B19B164A470A}"/>
-				<Event Name="Press_Start" ID="{090F3FFF-17AF-472E-9BFC-66E58C61DC30}"/>
 				<Event Name="Inicia_Menu" ID="{05F2B052-9DC5-4132-A7F4-8B5B317F11B8}"/>
-				<Event Name="Cursor_SobreBoton" ID="{1787EA07-FD21-42EF-9EF3-278FF1A27DFA}"/>
-				<Event Name="Tocar_Boton" ID="{581D9898-8D5B-44DB-9A70-87E0FA00F740}"/>
 				<Event Name="Inicia_SeleccionDePantalla" ID="{452392A2-C469-47BE-A8C1-304E6F506C34}"/>
 				<Event Name="Inicia_SeleccionDePersonajes" ID="{BCC5B6AD-CD43-4142-B3BF-EB7C6A296B28}"/>
 				<Event Name="Inicia_Creditos" ID="{944E55D7-E635-4824-BA79-F59E6AF307B3}"/>
 				<Event Name="Inicia_Opciones" ID="{F9EF24FC-1425-4635-821B-8A061BEF971C}"/>
-				<Event Name="Subir_BajarVolumen" ID="{C0F645E1-FE58-42C2-9640-FA5D7E0E55B3}"/>
-				<Event Name="Subir_BajarFX" ID="{F9FA7149-B0F0-493F-A9C7-16B6FDB68CA7}"/>
-				<Event Name="Mute" ID="{F01CBEF8-EFF9-4926-BF5F-903D4B85FA1A}"/>
-				<Event Name="Unmute" ID="{E7E74AD8-C668-4C25-9CC2-D450EE91AF2D}"/>
 				<Event Name="Inicia_Juego" ID="{9B202B97-8207-41B8-AB25-36D6E564940F}"/>
-				<Event Name="Pausa" ID="{A91EB62F-EB44-4D31-AD80-FA9EDE7B4539}"/>
-				<Event Name="Despausar" ID="{BD87BFD9-3E42-41EB-A6AA-4B46D58C2EB9}"/>
 				<Event Name="Menu_Pausa" ID="{F719D5DF-69DF-463F-A551-07854D5EDFAA}"/>
 				<Event Name="Menu_PlayerWins" ID="{D3E0C674-585F-48BD-85E1-7BFFB8C74F96}"/>
 				<Event Name="Ataque1" ID="{7A92B696-FAB1-40C2-91E8-19404C8AB028}">
@@ -99,6 +89,50 @@
 				<Event Name="Corrida" ID="{885E3B40-C609-46E0-98C5-69CFFAFC1A46}"/>
 				<Event Name="Tirado_Idle" ID="{BAE26CD6-210A-418B-9C99-0BEC731C77B0}"/>
 				<Event Name="Captura_DeObjetivo" ID="{B8BE11C1-4636-4046-B6A0-D7BB9FAA0F95}"/>
+				<Folder Name="UI" ID="{A680E0A5-128A-44FA-ACD2-D80DE4C29786}" ShortID="1061966278">
+					<ChildrenList>
+						<Event Name="Cursor_SobreBoton" ID="{1787EA07-FD21-42EF-9EF3-278FF1A27DFA}"/>
+						<Event Name="Inicio" ID="{68A26959-4A8D-4BD3-8A3F-B19B164A470A}">
+							<ChildrenList>
+								<Action Name="" ID="{2CA6EEB2-6C4A-4F28-B107-37D9BF3862AE}" ShortID="862499365">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="ENTRADA_IMAGE_CAMPUS_3" ID="{D4051989-059C-46C5-BB3F-A6C568E3A6C7}" WorkUnitID="{16016A4F-AD9D-4A09-AA0F-576A97D5EE42}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Press_Start" ID="{090F3FFF-17AF-472E-9BFC-66E58C61DC30}">
+							<ChildrenList>
+								<Action Name="" ID="{FCC102FB-B686-455B-962E-2A229115813D}" ShortID="816725573">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="PLAY" ID="{3936A3D9-C034-4C24-B10D-38EA10D4E70D}" WorkUnitID="{16016A4F-AD9D-4A09-AA0F-576A97D5EE42}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Tocar_Boton" ID="{581D9898-8D5B-44DB-9A70-87E0FA00F740}">
+							<ChildrenList>
+								<Action Name="" ID="{7CF4C5F3-4EFA-4D69-A9DD-AF461DFBC86B}" ShortID="1494546">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="CLICK_BOTON" ID="{E2EC233D-3174-41B8-8514-151B5991678E}" WorkUnitID="{16016A4F-AD9D-4A09-AA0F-576A97D5EE42}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Subir_BajarVolumen" ID="{C0F645E1-FE58-42C2-9640-FA5D7E0E55B3}"/>
+						<Event Name="Subir_BajarFX" ID="{F9FA7149-B0F0-493F-A9C7-16B6FDB68CA7}"/>
+						<Event Name="Mute" ID="{F01CBEF8-EFF9-4926-BF5F-903D4B85FA1A}"/>
+						<Event Name="Unmute" ID="{E7E74AD8-C668-4C25-9CC2-D450EE91AF2D}"/>
+						<Event Name="Pausa" ID="{A91EB62F-EB44-4D31-AD80-FA9EDE7B4539}"/>
+						<Event Name="Despausar" ID="{BD87BFD9-3E42-41EB-A6AA-4B46D58C2EB9}"/>
+					</ChildrenList>
+				</Folder>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>
