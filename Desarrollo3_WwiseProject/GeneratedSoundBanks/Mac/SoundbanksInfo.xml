@@ -16,7 +16,7 @@
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
 		</SoundBank>
-		<SoundBank Id="3161908922" Language="SFX" Hash="2760759119">
+		<SoundBank Id="3161908922" Language="SFX" Hash="3740949308">
 			<ObjectPath>\SoundBanks\Default Work Unit\MAIN</ObjectPath>
 			<ShortName>MAIN</ShortName>
 			<Path>MAIN.bnk</Path>
@@ -62,6 +62,9 @@
 							<Path>SFX\InGame17_11_D79FB2B7.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
+					<ActionSetState>
+						<ActionSetStateEntry Id="984691642" Name="InGame" ObjectPath="\States\Default Work Unit\Musicas\InGame"/>
+					</ActionSetState>
 				</Event>
 				<Event Id="928907744" Name="Inicia_Menu" ObjectPath="\Events\Default Work Unit\Inicia_Menu" DurationType="Infinite">
 					<IncludedMemoryFiles>
@@ -74,6 +77,9 @@
 							<Path>SFX\Transition_M_G_17_11_D79FB2B7.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
+					<ActionSetState>
+						<ActionSetStateEntry Id="2607556080" Name="Menu" ObjectPath="\States\Default Work Unit\Musicas\Menu"/>
+					</ActionSetState>
 				</Event>
 				<Event Id="2922467479" Name="Inicia_Opciones" ObjectPath="\Events\Default Work Unit\Inicia_Opciones" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="1078793336" Name="Inicia_SeleccionDePantalla" ObjectPath="\Events\Default Work Unit\Inicia_SeleccionDePantalla" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
@@ -164,6 +170,12 @@
 				<Event Id="2156697475" Name="Unmute" ObjectPath="\Events\Default Work Unit\UI\Unmute" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 			</IncludedEvents>
 			<StateGroups>
+				<StateGroup Id="984691642" Name="InGame" ObjectPath="\States\Default Work Unit\Musicas\InGame">
+					<States/>
+				</StateGroup>
+				<StateGroup Id="2607556080" Name="Menu" ObjectPath="\States\Default Work Unit\Musicas\Menu">
+					<States/>
+				</StateGroup>
 				<StateGroup Id="3830703178" Name="Musicas" ObjectPath="\States\Default Work Unit\Musicas">
 					<States>
 						<State Id="748895195" Name="None" ObjectPath="\States\Default Work Unit\Musicas\None"/>

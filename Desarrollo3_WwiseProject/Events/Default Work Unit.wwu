@@ -12,6 +12,16 @@
 								</Reference>
 							</ReferenceList>
 						</Action>
+						<Action Name="" ID="{0E7EE8EB-94A6-44F0-BFB8-E9483F66B5FC}" ShortID="206952849">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="22"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Menu" ID="{DD6E15B2-1CD0-4F55-BA1E-D509058C9593}" WorkUnitID="{4C639989-9611-43CD-A537-78D425C96BE7}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
 					</ChildrenList>
 				</Event>
 				<Event Name="Inicia_SeleccionDePantalla" ID="{452392A2-C469-47BE-A8C1-304E6F506C34}"/>
@@ -24,6 +34,16 @@
 							<ReferenceList>
 								<Reference Name="Target">
 									<ObjectRef Name="InGame" ID="{72A002E6-4E20-423B-966E-560FFA4B656F}" WorkUnitID="{2A083CF5-CBF9-4D43-9A54-51921883C426}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{B7BD45D4-EDFD-41EF-80F1-14A815F66B82}" ShortID="281257012">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="22"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="InGame" ID="{0FF5B1B2-3152-4183-8A5A-4D68B54609BC}" WorkUnitID="{4C639989-9611-43CD-A537-78D425C96BE7}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>
