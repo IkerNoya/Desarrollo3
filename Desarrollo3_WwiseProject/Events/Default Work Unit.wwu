@@ -3,12 +3,38 @@
 	<Events>
 		<WorkUnit Name="Default Work Unit" ID="{E2A5E9A0-6ABC-430E-8629-42F8911E4A7E}" PersistMode="Standalone">
 			<ChildrenList>
-				<Event Name="Inicia_Menu" ID="{05F2B052-9DC5-4132-A7F4-8B5B317F11B8}"/>
+				<Event Name="Inicia_Menu" ID="{05F2B052-9DC5-4132-A7F4-8B5B317F11B8}">
+					<ChildrenList>
+						<Action Name="" ID="{E80059A2-CFE4-4842-B0F7-009059389C3D}" ShortID="943861896">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="22"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Menu" ID="{DD6E15B2-1CD0-4F55-BA1E-D509058C9593}" WorkUnitID="{4C639989-9611-43CD-A537-78D425C96BE7}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 				<Event Name="Inicia_SeleccionDePantalla" ID="{452392A2-C469-47BE-A8C1-304E6F506C34}"/>
 				<Event Name="Inicia_SeleccionDePersonajes" ID="{BCC5B6AD-CD43-4142-B3BF-EB7C6A296B28}"/>
 				<Event Name="Inicia_Creditos" ID="{944E55D7-E635-4824-BA79-F59E6AF307B3}"/>
 				<Event Name="Inicia_Opciones" ID="{F9EF24FC-1425-4635-821B-8A061BEF971C}"/>
-				<Event Name="Inicia_Juego" ID="{9B202B97-8207-41B8-AB25-36D6E564940F}"/>
+				<Event Name="Inicia_Juego" ID="{9B202B97-8207-41B8-AB25-36D6E564940F}">
+					<ChildrenList>
+						<Action Name="" ID="{2326AD1A-1167-4910-A2E7-3CF7A97E9CC8}" ShortID="78048696">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="22"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="InGame" ID="{0FF5B1B2-3152-4183-8A5A-4D68B54609BC}" WorkUnitID="{4C639989-9611-43CD-A537-78D425C96BE7}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 				<Event Name="Menu_Pausa" ID="{F719D5DF-69DF-463F-A551-07854D5EDFAA}"/>
 				<Event Name="Menu_PlayerWins" ID="{D3E0C674-585F-48BD-85E1-7BFFB8C74F96}"/>
 				<Event Name="Ataque1" ID="{7A92B696-FAB1-40C2-91E8-19404C8AB028}">
@@ -94,6 +120,13 @@
 						<Event Name="Cursor_SobreBoton" ID="{1787EA07-FD21-42EF-9EF3-278FF1A27DFA}"/>
 						<Event Name="Inicio" ID="{68A26959-4A8D-4BD3-8A3F-B19B164A470A}">
 							<ChildrenList>
+								<Action Name="" ID="{26844055-2653-48AE-A09E-00BCAD005E2C}" ShortID="896795431">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Musicas" ID="{5583AE08-2893-4FF4-A27D-759CCF526EA6}" WorkUnitID="{2A083CF5-CBF9-4D43-9A54-51921883C426}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
 								<Action Name="" ID="{2CA6EEB2-6C4A-4F28-B107-37D9BF3862AE}" ShortID="862499365">
 									<ReferenceList>
 										<Reference Name="Target">

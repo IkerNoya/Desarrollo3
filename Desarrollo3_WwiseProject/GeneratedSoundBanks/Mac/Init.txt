@@ -1,3 +1,11 @@
+State Group	ID	Name			Wwise Object Path	Notes
+	3830703178	Musicas			\Default Work Unit\Musicas	
+
+State	ID	Name	State Group			Notes
+	748895195	None	Musicas			
+	984691642	InGame	Musicas			
+	2607556080	Menu	Musicas			
+
 Audio Bus	ID	Name			Wwise Object Path	Notes
 	3803692087	Master Audio Bus			\Default Work Unit\Master Audio Bus	
 
