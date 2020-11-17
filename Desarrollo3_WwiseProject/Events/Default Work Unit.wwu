@@ -5,13 +5,10 @@
 			<ChildrenList>
 				<Event Name="Inicia_Menu" ID="{05F2B052-9DC5-4132-A7F4-8B5B317F11B8}">
 					<ChildrenList>
-						<Action Name="" ID="{E80059A2-CFE4-4842-B0F7-009059389C3D}" ShortID="943861896">
-							<PropertyList>
-								<Property Name="ActionType" Type="int16" Value="22"/>
-							</PropertyList>
+						<Action Name="" ID="{AA68A57A-4FCF-42B4-B6AF-5CAA6BE40BBE}" ShortID="1058921972">
 							<ReferenceList>
 								<Reference Name="Target">
-									<ObjectRef Name="Menu" ID="{DD6E15B2-1CD0-4F55-BA1E-D509058C9593}" WorkUnitID="{4C639989-9611-43CD-A537-78D425C96BE7}"/>
+									<ObjectRef Name="Menu" ID="{1C64D44B-725C-472D-B80C-945D1FB085EE}" WorkUnitID="{2A083CF5-CBF9-4D43-9A54-51921883C426}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>
@@ -23,13 +20,10 @@
 				<Event Name="Inicia_Opciones" ID="{F9EF24FC-1425-4635-821B-8A061BEF971C}"/>
 				<Event Name="Inicia_Juego" ID="{9B202B97-8207-41B8-AB25-36D6E564940F}">
 					<ChildrenList>
-						<Action Name="" ID="{2326AD1A-1167-4910-A2E7-3CF7A97E9CC8}" ShortID="78048696">
-							<PropertyList>
-								<Property Name="ActionType" Type="int16" Value="22"/>
-							</PropertyList>
+						<Action Name="" ID="{5E929456-2FFF-41F4-9AF4-F017961A6FDF}" ShortID="965423723">
 							<ReferenceList>
 								<Reference Name="Target">
-									<ObjectRef Name="InGame" ID="{0FF5B1B2-3152-4183-8A5A-4D68B54609BC}" WorkUnitID="{4C639989-9611-43CD-A537-78D425C96BE7}"/>
+									<ObjectRef Name="InGame" ID="{72A002E6-4E20-423B-966E-560FFA4B656F}" WorkUnitID="{2A083CF5-CBF9-4D43-9A54-51921883C426}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>
