@@ -101,6 +101,8 @@ MonoBehaviour:
     GuidInternal: 
     m_lastTime: -8585965337764861406
     List: []
-  ExpandedItems: []
+  ExpandedItems:
+  - /Desarrollo3_WwiseProject
+  - /Desarrollo3_WwiseProject/Virtual Acoustics
   autoPopulateEnabled: 1
   CurrentPluginConfig: 
