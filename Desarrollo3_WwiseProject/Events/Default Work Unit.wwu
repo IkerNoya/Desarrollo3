@@ -20,7 +20,20 @@
 				<Event Name="Inicia_SeleccionDePantalla" ID="{452392A2-C469-47BE-A8C1-304E6F506C34}"/>
 				<Event Name="Inicia_SeleccionDePersonajes" ID="{BCC5B6AD-CD43-4142-B3BF-EB7C6A296B28}"/>
 				<Event Name="Inicia_Creditos" ID="{944E55D7-E635-4824-BA79-F59E6AF307B3}"/>
-				<Event Name="Inicia_Opciones" ID="{F9EF24FC-1425-4635-821B-8A061BEF971C}"/>
+				<Event Name="Inicia_Opciones" ID="{F9EF24FC-1425-4635-821B-8A061BEF971C}">
+					<ChildrenList>
+						<Action Name="" ID="{2AC16C70-0B72-40D3-BF34-A910472DC912}" ShortID="371214068">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="22"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Menu_opciones" ID="{84D7D870-5504-47CB-90D6-35B02BB4D95B}" WorkUnitID="{4C639989-9611-43CD-A537-78D425C96BE7}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 				<Event Name="Inicia_Juego" ID="{9B202B97-8207-41B8-AB25-36D6E564940F}">
 					<ChildrenList>
 						<Action Name="" ID="{B7BD45D4-EDFD-41EF-80F1-14A815F66B82}" ShortID="281257012">
@@ -152,8 +165,48 @@
 						<Event Name="Subir_BajarFX" ID="{F9FA7149-B0F0-493F-A9C7-16B6FDB68CA7}"/>
 						<Event Name="Mute" ID="{F01CBEF8-EFF9-4926-BF5F-903D4B85FA1A}"/>
 						<Event Name="Unmute" ID="{E7E74AD8-C668-4C25-9CC2-D450EE91AF2D}"/>
-						<Event Name="Pausa" ID="{A91EB62F-EB44-4D31-AD80-FA9EDE7B4539}"/>
-						<Event Name="Despausar" ID="{BD87BFD9-3E42-41EB-A6AA-4B46D58C2EB9}"/>
+						<Event Name="Pausa" ID="{A91EB62F-EB44-4D31-AD80-FA9EDE7B4539}">
+							<ChildrenList>
+								<Action Name="" ID="{BDA62CF2-7FA3-42A7-8E38-BB44956E11BF}" ShortID="1039053082">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="22"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="in" ID="{36ADD4A7-F495-4007-A85F-9EBA46C80E01}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Despausar" ID="{BD87BFD9-3E42-41EB-A6AA-4B46D58C2EB9}">
+							<ChildrenList>
+								<Action Name="" ID="{73B61BD5-A491-4FF5-8C67-82266BCBF990}" ShortID="324606507">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="22"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="out" ID="{0F911905-30EE-4538-8E31-453807325B0D}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Restart" ID="{FDF4F0B2-FBF1-4BBA-A042-564294AC3E45}">
+							<ChildrenList>
+								<Action Name="" ID="{762CD959-EAFC-4872-AED9-28C7721B8204}" ShortID="458440511">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="2"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="InGame" ID="{72A002E6-4E20-423B-966E-560FFA4B656F}" WorkUnitID="{2A083CF5-CBF9-4D43-9A54-51921883C426}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
 					</ChildrenList>
 				</Folder>
 			</ChildrenList>
