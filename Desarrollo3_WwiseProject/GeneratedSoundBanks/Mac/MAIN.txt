@@ -46,6 +46,7 @@ State	ID	Name	State Group			Notes
 
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	104763891	PLAY	D:\MATSF.ER\IMAGE CAMPUS\TRABAJO CON DESARROLLO\REPO Wwise\tower-of-vertigo\Desarrollo3_WwiseProject\.cache\Mac\SFX\PLAY_9031291B.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\PLAY		444688
+	243701649	SFX_Ataque1	D:\MATSF.ER\IMAGE CAMPUS\TRABAJO CON DESARROLLO\REPO Wwise\tower-of-vertigo\Desarrollo3_WwiseProject\.cache\Mac\SFX\SFX_Ataque1_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX_Ataque1		239036
 	337669942	SFX_Dash1	D:\MATSF.ER\IMAGE CAMPUS\TRABAJO CON DESARROLLO\REPO Wwise\tower-of-vertigo\Desarrollo3_WwiseProject\.cache\Mac\SFX\SFX_Dash1_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dash\SFX_Dash1		270784
 	494298104	SFX_Dash3	D:\MATSF.ER\IMAGE CAMPUS\TRABAJO CON DESARROLLO\REPO Wwise\tower-of-vertigo\Desarrollo3_WwiseProject\.cache\Mac\SFX\SFX_Dash3_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dash\SFX_Dash3		238144
 	621957689	SFX_Salto_01	D:\MATSF.ER\IMAGE CAMPUS\TRABAJO CON DESARROLLO\REPO Wwise\tower-of-vertigo\Desarrollo3_WwiseProject\.cache\Mac\SFX\SFX_Salto_A6B74E23.wem		\Actor-Mixer Hierarchy\Default Work Unit\Salto\SFX_Salto_01		37024

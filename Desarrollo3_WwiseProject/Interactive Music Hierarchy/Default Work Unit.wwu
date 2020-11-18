@@ -80,11 +80,15 @@
 										</MusicTrack>
 									</ChildrenList>
 									<CueList>
-										<MusicCue Name="Entry Cue" ID="{38ACFAC7-AD62-4C92-B99E-0D936B1ECCE2}"/>
+										<MusicCue Name="Entry Cue" ID="{38ACFAC7-AD62-4C92-B99E-0D936B1ECCE2}">
+											<PropertyList>
+												<Property Name="TimeMs" Type="Real64" Value="1920"/>
+											</PropertyList>
+										</MusicCue>
 										<MusicCue Name="Exit Cue" ID="{58720541-491F-4A8A-86F2-4513C0237D54}">
 											<PropertyList>
 												<Property Name="CueType" Type="int16" Value="1"/>
-												<Property Name="TimeMs" Type="Real64" Value="36370"/>
+												<Property Name="TimeMs" Type="Real64" Value="32640"/>
 											</PropertyList>
 										</MusicCue>
 									</CueList>
@@ -190,7 +194,7 @@
 										<MusicCue Name="Exit Cue" ID="{A333C4D0-D7F3-4EE5-B610-BAB8DF8D8F13}">
 											<PropertyList>
 												<Property Name="CueType" Type="int16" Value="1"/>
-												<Property Name="TimeMs" Type="Real64" Value="17250"/>
+												<Property Name="TimeMs" Type="Real64" Value="14222.2222222222"/>
 											</PropertyList>
 										</MusicCue>
 									</CueList>
@@ -322,6 +326,7 @@
 										<Property Name="DestinationContextType" Type="int16" Value="2"/>
 										<Property Name="ExitSourceAt" Type="int16" Value="0"/>
 										<Property Name="SourceContextType" Type="int16" Value="2"/>
+										<Property Name="UseTransitionObject" Type="bool" Value="True"/>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="DestinationContextObject">
@@ -331,7 +336,9 @@
 											<ObjectRef Name="InGame" ID="{72A002E6-4E20-423B-966E-560FFA4B656F}" WorkUnitID="{2A083CF5-CBF9-4D43-9A54-51921883C426}"/>
 										</Reference>
 									</ReferenceList>
-									<TransitionInfo/>
+									<TransitionInfo>
+										<TransitionObjectRef Name="Transition_M_G_17_11" ID="{B60695E9-961B-4264-876D-F77123AEDD60}" WorkUnitID="{2A083CF5-CBF9-4D43-9A54-51921883C426}"/>
+									</TransitionInfo>
 								</MusicTransition>
 							</ChildrenList>
 							<TransitionInfo/>

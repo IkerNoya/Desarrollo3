@@ -34,12 +34,12 @@ public class HPController : MonoBehaviour
     }
     void TakeDamage(PlayerController pc)
     {
-        StartCoroutine(HealthBarShake.Shake(hpShakeDuration, hpShakeMagnitude));
+        StartCoroutine(HealthBarShake.Shake(gameObject, hpShakeDuration, hpShakeMagnitude));
     }
     void HPEmpty(PlayerController pc)
     {
          healthBar.fillAmount = 0f;
-         StartCoroutine(HealthBarShake.Shake(hpShakeDuration, hpShakeMagnitude));
+         StartCoroutine(HealthBarShake.Shake(gameObject, hpShakeDuration, hpShakeMagnitude));
     }
     #endregion
 

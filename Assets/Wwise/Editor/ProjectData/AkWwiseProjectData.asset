@@ -68,7 +68,7 @@ MonoBehaviour:
     ParentPath: Default Work Unit
     guid: a0e9a5e2bc6a0e43862942f8911e4a7e
     GuidInternal: 
-    m_lastTime: -8585959778658937655
+    m_lastTime: -8585959365886599039
     List:
     - name: Ataque1
       guid: 96b6927ab1fac24091e819404c8ab028
@@ -80,8 +80,8 @@ MonoBehaviour:
         ObjectType: 3
       Path: Default Work Unit\Ataque1
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 1.244646
+      minDuration: 1.244646
     - name: Ataque2
       guid: 95448be50f81fc499f67f1c63f88c3c4
       id: 855909868
@@ -92,8 +92,8 @@ MonoBehaviour:
         ObjectType: 3
       Path: Default Work Unit\Ataque2
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 0
+      minDuration: 0
     - name: Ataque3_Critico
       guid: 32f1875483c1d14183d272804e7ad621
       id: 1867172427
@@ -104,8 +104,8 @@ MonoBehaviour:
         ObjectType: 3
       Path: Default Work Unit\Ataque3_Critico
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 0
+      minDuration: 0
     - name: Caida_Plataforma
       guid: b07e1a0cd29c8548b35b54e8dc6f041e
       id: 1560490425
@@ -116,8 +116,8 @@ MonoBehaviour:
         ObjectType: 3
       Path: Default Work Unit\Caida_Plataforma
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 0
+      minDuration: 0
     - name: Captura_DeObjetivo
       guid: c111beb836464640b6a0d7bb9faa0f95
       id: 622800721
@@ -128,8 +128,8 @@ MonoBehaviour:
         ObjectType: 3
       Path: Default Work Unit\Captura_DeObjetivo
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 0
+      minDuration: 0
     - name: Corrida
       guid: 403b5e8809c6e04698c569cffafc1a46
       id: 251416149
@@ -140,8 +140,8 @@ MonoBehaviour:
         ObjectType: 3
       Path: Default Work Unit\Corrida
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 0
+      minDuration: 0
     - name: Cursor_SobreBoton
       guid: 07ea871721fdef429ef3278ff1a27dfa
       id: 3050044219
@@ -154,8 +154,8 @@ MonoBehaviour:
         ObjectType: 3
       Path: Default Work Unit\UI\Cursor_SobreBoton
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 0
+      minDuration: 0
     - name: Damage_Jugador1
       guid: ecd1b74f509e2a47ac149e8493cb502c
       id: 3775992878
@@ -166,8 +166,8 @@ MonoBehaviour:
         ObjectType: 3
       Path: Default Work Unit\Damage_Jugador1
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 0
+      minDuration: 0
     - name: Damage_Jugador2
       guid: 5426cee31c2dd94a8eed666a5401e737
       id: 3775992877
@@ -178,8 +178,8 @@ MonoBehaviour:
         ObjectType: 3
       Path: Default Work Unit\Damage_Jugador2
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 0
+      minDuration: 0
     - name: DamageCritico_Jugador1
       guid: 975cf1b041860f459c1effd2b09ab5a3
       id: 3817817795
@@ -190,8 +190,8 @@ MonoBehaviour:
         ObjectType: 3
       Path: Default Work Unit\DamageCritico_Jugador1
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 0
+      minDuration: 0
     - name: DamageCritico_Jugador2
       guid: ddcee7961c19e94d9870bd506978f48b
       id: 3817817792
@@ -202,8 +202,8 @@ MonoBehaviour:
         ObjectType: 3
       Path: Default Work Unit\DamageCritico_Jugador2
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 0
+      minDuration: 0
     - name: Dash
       guid: a11f105541c8374a8436c9228d9cc452
       id: 1942692385
@@ -214,8 +214,8 @@ MonoBehaviour:
         ObjectType: 3
       Path: Default Work Unit\Dash
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 1.47
+      minDuration: 1.24
     - name: Deslizamiento_Pared
       guid: 72e8555a0533a047b0aff602823e7046
       id: 3415848950
@@ -226,8 +226,8 @@ MonoBehaviour:
         ObjectType: 3
       Path: Default Work Unit\Deslizamiento_Pared
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 0
+      minDuration: 0
     - name: Despausar
       guid: d9bf87bd423eeb41a6aa4b46d58c2eb9
       id: 3406505131
@@ -240,8 +240,8 @@ MonoBehaviour:
         ObjectType: 3
       Path: Default Work Unit\UI\Despausar
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 0
+      minDuration: 0
     - name: Inicia_Creditos
       guid: d7554e9435e62448ba79f59e6af307b3
       id: 4126746240
@@ -252,8 +252,8 @@ MonoBehaviour:
         ObjectType: 3
       Path: Default Work Unit\Inicia_Creditos
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 0
+      minDuration: 0
     - name: Inicia_Juego
       guid: 972b209b0782b841ab2536d6e564940f
       id: 1190877053
@@ -264,8 +264,8 @@ MonoBehaviour:
         ObjectType: 3
       Path: Default Work Unit\Inicia_Juego
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 0
+      minDuration: 0
     - name: Inicia_Menu
       guid: 52b0f205c59d3241a7f48b5b317f11b8
       id: 928907744
@@ -276,8 +276,8 @@ MonoBehaviour:
         ObjectType: 3
       Path: Default Work Unit\Inicia_Menu
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 0
+      minDuration: 0
     - name: Inicia_Opciones
       guid: fc24eff925143546821b8a061bef971c
       id: 2922467479
@@ -288,8 +288,8 @@ MonoBehaviour:
         ObjectType: 3
       Path: Default Work Unit\Inicia_Opciones
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 0
+      minDuration: 0
     - name: Inicia_SeleccionDePantalla
       guid: a292234569c4be47a8c1304e6f506c34
       id: 1078793336
@@ -300,8 +300,8 @@ MonoBehaviour:
         ObjectType: 3
       Path: Default Work Unit\Inicia_SeleccionDePantalla
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 0
+      minDuration: 0
     - name: Inicia_SeleccionDePersonajes
       guid: adb6c5bc43cd4241b3bfeb7c6a296b28
       id: 1725143731
@@ -312,8 +312,8 @@ MonoBehaviour:
         ObjectType: 3
       Path: Default Work Unit\Inicia_SeleccionDePersonajes
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 0
+      minDuration: 0
     - name: Inicio
       guid: 5969a2688d4ad34b8a3fb19b164a470a
       id: 2658298240
@@ -338,8 +338,8 @@ MonoBehaviour:
         ObjectType: 3
       Path: Default Work Unit\Menu_Pausa
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 0
+      minDuration: 0
     - name: Menu_PlayerWins
       guid: 74c6e0d35f58bd4885e17bffb8c74f96
       id: 34185445
@@ -350,8 +350,8 @@ MonoBehaviour:
         ObjectType: 3
       Path: Default Work Unit\Menu_PlayerWins
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 0
+      minDuration: 0
     - name: Mute
       guid: f8be1cf0f9ef2649bf5f903d4b85fa1a
       id: 2974103762
@@ -364,8 +364,8 @@ MonoBehaviour:
         ObjectType: 3
       Path: Default Work Unit\UI\Mute
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 0
+      minDuration: 0
     - name: Parry
       guid: bfcb02bbe55a4c49ba680cddf3de0b3d
       id: 3076648345
@@ -376,8 +376,8 @@ MonoBehaviour:
         ObjectType: 3
       Path: Default Work Unit\Parry
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 0
+      minDuration: 0
     - name: Parry_ZoomIn
       guid: 20569aa6debf1445bb59d4b0f4577a6a
       id: 2660185452
@@ -388,8 +388,8 @@ MonoBehaviour:
         ObjectType: 3
       Path: Default Work Unit\Parry_ZoomIn
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 0
+      minDuration: 0
     - name: Pausa
       guid: 2fb61ea944eb314dad80fa9ede7b4539
       id: 3092587489
@@ -402,8 +402,8 @@ MonoBehaviour:
         ObjectType: 3
       Path: Default Work Unit\UI\Pausa
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 0
+      minDuration: 0
     - name: PopUp_PlayerWins
       guid: dc58e0c5ea9c7b49bfa0520c628b0783
       id: 4149406826
@@ -414,8 +414,8 @@ MonoBehaviour:
         ObjectType: 3
       Path: Default Work Unit\PopUp_PlayerWins
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 0
+      minDuration: 0
     - name: Press_Start
       guid: ff3f0f09af172e479bfc66e58c61dc30
       id: 3306940243
@@ -428,8 +428,8 @@ MonoBehaviour:
         ObjectType: 3
       Path: Default Work Unit\UI\Press_Start
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 2.520548
+      minDuration: 2.520548
     - name: Salto
       guid: 1bca99577cb06043bc39a05adafb85c9
       id: 2948438984
@@ -440,8 +440,8 @@ MonoBehaviour:
         ObjectType: 3
       Path: Default Work Unit\Salto
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 0.3634
+      minDuration: 0.217917
     - name: Salto_Pared
       guid: 22cc08fb118816499798ed1ae6a28a7e
       id: 1230222675
@@ -452,8 +452,8 @@ MonoBehaviour:
         ObjectType: 3
       Path: Default Work Unit\Salto_Pared
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 0
+      minDuration: 0
     - name: Subir_BajarFX
       guid: 4971faf9f0b03f49a9c716b6fdb68ca7
       id: 2286640609
@@ -466,8 +466,8 @@ MonoBehaviour:
         ObjectType: 3
       Path: Default Work Unit\UI\Subir_BajarFX
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 0
+      minDuration: 0
     - name: Subir_BajarVolumen
       guid: e145f6c058fec2429640fa5d7e0e55b3
       id: 3489696737
@@ -480,8 +480,8 @@ MonoBehaviour:
         ObjectType: 3
       Path: Default Work Unit\UI\Subir_BajarVolumen
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 0
+      minDuration: 0
     - name: Tirado_Idle
       guid: d66ce2ba0a218b419c990bec731c77b0
       id: 1171167445
@@ -492,8 +492,8 @@ MonoBehaviour:
         ObjectType: 3
       Path: Default Work Unit\Tirado_Idle
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 0
+      minDuration: 0
     - name: Tocar_Boton
       guid: 98981d585b8ddb449a7087e0fa00f740
       id: 1436561225
@@ -506,8 +506,8 @@ MonoBehaviour:
         ObjectType: 3
       Path: Default Work Unit\UI\Tocar_Boton
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 0.65012
+      minDuration: 0.65012
     - name: UI
       guid: a5e080a68a12fa44acd2d80de4c29786
       id: 1551306167
@@ -532,8 +532,8 @@ MonoBehaviour:
         ObjectType: 3
       Path: Default Work Unit\UI\Unmute
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 0
+      minDuration: 0
   RtpcWwu:
   - PhysicalPath: Game Parameters\Default Work Unit.wwu
     PathAndIcons:
@@ -607,8 +607,8 @@ MonoBehaviour:
     List: []
   ExpandedItems:
   - /Desarrollo3_WwiseProject
-  - /Desarrollo3_WwiseProject/States
-  - /Desarrollo3_WwiseProject/States/Default Work Unit
-  - /Desarrollo3_WwiseProject/States/Default Work Unit/Musicas
+  - /Desarrollo3_WwiseProject/Events
+  - /Desarrollo3_WwiseProject/Events/Default Work Unit
+  - /Desarrollo3_WwiseProject/Events/Default Work Unit/UI
   autoPopulateEnabled: 1
   CurrentPluginConfig: 
