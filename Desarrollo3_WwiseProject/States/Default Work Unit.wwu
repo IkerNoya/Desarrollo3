@@ -8,6 +8,7 @@
 						<State Name="None" ID="{5D24CF78-CFF3-4B13-BFC6-D18A49A86D0D}"/>
 						<State Name="Menu" ID="{DD6E15B2-1CD0-4F55-BA1E-D509058C9593}"/>
 						<State Name="InGame" ID="{0FF5B1B2-3152-4183-8A5A-4D68B54609BC}"/>
+						<State Name="Menu_opciones" ID="{84D7D870-5504-47CB-90D6-35B02BB4D95B}"/>
 					</ChildrenList>
 				</StateGroup>
 			</ChildrenList>
