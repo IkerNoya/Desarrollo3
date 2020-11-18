@@ -50,8 +50,9 @@ public class PlayerController : MonoBehaviour
     }
     public float shakeDuration;
     public float shakeMagnitude;
+    public AK.Wwise.Event dashSound;
+    public AK.Wwise.Event jumpSound;
     public CombatController comboController;
-    public CameraShake cameraShake;
     [Space]
     public PlayerSelect playerSelect;
     State state;
@@ -275,17 +276,20 @@ public class PlayerController : MonoBehaviour
             isGrounded = false;
             jumped = true;
             jumpAmmount--;
+            jumpSound.Post(gameObject);
         }
         if ((Input.GetKeyDown(jumpButtonKM) || Input.GetKeyDown(jumpButtonJoystick)) && isInWall)
         {
             jumpInWall = true;
+            jumpSound.Post(gameObject);
         }
-        if(Input.GetKeyDown(dashButtonKM) || Input.GetKeyDown(dashButtonJoystick) && !isInWall && canDash)
+        if (Input.GetKeyDown(dashButtonKM) || Input.GetKeyDown(dashButtonJoystick) && !isInWall && canDash)
         {
             canDash = false;
             isDashing = true;
             anim.SetTrigger("Dash");
             state = State.Dash;
+            dashSound.Post(gameObject);
         }
     }
     void ResetWallJump()
@@ -361,7 +365,7 @@ public class PlayerController : MonoBehaviour
             if (isCriticalHit)
             {
                 rigidBody.AddForce(new Vector2(-direction.x * criticalKnockBackForce, rigidBody.velocity.y));
-                StartCoroutine(cameraShake.Shake(shakeDuration, shakeMagnitude));
+                StartCoroutine(CameraShake.instance.Shake(Camera.main.gameObject, shakeDuration, shakeMagnitude));
             }
             else
             {
