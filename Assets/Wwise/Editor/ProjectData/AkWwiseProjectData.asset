@@ -68,7 +68,7 @@ MonoBehaviour:
     ParentPath: Default Work Unit
     guid: a0e9a5e2bc6a0e43862942f8911e4a7e
     GuidInternal: 
-    m_lastTime: -8585959778658937655
+    m_lastTime: -8585959365886599039
     List:
     - name: Ataque1
       guid: 96b6927ab1fac24091e819404c8ab028
@@ -607,8 +607,8 @@ MonoBehaviour:
     List: []
   ExpandedItems:
   - /Desarrollo3_WwiseProject
-  - /Desarrollo3_WwiseProject/States
-  - /Desarrollo3_WwiseProject/States/Default Work Unit
-  - /Desarrollo3_WwiseProject/States/Default Work Unit/Musicas
+  - /Desarrollo3_WwiseProject/Events
+  - /Desarrollo3_WwiseProject/Events/Default Work Unit
+  - /Desarrollo3_WwiseProject/Events/Default Work Unit/UI
   autoPopulateEnabled: 1
   CurrentPluginConfig: 

@@ -10,6 +10,7 @@ public class CombatController : MonoBehaviour
 	[SerializeField] int hitIndex;
 	[SerializeField] float hitCooldown;
 	[SerializeField] string currentComboName;
+	public AK.Wwise.Event AttackSound;
 	float damage;
 	bool criticalDamage;
 	[Serializable]
@@ -78,6 +79,7 @@ public class CombatController : MonoBehaviour
 					damage = comboHit.damage;
 					criticalDamage = comboHit.critical;
 					StartCombo(combo);
+					AttackSound.Post(gameObject);
 					break;
 				}
 			}
@@ -93,6 +95,7 @@ public class CombatController : MonoBehaviour
 					damage = currentCombo.comboData[hitIndex].damage;
 					criticalDamage = currentCombo.comboData[hitIndex].critical;
 					AttackAction();
+					AttackSound.Post(gameObject);
 				}
 			}
 		}

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <SoundBanksInfo Platform="Mac" BasePlatform="Mac" SchemaVersion="12" SoundbankVersion="135">
 	<RootPaths>
-		<ProjectRoot>D:\MATSF.ER\IMAGE CAMPUS\TRABAJO CON DESARROLLO\REPO Wwise\tower-of-vertigo\Desarrollo3_WwiseProject\</ProjectRoot>
-		<SourceFilesRoot>D:\MATSF.ER\IMAGE CAMPUS\TRABAJO CON DESARROLLO\REPO Wwise\tower-of-vertigo\Desarrollo3_WwiseProject\.cache\Mac\</SourceFilesRoot>
-		<SoundBanksRoot>D:\MATSF.ER\IMAGE CAMPUS\TRABAJO CON DESARROLLO\REPO Wwise\tower-of-vertigo\Desarrollo3_WwiseProject\GeneratedSoundBanks\Mac\</SoundBanksRoot>
+		<ProjectRoot>C:\Users\Iker\Desktop\Desarrollo3\Desarrollo3_WwiseProject\</ProjectRoot>
+		<SourceFilesRoot>C:\Users\Iker\Desktop\Desarrollo3\Desarrollo3_WwiseProject\.cache\Mac\</SourceFilesRoot>
+		<SoundBanksRoot>C:\Users\Iker\Desktop\Desarrollo3\Desarrollo3_WwiseProject\GeneratedSoundBanks\Mac\</SoundBanksRoot>
 		<ExternalSourcesInputFile></ExternalSourcesInputFile>
-		<ExternalSourcesOutputRoot>D:\MATSF.ER\IMAGE CAMPUS\TRABAJO CON DESARROLLO\REPO Wwise\tower-of-vertigo\Desarrollo3_WwiseProject\GeneratedSoundBanks\Mac</ExternalSourcesOutputRoot>
+		<ExternalSourcesOutputRoot>C:\Users\Iker\Desktop\Desarrollo3\Desarrollo3_WwiseProject\GeneratedSoundBanks\Mac</ExternalSourcesOutputRoot>
 	</RootPaths>
 	<DialogueEvents/>
 	<StreamedFiles/>
@@ -16,12 +16,19 @@
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
 		</SoundBank>
-		<SoundBank Id="3161908922" Language="SFX" Hash="2229933584">
+		<SoundBank Id="3161908922" Language="SFX" Hash="4017417652">
 			<ObjectPath>\SoundBanks\Default Work Unit\MAIN</ObjectPath>
 			<ShortName>MAIN</ShortName>
 			<Path>MAIN.bnk</Path>
 			<IncludedEvents>
-				<Event Id="855909871" Name="Ataque1" ObjectPath="\Events\Default Work Unit\Ataque1" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="855909871" Name="Ataque1" ObjectPath="\Events\Default Work Unit\Ataque1" DurationType="OneShot" DurationMin="1.244646" DurationMax="1.244646">
+					<IncludedMemoryFiles>
+						<File Id="243701649" Language="SFX">
+							<ShortName>SFX_Ataque1.wav</ShortName>
+							<Path>SFX\SFX_Ataque1_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
 				<Event Id="855909868" Name="Ataque2" ObjectPath="\Events\Default Work Unit\Ataque2" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="1867172427" Name="Ataque3_Critico" ObjectPath="\Events\Default Work Unit\Ataque3_Critico" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="1560490425" Name="Caida_Plataforma" ObjectPath="\Events\Default Work Unit\Caida_Plataforma" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>

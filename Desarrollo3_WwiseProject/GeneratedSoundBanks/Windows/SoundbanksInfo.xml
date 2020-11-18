@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <SoundBanksInfo Platform="Windows" BasePlatform="Windows" SchemaVersion="12" SoundbankVersion="135">
 	<RootPaths>
-		<ProjectRoot>G:\Image Campus - Game Audio\Repositorios\tower-of-vertigo\Desarrollo3_WwiseProject\</ProjectRoot>
-		<SourceFilesRoot>G:\Image Campus - Game Audio\Repositorios\tower-of-vertigo\Desarrollo3_WwiseProject\.cache\Windows\</SourceFilesRoot>
-		<SoundBanksRoot>G:\Image Campus - Game Audio\Repositorios\tower-of-vertigo\Desarrollo3_WwiseProject\GeneratedSoundBanks\Windows\</SoundBanksRoot>
+		<ProjectRoot>C:\Users\Iker\Desktop\Desarrollo3\Desarrollo3_WwiseProject\</ProjectRoot>
+		<SourceFilesRoot>C:\Users\Iker\Desktop\Desarrollo3\Desarrollo3_WwiseProject\.cache\Windows\</SourceFilesRoot>
+		<SoundBanksRoot>C:\Users\Iker\Desktop\Desarrollo3\Desarrollo3_WwiseProject\GeneratedSoundBanks\Windows\</SoundBanksRoot>
 		<ExternalSourcesInputFile></ExternalSourcesInputFile>
-		<ExternalSourcesOutputRoot>G:\Image Campus - Game Audio\Repositorios\tower-of-vertigo\Desarrollo3_WwiseProject\GeneratedSoundBanks\Windows</ExternalSourcesOutputRoot>
+		<ExternalSourcesOutputRoot>C:\Users\Iker\Desktop\Desarrollo3\Desarrollo3_WwiseProject\GeneratedSoundBanks\Windows</ExternalSourcesOutputRoot>
 	</RootPaths>
 	<DialogueEvents/>
 	<StreamedFiles/>
@@ -16,7 +16,11 @@
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
 		</SoundBank>
+<<<<<<< Updated upstream
 		<SoundBank Id="3161908922" Language="SFX" Hash="384665104">
+=======
+		<SoundBank Id="3161908922" Language="SFX" Hash="4017417652">
+>>>>>>> Stashed changes
 			<ObjectPath>\SoundBanks\Default Work Unit\MAIN</ObjectPath>
 			<ShortName>MAIN</ShortName>
 			<Path>MAIN.bnk</Path>
