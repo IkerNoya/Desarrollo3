@@ -302,11 +302,6 @@
 				</RandomSequenceContainer>
 				<Sound Name="SFX_Ataque1" ID="{89FDF9DC-D0E2-40AC-8A14-EEA1F09B464C}" ShortID="466922683">
 					<PropertyList>
-						<Property Name="Inclusion" Type="bool">
-							<ValueList>
-								<Value>False</Value>
-							</ValueList>
-						</Property>
 						<Property Name="Pitch" Type="int32">
 							<ModifierList>
 								<ModifierInfo>
