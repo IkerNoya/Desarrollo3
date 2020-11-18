@@ -222,6 +222,11 @@
 				<RandomSequenceContainer Name="Dash" ID="{04DD2D2E-C14E-454E-A661-6ABEAAFAAFEF}" ShortID="656635821">
 					<PropertyList>
 						<Property Name="NormalOrShuffle" Type="int16" Value="0"/>
+						<Property Name="Volume" Type="Real64">
+							<ValueList>
+								<Value>-5</Value>
+							</ValueList>
+						</Property>
 					</PropertyList>
 					<ReferenceList>
 						<Reference Name="Conversion">
@@ -311,7 +316,7 @@
 						</Property>
 						<Property Name="Volume" Type="Real64">
 							<ValueList>
-								<Value>-4</Value>
+								<Value>-9</Value>
 							</ValueList>
 						</Property>
 					</PropertyList>
@@ -537,6 +542,13 @@
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="CLICK_BOTON" ID="{E2EC233D-3174-41B8-8514-151B5991678E}" ShortID="160418935">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-4</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{806D56C7-89DC-4910-BD41-BCACBB474B89}"/>
@@ -660,6 +672,13 @@
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="PLAY" ID="{3936A3D9-C034-4C24-B10D-38EA10D4E70D}" ShortID="79160259">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-9</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{806D56C7-89DC-4910-BD41-BCACBB474B89}"/>

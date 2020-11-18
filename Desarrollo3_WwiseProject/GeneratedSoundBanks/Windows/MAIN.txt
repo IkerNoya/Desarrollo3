@@ -8,6 +8,7 @@ Event	ID	Name			Wwise Object Path	Notes
 	1078793336	Inicia_SeleccionDePantalla			\Default Work Unit\Inicia_SeleccionDePantalla	
 	1171167445	Tirado_Idle			\Default Work Unit\Tirado_Idle	
 	1190877053	Inicia_Juego			\Default Work Unit\Inicia_Juego	
+	1203400786	Restart			\Default Work Unit\UI\Restart	
 	1230222675	Salto_Pared			\Default Work Unit\Salto_Pared	
 	1436561225	Tocar_Boton			\Default Work Unit\UI\Tocar_Boton	
 	1560490425	Caida_Plataforma			\Default Work Unit\Caida_Plataforma	
@@ -40,8 +41,12 @@ State Group	ID	Name			Wwise Object Path	Notes
 	3830703178	Musicas			\Default Work Unit\Musicas	
 
 State	ID	Name	State Group			Notes
+	142468532	Menu_keyboard	Musicas			
+	635455269	Menu_opciones	Musicas			
 	748895195	None	Musicas			
 	984691642	InGame	Musicas			
+	1219679298	Menu_Joystic	Musicas			
+	1933060234	Menu_controles	Musicas			
 	2607556080	Menu	Musicas			
 
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
@@ -55,9 +60,10 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	747274110	SFX_Salto_02	D:\MATSF.ER\IMAGE CAMPUS\TRABAJO CON DESARROLLO\REPO Wwise\tower-of-vertigo\Desarrollo3_WwiseProject\.cache\Windows\SFX\SFX_Salto_6294ED36.wem		\Actor-Mixer Hierarchy\Default Work Unit\Salto\SFX_Salto_02		24374
 	806087017	SFX_Salto_04	D:\MATSF.ER\IMAGE CAMPUS\TRABAJO CON DESARROLLO\REPO Wwise\tower-of-vertigo\Desarrollo3_WwiseProject\.cache\Windows\SFX\SFX_Salto_D68205B3.wem		\Actor-Mixer Hierarchy\Default Work Unit\Salto\SFX_Salto_04		27582
 	828680542	Menu17_11	D:\MATSF.ER\IMAGE CAMPUS\TRABAJO CON DESARROLLO\REPO Wwise\tower-of-vertigo\Desarrollo3_WwiseProject\.cache\Windows\SFX\Menu17_11_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\Musicas\Menu\Menu17_11\Menu17_11		3043188
-	834273055	Transition_M_G_17_11	D:\MATSF.ER\IMAGE CAMPUS\TRABAJO CON DESARROLLO\REPO Wwise\tower-of-vertigo\Desarrollo3_WwiseProject\.cache\Windows\SFX\Transition_M_G_17_11_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\Musicas\Transition_M_G_17_11\Transition_M_G_17_11		1217352
 	873666959	SFX_Salto_06	D:\MATSF.ER\IMAGE CAMPUS\TRABAJO CON DESARROLLO\REPO Wwise\tower-of-vertigo\Desarrollo3_WwiseProject\.cache\Windows\SFX\SFX_Salto_40DC6169.wem		\Actor-Mixer Hierarchy\Default Work Unit\Salto\SFX_Salto_06		28230
 	930660109	InGame17_11	D:\MATSF.ER\IMAGE CAMPUS\TRABAJO CON DESARROLLO\REPO Wwise\tower-of-vertigo\Desarrollo3_WwiseProject\.cache\Windows\SFX\InGame17_11_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\Musicas\InGame\InGame17_11\InGame17_11		6415860
 	976709489	CLICK_BOTON	D:\MATSF.ER\IMAGE CAMPUS\TRABAJO CON DESARROLLO\REPO Wwise\tower-of-vertigo\Desarrollo3_WwiseProject\.cache\Windows\SFX\CLICK_BOTON_9B0CA1C0.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\CLICK_BOTON		114744
 	984583022	SFX_Salto_05	D:\MATSF.ER\IMAGE CAMPUS\TRABAJO CON DESARROLLO\REPO Wwise\tower-of-vertigo\Desarrollo3_WwiseProject\.cache\Windows\SFX\SFX_Salto_949E477E.wem		\Actor-Mixer Hierarchy\Default Work Unit\Salto\SFX_Salto_05		32302
+	1035927207	Transition_M_G_18_111	D:\MATSF.ER\IMAGE CAMPUS\TRABAJO CON DESARROLLO\REPO Wwise\tower-of-vertigo\Desarrollo3_WwiseProject\.cache\Windows\SFX\Transition_M_G_18_111_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\Musicas\Transition_M_G_18_111\Transition_M_G_18_111		1206768
+	1072181824	Menu_opciones	D:\MATSF.ER\IMAGE CAMPUS\TRABAJO CON DESARROLLO\REPO Wwise\tower-of-vertigo\Desarrollo3_WwiseProject\.cache\Windows\SFX\Menu_opciones_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\Musicas\Menu_opciones\Menu_opciones\Menu_opciones		2869236
 

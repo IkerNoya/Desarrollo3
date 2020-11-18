@@ -15,6 +15,16 @@
 								</Reference>
 							</ReferenceList>
 						</Action>
+						<Action Name="" ID="{F8898D52-87C2-40C6-8CF2-073206CC3F4D}" ShortID="625988363">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="22"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Despausar" ID="{33879688-A93D-4905-9161-1E46FAB8359F}" WorkUnitID="{4C639989-9611-43CD-A537-78D425C96BE7}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
 					</ChildrenList>
 				</Event>
 				<Event Name="Inicia_SeleccionDePantalla" ID="{452392A2-C469-47BE-A8C1-304E6F506C34}"/>
@@ -173,7 +183,7 @@
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Target">
-											<ObjectRef Name="in" ID="{36ADD4A7-F495-4007-A85F-9EBA46C80E01}"/>
+											<ObjectRef Name="Pausar" ID="{012BB371-4ADB-4D33-9BF3-F8D2A88756F2}" WorkUnitID="{4C639989-9611-43CD-A537-78D425C96BE7}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>
@@ -187,7 +197,7 @@
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Target">
-											<ObjectRef Name="out" ID="{0F911905-30EE-4538-8E31-453807325B0D}"/>
+											<ObjectRef Name="Despausar" ID="{33879688-A93D-4905-9161-1E46FAB8359F}" WorkUnitID="{4C639989-9611-43CD-A537-78D425C96BE7}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>
@@ -202,6 +212,16 @@
 									<ReferenceList>
 										<Reference Name="Target">
 											<ObjectRef Name="InGame" ID="{72A002E6-4E20-423B-966E-560FFA4B656F}" WorkUnitID="{2A083CF5-CBF9-4D43-9A54-51921883C426}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{34DC956C-73CB-4765-838B-4014BBC8F9EB}" ShortID="294774918">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="22"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Despausar" ID="{33879688-A93D-4905-9161-1E46FAB8359F}" WorkUnitID="{4C639989-9611-43CD-A537-78D425C96BE7}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>

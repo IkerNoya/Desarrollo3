@@ -9,6 +9,16 @@
 						<State Name="Menu" ID="{DD6E15B2-1CD0-4F55-BA1E-D509058C9593}"/>
 						<State Name="InGame" ID="{0FF5B1B2-3152-4183-8A5A-4D68B54609BC}"/>
 						<State Name="Menu_opciones" ID="{84D7D870-5504-47CB-90D6-35B02BB4D95B}"/>
+						<State Name="Menu_controles" ID="{65EE6A5F-F11E-49B8-A785-EE575E62269B}"/>
+						<State Name="Menu_Joystic" ID="{AC484B11-4247-492B-84EC-277D8C0CE259}"/>
+						<State Name="Menu_keyboard" ID="{FD5EFC13-9A6B-490C-9D9F-19C9D6FEC622}"/>
+					</ChildrenList>
+				</StateGroup>
+				<StateGroup Name="Pausa" ID="{53DEB73A-FC42-42E5-9090-38599E31EBDE}">
+					<ChildrenList>
+						<State Name="None" ID="{28BEF53B-4C7C-4756-8E06-A0E97DAB2381}"/>
+						<State Name="Pausar" ID="{012BB371-4ADB-4D33-9BF3-F8D2A88756F2}"/>
+						<State Name="Despausar" ID="{33879688-A93D-4905-9161-1E46FAB8359F}"/>
 					</ChildrenList>
 				</StateGroup>
 			</ChildrenList>
