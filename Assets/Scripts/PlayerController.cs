@@ -117,8 +117,7 @@ public class PlayerController : MonoBehaviour
     {
         if (isDead)
             return;
-        if (isPaused)
-            return;
+
         if (!canMove)
         {
             direction = 0;
@@ -181,8 +180,7 @@ public class PlayerController : MonoBehaviour
     {
         if (isDead)
             return;
-        if (isPaused)
-            return;
+
         if (canMove && rigidBody != null)
         {
             switch (state)

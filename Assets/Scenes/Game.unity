@@ -3554,14 +3554,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.7169812, g: 0, b: 0.44136003, a: 1}
+  m_Color: {r: 0.6415094, g: 0, b: 0.5946838, a: 1}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 9706cad50f9c5ae4e9b861b349bc4a56, type: 3}
     m_FontSize: 40
     m_FontStyle: 1
     m_BestFit: 0
