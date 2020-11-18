@@ -66,7 +66,6 @@ public class PlayerController : MonoBehaviour
     bool jumped = false;
     bool isDead = false;
     bool canMove = true;
-    bool canWallJump = true;
     bool isInWall = false;
     bool jumpInWall = false;
     bool leftOrRighWall = false; // true = left, false = right;
@@ -74,6 +73,8 @@ public class PlayerController : MonoBehaviour
     bool isCriticalHit;
     bool canDash = true;
     bool isDashing = false;
+    bool isPaused = false;
+    float walljumpAnimTime = 0.1403281f;
 
     ParryController parryController;
 
@@ -98,6 +99,7 @@ public class PlayerController : MonoBehaviour
     #region Actions
     public static Action<PlayerController> takeDamage;
     public static Action<PlayerController> EmptyHP;
+    public static Action<PlayerController> Pause;
     #endregion
 
     #region BASE_FUNCTIONS
@@ -115,6 +117,8 @@ public class PlayerController : MonoBehaviour
     {
         if (isDead)
             return;
+        if (isPaused)
+            return;
         if (!canMove)
         {
             direction = 0;
@@ -131,7 +135,6 @@ public class PlayerController : MonoBehaviour
         isGrounded = Physics2D.Raycast(transform.position, Vector2.down, distanceToGround, groundLayer);
         if ((Physics2D.Raycast(transform.position, Vector2.right, distanceToWall, layerWallR) || Physics2D.Raycast(transform.position, Vector2.left, distanceToWall, layerWallL)) && !isGrounded)
         {
-            canWallJump = false;
             jumpAmmount = 2;
             isInWall = true;
         }
@@ -141,7 +144,6 @@ public class PlayerController : MonoBehaviour
         {
             ResetWallJump();
             anim.ResetTrigger("Jump");
-            canWallJump = true;
             wasGrounded = true;
             jumpAmmount = noOfJumps;
         }
@@ -177,6 +179,10 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (isDead)
+            return;
+        if (isPaused)
+            return;
         if (canMove && rigidBody != null)
         {
             switch (state)
@@ -241,7 +247,7 @@ public class PlayerController : MonoBehaviour
                 case State.InWall:
                     anim.ResetTrigger("Jump");
                     rigidBody.velocity = new Vector2(0, wallStickiness); // limit movement to the right side
-                    StartCoroutine(WallSlideTransition(0.1403281f));
+                    StartCoroutine(WallSlideTransition(walljumpAnimTime));
                     if (jumpInWall && jumpAmmount>0)
                     {
                         StartCoroutine(WallJumpCoolDown(0.2f));
@@ -291,6 +297,11 @@ public class PlayerController : MonoBehaviour
             state = State.Dash;
             dashSound.Post(gameObject);
         }
+        if(Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.JoystickButton9))
+        {
+            isPaused = true;
+            Pause?.Invoke(this);
+        }
     }
     void ResetWallJump()
     {
@@ -305,7 +316,6 @@ public class PlayerController : MonoBehaviour
        
         rigidBody.simulated = false;
         gameObject.GetComponent<BoxCollider2D>().enabled = false;
-        //StartCoroutine(slowMotion.ActivateSlowMotion(1.5f, 0.5f));
     }
 
     void Respawn()
@@ -317,7 +327,6 @@ public class PlayerController : MonoBehaviour
         isDashing = false;
         transform.position = cam.ScreenToWorldPoint(new Vector3(InitialPos.x, InitialPos.y, InitialPos.z));
         gameObject.GetComponent<BoxCollider2D>().enabled = true;
-       
     }
     public bool GetCanMove()
     {
@@ -326,6 +335,14 @@ public class PlayerController : MonoBehaviour
     public bool GetGrounded()
     {
         return isGrounded;
+    }
+    public bool GetPause()
+    {
+        return isPaused;
+    }
+    public void SetPause(bool value)
+    {
+        isPaused = value;
     }
     #endregion
 
@@ -336,7 +353,7 @@ public class PlayerController : MonoBehaviour
         {
             hp = 0;
             Dead();
-            EmptyHP(this);
+            EmptyHP?.Invoke(this);
             StartCoroutine(RespawnPlayer());
         }
         if (collision.gameObject.CompareTag("Walls"))
@@ -358,7 +375,6 @@ public class PlayerController : MonoBehaviour
             isCriticalHit = collision.gameObject.GetComponentInParent<CombatController>().GetCriticalDamageValue();
             Vector3 direction = collision.gameObject.transform.position - transform.position;
             direction.Normalize();
-            Debug.Log(direction);
             anim.SetTrigger("Damage");
             StartCoroutine(TakeDamage(0.75f));
             hp -= collision.gameObject.GetComponentInParent<CombatController>().GetDamage();
@@ -372,11 +388,11 @@ public class PlayerController : MonoBehaviour
                 rigidBody.AddForce(new Vector2(-direction.x * knockBackForce, rigidBody.velocity.y));
             }
             StartCoroutine(HitCooldown());
-            takeDamage(this);
+            takeDamage?.Invoke(this);
             if (hp <= 0)
             {
                 Dead();
-                EmptyHP(this);
+                EmptyHP?.Invoke(this);
                 StartCoroutine(RespawnPlayer());
             }
         }
