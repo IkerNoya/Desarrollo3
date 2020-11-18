@@ -43,7 +43,7 @@ public class UIControls : MonoBehaviour
                     Joystick.SetActive(false);
             }
             else
-                Joystick.SetActive(false);
+                Keyboard.SetActive(false);
         }
     }
 

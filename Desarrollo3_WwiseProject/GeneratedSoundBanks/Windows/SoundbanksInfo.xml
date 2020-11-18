@@ -16,7 +16,7 @@
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
 		</SoundBank>
-		<SoundBank Id="3161908922" Language="SFX" Hash="3740949308">
+		<SoundBank Id="3161908922" Language="SFX" Hash="2229933584">
 			<ObjectPath>\SoundBanks\Default Work Unit\MAIN</ObjectPath>
 			<ShortName>MAIN</ShortName>
 			<Path>MAIN.bnk</Path>
@@ -51,32 +51,12 @@
 				<Event Id="3415848950" Name="Deslizamiento_Pared" ObjectPath="\Events\Default Work Unit\Deslizamiento_Pared" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="3406505131" Name="Despausar" ObjectPath="\Events\Default Work Unit\UI\Despausar" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="4126746240" Name="Inicia_Creditos" ObjectPath="\Events\Default Work Unit\Inicia_Creditos" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
-				<Event Id="1190877053" Name="Inicia_Juego" ObjectPath="\Events\Default Work Unit\Inicia_Juego" DurationType="Infinite">
-					<IncludedMemoryFiles>
-						<File Id="834273055" Language="SFX">
-							<ShortName>Transition_M_G_17_11.wav</ShortName>
-							<Path>SFX\Transition_M_G_17_11_D79FB2B7.wem</Path>
-						</File>
-						<File Id="930660109" Language="SFX">
-							<ShortName>InGame17_11.wav</ShortName>
-							<Path>SFX\InGame17_11_D79FB2B7.wem</Path>
-						</File>
-					</IncludedMemoryFiles>
+				<Event Id="1190877053" Name="Inicia_Juego" ObjectPath="\Events\Default Work Unit\Inicia_Juego" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000">
 					<ActionSetState>
 						<ActionSetStateEntry Id="984691642" Name="InGame" ObjectPath="\States\Default Work Unit\Musicas\InGame"/>
 					</ActionSetState>
 				</Event>
-				<Event Id="928907744" Name="Inicia_Menu" ObjectPath="\Events\Default Work Unit\Inicia_Menu" DurationType="Infinite">
-					<IncludedMemoryFiles>
-						<File Id="828680542" Language="SFX">
-							<ShortName>Menu17_11.wav</ShortName>
-							<Path>SFX\Menu17_11_D79FB2B7.wem</Path>
-						</File>
-						<File Id="834273055" Language="SFX">
-							<ShortName>Transition_M_G_17_11.wav</ShortName>
-							<Path>SFX\Transition_M_G_17_11_D79FB2B7.wem</Path>
-						</File>
-					</IncludedMemoryFiles>
+				<Event Id="928907744" Name="Inicia_Menu" ObjectPath="\Events\Default Work Unit\Inicia_Menu" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000">
 					<ActionSetState>
 						<ActionSetStateEntry Id="2607556080" Name="Menu" ObjectPath="\States\Default Work Unit\Musicas\Menu"/>
 					</ActionSetState>
