@@ -68,7 +68,7 @@ MonoBehaviour:
     ParentPath: Default Work Unit
     guid: a0e9a5e2bc6a0e43862942f8911e4a7e
     GuidInternal: 
-    m_lastTime: -8585959365886599039
+    m_lastTime: -8585958673229904632
     List:
     - name: Ataque1
       guid: 96b6927ab1fac24091e819404c8ab028
@@ -430,6 +430,20 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: 2.520548
       minDuration: 2.520548
+    - name: Restart
+      guid: b2f0f4fdf1fbba4ba042564294ac3e45
+      id: 1203400786
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: UI
+        ObjectType: 4
+      - ElementName: Restart
+        ObjectType: 3
+      Path: Default Work Unit\UI\Restart
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
     - name: Salto
       guid: 1bca99577cb06043bc39a05adafb85c9
       id: 2948438984
@@ -552,7 +566,7 @@ MonoBehaviour:
     ParentPath: Default Work Unit
     guid: 8999634c1196cd43a53778d425c96be7
     GuidInternal: 
-    m_lastTime: -8585959828570735545
+    m_lastTime: -8585958673229096798
     List:
     - name: Musicas
       guid: db8bdad6bf93c946badcb0eeb1f0ab29
@@ -575,6 +589,12 @@ MonoBehaviour:
         id: 2607556080
         PathAndIcons:
         - ElementName: Menu
+          ObjectType: 8
+      - name: Menu_opciones
+        guid: 70d8d7840455cb4790d635b02bb4d95b
+        id: 635455269
+        PathAndIcons:
+        - ElementName: Menu_opciones
           ObjectType: 8
       - name: None
         guid: 78cf245df3cf134bbfc6d18a49a86d0d
