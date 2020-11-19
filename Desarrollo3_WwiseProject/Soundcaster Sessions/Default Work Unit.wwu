@@ -49,7 +49,7 @@
 					<RTPCValueList ShowAll="true"/>
 					<CurrentStateList ShowAll="true">
 						<CurrentStateRef Name="Despausar" ID="{33879688-A93D-4905-9161-1E46FAB8359F}"/>
-						<CurrentStateRef Name="Menu_controles" ID="{65EE6A5F-F11E-49B8-A785-EE575E62269B}"/>
+						<CurrentStateRef Name="Menu" ID="{DD6E15B2-1CD0-4F55-BA1E-D509058C9593}"/>
 					</CurrentStateList>
 					<CurrentSwitchList ShowAll="true"/>
 				</SoundcasterSession>

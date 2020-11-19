@@ -438,48 +438,7 @@
 						</Reference>
 					</ReferenceList>
 					<ChildrenList>
-						<Sound Name="ALARMA_" ID="{9E2AACFE-5DF5-47FF-85E6-9424B5F40689}" ShortID="405287640">
-							<PropertyList>
-								<Property Name="Inclusion" Type="bool">
-									<ValueList>
-										<Value>False</Value>
-									</ValueList>
-								</Property>
-							</PropertyList>
-							<ReferenceList>
-								<Reference Name="Conversion">
-									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{806D56C7-89DC-4910-BD41-BCACBB474B89}"/>
-								</Reference>
-								<Reference Name="OutputBus">
-									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0159F99E-D8EC-44F5-82B8-9D5327BE8D95}"/>
-								</Reference>
-							</ReferenceList>
-							<ChildrenList>
-								<AudioFileSource Name="ALARMA_" ID="{CAC9FF36-8144-4CD1-A8C3-CD7AB1FCA59D}">
-									<PropertyList>
-										<Property Name="FadeOutDuration" Type="Real64" Value="0.19263698630137"/>
-										<Property Name="LoopBegin" Type="Real64" Value="0"/>
-										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
-									</PropertyList>
-									<Language>SFX</Language>
-									<AudioFile>ALARMA_.wav</AudioFile>
-									<MediaIDList>
-										<MediaID ID="161761821"/>
-									</MediaIDList>
-								</AudioFileSource>
-							</ChildrenList>
-							<ActiveSourceList>
-								<ActiveSource Name="ALARMA_" ID="{CAC9FF36-8144-4CD1-A8C3-CD7AB1FCA59D}" Platform="Linked"/>
-							</ActiveSourceList>
-						</Sound>
 						<Sound Name="ATRAS" ID="{5CD3D401-45D9-437E-A216-5152803A410D}" ShortID="650713338">
-							<PropertyList>
-								<Property Name="Inclusion" Type="bool">
-									<ValueList>
-										<Value>False</Value>
-									</ValueList>
-								</Property>
-							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{806D56C7-89DC-4910-BD41-BCACBB474B89}"/>
@@ -508,13 +467,6 @@
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="BOTON_FINALIZAR_PARTIDA" ID="{161BDA47-491C-4184-9508-7AF67A729599}" ShortID="388285325">
-							<PropertyList>
-								<Property Name="Inclusion" Type="bool">
-									<ValueList>
-										<Value>False</Value>
-									</ValueList>
-								</Property>
-							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{806D56C7-89DC-4910-BD41-BCACBB474B89}"/>
@@ -612,13 +564,6 @@
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="ELECCION_MUJER_" ID="{E261D525-BF2F-4F8D-9FB2-0B0CCE31548A}" ShortID="782235726">
-							<PropertyList>
-								<Property Name="Inclusion" Type="bool">
-									<ValueList>
-										<Value>False</Value>
-									</ValueList>
-								</Property>
-							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{806D56C7-89DC-4910-BD41-BCACBB474B89}"/>
@@ -707,13 +652,6 @@
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="volver_a_jugar_largo" ID="{E1E64A94-EC8C-47F8-AC04-7F026C699ED1}" ShortID="804797923">
-							<PropertyList>
-								<Property Name="Inclusion" Type="bool">
-									<ValueList>
-										<Value>False</Value>
-									</ValueList>
-								</Property>
-							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{806D56C7-89DC-4910-BD41-BCACBB474B89}"/>
@@ -740,6 +678,116 @@
 							</ChildrenList>
 							<ActiveSourceList>
 								<ActiveSource Name="volver_a_jugar_largo" ID="{11243BFD-A2D8-4205-8CDF-E0C45C37BBFA}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="ELECCION_MUJER_2" ID="{6458B684-B26A-44BD-8C83-90C54BDC361F}" ShortID="963613712">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{806D56C7-89DC-4910-BD41-BCACBB474B89}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0159F99E-D8EC-44F5-82B8-9D5327BE8D95}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="eleccion de personaje" ID="{61AFFAE1-5D71-491E-8D90-0075F6A79392}">
+									<Language>SFX</Language>
+									<AudioFile>eleccion de personaje.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="910001488"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="eleccion de personaje" ID="{61AFFAE1-5D71-491E-8D90-0075F6A79392}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="BARRA_VOLUMEN" ID="{013DB961-3DB9-46F4-8247-27F8546D0D27}" ShortID="690743814">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{806D56C7-89DC-4910-BD41-BCACBB474B89}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0159F99E-D8EC-44F5-82B8-9D5327BE8D95}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="barra volumen" ID="{C52B5930-F7F0-468E-9456-9B998F765F14}">
+									<Language>SFX</Language>
+									<AudioFile>barra volumen.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="305761842"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="barra volumen" ID="{C52B5930-F7F0-468E-9456-9B998F765F14}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="PLAY_2" ID="{6C46FD48-AEC0-49A9-B001-9186D4808B19}" ShortID="1000737789">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{806D56C7-89DC-4910-BD41-BCACBB474B89}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0159F99E-D8EC-44F5-82B8-9D5327BE8D95}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="play 2" ID="{3D32BF44-3874-46ED-AFCC-3A7195E18B03}">
+									<Language>SFX</Language>
+									<AudioFile>play 2.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="497877854"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="play 2" ID="{3D32BF44-3874-46ED-AFCC-3A7195E18B03}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="ATRAS_2" ID="{0E19EF64-99FA-4FED-9BAA-6E9EAB24B0AF}" ShortID="40862153">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{806D56C7-89DC-4910-BD41-BCACBB474B89}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0159F99E-D8EC-44F5-82B8-9D5327BE8D95}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="click mouse back" ID="{953B51D1-B295-42DD-B5CE-602E3BBC4CA0}">
+									<Language>SFX</Language>
+									<AudioFile>click mouse back.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="416603616"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="click mouse back" ID="{953B51D1-B295-42DD-B5CE-602E3BBC4CA0}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="CLICK_BOTTON_2" ID="{C89DD707-0F43-412C-8E1A-D8348CE2657E}" ShortID="42777362">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{806D56C7-89DC-4910-BD41-BCACBB474B89}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0159F99E-D8EC-44F5-82B8-9D5327BE8D95}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="click mouse" ID="{B0B35620-325A-4527-A777-4ED125184A54}">
+									<Language>SFX</Language>
+									<AudioFile>click mouse.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="552752199"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="click mouse" ID="{B0B35620-325A-4527-A777-4ED125184A54}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 					</ChildrenList>
