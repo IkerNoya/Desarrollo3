@@ -7,7 +7,8 @@ using UnityEngine.EventSystems;
 public class UIGame : MonoBehaviour
 {
     [SerializeField] GameObject PauseScreen;
-    [SerializeField] GameObject resumeButton;
+    [SerializeField] GameObject ResumeButton;
+
     [SerializeField] PlayerController p1;
     [SerializeField] PlayerController p2;
     void Start()
@@ -23,7 +24,7 @@ public class UIGame : MonoBehaviour
         {
             Time.timeScale = 0;
             PauseScreen.SetActive(true);
-            EventSystem.current.SetSelectedGameObject(resumeButton);
+            EventSystem.current.SetSelectedGameObject(ResumeButton);
         }
     }
     public void OnClickResume()

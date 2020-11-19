@@ -10,7 +10,8 @@ public class CapturePoint : MonoBehaviour
     bool p1Capturing;
     bool p2Capturing;
 
-    public static event Action<CapturePoint> EndGame;
+    public static event Action<CapturePoint> VictoryP1;
+    public static event Action<CapturePoint> VictoryP2;
     enum State
     {
         Capturing, Blocked, Empty
@@ -36,11 +37,13 @@ public class CapturePoint : MonoBehaviour
                 captureContent.fillAmount += captureAmmount * Time.deltaTime;
                 if (captureContent.fillAmount >= 1 && p1Capturing)
                 {
-                    EndGame(this);
+                    VictoryP1?.Invoke(this);
+                    Debug.Log("P1");
                 }
                 if (captureContent.fillAmount >= 1 && p2Capturing)
                 {
-                    EndGame(this);
+                    VictoryP2?.Invoke(this);
+                    Debug.Log("P2");
                 }
                 break;
 

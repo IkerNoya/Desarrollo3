@@ -1,43 +1,61 @@
-﻿using System.Collections;
-using System.Text.RegularExpressions;
+﻿using System;
+using System.Collections;
 using UnityEngine;
-using UnityEngine.SceneManagement;
-using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class GameManager : MonoBehaviour
 {
     [SerializeField] Transform target;
     [SerializeField] SlowMotion slowMotion;
     [SerializeField] float offset;
+    [Space]
+    [SerializeField] GameObject VictoryScreen_P1;
+    [SerializeField] GameObject VictoryScreen_P2;
+    [SerializeField] GameObject activeButtonVictoryP1;
+    [SerializeField] GameObject activeButtonVictoryP2;
+    [Space]
+    [SerializeField] PlayerController player1;
+    [SerializeField] PlayerController player2;
 
     Camera cam;
     float distanceToGoal;
 
     void Start()
     {
-        CapturePoint.EndGame += ChangeScene;
+        CapturePoint.VictoryP1 += EndGameEventP1;
+        CapturePoint.VictoryP2 += EndGameEventP2;
         cam = Camera.main;
         Time.timeScale = 1;
         if(target!=null)
             distanceToGoal = target.position.y - cam.transform.position.y - offset;
+        if (VictoryScreen_P1 != null) VictoryScreen_P1.SetActive(false);
+        if (VictoryScreen_P2 != null) VictoryScreen_P2.SetActive(false);
     }
 
-    void ChangeScene(CapturePoint capture)
+    void EndGameEventP1(CapturePoint capture)
     {
-        StartCoroutine(EndGameEvent(1.5f));
+        StartCoroutine(ActivateVictoryScreen(1.5f, VictoryScreen_P1, activeButtonVictoryP1));
+    }
+    void EndGameEventP2(CapturePoint capture)
+    {
+        StartCoroutine(ActivateVictoryScreen(1.5f, VictoryScreen_P2, activeButtonVictoryP2));
     }
 
     private void OnDisable()
     {
-        CapturePoint.EndGame -= ChangeScene;
+        CapturePoint.VictoryP1 -= EndGameEventP1;
+        CapturePoint.VictoryP2 -= EndGameEventP2;
     }
-
-    IEnumerator EndGameEvent(float time)
+    IEnumerator ActivateVictoryScreen(float time, GameObject screen, GameObject button)
     {
         StartCoroutine(slowMotion.ActivateSlowMotion(time, 0.5f));
         yield return new WaitForSeconds(time);
-        Time.timeScale = 1;
-        SceneManager.LoadScene("End");
+        Time.timeScale = 0;
+        if(player1 != null) player1.SetPause(true);
+        if(player2 != null) player2.SetPause(true);
+        if (screen != null) screen.SetActive(true);
+        if (button != null)
+            EventSystem.current.SetSelectedGameObject(button);
         yield return null;
     }
 }
