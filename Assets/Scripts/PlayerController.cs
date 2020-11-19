@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    #region VARIABLES
+    #region SERIALIZED_VARIABLES
     [SerializeField] float speed;
     [SerializeField] float wallStickiness;
     [SerializeField] float jumpForce;
@@ -117,6 +117,8 @@ public class PlayerController : MonoBehaviour
     {
         if (isDead)
             return;
+        if (isPaused)
+            return;
 
         if (!canMove)
         {
@@ -180,7 +182,6 @@ public class PlayerController : MonoBehaviour
     {
         if (isDead)
             return;
-
         if (canMove && rigidBody != null)
         {
             switch (state)
@@ -273,7 +274,6 @@ public class PlayerController : MonoBehaviour
     
     void Inputs()
     {
-
         if ((Input.GetKeyDown(jumpButtonKM) || Input.GetKeyDown(jumpButtonJoystick)) && jumpAmmount > 0 && canMove && !comboController.IsAttacking)
         {
             state = State.Jumping; 

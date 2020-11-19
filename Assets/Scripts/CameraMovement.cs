@@ -3,7 +3,6 @@ using UnityEngine;
 
 public class CameraMovement : MonoBehaviour
 {
-    #region VARIABLES
     [SerializeField] GameObject crown;
     [SerializeField] float lowSpeed;
     [SerializeField] float midSpeed;
@@ -25,9 +24,7 @@ public class CameraMovement : MonoBehaviour
     float t = 0;
     float xPos;
     float speed;
-    #endregion
 
-    #region BASE_FUNCTIONS
     void Awake()
     {
         ParryController.parryEffect += ZoomOnPlayer;
@@ -81,9 +78,6 @@ public class CameraMovement : MonoBehaviour
             canMove = true;
         }
     }
-    #endregion
-
-    #region FUNCTIONS
     void ZoomOnPlayer(ParryController pc)
     {
         StartCoroutine(ZoomIn(0.5f));
@@ -110,9 +104,6 @@ public class CameraMovement : MonoBehaviour
             speed = highSpeed;
         }
     }
-    #endregion
-
-    #region COROUTINES
     IEnumerator ZoomIn(float time)
     {
         canZoom = true;
@@ -128,12 +119,9 @@ public class CameraMovement : MonoBehaviour
             yield return null;
         }
     }
-    #endregion
 
-    #region BASE_FUNCTIONS
     private void OnDisable()
     {
         ParryController.parryEffect -= ZoomOnPlayer;
     }
-    #endregion
 }

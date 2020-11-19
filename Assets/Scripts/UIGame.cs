@@ -2,19 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems;
 
 public class UIGame : MonoBehaviour
 {
     [SerializeField] GameObject PauseScreen;
-    PlayerController p1;
-    PlayerController p2;
+    [SerializeField] GameObject resumeButton;
+    [SerializeField] PlayerController p1;
+    [SerializeField] PlayerController p2;
     void Start()
     {
         PlayerController.Pause += ActivatePause;
         if(PauseScreen!=null)
             PauseScreen.SetActive(false);
-        p1 = GameObject.FindGameObjectWithTag("Player_1").GetComponent<PlayerController>();
-        p2 = GameObject.FindGameObjectWithTag("Player_2").GetComponent<PlayerController>();
     }
     
     void ActivatePause(PlayerController pc)
@@ -23,6 +23,7 @@ public class UIGame : MonoBehaviour
         {
             Time.timeScale = 0;
             PauseScreen.SetActive(true);
+            EventSystem.current.SetSelectedGameObject(resumeButton);
         }
     }
     public void OnClickResume()

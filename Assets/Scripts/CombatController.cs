@@ -66,7 +66,8 @@ public class CombatController : MonoBehaviour
 
 	void Update()
 	{
-
+		if (player.GetPause())
+			return;
 		if (currentCombo == null)
 		{
 			timer += Time.deltaTime;
