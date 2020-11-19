@@ -38,20 +38,20 @@ public class UIGame : MonoBehaviour
     public void OnClickRestart()
     {
         Time.timeScale = 1.0f;
+        SceneManager.LoadScene("Game");
         if (PauseScreen != null)
             PauseScreen.SetActive(false);
-        p1.SetPause(false);
-        p2.SetPause(false);
-        SceneManager.LoadScene("Game");
+        if(p1!=null) p1.SetPause(false);
+        if(p2!=null) p2.SetPause(false);
     }
     public void OnClickMenu()
     {
         Time.timeScale = 1.0f;
+        SceneManager.LoadScene("Menu");
         if (PauseScreen != null)
             PauseScreen.SetActive(false);
-        p1.SetPause(false);
-        p2.SetPause(false);
-        SceneManager.LoadScene("Menu");
+        if(p1!=null) p1.SetPause(false);
+        if(p2!=null) p2.SetPause(false);
     }
     public void OnClickQuit()
     {

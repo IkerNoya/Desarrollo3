@@ -38,12 +38,10 @@ public class CapturePoint : MonoBehaviour
                 if (captureContent.fillAmount >= 1 && p1Capturing)
                 {
                     VictoryP1?.Invoke(this);
-                    Debug.Log("P1");
                 }
                 if (captureContent.fillAmount >= 1 && p2Capturing)
                 {
                     VictoryP2?.Invoke(this);
-                    Debug.Log("P2");
                 }
                 break;
 
