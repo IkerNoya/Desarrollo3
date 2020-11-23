@@ -17,8 +17,14 @@ State	ID	Name	State Group			Notes
 Custom State	ID	Name	State Group	Owner		Notes
 	148003326	Pausar	Pausa	\Master-Mixer Hierarchy\Default Work Unit\Master Audio Bus		
 
+Game Parameter	ID	Name			Wwise Object Path	Notes
+	988953028	SFXVolume			\Default Work Unit\New Virtual Folder\SFXVolume	
+	2346531308	MusicVolume			\Default Work Unit\New Virtual Folder\MusicVolume	
+
 Audio Bus	ID	Name			Wwise Object Path	Notes
+	1606985186	BUS_MUSICA			\Default Work Unit\Master Audio Bus\BUS_MUSICA	
 	3803692087	Master Audio Bus			\Default Work Unit\Master Audio Bus	
+	3895923845	BUS_SFX			\Default Work Unit\Master Audio Bus\BUS_SFX	
 
 Audio Devices	ID	Name	Type				Notes
 	2317455096	No_Output	No Output			

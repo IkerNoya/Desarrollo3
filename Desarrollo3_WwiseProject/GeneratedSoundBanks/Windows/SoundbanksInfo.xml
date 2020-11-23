@@ -1,20 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <SoundBanksInfo Platform="Windows" BasePlatform="Windows" SchemaVersion="12" SoundbankVersion="135">
 	<RootPaths>
-		<ProjectRoot>G:\Image Campus - Game Audio\Repositorios\tower-of-vertigo\Desarrollo3_WwiseProject\</ProjectRoot>
-		<SourceFilesRoot>G:\Image Campus - Game Audio\Repositorios\tower-of-vertigo\Desarrollo3_WwiseProject\.cache\Windows\</SourceFilesRoot>
-		<SoundBanksRoot>G:\Image Campus - Game Audio\Repositorios\tower-of-vertigo\Desarrollo3_WwiseProject\GeneratedSoundBanks\Windows\</SoundBanksRoot>
+		<ProjectRoot>C:\Users\delli\Documents\GitHub\tower-of-vertigo\Desarrollo3_WwiseProject\</ProjectRoot>
+		<SourceFilesRoot>C:\Users\delli\Documents\GitHub\tower-of-vertigo\Desarrollo3_WwiseProject\.cache\Windows\</SourceFilesRoot>
+		<SoundBanksRoot>C:\Users\delli\Documents\GitHub\tower-of-vertigo\Desarrollo3_WwiseProject\GeneratedSoundBanks\Windows\</SoundBanksRoot>
 		<ExternalSourcesInputFile></ExternalSourcesInputFile>
-		<ExternalSourcesOutputRoot>G:\Image Campus - Game Audio\Repositorios\tower-of-vertigo\Desarrollo3_WwiseProject\GeneratedSoundBanks\Windows</ExternalSourcesOutputRoot>
+		<ExternalSourcesOutputRoot>C:\Users\delli\Documents\GitHub\tower-of-vertigo\Desarrollo3_WwiseProject\GeneratedSoundBanks\Windows</ExternalSourcesOutputRoot>
 	</RootPaths>
 	<DialogueEvents/>
 	<StreamedFiles/>
 	<MediaFilesNotInAnyBank/>
 	<SoundBanks>
-		<SoundBank Id="1355168291" Language="SFX" Hash="1877810251">
+		<SoundBank Id="1355168291" Language="SFX" Hash="1677548248">
 			<ObjectPath>Init</ObjectPath>
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
+			<GameParameters>
+				<GameParameter Id="988953028" Name="SFXVolume" ObjectPath="\Game Parameters\Default Work Unit\New Virtual Folder\SFXVolume"/>
+				<GameParameter Id="2346531308" Name="MusicVolume" ObjectPath="\Game Parameters\Default Work Unit\New Virtual Folder\MusicVolume"/>
+			</GameParameters>
 			<StateGroups>
 				<StateGroup Id="3092587489" Name="Pausa" ObjectPath="\States\Default Work Unit\Pausa">
 					<States>
@@ -25,7 +29,7 @@
 				</StateGroup>
 			</StateGroups>
 		</SoundBank>
-		<SoundBank Id="3161908922" Language="SFX" Hash="1864689617">
+		<SoundBank Id="3161908922" Language="SFX" Hash="911244254">
 			<ObjectPath>\SoundBanks\Default Work Unit\MAIN</ObjectPath>
 			<ShortName>MAIN</ShortName>
 			<Path>MAIN.bnk</Path>
