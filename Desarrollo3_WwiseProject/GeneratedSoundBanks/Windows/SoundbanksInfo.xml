@@ -25,7 +25,7 @@
 				</StateGroup>
 			</StateGroups>
 		</SoundBank>
-		<SoundBank Id="3161908922" Language="SFX" Hash="3269366072">
+		<SoundBank Id="3161908922" Language="SFX" Hash="1864689617">
 			<ObjectPath>\SoundBanks\Default Work Unit\MAIN</ObjectPath>
 			<ShortName>MAIN</ShortName>
 			<Path>MAIN.bnk</Path>
@@ -224,7 +224,22 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="2660185452" Name="Parry_ZoomIn" ObjectPath="\Events\Default Work Unit\Parry_ZoomIn" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="2660185452" Name="Parry_ZoomIn" ObjectPath="\Events\Default Work Unit\Parry_ZoomIn" DurationType="OneShot" DurationMin="1.590000" DurationMax="1.753438">
+					<IncludedMemoryFiles>
+						<File Id="246225358" Language="SFX">
+							<ShortName>SFX_ZoomIn_C.wav</ShortName>
+							<Path>SFX\SFX_ZoomIn_C_10C4C929.wem</Path>
+						</File>
+						<File Id="656649302" Language="SFX">
+							<ShortName>SFX_ZoomIn_A.wav</ShortName>
+							<Path>SFX\SFX_ZoomIn_A_10C4C929.wem</Path>
+						</File>
+						<File Id="921673452" Language="SFX">
+							<ShortName>SFX_ZoomIn_B.wav</ShortName>
+							<Path>SFX\SFX_ZoomIn_B_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
 				<Event Id="3092587489" Name="Pausa" ObjectPath="\Events\Default Work Unit\UI\Pausa" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000">
 					<ActionSetState>
 						<ActionSetStateEntry Id="252148545" Name="Pausar" ObjectPath="\States\Default Work Unit\Pausa\Pausar"/>

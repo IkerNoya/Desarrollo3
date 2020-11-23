@@ -130,7 +130,17 @@
 						</Action>
 					</ChildrenList>
 				</Event>
-				<Event Name="Parry_ZoomIn" ID="{A69A5620-BFDE-4514-BB59-D4B0F4577A6A}"/>
+				<Event Name="Parry_ZoomIn" ID="{A69A5620-BFDE-4514-BB59-D4B0F4577A6A}">
+					<ChildrenList>
+						<Action Name="" ID="{73CF39BC-FC90-4D58-9F25-5EDD363AC6F7}" ShortID="350844701">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="ZoomIn&amp;Out" ID="{7164C34E-3F7F-43B5-A909-9A70CC8791DD}" WorkUnitID="{16016A4F-AD9D-4A09-AA0F-576A97D5EE42}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 				<Event Name="Dash" ID="{55101FA1-C841-4A37-8436-C9228D9CC452}">
 					<ChildrenList>
 						<Action Name="" ID="{B8BCD1F1-FE60-468D-9495-50D83258C00F}" ShortID="100135554">
