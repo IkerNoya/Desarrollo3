@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <SoundBanksInfo Platform="Windows" BasePlatform="Windows" SchemaVersion="12" SoundbankVersion="135">
 	<RootPaths>
-		<ProjectRoot>D:\MATSF.ER\IMAGE CAMPUS\TRABAJO CON DESARROLLO\REPO Wwise\tower-of-vertigo\Desarrollo3_WwiseProject\</ProjectRoot>
-		<SourceFilesRoot>D:\MATSF.ER\IMAGE CAMPUS\TRABAJO CON DESARROLLO\REPO Wwise\tower-of-vertigo\Desarrollo3_WwiseProject\.cache\Windows\</SourceFilesRoot>
-		<SoundBanksRoot>D:\MATSF.ER\IMAGE CAMPUS\TRABAJO CON DESARROLLO\REPO Wwise\tower-of-vertigo\Desarrollo3_WwiseProject\GeneratedSoundBanks\Windows\</SoundBanksRoot>
+		<ProjectRoot>G:\Image Campus - Game Audio\Repositorios\tower-of-vertigo\Desarrollo3_WwiseProject\</ProjectRoot>
+		<SourceFilesRoot>G:\Image Campus - Game Audio\Repositorios\tower-of-vertigo\Desarrollo3_WwiseProject\.cache\Windows\</SourceFilesRoot>
+		<SoundBanksRoot>G:\Image Campus - Game Audio\Repositorios\tower-of-vertigo\Desarrollo3_WwiseProject\GeneratedSoundBanks\Windows\</SoundBanksRoot>
 		<ExternalSourcesInputFile></ExternalSourcesInputFile>
-		<ExternalSourcesOutputRoot>D:\MATSF.ER\IMAGE CAMPUS\TRABAJO CON DESARROLLO\REPO Wwise\tower-of-vertigo\Desarrollo3_WwiseProject\GeneratedSoundBanks\Windows</ExternalSourcesOutputRoot>
+		<ExternalSourcesOutputRoot>G:\Image Campus - Game Audio\Repositorios\tower-of-vertigo\Desarrollo3_WwiseProject\GeneratedSoundBanks\Windows</ExternalSourcesOutputRoot>
 	</RootPaths>
 	<DialogueEvents/>
 	<StreamedFiles/>
@@ -25,7 +25,7 @@
 				</StateGroup>
 			</StateGroups>
 		</SoundBank>
-		<SoundBank Id="3161908922" Language="SFX" Hash="1274440637">
+		<SoundBank Id="3161908922" Language="SFX" Hash="3269366072">
 			<ObjectPath>\SoundBanks\Default Work Unit\MAIN</ObjectPath>
 			<ShortName>MAIN</ShortName>
 			<Path>MAIN.bnk</Path>
@@ -38,11 +38,83 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="855909868" Name="Ataque2" ObjectPath="\Events\Default Work Unit\Ataque2" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
-				<Event Id="1867172427" Name="Ataque3_Critico" ObjectPath="\Events\Default Work Unit\Ataque3_Critico" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
-				<Event Id="1560490425" Name="Caida_Plataforma" ObjectPath="\Events\Default Work Unit\Caida_Plataforma" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="998748901" Name="Ataque2A" ObjectPath="\Events\Default Work Unit\Ataque2A" DurationType="OneShot" DurationMin="0.834327" DurationMax="1.051186">
+					<IncludedMemoryFiles>
+						<File Id="919981041" Language="SFX">
+							<ShortName>SFX_Ataque2A.wav</ShortName>
+							<Path>SFX\SFX_Ataque2A_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="998748902" Name="Ataque2B" ObjectPath="\Events\Default Work Unit\Ataque2B" DurationType="OneShot" DurationMin="1.421039" DurationMax="1.790397">
+					<IncludedMemoryFiles>
+						<File Id="205655953" Language="SFX">
+							<ShortName>SFX_Ataque2B.wav</ShortName>
+							<Path>SFX\SFX_Ataque2B_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="1015526518" Name="Ataque3A" ObjectPath="\Events\Default Work Unit\Ataque3A" DurationType="OneShot" DurationMin="0.747557" DurationMax="0.941863">
+					<IncludedMemoryFiles>
+						<File Id="542068633" Language="SFX">
+							<ShortName>SFX_Ataque3A.wav</ShortName>
+							<Path>SFX\SFX_Ataque3A_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="1015526517" Name="Ataque3B" ObjectPath="\Events\Default Work Unit\Ataque3B" DurationType="OneShot" DurationMin="0.601672" DurationMax="0.758059">
+					<IncludedMemoryFiles>
+						<File Id="1021852184" Language="SFX">
+							<ShortName>SFX_Ataque3B.wav</ShortName>
+							<Path>SFX\SFX_Ataque3B_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="1015526516" Name="Ataque3C" ObjectPath="\Events\Default Work Unit\Ataque3C" DurationType="OneShot" DurationMin="2.021338" DurationMax="2.546726">
+					<IncludedMemoryFiles>
+						<File Id="1044100738" Language="SFX">
+							<ShortName>SFX_Ataque3C.wav</ShortName>
+							<Path>SFX\SFX_Ataque3C_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="1560490425" Name="Caida_Plataforma" ObjectPath="\Events\Default Work Unit\Caida_Plataforma" DurationType="OneShot" DurationMin="0.855708" DurationMax="0.855708">
+					<IncludedMemoryFiles>
+						<File Id="609115062" Language="SFX">
+							<ShortName>SFX_CaeDeCabeza.wav</ShortName>
+							<Path>SFX\SFX_CaeDeCabeza_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
 				<Event Id="622800721" Name="Captura_DeObjetivo" ObjectPath="\Events\Default Work Unit\Captura_DeObjetivo" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
-				<Event Id="251416149" Name="Corrida" ObjectPath="\Events\Default Work Unit\Corrida" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="251416149" Name="Corrida" ObjectPath="\Events\Default Work Unit\Corrida" DurationType="OneShot" DurationMin="0.271250" DurationMax="0.286667">
+					<IncludedMemoryFiles>
+						<File Id="81282929" Language="SFX">
+							<ShortName>SFX_PasoMetal05.wav</ShortName>
+							<Path>SFX\SFX_PasoMetal05_10C4C929.wem</Path>
+						</File>
+						<File Id="237385617" Language="SFX">
+							<ShortName>SFX_PasoMetal01.wav</ShortName>
+							<Path>SFX\SFX_PasoMetal01_10C4C929.wem</Path>
+						</File>
+						<File Id="358195361" Language="SFX">
+							<ShortName>SFX_PasoMetal02.wav</ShortName>
+							<Path>SFX\SFX_PasoMetal02_10C4C929.wem</Path>
+						</File>
+						<File Id="400292988" Language="SFX">
+							<ShortName>SFX_PasoMetal03.wav</ShortName>
+							<Path>SFX\SFX_PasoMetal03_10C4C929.wem</Path>
+						</File>
+						<File Id="644458182" Language="SFX">
+							<ShortName>SFX_PasoMetal06.wav</ShortName>
+							<Path>SFX\SFX_PasoMetal06_10C4C929.wem</Path>
+						</File>
+						<File Id="656881652" Language="SFX">
+							<ShortName>SFX_PasoMetal04.wav</ShortName>
+							<Path>SFX\SFX_PasoMetal04_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
 				<Event Id="3050044219" Name="Cursor_SobreBoton" ObjectPath="\Events\Default Work Unit\UI\Cursor_SobreBoton" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="3775992878" Name="Damage_Jugador1" ObjectPath="\Events\Default Work Unit\Damage_Jugador1" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="3775992877" Name="Damage_Jugador2" ObjectPath="\Events\Default Work Unit\Damage_Jugador2" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
@@ -144,14 +216,28 @@
 				<Event Id="2170009971" Name="Menu_Pausa" ObjectPath="\Events\Default Work Unit\Menu_Pausa" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="34185445" Name="Menu_PlayerWins" ObjectPath="\Events\Default Work Unit\Menu_PlayerWins" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="2974103762" Name="Mute" ObjectPath="\Events\Default Work Unit\UI\Mute" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
-				<Event Id="3076648345" Name="Parry" ObjectPath="\Events\Default Work Unit\Parry" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="3076648345" Name="Parry" ObjectPath="\Events\Default Work Unit\Parry" DurationType="OneShot" DurationMin="1.648163" DurationMax="2.076555">
+					<IncludedMemoryFiles>
+						<File Id="1072491871" Language="SFX">
+							<ShortName>SFX_Parry.wav</ShortName>
+							<Path>SFX\SFX_Parry_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
 				<Event Id="2660185452" Name="Parry_ZoomIn" ObjectPath="\Events\Default Work Unit\Parry_ZoomIn" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="3092587489" Name="Pausa" ObjectPath="\Events\Default Work Unit\UI\Pausa" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000">
 					<ActionSetState>
 						<ActionSetStateEntry Id="252148545" Name="Pausar" ObjectPath="\States\Default Work Unit\Pausa\Pausar"/>
 					</ActionSetState>
 				</Event>
-				<Event Id="4149406826" Name="PopUp_PlayerWins" ObjectPath="\Events\Default Work Unit\PopUp_PlayerWins" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="4149406826" Name="PopUp_PlayerWins" ObjectPath="\Events\Default Work Unit\PopUp_PlayerWins" DurationType="OneShot" DurationMin="1.480000" DurationMax="1.480000">
+					<IncludedMemoryFiles>
+						<File Id="888733065" Language="SFX">
+							<ShortName>SFX_PlayerWins.wav</ShortName>
+							<Path>SFX\SFX_PlayerWins_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
 				<Event Id="3306940243" Name="Press_Start" ObjectPath="\Events\Default Work Unit\UI\Press_Start" DurationType="OneShot" DurationMin="2.520548" DurationMax="2.520548">
 					<IncludedMemoryFiles>
 						<File Id="104763891" Language="SFX">
