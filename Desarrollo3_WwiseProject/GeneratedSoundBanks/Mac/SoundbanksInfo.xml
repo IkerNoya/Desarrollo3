@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <SoundBanksInfo Platform="Mac" BasePlatform="Mac" SchemaVersion="12" SoundbankVersion="135">
 	<RootPaths>
-		<ProjectRoot>C:\Users\delli\Documents\GitHub\tower-of-vertigo\Desarrollo3_WwiseProject\</ProjectRoot>
-		<SourceFilesRoot>C:\Users\delli\Documents\GitHub\tower-of-vertigo\Desarrollo3_WwiseProject\.cache\Mac\</SourceFilesRoot>
-		<SoundBanksRoot>C:\Users\delli\Documents\GitHub\tower-of-vertigo\Desarrollo3_WwiseProject\GeneratedSoundBanks\Mac\</SoundBanksRoot>
+		<ProjectRoot>C:\Users\Iker\Desktop\Desarrollo3\Desarrollo3_WwiseProject\</ProjectRoot>
+		<SourceFilesRoot>C:\Users\Iker\Desktop\Desarrollo3\Desarrollo3_WwiseProject\.cache\Mac\</SourceFilesRoot>
+		<SoundBanksRoot>C:\Users\Iker\Desktop\Desarrollo3\Desarrollo3_WwiseProject\GeneratedSoundBanks\Mac\</SoundBanksRoot>
 		<ExternalSourcesInputFile></ExternalSourcesInputFile>
-		<ExternalSourcesOutputRoot>C:\Users\delli\Documents\GitHub\tower-of-vertigo\Desarrollo3_WwiseProject\GeneratedSoundBanks\Mac</ExternalSourcesOutputRoot>
+		<ExternalSourcesOutputRoot>C:\Users\Iker\Desktop\Desarrollo3\Desarrollo3_WwiseProject\GeneratedSoundBanks\Mac</ExternalSourcesOutputRoot>
 	</RootPaths>
 	<DialogueEvents/>
 	<StreamedFiles/>
@@ -29,7 +29,7 @@
 				</StateGroup>
 			</StateGroups>
 		</SoundBank>
-		<SoundBank Id="3161908922" Language="SFX" Hash="3929670701">
+		<SoundBank Id="3161908922" Language="SFX" Hash="3805977447">
 			<ObjectPath>\SoundBanks\Default Work Unit\MAIN</ObjectPath>
 			<ShortName>MAIN</ShortName>
 			<Path>MAIN.bnk</Path>
@@ -167,6 +167,10 @@
 				<Event Id="1725143731" Name="Inicia_SeleccionDePersonajes" ObjectPath="\Events\Default Work Unit\Inicia_SeleccionDePersonajes" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="2658298240" Name="Inicio" ObjectPath="\Events\Default Work Unit\UI\Inicio" DurationType="Infinite">
 					<IncludedMemoryFiles>
+						<File Id="301701033" Language="SFX">
+							<ShortName>ENTRADA_IMAGE_CAMPUS_3.wav</ShortName>
+							<Path>SFX\ENTRADA_IMAGE_CAMPUS_3_D79FB2B7.wem</Path>
+						</File>
 						<File Id="828680542" Language="SFX">
 							<ShortName>Menu17_11.wav</ShortName>
 							<Path>SFX\Menu17_11_D79FB2B7.wem</Path>

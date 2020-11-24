@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics.Tracing;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -8,8 +9,14 @@ public class LevelLoader : MonoBehaviour
     [SerializeField] Image slider;
     float loadingProgress;
     float timeLoading;
+    public AK.Wwise.Event gameMusic;
     private void Start()
     {
+        if (gameMusic != null)
+        {
+            gameMusic.Stop(Camera.main.gameObject);
+            gameMusic.Post(Camera.main.gameObject);
+        }
         StartCoroutine(LoadAsyncOperation());
     }
 

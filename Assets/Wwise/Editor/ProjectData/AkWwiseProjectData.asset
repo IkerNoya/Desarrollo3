@@ -30,8 +30,30 @@ MonoBehaviour:
     ParentPath: Default Work Unit
     guid: 9ef95901ecd8f54482b89d5327be8d95
     GuidInternal: 
-    m_lastTime: -8585965337766417234
+    m_lastTime: -8585954269931979079
     List:
+    - name: BUS_MUSICA
+      guid: e37478ef9d00874d93e1b9c0d63d657f
+      id: 1606985186
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Master Audio Bus
+        ObjectType: 2
+      - ElementName: BUS_MUSICA
+        ObjectType: 2
+      Path: Default Work Unit\Master Audio Bus\BUS_MUSICA
+    - name: BUS_SFX
+      guid: ab847820f66269489098586ee786d91c
+      id: 3895923845
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Master Audio Bus
+        ObjectType: 2
+      - ElementName: BUS_SFX
+        ObjectType: 2
+      Path: Default Work Unit\Master Audio Bus\BUS_SFX
     - name: Master Audio Bus
       guid: d8a41415a61d2a41a17e75ca0c2149f3
       id: 3803692087
@@ -68,7 +90,7 @@ MonoBehaviour:
     ParentPath: Default Work Unit
     guid: a0e9a5e2bc6a0e43862942f8911e4a7e
     GuidInternal: 
-    m_lastTime: -8585958673229904632
+    m_lastTime: -8585954269932178541
     List:
     - name: Ataque1
       guid: 96b6927ab1fac24091e819404c8ab028
@@ -82,30 +104,66 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: 1.244646
       minDuration: 1.244646
-    - name: Ataque2
+    - name: Ataque2A
       guid: 95448be50f81fc499f67f1c63f88c3c4
-      id: 855909868
+      id: 998748901
       PathAndIcons:
       - ElementName: Default Work Unit
         ObjectType: 12
-      - ElementName: Ataque2
+      - ElementName: Ataque2A
         ObjectType: 3
-      Path: Default Work Unit\Ataque2
+      Path: Default Work Unit\Ataque2A
       maxAttenuation: 0
-      maxDuration: 0
-      minDuration: 0
-    - name: Ataque3_Critico
+      maxDuration: 1.051186
+      minDuration: 0.834327
+    - name: Ataque2B
+      guid: 458d96300995574993d8daa7359c2785
+      id: 998748902
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Ataque2B
+        ObjectType: 3
+      Path: Default Work Unit\Ataque2B
+      maxAttenuation: 0
+      maxDuration: 1.790397
+      minDuration: 1.421039
+    - name: Ataque3A
       guid: 32f1875483c1d14183d272804e7ad621
-      id: 1867172427
+      id: 1015526518
       PathAndIcons:
       - ElementName: Default Work Unit
         ObjectType: 12
-      - ElementName: Ataque3_Critico
+      - ElementName: Ataque3A
         ObjectType: 3
-      Path: Default Work Unit\Ataque3_Critico
+      Path: Default Work Unit\Ataque3A
       maxAttenuation: 0
-      maxDuration: 0
-      minDuration: 0
+      maxDuration: 0.941863
+      minDuration: 0.747557
+    - name: Ataque3B
+      guid: a33165cfab852640ba35904d66ae8391
+      id: 1015526517
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Ataque3B
+        ObjectType: 3
+      Path: Default Work Unit\Ataque3B
+      maxAttenuation: 0
+      maxDuration: 0.758059
+      minDuration: 0.601672
+    - name: Ataque3C
+      guid: 1f1ece881030de4f9bbae46664297eaf
+      id: 1015526516
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Ataque3C
+        ObjectType: 3
+      Path: Default Work Unit\Ataque3C
+      maxAttenuation: 0
+      maxDuration: 2.546726
+      minDuration: 2.021338
     - name: Caida_Plataforma
       guid: b07e1a0cd29c8548b35b54e8dc6f041e
       id: 1560490425
@@ -116,8 +174,8 @@ MonoBehaviour:
         ObjectType: 3
       Path: Default Work Unit\Caida_Plataforma
       maxAttenuation: 0
-      maxDuration: 0
-      minDuration: 0
+      maxDuration: 0.855708
+      minDuration: 0.855708
     - name: Captura_DeObjetivo
       guid: c111beb836464640b6a0d7bb9faa0f95
       id: 622800721
@@ -140,8 +198,8 @@ MonoBehaviour:
         ObjectType: 3
       Path: Default Work Unit\Corrida
       maxAttenuation: 0
-      maxDuration: 0
-      minDuration: 0
+      maxDuration: 0.286667
+      minDuration: 0.27125
     - name: Cursor_SobreBoton
       guid: 07ea871721fdef429ef3278ff1a27dfa
       id: 3050044219
@@ -376,8 +434,8 @@ MonoBehaviour:
         ObjectType: 3
       Path: Default Work Unit\Parry
       maxAttenuation: 0
-      maxDuration: 0
-      minDuration: 0
+      maxDuration: 2.076555
+      minDuration: 1.648163
     - name: Parry_ZoomIn
       guid: 20569aa6debf1445bb59d4b0f4577a6a
       id: 2660185452
@@ -388,8 +446,8 @@ MonoBehaviour:
         ObjectType: 3
       Path: Default Work Unit\Parry_ZoomIn
       maxAttenuation: 0
-      maxDuration: 0
-      minDuration: 0
+      maxDuration: 1.753438
+      minDuration: 1.59
     - name: Pausa
       guid: 2fb61ea944eb314dad80fa9ede7b4539
       id: 3092587489
@@ -414,8 +472,8 @@ MonoBehaviour:
         ObjectType: 3
       Path: Default Work Unit\PopUp_PlayerWins
       maxAttenuation: 0
-      maxDuration: 0
-      minDuration: 0
+      maxDuration: 1.48
+      minDuration: 1.48
     - name: Press_Start
       guid: ff3f0f09af172e479bfc66e58c61dc30
       id: 3306940243
@@ -442,8 +500,8 @@ MonoBehaviour:
         ObjectType: 3
       Path: Default Work Unit\UI\Restart
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 0
+      minDuration: 0
     - name: Salto
       guid: 1bca99577cb06043bc39a05adafb85c9
       id: 2948438984
@@ -556,8 +614,39 @@ MonoBehaviour:
     ParentPath: Default Work Unit
     guid: 6dfaaa88c8e67e409219425a6525ee18
     GuidInternal: 
-    m_lastTime: -8585965337765729089
-    List: []
+    m_lastTime: -8585954269932138650
+    List:
+    - name: MusicVolume
+      guid: f6e6b27e0cbf9e44ba0eb3fa12f61b54
+      id: 2346531308
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: New Virtual Folder
+        ObjectType: 4
+      - ElementName: MusicVolume
+        ObjectType: 13
+      Path: Default Work Unit\New Virtual Folder\MusicVolume
+    - name: New Virtual Folder
+      guid: 4018f3ffa62c974c9a2a4719831fb046
+      id: 3208186232
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: New Virtual Folder
+        ObjectType: 4
+      Path: Default Work Unit\New Virtual Folder
+    - name: SFXVolume
+      guid: 904cc4c14029e64dba3761b4d04e38de
+      id: 988953028
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: New Virtual Folder
+        ObjectType: 4
+      - ElementName: SFXVolume
+        ObjectType: 13
+      Path: Default Work Unit\New Virtual Folder\SFXVolume
   StateWwu:
   - PhysicalPath: States\Default Work Unit.wwu
     PathAndIcons:
@@ -566,7 +655,7 @@ MonoBehaviour:
     ParentPath: Default Work Unit
     guid: 8999634c1196cd43a53778d425c96be7
     GuidInternal: 
-    m_lastTime: -8585958673229096798
+    m_lastTime: -8585958169372913440
     List:
     - name: Musicas
       guid: db8bdad6bf93c946badcb0eeb1f0ab29
@@ -590,6 +679,24 @@ MonoBehaviour:
         PathAndIcons:
         - ElementName: Menu
           ObjectType: 8
+      - name: Menu_controles
+        guid: 5f6aee651ef1b849a785ee575e62269b
+        id: 1933060234
+        PathAndIcons:
+        - ElementName: Menu_controles
+          ObjectType: 8
+      - name: Menu_Joystic
+        guid: 114b48ac47422b4984ec277d8c0ce259
+        id: 1219679298
+        PathAndIcons:
+        - ElementName: Menu_Joystic
+          ObjectType: 8
+      - name: Menu_keyboard
+        guid: 13fc5efd6b9a0c499d9f19c9d6fec622
+        id: 142468532
+        PathAndIcons:
+        - ElementName: Menu_keyboard
+          ObjectType: 8
       - name: Menu_opciones
         guid: 70d8d7840455cb4790d635b02bb4d95b
         id: 635455269
@@ -601,6 +708,37 @@ MonoBehaviour:
         id: 748895195
         PathAndIcons:
         - ElementName: None
+          ObjectType: 8
+      ValueGuids: []
+      ValueIcons: []
+      valuesInternal: []
+    - name: Pausa
+      guid: 3ab7de5342fce542909038599e31ebde
+      id: 3092587489
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Pausa
+        ObjectType: 9
+      Path: Default Work Unit\Pausa
+      values:
+      - name: Despausar
+        guid: 889687333da9054991611e46fab8359f
+        id: 3406505131
+        PathAndIcons:
+        - ElementName: Despausar
+          ObjectType: 8
+      - name: None
+        guid: 3bf5be287c4c56478e06a0e97dab2381
+        id: 748895195
+        PathAndIcons:
+        - ElementName: None
+          ObjectType: 8
+      - name: Pausar
+        guid: 71b32b01db4a334d9bf3f8d2a88756f2
+        id: 252148545
+        PathAndIcons:
+        - ElementName: Pausar
           ObjectType: 8
       ValueGuids: []
       ValueIcons: []
@@ -627,8 +765,8 @@ MonoBehaviour:
     List: []
   ExpandedItems:
   - /Desarrollo3_WwiseProject
-  - /Desarrollo3_WwiseProject/Events
-  - /Desarrollo3_WwiseProject/Events/Default Work Unit
-  - /Desarrollo3_WwiseProject/Events/Default Work Unit/UI
+  - /Desarrollo3_WwiseProject/States
+  - /Desarrollo3_WwiseProject/States/Default Work Unit
+  - /Desarrollo3_WwiseProject/States/Default Work Unit/Musicas
   autoPopulateEnabled: 1
   CurrentPluginConfig: 

@@ -14,8 +14,11 @@ namespace AK
     namespace EVENTS
     {
         static const AkUniqueID ATAQUE1 = 855909871U;
-        static const AkUniqueID ATAQUE2 = 855909868U;
-        static const AkUniqueID ATAQUE3_CRITICO = 1867172427U;
+        static const AkUniqueID ATAQUE2A = 998748901U;
+        static const AkUniqueID ATAQUE2B = 998748902U;
+        static const AkUniqueID ATAQUE3A = 1015526518U;
+        static const AkUniqueID ATAQUE3B = 1015526517U;
+        static const AkUniqueID ATAQUE3C = 1015526516U;
         static const AkUniqueID CAIDA_PLATAFORMA = 1560490425U;
         static const AkUniqueID CAPTURA_DEOBJETIVO = 622800721U;
         static const AkUniqueID CORRIDA = 251416149U;
@@ -42,6 +45,7 @@ namespace AK
         static const AkUniqueID PAUSA = 3092587489U;
         static const AkUniqueID POPUP_PLAYERWINS = 4149406826U;
         static const AkUniqueID PRESS_START = 3306940243U;
+        static const AkUniqueID RESTART = 1203400786U;
         static const AkUniqueID SALTO = 2948438984U;
         static const AkUniqueID SALTO_PARED = 1230222675U;
         static const AkUniqueID SUBIR_BAJARFX = 2286640609U;
@@ -61,11 +65,33 @@ namespace AK
             {
                 static const AkUniqueID INGAME = 984691642U;
                 static const AkUniqueID MENU = 2607556080U;
+                static const AkUniqueID MENU_CONTROLES = 1933060234U;
+                static const AkUniqueID MENU_JOYSTIC = 1219679298U;
+                static const AkUniqueID MENU_KEYBOARD = 142468532U;
+                static const AkUniqueID MENU_OPCIONES = 635455269U;
                 static const AkUniqueID NONE = 748895195U;
             } // namespace STATE
         } // namespace MUSICAS
 
+        namespace PAUSA
+        {
+            static const AkUniqueID GROUP = 3092587489U;
+
+            namespace STATE
+            {
+                static const AkUniqueID DESPAUSAR = 3406505131U;
+                static const AkUniqueID NONE = 748895195U;
+                static const AkUniqueID PAUSAR = 252148545U;
+            } // namespace STATE
+        } // namespace PAUSA
+
     } // namespace STATES
+
+    namespace GAME_PARAMETERS
+    {
+        static const AkUniqueID MUSICVOLUME = 2346531308U;
+        static const AkUniqueID SFXVOLUME = 988953028U;
+    } // namespace GAME_PARAMETERS
 
     namespace BANKS
     {
@@ -75,6 +101,8 @@ namespace AK
 
     namespace BUSSES
     {
+        static const AkUniqueID BUS_MUSICA = 1606985186U;
+        static const AkUniqueID BUS_SFX = 3895923845U;
         static const AkUniqueID MASTER_AUDIO_BUS = 3803692087U;
     } // namespace BUSSES
 
