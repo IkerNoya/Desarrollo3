@@ -11,7 +11,7 @@
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Target">
-									<ObjectRef Name="Menu" ID="{DD6E15B2-1CD0-4F55-BA1E-D509058C9593}" WorkUnitID="{4C639989-9611-43CD-A537-78D425C96BE7}"/>
+									<ObjectRef Name="menu_1" ID="{09601890-3057-46AD-AFC0-07AE33CA9C70}" WorkUnitID="{4C639989-9611-43CD-A537-78D425C96BE7}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>
@@ -27,8 +27,34 @@
 						</Action>
 					</ChildrenList>
 				</Event>
-				<Event Name="Inicia_SeleccionDePantalla" ID="{452392A2-C469-47BE-A8C1-304E6F506C34}"/>
-				<Event Name="Inicia_SeleccionDePersonajes" ID="{BCC5B6AD-CD43-4142-B3BF-EB7C6A296B28}"/>
+				<Event Name="Inicia_SeleccionDePantalla" ID="{452392A2-C469-47BE-A8C1-304E6F506C34}">
+					<ChildrenList>
+						<Action Name="" ID="{090458D5-6342-44FE-A1BE-94BD79B2F59B}" ShortID="710144434">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="22"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Menu_sel_pantalla" ID="{64BDB8CB-378F-4FD7-ADF5-DCA07DF95B04}" WorkUnitID="{4C639989-9611-43CD-A537-78D425C96BE7}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Inicia_SeleccionDePersonajes" ID="{BCC5B6AD-CD43-4142-B3BF-EB7C6A296B28}">
+					<ChildrenList>
+						<Action Name="" ID="{1CED9CF4-03FD-4273-9238-9A627CD8EEC1}" ShortID="947374620">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="22"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Menu_sel_pers" ID="{EA764AA3-4390-4130-AC1B-ED5A24E0706A}" WorkUnitID="{4C639989-9611-43CD-A537-78D425C96BE7}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 				<Event Name="Inicia_Creditos" ID="{944E55D7-E635-4824-BA79-F59E6AF307B3}"/>
 				<Event Name="Inicia_Opciones" ID="{F9EF24FC-1425-4635-821B-8A061BEF971C}">
 					<ChildrenList>
@@ -190,13 +216,6 @@
 										</Reference>
 									</ReferenceList>
 								</Action>
-								<Action Name="" ID="{2CA6EEB2-6C4A-4F28-B107-37D9BF3862AE}" ShortID="862499365">
-									<ReferenceList>
-										<Reference Name="Target">
-											<ObjectRef Name="ENTRADA_IMAGE_CAMPUS_3" ID="{D4051989-059C-46C5-BB3F-A6C568E3A6C7}" WorkUnitID="{16016A4F-AD9D-4A09-AA0F-576A97D5EE42}"/>
-										</Reference>
-									</ReferenceList>
-								</Action>
 							</ChildrenList>
 						</Event>
 						<Event Name="Press_Start" ID="{090F3FFF-17AF-472E-9BFC-66E58C61DC30}">
@@ -205,6 +224,16 @@
 									<ReferenceList>
 										<Reference Name="Target">
 											<ObjectRef Name="PLAY" ID="{3936A3D9-C034-4C24-B10D-38EA10D4E70D}" WorkUnitID="{16016A4F-AD9D-4A09-AA0F-576A97D5EE42}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{F6F78C3B-4557-419C-A9C1-6C011787E239}" ShortID="788762713">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="22"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Press_start" ID="{4AB6F4AE-5CCE-4CDC-8C49-A2CFA24E2FD2}" WorkUnitID="{4C639989-9611-43CD-A537-78D425C96BE7}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>
