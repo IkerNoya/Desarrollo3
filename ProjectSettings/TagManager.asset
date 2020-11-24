@@ -46,12 +46,21 @@ TagManager:
   - 
   - 
   m_SortingLayers:
-  - name: Default
-    uniqueID: 0
+  - name: Background
+    uniqueID: 4212711103
+    locked: 0
+  - name: Folliage_Y
+    uniqueID: 687665847
+    locked: 0
+  - name: Folliage_G
+    uniqueID: 3258901773
     locked: 0
   - name: Platforms
     uniqueID: 1585723717
     locked: 0
   - name: Pipes
     uniqueID: 4017484723
+    locked: 0
+  - name: Default
+    uniqueID: 0
     locked: 0
