@@ -61,7 +61,9 @@ public class PlayerController : MonoBehaviour
     #endregion
 
     #region PRIVATE_VARIABLES
-    bool isGrounded = false;
+    bool isGroundedCenter = false;
+    bool isGroundedLeft = false;
+    bool isGroundedRight = false;
     bool wasGrounded = false;
     bool jumped = false;
     bool isDead = false;
@@ -77,6 +79,7 @@ public class PlayerController : MonoBehaviour
     float walljumpAnimTime = 0.1403281f;
 
     ParryController parryController;
+    BoxCollider2D collider;
 
     [HideInInspector]
     public float hp = 100;
@@ -92,6 +95,8 @@ public class PlayerController : MonoBehaviour
     float dashDuration = 0;
 
     Vector2 movement;
+    Vector3 leftColliderSide;
+    Vector3 rightColliderSide;
 
     Camera cam;
     #endregion
@@ -111,6 +116,7 @@ public class PlayerController : MonoBehaviour
         transform.position = new Vector3(InitialPos.x, InitialPos.y, InitialPos.z);
         InitialPos = cam.WorldToScreenPoint(transform.localPosition);
         parryController = GetComponentInChildren<ParryController>();
+        collider = GetComponent<BoxCollider2D>();
     }
 
     void Update()
@@ -119,7 +125,8 @@ public class PlayerController : MonoBehaviour
             return;
         if (isPaused)
             return;
-
+        rightColliderSide = new Vector3(transform.position.x + collider.bounds.size.x / 2, transform.position.y, transform.position.z);
+        leftColliderSide = new Vector3(transform.position.x - collider.bounds.size.x / 2, transform.position.y, transform.position.z);
         if (!canMove)
         {
             direction = 0;
@@ -133,15 +140,17 @@ public class PlayerController : MonoBehaviour
         {
             LastDirection = direction;
         }
-        isGrounded = Physics2D.Raycast(transform.position, Vector2.down, distanceToGround, groundLayer);
-        if ((Physics2D.Raycast(transform.position, Vector2.right, distanceToWall, layerWallR) || Physics2D.Raycast(transform.position, Vector2.left, distanceToWall, layerWallL)) && !isGrounded)
+        isGroundedCenter = Physics2D.Raycast(transform.position, Vector2.down, distanceToGround, groundLayer);
+        isGroundedRight = Physics2D.Raycast(rightColliderSide, Vector2.down, distanceToGround, groundLayer);
+        isGroundedLeft = Physics2D.Raycast(leftColliderSide, Vector2.down, distanceToGround, groundLayer);
+        if ((Physics2D.Raycast(transform.position, Vector2.right, distanceToWall, layerWallR) || Physics2D.Raycast(transform.position, Vector2.left, distanceToWall, layerWallL)) && (!isGroundedCenter && !isGroundedLeft && !isGroundedRight))
         {
             jumpAmmount = 2;
             isInWall = true;
         }
 
         else isInWall = false;
-        if (isGrounded && !wasGrounded)
+        if ((isGroundedCenter || isGroundedLeft || isGroundedRight) && !wasGrounded)
         {
             ResetWallJump();
             anim.ResetTrigger("Jump");
@@ -163,16 +172,21 @@ public class PlayerController : MonoBehaviour
             if(dashDuration > 0.15f)
             {
                 dashDuration = 0;
-                if (isGrounded) state = State.Grounded;
+                if (isGroundedCenter || isGroundedLeft || isGroundedRight) state = State.Grounded;
                 else state = State.Falling;
             }
         }
-        if (isGrounded && !jumped && !isDashing) state = State.Grounded;
+        if ((isGroundedCenter || isGroundedLeft || isGroundedRight) && !jumped && !isDashing) state = State.Grounded;
         else if (jumped && !isDashing) state = State.Jumping;
-        else if (!isGrounded && isInWall) state = State.InWall;
-        else if (rigidBody.velocity.y < wallStickiness && !isInWall && !isGrounded && !isDashing) state = State.Falling;
-        wasGrounded = isGrounded;
-        anim.SetBool("Grounded", isGrounded);
+        else if ((!isGroundedCenter && !isGroundedLeft && !isGroundedRight) && isInWall) state = State.InWall;
+        else if (rigidBody.velocity.y < wallStickiness && !isInWall && (!isGroundedCenter && !isGroundedLeft && !isGroundedRight) && !isDashing) state = State.Falling;
+        wasGrounded = isGroundedCenter;
+        wasGrounded = isGroundedLeft;
+        wasGrounded = isGroundedRight;
+        if(isGroundedCenter || isGroundedLeft || isGroundedRight)
+            anim.SetBool("Grounded", true);
+        else if(!isGroundedCenter && !isGroundedLeft && !isGroundedRight)
+            anim.SetBool("Grounded", false);
         anim.SetFloat("VelocityY", rigidBody.velocity.y);
         anim.SetFloat("VelocityX", Mathf.Abs(direction));
         if (wj) anim.SetTrigger("WJ");
@@ -277,7 +291,9 @@ public class PlayerController : MonoBehaviour
         if ((Input.GetKeyDown(jumpButtonKM) || Input.GetKeyDown(jumpButtonJoystick)) && jumpAmmount > 0 && canMove && !comboController.IsAttacking)
         {
             state = State.Jumping; 
-            isGrounded = false;
+            isGroundedCenter = false;
+            isGroundedLeft = false;
+            isGroundedRight = false;
             jumped = true;
             jumpAmmount--;
             jumpSound.Post(gameObject);
@@ -332,7 +348,12 @@ public class PlayerController : MonoBehaviour
     }
     public bool GetGrounded()
     {
-        return isGrounded;
+        bool grounded = isGroundedCenter;
+        if (isGroundedCenter || isGroundedLeft || isGroundedRight)
+            grounded = true;
+        else if (!isGroundedCenter && !isGroundedLeft && !isGroundedRight)
+            grounded = false;
+        return grounded;
     }
     public bool GetPause()
     {
@@ -400,7 +421,9 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Ground"))
         {
-            isGrounded = false;
+            isGroundedCenter = false;
+            isGroundedLeft = false;
+            isGroundedRight = false;
         }
     }
     #endregion
