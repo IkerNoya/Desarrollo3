@@ -1,0 +1,39 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+public class LevelLoader : MonoBehaviour
+{
+    [SerializeField] Image slider;
+    float loadingProgress;
+    float timeLoading;
+    private void Start()
+    {
+        StartCoroutine(LoadAsyncOperation());
+    }
+
+    IEnumerator LoadAsyncOperation()
+    {
+        loadingProgress = 0;
+        timeLoading = 0;
+        yield return null;
+
+        AsyncOperation level = SceneManager.LoadSceneAsync("Game");
+        level.allowSceneActivation = false;
+
+        while (!level.isDone )
+        {
+            timeLoading += Time.deltaTime;
+            loadingProgress = level.priority + 0.1f;
+            loadingProgress = loadingProgress * timeLoading*2;
+             slider.fillAmount = loadingProgress;
+            if(loadingProgress>=1)
+            {
+                level.allowSceneActivation = true;
+            }
+            yield return null;
+        }
+    }
+    
+}
