@@ -505,11 +505,6 @@
 						</Sound>
 						<Sound Name="ENTRADA_IMAGE_CAMPUS_3" ID="{D4051989-059C-46C5-BB3F-A6C568E3A6C7}" ShortID="561684424">
 							<PropertyList>
-								<Property Name="Inclusion" Type="bool">
-									<ValueList>
-										<Value>False</Value>
-									</ValueList>
-								</Property>
 								<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
 								<Property Name="IsLoopingInfinite" Type="bool" Value="False"/>
 							</PropertyList>
@@ -728,6 +723,28 @@
 							</ChildrenList>
 							<ActiveSourceList>
 								<ActiveSource Name="SFX_PlayerWins" ID="{12BB4F69-2BC8-4C98-9C26-85EE2A52B15A}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="ELECCION_MUJER_MALA" ID="{4CAABF35-B4A5-4B9E-B063-8CF4EFD0DFBD}" ShortID="578378025">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{806D56C7-89DC-4910-BD41-BCACBB474B89}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0159F99E-D8EC-44F5-82B8-9D5327BE8D95}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="eleccion de personaje_mala" ID="{F69ABD24-6464-4599-AD78-4D5444314EA8}">
+									<Language>SFX</Language>
+									<AudioFile>eleccion de personaje_mala.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="207195285"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="eleccion de personaje_mala" ID="{F69ABD24-6464-4599-AD78-4D5444314EA8}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 					</ChildrenList>
