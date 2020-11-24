@@ -4880,6 +4880,16 @@ MonoBehaviour:
   ResumeButton: {fileID: 0}
   p1: {fileID: 1115973151}
   p2: {fileID: 233528903}
+  activatePauseEffect:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 48c5b0c425e8ede46a1af4d8c5f5a2c7,
+      type: 2}
+  deactivatePauseEffect:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 2ffebab82067dca4591df54fc51038b3,
+      type: 2}
 --- !u!4 &1537926924
 Transform:
   m_ObjectHideFlags: 0

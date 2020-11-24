@@ -11,6 +11,9 @@ public class UIGame : MonoBehaviour
 
     [SerializeField] PlayerController p1;
     [SerializeField] PlayerController p2;
+
+    public AK.Wwise.Event activatePauseEffect;
+    public AK.Wwise.Event deactivatePauseEffect;
     void Start()
     {
         PlayerController.Pause += ActivatePause;
@@ -20,8 +23,9 @@ public class UIGame : MonoBehaviour
     
     void ActivatePause(PlayerController pc)
     {
-        if (PauseScreen != null && !PauseScreen.activeSelf)
+        if (PauseScreen != null && !PauseScreen.activeSelf && activatePauseEffect!=null)
         {
+            activatePauseEffect.Post(Camera.main.gameObject);
             Time.timeScale = 0;
             PauseScreen.SetActive(true);
             EventSystem.current.SetSelectedGameObject(ResumeButton);
@@ -29,6 +33,8 @@ public class UIGame : MonoBehaviour
     }
     public void OnClickResume()
     {
+        if (deactivatePauseEffect != null)
+            deactivatePauseEffect.Post(Camera.main.gameObject);
         Time.timeScale = 1.0f;
         if (PauseScreen != null)
             PauseScreen.SetActive(false);
@@ -37,6 +43,8 @@ public class UIGame : MonoBehaviour
     }
     public void OnClickRestart()
     {
+        if (deactivatePauseEffect != null)
+            deactivatePauseEffect.Post(Camera.main.gameObject);
         Time.timeScale = 1.0f;
         SceneManager.LoadScene("Game");
         if (PauseScreen != null)
@@ -46,6 +54,8 @@ public class UIGame : MonoBehaviour
     }
     public void OnClickMenu()
     {
+        if (deactivatePauseEffect != null)
+            deactivatePauseEffect.Post(Camera.main.gameObject);
         Time.timeScale = 1.0f;
         SceneManager.LoadScene("Menu");
         if (PauseScreen != null)

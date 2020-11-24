@@ -814,3 +814,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slider: {fileID: 1122434000}
+  gameMusic:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 48a04fa3231669b41b2fb1a6f155a33e,
+      type: 2}
