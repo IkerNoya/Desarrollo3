@@ -1101,6 +1101,58 @@
 							</Playlist>
 						</MusicPlaylistContainer>
 					</ChildrenList>
+					<StateInfo>
+						<StateGroupList>
+							<StateGroupInfo>
+								<StateGroupRef Name="Musicas" ID="{D6DA8BDB-93BF-46C9-BADC-B0EEB1F0AB29}"/>
+							</StateGroupInfo>
+							<StateGroupInfo>
+								<StateGroupRef Name="Pausa" ID="{53DEB73A-FC42-42E5-9090-38599E31EBDE}"/>
+							</StateGroupInfo>
+						</StateGroupList>
+						<CustomStateList>
+							<CustomState>
+								<StateRef Name="Menu_sel_pers" ID="{EA764AA3-4390-4130-AC1B-ED5A24E0706A}"/>
+								<CustomState Name="" ID="{8ED25002-7534-4E87-962D-7F70F63B1CF4}" ShortID="647498488"/>
+							</CustomState>
+							<CustomState>
+								<StateRef Name="InGame" ID="{0FF5B1B2-3152-4183-8A5A-4D68B54609BC}"/>
+								<CustomState Name="" ID="{9745E211-438E-4B6A-A26A-97351AB73F51}" ShortID="159997874"/>
+							</CustomState>
+							<CustomState>
+								<StateRef Name="Creditos" ID="{34506539-1C0B-452B-9DBC-203E23C6B41D}"/>
+								<CustomState Name="" ID="{DCA3E4B4-D80A-46E5-94BC-E36F29126CE1}" ShortID="920565706"/>
+							</CustomState>
+							<CustomState>
+								<StateRef Name="menu_1" ID="{09601890-3057-46AD-AFC0-07AE33CA9C70}"/>
+								<CustomState Name="" ID="{89EC7C84-3EC7-40A9-B438-9D3EFBD56A29}" ShortID="1439362"/>
+							</CustomState>
+							<CustomState>
+								<StateRef Name="Menu_opciones" ID="{84D7D870-5504-47CB-90D6-35B02BB4D95B}"/>
+								<CustomState Name="" ID="{708A625E-F691-45B8-B9F4-34C0779BBB13}" ShortID="888891280"/>
+							</CustomState>
+							<CustomState>
+								<StateRef Name="Despausar" ID="{33879688-A93D-4905-9161-1E46FAB8359F}"/>
+								<CustomState Name="" ID="{9E086FD5-DCCD-404F-AAF7-41AE7E7B0E13}" ShortID="313492332"/>
+							</CustomState>
+							<CustomState>
+								<StateRef Name="loading" ID="{65EE6A5F-F11E-49B8-A785-EE575E62269B}"/>
+								<CustomState Name="" ID="{268B98E7-7269-4683-8233-8A0E0F380355}" ShortID="843282175"/>
+							</CustomState>
+							<CustomState>
+								<StateRef Name="Press_start" ID="{4AB6F4AE-5CCE-4CDC-8C49-A2CFA24E2FD2}"/>
+								<CustomState Name="" ID="{4933B572-1314-490A-9247-F8FE855D34A8}" ShortID="165183870"/>
+							</CustomState>
+							<CustomState>
+								<StateRef Name="Pausar" ID="{012BB371-4ADB-4D33-9BF3-F8D2A88756F2}"/>
+								<CustomState Name="" ID="{425E22E3-BA56-4AEF-8756-CFC082C4F161}" ShortID="446961477"/>
+							</CustomState>
+							<CustomState>
+								<StateRef Name="Menu_sel_pantalla" ID="{64BDB8CB-378F-4FD7-ADF5-DCA07DF95B04}"/>
+								<CustomState Name="" ID="{D96987C6-BA0F-43A6-BA3B-EEF26236041F}" ShortID="438487223"/>
+							</CustomState>
+						</CustomStateList>
+					</StateInfo>
 					<TransitionList>
 						<MusicTransition Name="Root" ID="{63DD8F92-44EF-4D69-8398-21B7A575AED7}">
 							<PropertyList>

@@ -29,7 +29,7 @@
 				</StateGroup>
 			</StateGroups>
 		</SoundBank>
-		<SoundBank Id="3161908922" Language="SFX" Hash="927618546">
+		<SoundBank Id="3161908922" Language="SFX" Hash="3002118241">
 			<ObjectPath>\SoundBanks\Default Work Unit\MAIN</ObjectPath>
 			<ShortName>MAIN</ShortName>
 			<Path>MAIN.bnk</Path>
@@ -149,17 +149,7 @@
 						<ActionSetStateEntry Id="3406505131" Name="Despausar" ObjectPath="\States\Default Work Unit\Pausa\Despausar"/>
 					</ActionSetState>
 				</Event>
-				<Event Id="4126746240" Name="Inicia_Creditos" ObjectPath="\Events\Default Work Unit\Inicia_Creditos" DurationType="Infinite">
-					<IncludedMemoryFiles>
-						<File Id="678628561" Language="SFX">
-							<ShortName>Menu creditos.wav</ShortName>
-							<Path>SFX\Menu creditos_D79FB2B7.wem</Path>
-						</File>
-						<File Id="1035927207" Language="SFX">
-							<ShortName>Transition_M_G_18_111.wav</ShortName>
-							<Path>SFX\Transition_M_G_18_111_D79FB2B7.wem</Path>
-						</File>
-					</IncludedMemoryFiles>
+				<Event Id="4126746240" Name="Inicia_Creditos" ObjectPath="\Events\Default Work Unit\Inicia_Creditos" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000">
 					<ActionSetState>
 						<ActionSetStateEntry Id="956887760" Name="Creditos" ObjectPath="\States\Default Work Unit\Musicas\Creditos"/>
 					</ActionSetState>
@@ -377,7 +367,6 @@
 					</IncludedMemoryFiles>
 				</Event>
 				<Event Id="1230222675" Name="Salto_Pared" ObjectPath="\Events\Default Work Unit\Salto_Pared" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
-				<Event Id="788884573" Name="Stop" ObjectPath="\Events\Default Work Unit\Stop" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="1171167445" Name="Tirado_Idle" ObjectPath="\Events\Default Work Unit\Tirado_Idle" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="1436561225" Name="Tocar_Boton" ObjectPath="\Events\Default Work Unit\UI\Tocar_Boton" DurationType="OneShot" DurationMin="0.650120" DurationMax="0.650120">
 					<IncludedMemoryFiles>

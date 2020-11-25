@@ -2,7 +2,6 @@ Event	ID	Name			Wwise Object Path	Notes
 	34185445	Menu_PlayerWins			\Default Work Unit\Menu_PlayerWins	
 	251416149	Corrida			\Default Work Unit\Corrida	
 	622800721	Captura_DeObjetivo			\Default Work Unit\Captura_DeObjetivo	
-	788884573	Stop			\Default Work Unit\Stop	
 	855909871	Ataque1			\Default Work Unit\Ataque1	
 	928907744	Inicia_Menu			\Default Work Unit\Inicia_Menu	
 	998748901	Ataque2A			\Default Work Unit\Ataque2A	
@@ -41,9 +40,13 @@ Event	ID	Name			Wwise Object Path	Notes
 	4149406826	PopUp_PlayerWins			\Default Work Unit\PopUp_PlayerWins	
 
 State Group	ID	Name			Wwise Object Path	Notes
+	3092587489	Pausa			\Default Work Unit\Pausa	
 	3830703178	Musicas			\Default Work Unit\Musicas	
 
 State	ID	Name	State Group			Notes
+	252148545	Pausar	Pausa			
+	748895195	None	Pausa			
+	3406505131	Despausar	Pausa			
 	307675021	Menu_sel_pantalla	Musicas			
 	635455269	Menu_opciones	Musicas			
 	748895195	None	Musicas			
