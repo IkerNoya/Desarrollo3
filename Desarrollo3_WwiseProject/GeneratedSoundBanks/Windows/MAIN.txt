@@ -2,6 +2,7 @@ Event	ID	Name			Wwise Object Path	Notes
 	34185445	Menu_PlayerWins			\Default Work Unit\Menu_PlayerWins	
 	251416149	Corrida			\Default Work Unit\Corrida	
 	622800721	Captura_DeObjetivo			\Default Work Unit\Captura_DeObjetivo	
+	788884573	Stop			\Default Work Unit\Stop	
 	855909871	Ataque1			\Default Work Unit\Ataque1	
 	928907744	Inicia_Menu			\Default Work Unit\Inicia_Menu	
 	998748901	Ataque2A			\Default Work Unit\Ataque2A	

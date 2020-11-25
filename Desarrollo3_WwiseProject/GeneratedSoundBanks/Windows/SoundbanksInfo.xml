@@ -29,7 +29,7 @@
 				</StateGroup>
 			</StateGroups>
 		</SoundBank>
-		<SoundBank Id="3161908922" Language="SFX" Hash="592165841">
+		<SoundBank Id="3161908922" Language="SFX" Hash="2483968769">
 			<ObjectPath>\SoundBanks\Default Work Unit\MAIN</ObjectPath>
 			<ShortName>MAIN</ShortName>
 			<Path>MAIN.bnk</Path>
@@ -377,6 +377,7 @@
 					</IncludedMemoryFiles>
 				</Event>
 				<Event Id="1230222675" Name="Salto_Pared" ObjectPath="\Events\Default Work Unit\Salto_Pared" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="788884573" Name="Stop" ObjectPath="\Events\Default Work Unit\Stop" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="2286640609" Name="Subir_BajarFX" ObjectPath="\Events\Default Work Unit\UI\Subir_BajarFX" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="3489696737" Name="Subir_BajarVolumen" ObjectPath="\Events\Default Work Unit\UI\Subir_BajarVolumen" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="1171167445" Name="Tirado_Idle" ObjectPath="\Events\Default Work Unit\Tirado_Idle" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
