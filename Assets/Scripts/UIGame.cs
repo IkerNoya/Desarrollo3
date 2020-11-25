@@ -20,7 +20,7 @@ public class UIGame : MonoBehaviour
         if(PauseScreen!=null)
             PauseScreen.SetActive(false);
     }
-    
+
     void ActivatePause(PlayerController pc)
     {
         if (PauseScreen != null && !PauseScreen.activeSelf && activatePauseEffect!=null)

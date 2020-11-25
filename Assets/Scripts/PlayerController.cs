@@ -39,6 +39,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float criticalKnockBackForce;
     [Space]
     [SerializeField] float footstepSoundTimer;
+    [Space]
+    [SerializeField] GameObject spawner;
+    [Space]
     #endregion
 
     #region PUBLIC_VARIABLES
@@ -355,7 +358,7 @@ public class PlayerController : MonoBehaviour
         anim.SetBool("Dead", false);
         state = State.Falling;
         isDashing = false;
-        transform.position = cam.ScreenToWorldPoint(new Vector3(InitialPos.x, InitialPos.y, InitialPos.z));
+        transform.position = spawner.transform.position;
         gameObject.GetComponent<BoxCollider2D>().enabled = true;
     }
     public bool GetCanMove()
