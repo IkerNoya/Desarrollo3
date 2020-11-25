@@ -259,7 +259,6 @@
 				<Event Name="Captura_DeObjetivo" ID="{B8BE11C1-4636-4046-B6A0-D7BB9FAA0F95}"/>
 				<Folder Name="UI" ID="{A680E0A5-128A-44FA-ACD2-D80DE4C29786}" ShortID="1061966278">
 					<ChildrenList>
-						<Event Name="Cursor_SobreBoton" ID="{1787EA07-FD21-42EF-9EF3-278FF1A27DFA}"/>
 						<Event Name="Inicio" ID="{68A26959-4A8D-4BD3-8A3F-B19B164A470A}">
 							<ChildrenList>
 								<Action Name="" ID="{26844055-2653-48AE-A09E-00BCAD005E2C}" ShortID="896795431">
@@ -276,7 +275,7 @@
 								<Action Name="" ID="{FCC102FB-B686-455B-962E-2A229115813D}" ShortID="816725573">
 									<ReferenceList>
 										<Reference Name="Target">
-											<ObjectRef Name="PLAY" ID="{3936A3D9-C034-4C24-B10D-38EA10D4E70D}" WorkUnitID="{16016A4F-AD9D-4A09-AA0F-576A97D5EE42}"/>
+											<ObjectRef Name="PLAY_2" ID="{6C46FD48-AEC0-49A9-B001-9186D4808B19}" WorkUnitID="{16016A4F-AD9D-4A09-AA0F-576A97D5EE42}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>
@@ -352,6 +351,72 @@
 									<ReferenceList>
 										<Reference Name="Target">
 											<ObjectRef Name="Despausar" ID="{33879688-A93D-4905-9161-1E46FAB8359F}" WorkUnitID="{4C639989-9611-43CD-A537-78D425C96BE7}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Boton_Back" ID="{52A2F6AC-819F-4C0D-A7CC-C047CCE17332}">
+							<ChildrenList>
+								<Action Name="" ID="{4FB61DC6-E07C-435D-953E-6E9F74728530}" ShortID="174040008">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="ATRAS" ID="{5CD3D401-45D9-437E-A216-5152803A410D}" WorkUnitID="{16016A4F-AD9D-4A09-AA0F-576A97D5EE42}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Barra_volumen" ID="{8EBCB025-3732-48EF-9ECA-01EF861C6A6F}">
+							<ChildrenList>
+								<Action Name="" ID="{D4ACD95C-125E-4D3A-86B4-0FC251483DB5}" ShortID="600494735">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="BARRA_VOLUMEN" ID="{013DB961-3DB9-46F4-8247-27F8546D0D27}" WorkUnitID="{16016A4F-AD9D-4A09-AA0F-576A97D5EE42}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Salida_del_juego" ID="{A2AD2F38-30B0-460A-91E0-2B0BB5BF3E9C}">
+							<ChildrenList>
+								<Action Name="" ID="{5D8AEE3A-1BEE-4685-B71D-F6D2221CDFFC}" ShortID="714839193">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="BOTON_FINALIZAR_PARTIDA" ID="{161BDA47-491C-4184-9508-7AF67A729599}" WorkUnitID="{16016A4F-AD9D-4A09-AA0F-576A97D5EE42}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Eleccion_perso_1" ID="{F3B99013-B123-4AA2-B1A2-C71FA4CF8A58}">
+							<ChildrenList>
+								<Action Name="" ID="{0988B35B-FE0F-4C66-B251-C678BC3DD067}" ShortID="52893966">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="ELECCION_MUJER_" ID="{E261D525-BF2F-4F8D-9FB2-0B0CCE31548A}" WorkUnitID="{16016A4F-AD9D-4A09-AA0F-576A97D5EE42}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Eleccion_perso_2" ID="{438B09CC-398A-495B-9C11-E4067607F354}">
+							<ChildrenList>
+								<Action Name="" ID="{4B521948-2BF9-42DD-8A46-F7DDFEB4D2F3}" ShortID="752090111">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="ELECCION_MUJER_MALA" ID="{4CAABF35-B4A5-4B9E-B063-8CF4EFD0DFBD}" WorkUnitID="{16016A4F-AD9D-4A09-AA0F-576A97D5EE42}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Image_Campus" ID="{B91BFDC5-A04C-4070-A373-BD0A01AF744B}">
+							<ChildrenList>
+								<Action Name="" ID="{BCE9EA23-DF96-4948-A9F8-387503FC1071}" ShortID="777817389">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="ENTRADA_IMAGE_CAMPUS_3" ID="{D4051989-059C-46C5-BB3F-A6C568E3A6C7}" WorkUnitID="{16016A4F-AD9D-4A09-AA0F-576A97D5EE42}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>

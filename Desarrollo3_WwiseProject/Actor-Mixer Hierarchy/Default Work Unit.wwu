@@ -357,6 +357,13 @@
 					</ReferenceList>
 					<ChildrenList>
 						<Sound Name="ATRAS" ID="{5CD3D401-45D9-437E-A216-5152803A410D}" ShortID="650713338">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-15</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{806D56C7-89DC-4910-BD41-BCACBB474B89}"/>
@@ -385,6 +392,13 @@
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="BOTON_FINALIZAR_PARTIDA" ID="{161BDA47-491C-4184-9508-7AF67A729599}" ShortID="388285325">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-7</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{806D56C7-89DC-4910-BD41-BCACBB474B89}"/>
@@ -638,6 +652,13 @@
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="PLAY_2" ID="{6C46FD48-AEC0-49A9-B001-9186D4808B19}" ShortID="1000737789">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-5</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{806D56C7-89DC-4910-BD41-BCACBB474B89}"/>
@@ -648,6 +669,11 @@
 							</ReferenceList>
 							<ChildrenList>
 								<AudioFileSource Name="play 2" ID="{3D32BF44-3874-46ED-AFCC-3A7195E18B03}">
+									<PropertyList>
+										<Property Name="FadeOutDuration" Type="Real64" Value="0.956852631626149"/>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+										<Property Name="TrimEnd" Type="Real64" Value="3.00288857797569"/>
+									</PropertyList>
 									<Language>SFX</Language>
 									<AudioFile>play 2.wav</AudioFile>
 									<MediaIDList>
