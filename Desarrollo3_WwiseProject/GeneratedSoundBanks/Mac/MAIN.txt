@@ -20,7 +20,6 @@ Event	ID	Name			Wwise Object Path	Notes
 	1942692385	Dash			\Default Work Unit\Dash	
 	2156697475	Unmute			\Default Work Unit\UI\Unmute	
 	2170009971	Menu_Pausa			\Default Work Unit\Menu_Pausa	
-	2286640609	Subir_BajarFX			\Default Work Unit\UI\Subir_BajarFX	
 	2658298240	Inicio			\Default Work Unit\UI\Inicio	
 	2660185452	Parry_ZoomIn			\Default Work Unit\Parry_ZoomIn	
 	2922467479	Inicia_Opciones			\Default Work Unit\Inicia_Opciones	
@@ -32,7 +31,7 @@ Event	ID	Name			Wwise Object Path	Notes
 	3306940243	Press_Start			\Default Work Unit\UI\Press_Start	
 	3406505131	Despausar			\Default Work Unit\UI\Despausar	
 	3415848950	Deslizamiento_Pared			\Default Work Unit\Deslizamiento_Pared	
-	3489696737	Subir_BajarVolumen			\Default Work Unit\UI\Subir_BajarVolumen	
+	3573931707	Loading			\Default Work Unit\Loading	
 	3775992877	Damage_Jugador2			\Default Work Unit\Damage_Jugador2	
 	3775992878	Damage_Jugador1			\Default Work Unit\Damage_Jugador1	
 	3817817792	DamageCritico_Jugador2			\Default Work Unit\DamageCritico_Jugador2	
@@ -41,16 +40,20 @@ Event	ID	Name			Wwise Object Path	Notes
 	4149406826	PopUp_PlayerWins			\Default Work Unit\PopUp_PlayerWins	
 
 State Group	ID	Name			Wwise Object Path	Notes
+	3092587489	Pausa			\Default Work Unit\Pausa	
 	3830703178	Musicas			\Default Work Unit\Musicas	
 
 State	ID	Name	State Group			Notes
+	252148545	Pausar	Pausa			
+	748895195	None	Pausa			
+	3406505131	Despausar	Pausa			
 	307675021	Menu_sel_pantalla	Musicas			
 	635455269	Menu_opciones	Musicas			
 	748895195	None	Musicas			
 	956887760	Creditos	Musicas			
 	984691642	InGame	Musicas			
-	1933060234	Menu_controles	Musicas			
 	3306940243	Press_start	Musicas			
+	3573931707	loading	Musicas			
 	4098853164	menu_1	Musicas			
 	4148512200	Menu_sel_pers	Musicas			
 
@@ -77,7 +80,7 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	731081151	SFX_Salto_03	C:\Users\Iker\Desktop\Desarrollo3\Desarrollo3_WwiseProject\.cache\Mac\SFX\SFX_Salto_C79191F2.wem		\Actor-Mixer Hierarchy\Default Work Unit\Salto\SFX_Salto_03		31450
 	747274110	SFX_Salto_02	C:\Users\Iker\Desktop\Desarrollo3\Desarrollo3_WwiseProject\.cache\Mac\SFX\SFX_Salto_6294ED36.wem		\Actor-Mixer Hierarchy\Default Work Unit\Salto\SFX_Salto_02		24374
 	806087017	SFX_Salto_04	C:\Users\Iker\Desktop\Desarrollo3\Desarrollo3_WwiseProject\.cache\Mac\SFX\SFX_Salto_D68205B3.wem		\Actor-Mixer Hierarchy\Default Work Unit\Salto\SFX_Salto_04		27582
-	828680542	Menu17_11	C:\Users\Iker\Desktop\Desarrollo3\Desarrollo3_WwiseProject\.cache\Mac\SFX\Menu17_11_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\Musicas\Sel_pantalla\Menu17_11\Menu17_11		3043188
+	828680542	Menu17_11	C:\Users\Iker\Desktop\Desarrollo3\Desarrollo3_WwiseProject\.cache\Mac\SFX\Menu17_11_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\Musicas\Loading\Menu17_11\Menu17_11		3043188
 	873666959	SFX_Salto_06	C:\Users\Iker\Desktop\Desarrollo3\Desarrollo3_WwiseProject\.cache\Mac\SFX\SFX_Salto_40DC6169.wem		\Actor-Mixer Hierarchy\Default Work Unit\Salto\SFX_Salto_06		28230
 	888733065	SFX_PlayerWins	C:\Users\Iker\Desktop\Desarrollo3\Desarrollo3_WwiseProject\.cache\Mac\SFX\SFX_PlayerWins_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\SFX_PlayerWins		284224
 	919981041	SFX_Ataque2A	C:\Users\Iker\Desktop\Desarrollo3\Desarrollo3_WwiseProject\.cache\Mac\SFX\SFX_Ataque2A_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ataque2\SFX_Ataque2A		179872

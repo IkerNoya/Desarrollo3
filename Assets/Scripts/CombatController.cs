@@ -79,7 +79,8 @@ public class CombatController : MonoBehaviour
 					damage = comboHit.damage;
 					criticalDamage = comboHit.critical;
 					StartCombo(combo);
-					comboHit.hitSound.Post(gameObject);
+					if(comboHit.hitSound!=null)
+						comboHit.hitSound.Post(gameObject);
 					break;
 				}
 			}
@@ -94,7 +95,8 @@ public class CombatController : MonoBehaviour
 					timer = 0;
 					damage = currentCombo.comboData[hitIndex].damage;
 					criticalDamage = currentCombo.comboData[hitIndex].critical;
-					currentCombo.comboData[hitIndex].hitSound.Post(gameObject);
+					if(currentCombo.comboData[hitIndex].hitSound!=null);
+						currentCombo.comboData[hitIndex].hitSound.Post(gameObject);
 					AttackAction();
 				}
 			}

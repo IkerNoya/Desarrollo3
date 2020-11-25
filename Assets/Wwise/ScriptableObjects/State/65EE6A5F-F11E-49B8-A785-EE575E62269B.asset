@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0ee82aa09966a04f81359a6ee19cae3, type: 3}
   m_Name: 65EE6A5F-F11E-49B8-A785-EE575E62269B
   m_EditorClassIdentifier: 
-  objectName: Menu_controles
-  id: 1933060234
+  objectName: loading
+  id: 3573931707
   guid: 65EE6A5F-F11E-49B8-A785-EE575E62269B
   WwiseStateGroupReference: {fileID: 11400000, guid: ea64d657cd69c964a9b0fc26f8f046ec,
     type: 2}

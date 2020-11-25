@@ -1423,6 +1423,7 @@ GameObject:
   - component: {fileID: 1299753535}
   - component: {fileID: 1299753532}
   - component: {fileID: 1299753536}
+  - component: {fileID: 1299753537}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1553,6 +1554,31 @@ MonoBehaviour:
   eventIdInternal: 0
   valueGuidInternal: 
   m_callbackDataInternal: {fileID: 0}
+--- !u!114 &1299753537
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1299753531}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 758c5ab1bf58be44c99d9515fede499e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerList: f7e1664c
+  useOtherObject: 0
+  data:
+    idInternal: 0
+    valueGuidInternal: 
+    groupIdInternal: 0
+    groupGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 8ca4527dbf06acb44874b93c0c3b59aa,
+      type: 2}
+  valueIdInternal: 0
+  groupIdInternal: 0
+  valueGuidInternal: 
+  groupGuidInternal: 
 --- !u!1 &1391770582
 GameObject:
   m_ObjectHideFlags: 0
@@ -1565,7 +1591,7 @@ GameObject:
   - component: {fileID: 1391770585}
   - component: {fileID: 1391770584}
   m_Layer: 5
-  m_Name: Image
+  m_Name: Title
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2701,6 +2727,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6266852405605555892, guid: 307dcc94daec0f24f9255ceb8093007e,
+        type: 3}
+      propertyPath: stopMusic.WwiseObjectReference
+      value: 
+      objectReference: {fileID: 11400000, guid: 726075de5cf008c4e80c546abd051f74,
+        type: 2}
     - target: {fileID: 8559543589654866807, guid: 307dcc94daec0f24f9255ceb8093007e,
         type: 3}
       propertyPath: m_Name

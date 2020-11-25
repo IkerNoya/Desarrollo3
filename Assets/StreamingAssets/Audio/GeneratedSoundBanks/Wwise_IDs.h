@@ -37,6 +37,7 @@ namespace AK
         static const AkUniqueID INICIA_SELECCIONDEPANTALLA = 1078793336U;
         static const AkUniqueID INICIA_SELECCIONDEPERSONAJES = 1725143731U;
         static const AkUniqueID INICIO = 2658298240U;
+        static const AkUniqueID LOADING = 3573931707U;
         static const AkUniqueID MENU_PAUSA = 2170009971U;
         static const AkUniqueID MENU_PLAYERWINS = 34185445U;
         static const AkUniqueID MUTE = 2974103762U;
@@ -48,8 +49,6 @@ namespace AK
         static const AkUniqueID RESTART = 1203400786U;
         static const AkUniqueID SALTO = 2948438984U;
         static const AkUniqueID SALTO_PARED = 1230222675U;
-        static const AkUniqueID SUBIR_BAJARFX = 2286640609U;
-        static const AkUniqueID SUBIR_BAJARVOLUMEN = 3489696737U;
         static const AkUniqueID TIRADO_IDLE = 1171167445U;
         static const AkUniqueID TOCAR_BOTON = 1436561225U;
         static const AkUniqueID UNMUTE = 2156697475U;
@@ -65,8 +64,8 @@ namespace AK
             {
                 static const AkUniqueID CREDITOS = 956887760U;
                 static const AkUniqueID INGAME = 984691642U;
+                static const AkUniqueID LOADING = 3573931707U;
                 static const AkUniqueID MENU_1 = 4098853164U;
-                static const AkUniqueID MENU_CONTROLES = 1933060234U;
                 static const AkUniqueID MENU_OPCIONES = 635455269U;
                 static const AkUniqueID MENU_SEL_PANTALLA = 307675021U;
                 static const AkUniqueID MENU_SEL_PERS = 4148512200U;

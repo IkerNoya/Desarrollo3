@@ -2788,6 +2788,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca20c9a70d0474c4a876578fede3bbfc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stopMusic:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 0}
 --- !u!4 &455546206
 Transform:
   m_ObjectHideFlags: 0
@@ -8360,7 +8364,7 @@ PrefabInstance:
         type: 3}
       propertyPath: combos.Array.data[0].comboData.Array.data[2].hitSound.WwiseObjectReference
       value: 
-      objectReference: {fileID: 11400000, guid: afb5cda99c393ad4e8daa890b9718325,
+      objectReference: {fileID: 11400000, guid: 757556c8b2ea45f43bc35e2ff5c5605f,
         type: 2}
     - target: {fileID: 1225701373364830907, guid: 9342dd73a39486b4da82c2afa2922bcd,
         type: 3}
@@ -8810,7 +8814,7 @@ PrefabInstance:
         type: 3}
       propertyPath: combos.Array.data[0].comboData.Array.data[2].hitSound.WwiseObjectReference
       value: 
-      objectReference: {fileID: 11400000, guid: 0c90a1259884feb42a1f53a7d7ee71ae,
+      objectReference: {fileID: 11400000, guid: 757556c8b2ea45f43bc35e2ff5c5605f,
         type: 2}
     - target: {fileID: 4395031985313786519, guid: fc79662f102093c4e99dd88d345bc744,
         type: 3}

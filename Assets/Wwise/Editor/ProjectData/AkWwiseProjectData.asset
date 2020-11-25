@@ -90,7 +90,7 @@ MonoBehaviour:
     ParentPath: Default Work Unit
     guid: a0e9a5e2bc6a0e43862942f8911e4a7e
     GuidInternal: 
-    m_lastTime: -8585953365243712401
+    m_lastTime: -8585953286395729731
     List:
     - name: Ataque1
       guid: 96b6927ab1fac24091e819404c8ab028
@@ -386,6 +386,18 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
+    - name: Loading
+      guid: 11b5d0ee844ac343b9826d6cd4be8e38
+      id: 3573931707
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Loading
+        ObjectType: 3
+      Path: Default Work Unit\Loading
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
     - name: Menu_Pausa
       guid: dfd519f7df693f46a55107854d5edfaa
       id: 2170009971
@@ -526,34 +538,6 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: 0
       minDuration: 0
-    - name: Subir_BajarFX
-      guid: 4971faf9f0b03f49a9c716b6fdb68ca7
-      id: 2286640609
-      PathAndIcons:
-      - ElementName: Default Work Unit
-        ObjectType: 12
-      - ElementName: UI
-        ObjectType: 4
-      - ElementName: Subir_BajarFX
-        ObjectType: 3
-      Path: Default Work Unit\UI\Subir_BajarFX
-      maxAttenuation: 0
-      maxDuration: 0
-      minDuration: 0
-    - name: Subir_BajarVolumen
-      guid: e145f6c058fec2429640fa5d7e0e55b3
-      id: 3489696737
-      PathAndIcons:
-      - ElementName: Default Work Unit
-        ObjectType: 12
-      - ElementName: UI
-        ObjectType: 4
-      - ElementName: Subir_BajarVolumen
-        ObjectType: 3
-      Path: Default Work Unit\UI\Subir_BajarVolumen
-      maxAttenuation: 0
-      maxDuration: 0
-      minDuration: 0
     - name: Tirado_Idle
       guid: d66ce2ba0a218b419c990bec731c77b0
       id: 1171167445
@@ -655,7 +639,7 @@ MonoBehaviour:
     ParentPath: Default Work Unit
     guid: 8999634c1196cd43a53778d425c96be7
     GuidInternal: 
-    m_lastTime: -8585953404806490877
+    m_lastTime: -8585953341094552763
     List:
     - name: Musicas
       guid: db8bdad6bf93c946badcb0eeb1f0ab29
@@ -679,17 +663,17 @@ MonoBehaviour:
         PathAndIcons:
         - ElementName: InGame
           ObjectType: 8
+      - name: loading
+        guid: 5f6aee651ef1b849a785ee575e62269b
+        id: 3573931707
+        PathAndIcons:
+        - ElementName: loading
+          ObjectType: 8
       - name: menu_1
         guid: 901860095730ad46afc007ae33ca9c70
         id: 4098853164
         PathAndIcons:
         - ElementName: menu_1
-          ObjectType: 8
-      - name: Menu_controles
-        guid: 5f6aee651ef1b849a785ee575e62269b
-        id: 1933060234
-        PathAndIcons:
-        - ElementName: Menu_controles
           ObjectType: 8
       - name: Menu_opciones
         guid: 70d8d7840455cb4790d635b02bb4d95b
@@ -778,6 +762,5 @@ MonoBehaviour:
   ExpandedItems:
   - /Desarrollo3_WwiseProject
   - /Desarrollo3_WwiseProject/Events
-  - /Desarrollo3_WwiseProject/Events/Default Work Unit
   autoPopulateEnabled: 1
   CurrentPluginConfig: 

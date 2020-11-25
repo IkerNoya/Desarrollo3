@@ -1393,7 +1393,6 @@ GameObject:
   - component: {fileID: 1299753535}
   - component: {fileID: 1299753532}
   - component: {fileID: 1299753536}
-  - component: {fileID: 1299753538}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1513,42 +1512,12 @@ MonoBehaviour:
     valueGuidInternal: 
     groupIdInternal: 0
     groupGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: 6cba71eafeb85fd44902b868960c3ddf,
+    WwiseObjectReference: {fileID: 11400000, guid: d709a1c1c338f8541a3a5b13af9edb23,
       type: 2}
   valueIdInternal: 0
   groupIdInternal: 0
   valueGuidInternal: 
   groupGuidInternal: 
---- !u!114 &1299753538
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1299753531}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bfe98b95b6bd8d04c8ee11dcf7f4b1f5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  triggerList: f7e1664c
-  useOtherObject: 0
-  actionOnEventType: 0
-  curveInterpolation: 4
-  enableActionOnEvent: 0
-  data:
-    idInternal: 0
-    valueGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: 98e5ea79999c7bd4a984d671835787f5,
-      type: 2}
-  useCallbacks: 0
-  Callbacks: []
-  playingId: 0
-  soundEmitterObject: {fileID: 0}
-  transitionDuration: 0
-  eventIdInternal: 0
-  valueGuidInternal: 
-  m_callbackDataInternal: {fileID: 0}
 --- !u!1 &1359857567
 GameObject:
   m_ObjectHideFlags: 0
@@ -1977,6 +1946,12 @@ PrefabInstance:
       propertyPath: Menu.WwiseObjectReference
       value: 
       objectReference: {fileID: 11400000, guid: 307a1178fcafe1c4c9158e4224ffffce,
+        type: 2}
+    - target: {fileID: 6266852405605555892, guid: 307dcc94daec0f24f9255ceb8093007e,
+        type: 3}
+      propertyPath: stopMusic.WwiseObjectReference
+      value: 
+      objectReference: {fileID: 11400000, guid: 726075de5cf008c4e80c546abd051f74,
         type: 2}
     - target: {fileID: 8559543589654866807, guid: 307dcc94daec0f24f9255ceb8093007e,
         type: 3}
