@@ -1319,10 +1319,9 @@
 									</ReferenceList>
 									<TransitionInfo/>
 								</MusicTransition>
-								<MusicTransition Name="Transition" ID="{D7A0D0C0-6329-4D7A-8A50-137F9E82C294}">
+								<MusicTransition Name="Transition" ID="{589E9D0B-8F04-44A1-8291-0A679D3EAA70}">
 									<PropertyList>
 										<Property Name="DestinationContextType" Type="int16" Value="2"/>
-										<Property Name="DestinationJumpPositionPreset" Type="int16" Value="1"/>
 										<Property Name="ExitSourceAt" Type="int16" Value="0"/>
 										<Property Name="SourceContextType" Type="int16" Value="2"/>
 									</PropertyList>
@@ -1331,12 +1330,12 @@
 											<ObjectRef Name="creditos" ID="{726FC6F1-EB2E-4F79-A466-5FB4FEAD1E8C}" WorkUnitID="{2A083CF5-CBF9-4D43-9A54-51921883C426}"/>
 										</Reference>
 										<Reference Name="SourceContextObject">
-											<ObjectRef Name="Menu_opciones" ID="{463AAFBF-AC67-4469-9FC5-B82FDA9F6141}" WorkUnitID="{2A083CF5-CBF9-4D43-9A54-51921883C426}"/>
+											<ObjectRef Name="menu 1" ID="{5A59E376-DCD1-44BA-9178-884FE0C19EF1}" WorkUnitID="{2A083CF5-CBF9-4D43-9A54-51921883C426}"/>
 										</Reference>
 									</ReferenceList>
 									<TransitionInfo/>
 								</MusicTransition>
-								<MusicTransition Name="Transition" ID="{50DA4971-EA60-4EC3-8282-9D84D25B513A}">
+								<MusicTransition Name="Transition" ID="{F8C5F195-3C46-4214-99AE-4AD6D43833AB}">
 									<PropertyList>
 										<Property Name="DestinationContextType" Type="int16" Value="2"/>
 										<Property Name="ExitSourceAt" Type="int16" Value="0"/>
@@ -1344,7 +1343,7 @@
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="DestinationContextObject">
-											<ObjectRef Name="Menu_opciones" ID="{463AAFBF-AC67-4469-9FC5-B82FDA9F6141}" WorkUnitID="{2A083CF5-CBF9-4D43-9A54-51921883C426}"/>
+											<ObjectRef Name="menu 1" ID="{5A59E376-DCD1-44BA-9178-884FE0C19EF1}" WorkUnitID="{2A083CF5-CBF9-4D43-9A54-51921883C426}"/>
 										</Reference>
 										<Reference Name="SourceContextObject">
 											<ObjectRef Name="creditos" ID="{726FC6F1-EB2E-4F79-A466-5FB4FEAD1E8C}" WorkUnitID="{2A083CF5-CBF9-4D43-9A54-51921883C426}"/>
