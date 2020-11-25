@@ -370,8 +370,6 @@
 								</Action>
 							</ChildrenList>
 						</Event>
-						<Event Name="Subir_BajarVolumen" ID="{C0F645E1-FE58-42C2-9640-FA5D7E0E55B3}"/>
-						<Event Name="Subir_BajarFX" ID="{F9FA7149-B0F0-493F-A9C7-16B6FDB68CA7}"/>
 						<Event Name="Mute" ID="{F01CBEF8-EFF9-4926-BF5F-903D4B85FA1A}"/>
 						<Event Name="Unmute" ID="{E7E74AD8-C668-4C25-9CC2-D450EE91AF2D}"/>
 						<Event Name="Pausa" ID="{A91EB62F-EB44-4D31-AD80-FA9EDE7B4539}">
