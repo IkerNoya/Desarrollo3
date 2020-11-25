@@ -8,14 +8,14 @@ public class UIOptions : MonoBehaviour
     [SerializeField] Slider sfxVolume;
     [SerializeField] Slider musicVolume;
     float sfx = 0;
-    float volume = 0;
+    float music = 0;
 
     void Update()
     {
         sfx = sfxVolume.value;
-        volume = musicVolume.value;
+        music = musicVolume.value;
 
-        AkSoundEngine.SetRTPCValue("Subir_BajarFX", sfx);
-        AkSoundEngine.SetRTPCValue("Subir_BajarVolumen", volume);
+        AkSoundEngine.SetRTPCValue("SFXVolume", sfx);
+        AkSoundEngine.SetRTPCValue("MusicVolume", music);
     }
 }
