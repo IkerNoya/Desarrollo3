@@ -25,6 +25,16 @@
 								</Reference>
 							</ReferenceList>
 						</Action>
+						<Action Name="" ID="{65EFADDB-20AE-4A8B-8992-A12B26F11536}" ShortID="433225558">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="InGame" ID="{72A002E6-4E20-423B-966E-560FFA4B656F}" WorkUnitID="{2A083CF5-CBF9-4D43-9A54-51921883C426}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
 					</ChildrenList>
 				</Event>
 				<Event Name="Inicia_SeleccionDePantalla" ID="{452392A2-C469-47BE-A8C1-304E6F506C34}">
@@ -376,6 +386,27 @@
 							<ReferenceList>
 								<Reference Name="Target">
 									<ObjectRef Name="SFX_Ataque3C" ID="{1DCA378F-546F-42F0-B196-05B288CAB4BB}" WorkUnitID="{16016A4F-AD9D-4A09-AA0F-576A97D5EE42}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Loading" ID="{EED0B511-4A84-43C3-B982-6D6CD4BE8E38}">
+					<ChildrenList>
+						<Action Name="" ID="{D994F32E-0EB1-49DF-9168-83F7EACB5B6D}" ShortID="193351885">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Loading" ID="{20E96B89-360F-49C1-9A5D-714651C7F50E}" WorkUnitID="{2A083CF5-CBF9-4D43-9A54-51921883C426}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{25F500C6-1400-415D-9FE3-C7DB1B71CF6C}" ShortID="623504747">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="22"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="loading" ID="{65EE6A5F-F11E-49B8-A785-EE575E62269B}" WorkUnitID="{4C639989-9611-43CD-A537-78D425C96BE7}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>

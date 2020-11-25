@@ -8,7 +8,7 @@
 						<State Name="None" ID="{5D24CF78-CFF3-4B13-BFC6-D18A49A86D0D}"/>
 						<State Name="InGame" ID="{0FF5B1B2-3152-4183-8A5A-4D68B54609BC}"/>
 						<State Name="Menu_opciones" ID="{84D7D870-5504-47CB-90D6-35B02BB4D95B}"/>
-						<State Name="Menu_controles" ID="{65EE6A5F-F11E-49B8-A785-EE575E62269B}"/>
+						<State Name="loading" ID="{65EE6A5F-F11E-49B8-A785-EE575E62269B}"/>
 						<State Name="Press_start" ID="{4AB6F4AE-5CCE-4CDC-8C49-A2CFA24E2FD2}"/>
 						<State Name="Menu_sel_pers" ID="{EA764AA3-4390-4130-AC1B-ED5A24E0706A}"/>
 						<State Name="Menu_sel_pantalla" ID="{64BDB8CB-378F-4FD7-ADF5-DCA07DF95B04}"/>
