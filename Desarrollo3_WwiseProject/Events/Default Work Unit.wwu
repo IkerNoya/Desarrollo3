@@ -35,6 +35,16 @@
 								</Reference>
 							</ReferenceList>
 						</Action>
+						<Action Name="" ID="{0DEE8481-FC4A-4BC5-AF34-C6D52825884C}" ShortID="596484961">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Menu_opciones" ID="{463AAFBF-AC67-4469-9FC5-B82FDA9F6141}" WorkUnitID="{2A083CF5-CBF9-4D43-9A54-51921883C426}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
 					</ChildrenList>
 				</Event>
 				<Event Name="Inicia_SeleccionDePantalla" ID="{452392A2-C469-47BE-A8C1-304E6F506C34}">
@@ -65,7 +75,37 @@
 						</Action>
 					</ChildrenList>
 				</Event>
-				<Event Name="Inicia_Creditos" ID="{944E55D7-E635-4824-BA79-F59E6AF307B3}"/>
+				<Event Name="Inicia_Creditos" ID="{944E55D7-E635-4824-BA79-F59E6AF307B3}">
+					<ChildrenList>
+						<Action Name="" ID="{B2B40EDF-D92D-41DF-89E1-ADF5E9E7D1FE}" ShortID="882580754">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="22"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Creditos" ID="{34506539-1C0B-452B-9DBC-203E23C6B41D}" WorkUnitID="{4C639989-9611-43CD-A537-78D425C96BE7}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{8C36273C-AB03-4483-AF81-9C1AC8747824}" ShortID="299888117">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="creditos" ID="{726FC6F1-EB2E-4F79-A466-5FB4FEAD1E8C}" WorkUnitID="{2A083CF5-CBF9-4D43-9A54-51921883C426}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{65D67271-CD17-4CFC-A0F9-810F5C26E320}" ShortID="48360010">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Menu_opciones" ID="{463AAFBF-AC67-4469-9FC5-B82FDA9F6141}" WorkUnitID="{2A083CF5-CBF9-4D43-9A54-51921883C426}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 				<Event Name="Inicia_Opciones" ID="{F9EF24FC-1425-4635-821B-8A061BEF971C}">
 					<ChildrenList>
 						<Action Name="" ID="{2AC16C70-0B72-40D3-BF34-A910472DC912}" ShortID="371214068">
@@ -75,6 +115,26 @@
 							<ReferenceList>
 								<Reference Name="Target">
 									<ObjectRef Name="Menu_opciones" ID="{84D7D870-5504-47CB-90D6-35B02BB4D95B}" WorkUnitID="{4C639989-9611-43CD-A537-78D425C96BE7}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{84237874-5F08-41A7-90C5-01386D5C2D71}" ShortID="670072087">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="menu 1" ID="{5A59E376-DCD1-44BA-9178-884FE0C19EF1}" WorkUnitID="{2A083CF5-CBF9-4D43-9A54-51921883C426}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{6A8AB3AF-DCDE-41BB-9571-FA6F3C5C7AAE}" ShortID="181321237">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="creditos" ID="{726FC6F1-EB2E-4F79-A466-5FB4FEAD1E8C}" WorkUnitID="{2A083CF5-CBF9-4D43-9A54-51921883C426}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>
@@ -89,6 +149,16 @@
 							<ReferenceList>
 								<Reference Name="Target">
 									<ObjectRef Name="InGame" ID="{0FF5B1B2-3152-4183-8A5A-4D68B54609BC}" WorkUnitID="{4C639989-9611-43CD-A537-78D425C96BE7}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{9336E841-4D96-4FBA-A3C4-A43822EB9D43}" ShortID="492671948">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Sel_pantalla" ID="{FEB1E201-2861-4E01-823B-B0FEDFC3B31B}" WorkUnitID="{2A083CF5-CBF9-4D43-9A54-51921883C426}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>
