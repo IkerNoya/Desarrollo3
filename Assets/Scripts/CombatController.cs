@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Runtime.InteropServices.WindowsRuntime;
-using System.Transactions;
 using UnityEngine;
 
 public class CombatController : MonoBehaviour
@@ -10,7 +8,6 @@ public class CombatController : MonoBehaviour
 	[SerializeField] int hitIndex;
 	[SerializeField] float hitCooldown;
 	[SerializeField] string currentComboName;
-	public AK.Wwise.Event AttackSound;
 	float damage;
 	bool criticalDamage;
 	[Serializable]
@@ -35,6 +32,7 @@ public class CombatController : MonoBehaviour
 		public KeyCode keyBeingPressed;
 		public AnimationClip clip;
 		public bool critical;
+		public AK.Wwise.Event hitSound;
 	}
 
 	public Animator animator;
@@ -81,7 +79,7 @@ public class CombatController : MonoBehaviour
 					damage = comboHit.damage;
 					criticalDamage = comboHit.critical;
 					StartCombo(combo);
-					AttackSound.Post(gameObject);
+					comboHit.hitSound.Post(gameObject);
 					break;
 				}
 			}
@@ -96,8 +94,8 @@ public class CombatController : MonoBehaviour
 					timer = 0;
 					damage = currentCombo.comboData[hitIndex].damage;
 					criticalDamage = currentCombo.comboData[hitIndex].critical;
+					currentCombo.comboData[hitIndex].hitSound.Post(gameObject);
 					AttackAction();
-					AttackSound.Post(gameObject);
 				}
 			}
 		}

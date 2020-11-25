@@ -4409,6 +4409,7 @@ GameObject:
   m_Component:
   - component: {fileID: 911078790}
   - component: {fileID: 911078789}
+  - component: {fileID: 911078791}
   m_Layer: 0
   m_Name: WwiseGlobal
   m_TagString: Untagged
@@ -4453,11 +4454,35 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 1294267787}
+  m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &911078791
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 911078788}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3a583783691e0e4f92685bab34d6a7d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerList: f7e1664c
+  useOtherObject: 0
+  data:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 53d473bdbeb95124a8d9bb3af7985b3a,
+      type: 2}
+  decodeBank: 0
+  loadAsynchronous: 0
+  saveDecodedBank: 0
+  unloadTriggerList: 958ca0ea
+  bankNameInternal: 
+  valueGuidInternal: 
 --- !u!4 &911562596 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 791853957215057345, guid: 36e9a9b6b89f1414d97dd26f69495762,
@@ -5168,7 +5193,7 @@ Transform:
   m_Children:
   - {fileID: 222926132}
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1210110250
 GameObject:
@@ -5521,8 +5546,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 369960202}
-  m_Father: {fileID: 911078790}
-  m_RootOrder: 0
+  m_Father: {fileID: 0}
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1317871192
 GameObject:
@@ -6486,7 +6511,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 17
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1551672270
 GameObject:
@@ -6517,7 +6542,7 @@ Transform:
   m_Children:
   - {fileID: 1057411350}
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1560465282
 GameObject:
@@ -8309,6 +8334,24 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 7e224486d26fbd044891bbb8c1dab1ba,
         type: 2}
+    - target: {fileID: 1225701373364830904, guid: 9342dd73a39486b4da82c2afa2922bcd,
+        type: 3}
+      propertyPath: combos.Array.data[0].comboData.Array.data[0].hitSound.WwiseObjectReference
+      value: 
+      objectReference: {fileID: 11400000, guid: 7e224486d26fbd044891bbb8c1dab1ba,
+        type: 2}
+    - target: {fileID: 1225701373364830904, guid: 9342dd73a39486b4da82c2afa2922bcd,
+        type: 3}
+      propertyPath: combos.Array.data[0].comboData.Array.data[1].hitSound.WwiseObjectReference
+      value: 
+      objectReference: {fileID: 11400000, guid: 32074dbc0d5443a4487af9a02d313b30,
+        type: 2}
+    - target: {fileID: 1225701373364830904, guid: 9342dd73a39486b4da82c2afa2922bcd,
+        type: 3}
+      propertyPath: combos.Array.data[0].comboData.Array.data[2].hitSound.WwiseObjectReference
+      value: 
+      objectReference: {fileID: 11400000, guid: afb5cda99c393ad4e8daa890b9718325,
+        type: 2}
     - target: {fileID: 1225701373364830907, guid: 9342dd73a39486b4da82c2afa2922bcd,
         type: 3}
       propertyPath: m_Offset.x
@@ -8734,6 +8777,24 @@ PrefabInstance:
       propertyPath: AttackSound.WwiseObjectReference
       value: 
       objectReference: {fileID: 11400000, guid: 7e224486d26fbd044891bbb8c1dab1ba,
+        type: 2}
+    - target: {fileID: 4395031985313786517, guid: fc79662f102093c4e99dd88d345bc744,
+        type: 3}
+      propertyPath: combos.Array.data[0].comboData.Array.data[0].hitSound.WwiseObjectReference
+      value: 
+      objectReference: {fileID: 11400000, guid: 7e224486d26fbd044891bbb8c1dab1ba,
+        type: 2}
+    - target: {fileID: 4395031985313786517, guid: fc79662f102093c4e99dd88d345bc744,
+        type: 3}
+      propertyPath: combos.Array.data[0].comboData.Array.data[1].hitSound.WwiseObjectReference
+      value: 
+      objectReference: {fileID: 11400000, guid: 5140669e86f299f4e82047b2ff9a20de,
+        type: 2}
+    - target: {fileID: 4395031985313786517, guid: fc79662f102093c4e99dd88d345bc744,
+        type: 3}
+      propertyPath: combos.Array.data[0].comboData.Array.data[2].hitSound.WwiseObjectReference
+      value: 
+      objectReference: {fileID: 11400000, guid: 0c90a1259884feb42a1f53a7d7ee71ae,
         type: 2}
     - target: {fileID: 4395031985313786519, guid: fc79662f102093c4e99dd88d345bc744,
         type: 3}
