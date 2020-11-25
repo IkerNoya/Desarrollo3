@@ -482,15 +482,11 @@
 				</Event>
 				<Event Name="Stop" ID="{C0989CB5-2DD6-45BB-A9C8-B406FDFD2E1D}">
 					<ChildrenList>
-						<Action Name="" ID="{A5D72CA4-5FCD-48D8-B7BF-5325C6D07F14}" ShortID="118347894">
+						<Action Name="" ID="{181BC276-8F67-42B0-9A24-56334C7056F8}" ShortID="852605474">
 							<PropertyList>
-								<Property Name="ActionType" Type="int16" Value="2"/>
+								<Property Name="ActionType" Type="int16" Value="3"/>
 							</PropertyList>
-							<ReferenceList>
-								<Reference Name="Target">
-									<ObjectRef Name="Musicas" ID="{5583AE08-2893-4FF4-A27D-759CCF526EA6}" WorkUnitID="{2A083CF5-CBF9-4D43-9A54-51921883C426}"/>
-								</Reference>
-							</ReferenceList>
+							<ReferenceList/>
 						</Action>
 					</ChildrenList>
 				</Event>

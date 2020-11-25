@@ -21,7 +21,6 @@ Event	ID	Name			Wwise Object Path	Notes
 	1942692385	Dash			\Default Work Unit\Dash	
 	2156697475	Unmute			\Default Work Unit\UI\Unmute	
 	2170009971	Menu_Pausa			\Default Work Unit\Menu_Pausa	
-	2286640609	Subir_BajarFX			\Default Work Unit\UI\Subir_BajarFX	
 	2658298240	Inicio			\Default Work Unit\UI\Inicio	
 	2660185452	Parry_ZoomIn			\Default Work Unit\Parry_ZoomIn	
 	2922467479	Inicia_Opciones			\Default Work Unit\Inicia_Opciones	
@@ -33,7 +32,6 @@ Event	ID	Name			Wwise Object Path	Notes
 	3306940243	Press_Start			\Default Work Unit\UI\Press_Start	
 	3406505131	Despausar			\Default Work Unit\UI\Despausar	
 	3415848950	Deslizamiento_Pared			\Default Work Unit\Deslizamiento_Pared	
-	3489696737	Subir_BajarVolumen			\Default Work Unit\UI\Subir_BajarVolumen	
 	3573931707	Loading			\Default Work Unit\Loading	
 	3775992877	Damage_Jugador2			\Default Work Unit\Damage_Jugador2	
 	3775992878	Damage_Jugador1			\Default Work Unit\Damage_Jugador1	
