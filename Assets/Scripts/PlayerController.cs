@@ -76,6 +76,7 @@ public class PlayerController : MonoBehaviour
     bool canDash = true;
     bool isDashing = false;
     bool isPaused = false;
+    bool isMoving = false;
     float walljumpAnimTime = 0.1403281f;
 
     ParryController parryController;
@@ -135,6 +136,10 @@ public class PlayerController : MonoBehaviour
         }
         direction = Input.GetAxis(playerAxis) + Input.GetAxis(joystickAxis);
         movement = new Vector2(direction, 0) * speed;
+        if(movement.x > runAxisLimit || movement.x < -runAxisLimit && (isGroundedCenter || isGroundedLeft || isGroundedRight))
+        {
+            footstepSound.Post(gameObject);
+        }
         Inputs();
         if (direction != 0)
         {
