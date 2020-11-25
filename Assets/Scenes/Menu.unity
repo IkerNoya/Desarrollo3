@@ -830,11 +830,6 @@ MonoBehaviour:
     valueGuidInternal: 
     WwiseObjectReference: {fileID: 11400000, guid: 48a04fa3231669b41b2fb1a6f155a33e,
       type: 2}
-  stopMusic:
-    idInternal: 0
-    valueGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: 62283222f3138de4183cdb42c1d1cf81,
-      type: 2}
 --- !u!1 &852911519
 GameObject:
   m_ObjectHideFlags: 0
@@ -1188,7 +1183,7 @@ GameObject:
   - component: {fileID: 1299753535}
   - component: {fileID: 1299753532}
   - component: {fileID: 1299753536}
-  - component: {fileID: 1299753537}
+  - component: {fileID: 1299753538}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1314,7 +1309,7 @@ MonoBehaviour:
   groupIdInternal: 0
   valueGuidInternal: 
   groupGuidInternal: 
---- !u!114 &1299753537
+--- !u!114 &1299753538
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1334,7 +1329,7 @@ MonoBehaviour:
   data:
     idInternal: 0
     valueGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: 48a04fa3231669b41b2fb1a6f155a33e,
+    WwiseObjectReference: {fileID: 11400000, guid: 98e5ea79999c7bd4a984d671835787f5,
       type: 2}
   useCallbacks: 0
   Callbacks: []

@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c518a66a61d1f5459c7154efd93de91, type: 3}
+  m_Name: F9EF24FC-1425-4635-821B-8A061BEF971C
+  m_EditorClassIdentifier: 
+  objectName: Inicia_Opciones
+  id: 2922467479
+  guid: F9EF24FC-1425-4635-821B-8A061BEF971C

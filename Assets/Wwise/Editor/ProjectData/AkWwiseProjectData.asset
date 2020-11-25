@@ -90,7 +90,7 @@ MonoBehaviour:
     ParentPath: Default Work Unit
     guid: a0e9a5e2bc6a0e43862942f8911e4a7e
     GuidInternal: 
-    m_lastTime: -8585953404808390960
+    m_lastTime: -8585953365243712401
     List:
     - name: Ataque1
       guid: 96b6927ab1fac24091e819404c8ab028
@@ -408,8 +408,8 @@ MonoBehaviour:
         ObjectType: 3
       Path: Default Work Unit\Menu_PlayerWins
       maxAttenuation: 0
-      maxDuration: 0
-      minDuration: 0
+      maxDuration: 1.48
+      minDuration: 1.48
     - name: Mute
       guid: f8be1cf0f9ef2649bf5f903d4b85fa1a
       id: 2974103762
@@ -779,6 +779,5 @@ MonoBehaviour:
   - /Desarrollo3_WwiseProject
   - /Desarrollo3_WwiseProject/Events
   - /Desarrollo3_WwiseProject/Events/Default Work Unit
-  - /Desarrollo3_WwiseProject/Events/Default Work Unit/UI
   autoPopulateEnabled: 1
   CurrentPluginConfig: 

@@ -10,7 +10,7 @@ public class MenuMusic : MonoBehaviour
     {
         if(menuMusic!=null)
         {
-            //menuMusic.Post(Camera.main.gameObject);
+            menuMusic.Post(Camera.main.gameObject);
         }
     }
 }
