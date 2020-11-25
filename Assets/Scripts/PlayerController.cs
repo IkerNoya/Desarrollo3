@@ -341,7 +341,7 @@ public class PlayerController : MonoBehaviour
     void Dead()
     {
         isDead = true;
-       
+        anim.SetBool("Dead", true);
         rigidBody.simulated = false;
         gameObject.GetComponent<BoxCollider2D>().enabled = false;
     }
@@ -352,6 +352,8 @@ public class PlayerController : MonoBehaviour
         rigidBody.velocity = Vector2.zero;
         hp = 100;
         isDead = false;
+        anim.SetBool("Dead", false);
+        state = State.Falling;
         isDashing = false;
         transform.position = cam.ScreenToWorldPoint(new Vector3(InitialPos.x, InitialPos.y, InitialPos.z));
         gameObject.GetComponent<BoxCollider2D>().enabled = true;
@@ -492,11 +494,6 @@ public class PlayerController : MonoBehaviour
         canMove = false;
         yield return new WaitForSeconds(time);
         canMove = true;
-        yield return null;
-    }
-    IEnumerator CriticalHit() // Complete when i download the animation
-    {
-        //animacion de critico
         yield return null;
     }
     #endregion COROUTINES

@@ -19,10 +19,11 @@ namespace AK
         static const AkUniqueID ATAQUE3A = 1015526518U;
         static const AkUniqueID ATAQUE3B = 1015526517U;
         static const AkUniqueID ATAQUE3C = 1015526516U;
+        static const AkUniqueID BARRA_VOLUMEN = 443124334U;
+        static const AkUniqueID BOTON_BACK = 3997145959U;
         static const AkUniqueID CAIDA_PLATAFORMA = 1560490425U;
         static const AkUniqueID CAPTURA_DEOBJETIVO = 622800721U;
         static const AkUniqueID CORRIDA = 251416149U;
-        static const AkUniqueID CURSOR_SOBREBOTON = 3050044219U;
         static const AkUniqueID DAMAGE_JUGADOR1 = 3775992878U;
         static const AkUniqueID DAMAGE_JUGADOR2 = 3775992877U;
         static const AkUniqueID DAMAGECRITICO_JUGADOR1 = 3817817795U;
@@ -30,6 +31,9 @@ namespace AK
         static const AkUniqueID DASH = 1942692385U;
         static const AkUniqueID DESLIZAMIENTO_PARED = 3415848950U;
         static const AkUniqueID DESPAUSAR = 3406505131U;
+        static const AkUniqueID ELECCION_PERSO_1 = 3459005151U;
+        static const AkUniqueID ELECCION_PERSO_2 = 3459005148U;
+        static const AkUniqueID IMAGE_CAMPUS = 2678843140U;
         static const AkUniqueID INICIA_CREDITOS = 4126746240U;
         static const AkUniqueID INICIA_JUEGO = 1190877053U;
         static const AkUniqueID INICIA_MENU = 928907744U;
@@ -47,6 +51,7 @@ namespace AK
         static const AkUniqueID POPUP_PLAYERWINS = 4149406826U;
         static const AkUniqueID PRESS_START = 3306940243U;
         static const AkUniqueID RESTART = 1203400786U;
+        static const AkUniqueID SALIDA_DEL_JUEGO = 3569082496U;
         static const AkUniqueID SALTO = 2948438984U;
         static const AkUniqueID SALTO_PARED = 1230222675U;
         static const AkUniqueID TIRADO_IDLE = 1171167445U;

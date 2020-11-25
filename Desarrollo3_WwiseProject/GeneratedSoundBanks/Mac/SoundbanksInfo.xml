@@ -29,7 +29,7 @@
 				</StateGroup>
 			</StateGroups>
 		</SoundBank>
-		<SoundBank Id="3161908922" Language="SFX" Hash="1287233925">
+		<SoundBank Id="3161908922" Language="SFX" Hash="1447728295">
 			<ObjectPath>\SoundBanks\Default Work Unit\MAIN</ObjectPath>
 			<ShortName>MAIN</ShortName>
 			<Path>MAIN.bnk</Path>
@@ -82,6 +82,22 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
+				<Event Id="443124334" Name="Barra_volumen" ObjectPath="\Events\Default Work Unit\UI\Barra_volumen" DurationType="OneShot" DurationMin="1.846145" DurationMax="1.846145">
+					<IncludedMemoryFiles>
+						<File Id="305761842" Language="SFX">
+							<ShortName>barra volumen.wav</ShortName>
+							<Path>SFX\barra volumen_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="3997145959" Name="Boton_Back" ObjectPath="\Events\Default Work Unit\UI\Boton_Back" DurationType="OneShot" DurationMin="0.538323" DurationMax="0.538323">
+					<IncludedMemoryFiles>
+						<File Id="1069253033" Language="SFX">
+							<ShortName>ATRAS.wav</ShortName>
+							<Path>SFX\ATRAS_2044B4BE.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
 				<Event Id="1560490425" Name="Caida_Plataforma" ObjectPath="\Events\Default Work Unit\Caida_Plataforma" DurationType="OneShot" DurationMin="0.855708" DurationMax="0.855708">
 					<IncludedMemoryFiles>
 						<File Id="609115062" Language="SFX">
@@ -122,7 +138,6 @@
 						<ActionSetStateEntry Id="984691642" Name="InGame" ObjectPath="\States\Default Work Unit\Musicas\InGame"/>
 					</ActionSetState>
 				</Event>
-				<Event Id="3050044219" Name="Cursor_SobreBoton" ObjectPath="\Events\Default Work Unit\UI\Cursor_SobreBoton" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="3775992878" Name="Damage_Jugador1" ObjectPath="\Events\Default Work Unit\Damage_Jugador1" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="3775992877" Name="Damage_Jugador2" ObjectPath="\Events\Default Work Unit\Damage_Jugador2" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="3817817795" Name="DamageCritico_Jugador1" ObjectPath="\Events\Default Work Unit\DamageCritico_Jugador1" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
@@ -148,6 +163,30 @@
 					<ActionSetState>
 						<ActionSetStateEntry Id="3406505131" Name="Despausar" ObjectPath="\States\Default Work Unit\Pausa\Despausar"/>
 					</ActionSetState>
+				</Event>
+				<Event Id="3459005151" Name="Eleccion_perso_1" ObjectPath="\Events\Default Work Unit\UI\Eleccion_perso_1" DurationType="OneShot" DurationMin="2.125011" DurationMax="2.125011">
+					<IncludedMemoryFiles>
+						<File Id="955010451" Language="SFX">
+							<ShortName>ELECCION_MUJER_.wav</ShortName>
+							<Path>SFX\ELECCION_MUJER__10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="3459005148" Name="Eleccion_perso_2" ObjectPath="\Events\Default Work Unit\UI\Eleccion_perso_2" DurationType="OneShot" DurationMin="5.769229" DurationMax="5.769229">
+					<IncludedMemoryFiles>
+						<File Id="207195285" Language="SFX">
+							<ShortName>eleccion de personaje_mala.wav</ShortName>
+							<Path>SFX\eleccion de personaje_mala_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="2678843140" Name="Image_Campus" ObjectPath="\Events\Default Work Unit\UI\Image_Campus" DurationType="OneShot" DurationMin="14.769796" DurationMax="14.769796">
+					<IncludedMemoryFiles>
+						<File Id="301701033" Language="SFX">
+							<ShortName>ENTRADA_IMAGE_CAMPUS_3.wav</ShortName>
+							<Path>SFX\ENTRADA_IMAGE_CAMPUS_3_D79FB2B7.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
 				</Event>
 				<Event Id="4126746240" Name="Inicia_Creditos" ObjectPath="\Events\Default Work Unit\Inicia_Creditos" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000">
 					<ActionSetState>
@@ -322,11 +361,11 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="3306940243" Name="Press_Start" ObjectPath="\Events\Default Work Unit\UI\Press_Start" DurationType="OneShot" DurationMin="2.520548" DurationMax="2.520548">
+				<Event Id="3306940243" Name="Press_Start" ObjectPath="\Events\Default Work Unit\UI\Press_Start" DurationType="OneShot" DurationMin="3.002889" DurationMax="3.002889">
 					<IncludedMemoryFiles>
-						<File Id="104763891" Language="SFX">
-							<ShortName>PLAY.wav</ShortName>
-							<Path>SFX\PLAY_9031291B.wem</Path>
+						<File Id="497877854" Language="SFX">
+							<ShortName>play 2.wav</ShortName>
+							<Path>SFX\play 2_AEFA2F24.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 					<ActionSetState>
@@ -337,6 +376,14 @@
 					<ActionSetState>
 						<ActionSetStateEntry Id="3406505131" Name="Despausar" ObjectPath="\States\Default Work Unit\Pausa\Despausar"/>
 					</ActionSetState>
+				</Event>
+				<Event Id="3569082496" Name="Salida_del_juego" ObjectPath="\Events\Default Work Unit\UI\Salida_del_juego" DurationType="OneShot" DurationMin="2.000000" DurationMax="2.000000">
+					<IncludedMemoryFiles>
+						<File Id="701466231" Language="SFX">
+							<ShortName>BOTON_FINALIZAR_PARTIDA.wav</ShortName>
+							<Path>SFX\BOTON_FINALIZAR_PARTIDA_A532C0AF.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
 				</Event>
 				<Event Id="2948438984" Name="Salto" ObjectPath="\Events\Default Work Unit\Salto" DurationType="OneShot" DurationMin="0.217917" DurationMax="0.363400">
 					<IncludedMemoryFiles>

@@ -43,3 +43,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca20c9a70d0474c4a876578fede3bbfc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buttonSound:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: f7350f922cbc25444a4291c27478ccd6,
+      type: 2}

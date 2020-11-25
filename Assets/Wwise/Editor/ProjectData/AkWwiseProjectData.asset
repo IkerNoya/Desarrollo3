@@ -90,7 +90,7 @@ MonoBehaviour:
     ParentPath: Default Work Unit
     guid: a0e9a5e2bc6a0e43862942f8911e4a7e
     GuidInternal: 
-    m_lastTime: -8585953286395729731
+    m_lastTime: -8585953235182795904
     List:
     - name: Ataque1
       guid: 96b6927ab1fac24091e819404c8ab028
@@ -164,6 +164,34 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: 2.546726
       minDuration: 2.021338
+    - name: Barra_volumen
+      guid: 25b0bc8e3237ef489eca01ef861c6a6f
+      id: 443124334
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: UI
+        ObjectType: 4
+      - ElementName: Barra_volumen
+        ObjectType: 3
+      Path: Default Work Unit\UI\Barra_volumen
+      maxAttenuation: 0
+      maxDuration: 1.846145
+      minDuration: 1.846145
+    - name: Boton_Back
+      guid: acf6a2529f810d4ca7ccc047cce17332
+      id: 3997145959
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: UI
+        ObjectType: 4
+      - ElementName: Boton_Back
+        ObjectType: 3
+      Path: Default Work Unit\UI\Boton_Back
+      maxAttenuation: 0
+      maxDuration: 0.538323
+      minDuration: 0.538323
     - name: Caida_Plataforma
       guid: b07e1a0cd29c8548b35b54e8dc6f041e
       id: 1560490425
@@ -200,20 +228,6 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: 0.286667
       minDuration: 0.27125
-    - name: Cursor_SobreBoton
-      guid: 07ea871721fdef429ef3278ff1a27dfa
-      id: 3050044219
-      PathAndIcons:
-      - ElementName: Default Work Unit
-        ObjectType: 12
-      - ElementName: UI
-        ObjectType: 4
-      - ElementName: Cursor_SobreBoton
-        ObjectType: 3
-      Path: Default Work Unit\UI\Cursor_SobreBoton
-      maxAttenuation: 0
-      maxDuration: 0
-      minDuration: 0
     - name: Damage_Jugador1
       guid: ecd1b74f509e2a47ac149e8493cb502c
       id: 3775992878
@@ -300,6 +314,48 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: 0
       minDuration: 0
+    - name: Eleccion_perso_1
+      guid: 1390b9f323b1a24ab1a2c71fa4cf8a58
+      id: 3459005151
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: UI
+        ObjectType: 4
+      - ElementName: Eleccion_perso_1
+        ObjectType: 3
+      Path: Default Work Unit\UI\Eleccion_perso_1
+      maxAttenuation: 0
+      maxDuration: 2.125011
+      minDuration: 2.125011
+    - name: Eleccion_perso_2
+      guid: cc098b438a395b499c11e4067607f354
+      id: 3459005148
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: UI
+        ObjectType: 4
+      - ElementName: Eleccion_perso_2
+        ObjectType: 3
+      Path: Default Work Unit\UI\Eleccion_perso_2
+      maxAttenuation: 0
+      maxDuration: 5.769229
+      minDuration: 5.769229
+    - name: Image_Campus
+      guid: c5fd1bb94ca07040a373bd0a01af744b
+      id: 2678843140
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: UI
+        ObjectType: 4
+      - ElementName: Image_Campus
+        ObjectType: 3
+      Path: Default Work Unit\UI\Image_Campus
+      maxAttenuation: 0
+      maxDuration: 14.769796
+      minDuration: 14.769796
     - name: Inicia_Creditos
       guid: d7554e9435e62448ba79f59e6af307b3
       id: 4126746240
@@ -498,8 +554,8 @@ MonoBehaviour:
         ObjectType: 3
       Path: Default Work Unit\UI\Press_Start
       maxAttenuation: 0
-      maxDuration: 2.520548
-      minDuration: 2.520548
+      maxDuration: 3.002889
+      minDuration: 3.002889
     - name: Restart
       guid: b2f0f4fdf1fbba4ba042564294ac3e45
       id: 1203400786
@@ -514,6 +570,20 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: 0
       minDuration: 0
+    - name: Salida_del_juego
+      guid: 382fada2b0300a4691e02b0bb5bf3e9c
+      id: 3569082496
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: UI
+        ObjectType: 4
+      - ElementName: Salida_del_juego
+        ObjectType: 3
+      Path: Default Work Unit\UI\Salida_del_juego
+      maxAttenuation: 0
+      maxDuration: 2
+      minDuration: 2
     - name: Salto
       guid: 1bca99577cb06043bc39a05adafb85c9
       id: 2948438984
@@ -761,9 +831,8 @@ MonoBehaviour:
     List: []
   ExpandedItems:
   - /Desarrollo3_WwiseProject
-  - /Desarrollo3_WwiseProject/Auxiliary Busses
   - /Desarrollo3_WwiseProject/Events
-  - /Desarrollo3_WwiseProject/States
-  - /Desarrollo3_WwiseProject/Virtual Acoustics
+  - /Desarrollo3_WwiseProject/Events/Default Work Unit
+  - /Desarrollo3_WwiseProject/Events/Default Work Unit/UI
   autoPopulateEnabled: 1
   CurrentPluginConfig: 

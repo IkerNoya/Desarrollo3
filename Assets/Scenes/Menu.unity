@@ -1905,6 +1905,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 726075de5cf008c4e80c546abd051f74,
         type: 2}
+    - target: {fileID: 6266852405605555892, guid: 307dcc94daec0f24f9255ceb8093007e,
+        type: 3}
+      propertyPath: buttonSound.WwiseObjectReference
+      value: 
+      objectReference: {fileID: 11400000, guid: f7350f922cbc25444a4291c27478ccd6,
+        type: 2}
     - target: {fileID: 8559543589654866807, guid: 307dcc94daec0f24f9255ceb8093007e,
         type: 3}
       propertyPath: m_Name
