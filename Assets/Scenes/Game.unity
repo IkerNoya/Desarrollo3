@@ -2788,10 +2788,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca20c9a70d0474c4a876578fede3bbfc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stopMusic:
-    idInternal: 0
-    valueGuidInternal: 
-    WwiseObjectReference: {fileID: 0}
 --- !u!4 &455546206
 Transform:
   m_ObjectHideFlags: 0
@@ -8444,6 +8440,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 83537a66d7bbe5d4081fb2186e045e05,
         type: 2}
+    - target: {fileID: 1225701374320304568, guid: 9342dd73a39486b4da82c2afa2922bcd,
+        type: 3}
+      propertyPath: footstepSoundTimer
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 1225701374430052506, guid: 9342dd73a39486b4da82c2afa2922bcd,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -8990,6 +8991,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 83537a66d7bbe5d4081fb2186e045e05,
         type: 2}
+    - target: {fileID: 4395031987110380140, guid: fc79662f102093c4e99dd88d345bc744,
+        type: 3}
+      propertyPath: footstepSoundTimer
+      value: 0.2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fc79662f102093c4e99dd88d345bc744, type: 3}
 --- !u!1001 &6182286347763801502

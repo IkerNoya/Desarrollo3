@@ -761,6 +761,9 @@ MonoBehaviour:
     List: []
   ExpandedItems:
   - /Desarrollo3_WwiseProject
+  - /Desarrollo3_WwiseProject/Auxiliary Busses
   - /Desarrollo3_WwiseProject/Events
+  - /Desarrollo3_WwiseProject/States
+  - /Desarrollo3_WwiseProject/Virtual Acoustics
   autoPopulateEnabled: 1
   CurrentPluginConfig: 

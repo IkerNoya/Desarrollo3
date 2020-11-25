@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using System.Threading;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -36,6 +37,8 @@ public class PlayerController : MonoBehaviour
     [Space]
     [SerializeField] float knockBackForce;
     [SerializeField] float criticalKnockBackForce;
+    [Space]
+    [SerializeField] float footstepSoundTimer;
     #endregion
 
     #region PUBLIC_VARIABLES
@@ -94,6 +97,7 @@ public class PlayerController : MonoBehaviour
     readonly float runAxisLimit = 0.10f;
     float dashCooldown = 0;
     float dashDuration = 0;
+    float soundTimer = 0;
 
     Vector2 movement;
     Vector3 leftColliderSide;
@@ -136,9 +140,13 @@ public class PlayerController : MonoBehaviour
         }
         direction = Input.GetAxis(playerAxis) + Input.GetAxis(joystickAxis);
         movement = new Vector2(direction, 0) * speed;
-        if(movement.x > runAxisLimit || movement.x < -runAxisLimit && (isGroundedCenter || isGroundedLeft || isGroundedRight))
+        if(movement.x > runAxisLimit || movement.x < -runAxisLimit)
         {
-            footstepSound.Post(gameObject);
+            if (soundTimer >= footstepSoundTimer && isGroundedCenter)
+            {
+                footstepSound.Post(gameObject);
+                soundTimer = 0;
+            }
         }
         Inputs();
         if (direction != 0)
@@ -195,6 +203,7 @@ public class PlayerController : MonoBehaviour
         anim.SetFloat("VelocityY", rigidBody.velocity.y);
         anim.SetFloat("VelocityX", Mathf.Abs(direction));
         if (wj) anim.SetTrigger("WJ");
+        soundTimer += Time.deltaTime;
     }
 
     void FixedUpdate()
