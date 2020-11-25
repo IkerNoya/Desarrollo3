@@ -17,8 +17,6 @@ public class GameManager : MonoBehaviour
     [SerializeField] PlayerController player1;
     [SerializeField] PlayerController player2;
 
-    public AK.Wwise.Event winSound;
-
     Camera cam;
     float distanceToGoal;
 
@@ -36,12 +34,10 @@ public class GameManager : MonoBehaviour
 
     void EndGameEventP1(CapturePoint capture)
     {
-        winSound.Post(gameObject);
         StartCoroutine(ActivateVictoryScreen(1.5f, VictoryScreen_P1, activeButtonVictoryP1));
     }
     void EndGameEventP2(CapturePoint capture)
     {
-        winSound.Post(gameObject);
         StartCoroutine(ActivateVictoryScreen(1.5f, VictoryScreen_P2, activeButtonVictoryP2));
     }
 

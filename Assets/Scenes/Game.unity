@@ -3429,6 +3429,11 @@ MonoBehaviour:
   captureSprites: {fileID: 404562462}
   captureContent: {fileID: 720310872}
   captureAmmount: 0.25
+  winSound:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: fa94eb7f985dcf84e834711f50703f5c,
+      type: 2}
 --- !u!1 &657822258
 GameObject:
   m_ObjectHideFlags: 0
@@ -6545,6 +6550,11 @@ MonoBehaviour:
     idInternal: 0
     valueGuidInternal: 
     WwiseObjectReference: {fileID: 11400000, guid: 2ffebab82067dca4591df54fc51038b3,
+      type: 2}
+  buttonPress:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: f7350f922cbc25444a4291c27478ccd6,
       type: 2}
 --- !u!4 &1537926924
 Transform:

@@ -12,6 +12,8 @@ public class CapturePoint : MonoBehaviour
 
     public static event Action<CapturePoint> VictoryP1;
     public static event Action<CapturePoint> VictoryP2;
+
+
     enum State
     {
         Capturing, Blocked, Empty

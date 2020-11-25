@@ -14,6 +14,7 @@ public class UIGame : MonoBehaviour
 
     public AK.Wwise.Event activatePauseEffect;
     public AK.Wwise.Event deactivatePauseEffect;
+    public AK.Wwise.Event buttonPress;
     void Start()
     {
         PlayerController.Pause += ActivatePause;
@@ -33,6 +34,7 @@ public class UIGame : MonoBehaviour
     }
     public void OnClickResume()
     {
+        if (buttonPress != null) buttonPress.Post(Camera.main.gameObject);
         if (deactivatePauseEffect != null)
             deactivatePauseEffect.Post(Camera.main.gameObject);
         Time.timeScale = 1.0f;
@@ -43,6 +45,7 @@ public class UIGame : MonoBehaviour
     }
     public void OnClickRestart()
     {
+        if (buttonPress != null) buttonPress.Post(Camera.main.gameObject);
         if (deactivatePauseEffect != null)
             deactivatePauseEffect.Post(Camera.main.gameObject);
         Time.timeScale = 1.0f;
@@ -54,6 +57,7 @@ public class UIGame : MonoBehaviour
     }
     public void OnClickMenu()
     {
+        if (buttonPress != null) buttonPress.Post(Camera.main.gameObject);
         if (deactivatePauseEffect != null)
             deactivatePauseEffect.Post(Camera.main.gameObject);
         Time.timeScale = 1.0f;
@@ -65,6 +69,7 @@ public class UIGame : MonoBehaviour
     }
     public void OnClickQuit()
     {
+        if (buttonPress != null) buttonPress.Post(Camera.main.gameObject);
         Application.Quit();
     }
     void OnDisable()
