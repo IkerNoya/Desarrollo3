@@ -6,12 +6,14 @@
 				<StateGroup Name="Musicas" ID="{D6DA8BDB-93BF-46C9-BADC-B0EEB1F0AB29}">
 					<ChildrenList>
 						<State Name="None" ID="{5D24CF78-CFF3-4B13-BFC6-D18A49A86D0D}"/>
-						<State Name="Menu" ID="{DD6E15B2-1CD0-4F55-BA1E-D509058C9593}"/>
 						<State Name="InGame" ID="{0FF5B1B2-3152-4183-8A5A-4D68B54609BC}"/>
 						<State Name="Menu_opciones" ID="{84D7D870-5504-47CB-90D6-35B02BB4D95B}"/>
 						<State Name="Menu_controles" ID="{65EE6A5F-F11E-49B8-A785-EE575E62269B}"/>
-						<State Name="Menu_Joystic" ID="{AC484B11-4247-492B-84EC-277D8C0CE259}"/>
-						<State Name="Menu_keyboard" ID="{FD5EFC13-9A6B-490C-9D9F-19C9D6FEC622}"/>
+						<State Name="Press_start" ID="{4AB6F4AE-5CCE-4CDC-8C49-A2CFA24E2FD2}"/>
+						<State Name="Menu_sel_pers" ID="{EA764AA3-4390-4130-AC1B-ED5A24E0706A}"/>
+						<State Name="Menu_sel_pantalla" ID="{64BDB8CB-378F-4FD7-ADF5-DCA07DF95B04}"/>
+						<State Name="menu_1" ID="{09601890-3057-46AD-AFC0-07AE33CA9C70}"/>
+						<State Name="Creditos" ID="{34506539-1C0B-452B-9DBC-203E23C6B41D}"/>
 					</ChildrenList>
 				</StateGroup>
 				<StateGroup Name="Pausa" ID="{53DEB73A-FC42-42E5-9090-38599E31EBDE}">
