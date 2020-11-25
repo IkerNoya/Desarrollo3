@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <SoundBanksInfo Platform="Windows" BasePlatform="Windows" SchemaVersion="12" SoundbankVersion="135">
 	<RootPaths>
-		<ProjectRoot>C:\Users\Iker\Desktop\Desarrollo3\Desarrollo3_WwiseProject\</ProjectRoot>
-		<SourceFilesRoot>C:\Users\Iker\Desktop\Desarrollo3\Desarrollo3_WwiseProject\.cache\Windows\</SourceFilesRoot>
-		<SoundBanksRoot>C:\Users\Iker\Desktop\Desarrollo3\Desarrollo3_WwiseProject\GeneratedSoundBanks\Windows\</SoundBanksRoot>
+		<ProjectRoot>D:\MATSF.ER\IMAGE CAMPUS\TRABAJO CON DESARROLLO\REPO Wwise\tower-of-vertigo\Desarrollo3_WwiseProject\</ProjectRoot>
+		<SourceFilesRoot>D:\MATSF.ER\IMAGE CAMPUS\TRABAJO CON DESARROLLO\REPO Wwise\tower-of-vertigo\Desarrollo3_WwiseProject\.cache\Windows\</SourceFilesRoot>
+		<SoundBanksRoot>D:\MATSF.ER\IMAGE CAMPUS\TRABAJO CON DESARROLLO\REPO Wwise\tower-of-vertigo\Desarrollo3_WwiseProject\GeneratedSoundBanks\Windows\</SoundBanksRoot>
 		<ExternalSourcesInputFile></ExternalSourcesInputFile>
-		<ExternalSourcesOutputRoot>C:\Users\Iker\Desktop\Desarrollo3\Desarrollo3_WwiseProject\GeneratedSoundBanks\Windows</ExternalSourcesOutputRoot>
+		<ExternalSourcesOutputRoot>D:\MATSF.ER\IMAGE CAMPUS\TRABAJO CON DESARROLLO\REPO Wwise\tower-of-vertigo\Desarrollo3_WwiseProject\GeneratedSoundBanks\Windows</ExternalSourcesOutputRoot>
 	</RootPaths>
 	<DialogueEvents/>
 	<StreamedFiles/>
@@ -29,7 +29,7 @@
 				</StateGroup>
 			</StateGroups>
 		</SoundBank>
-		<SoundBank Id="3161908922" Language="SFX" Hash="717540315">
+		<SoundBank Id="3161908922" Language="SFX" Hash="592165841">
 			<ObjectPath>\SoundBanks\Default Work Unit\MAIN</ObjectPath>
 			<ShortName>MAIN</ShortName>
 			<Path>MAIN.bnk</Path>
@@ -149,7 +149,21 @@
 						<ActionSetStateEntry Id="3406505131" Name="Despausar" ObjectPath="\States\Default Work Unit\Pausa\Despausar"/>
 					</ActionSetState>
 				</Event>
-				<Event Id="4126746240" Name="Inicia_Creditos" ObjectPath="\Events\Default Work Unit\Inicia_Creditos" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="4126746240" Name="Inicia_Creditos" ObjectPath="\Events\Default Work Unit\Inicia_Creditos" DurationType="Infinite">
+					<IncludedMemoryFiles>
+						<File Id="678628561" Language="SFX">
+							<ShortName>Menu creditos.wav</ShortName>
+							<Path>SFX\Menu creditos_D79FB2B7.wem</Path>
+						</File>
+						<File Id="1035927207" Language="SFX">
+							<ShortName>Transition_M_G_18_111.wav</ShortName>
+							<Path>SFX\Transition_M_G_18_111_D79FB2B7.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+					<ActionSetState>
+						<ActionSetStateEntry Id="956887760" Name="Creditos" ObjectPath="\States\Default Work Unit\Musicas\Creditos"/>
+					</ActionSetState>
+				</Event>
 				<Event Id="1190877053" Name="Inicia_Juego" ObjectPath="\Events\Default Work Unit\Inicia_Juego" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000">
 					<ActionSetState>
 						<ActionSetStateEntry Id="984691642" Name="InGame" ObjectPath="\States\Default Work Unit\Musicas\InGame"/>
@@ -220,7 +234,7 @@
 						</SwitchContainer>
 						<SwitchContainer SwitchValue="{65EE6A5F-F11E-49B8-A785-EE575E62269B}">
 							<Media>
-								<File Id="1072181824"/>
+								<File Id="828680542"/>
 							</Media>
 						</SwitchContainer>
 						<SwitchContainer SwitchValue="{09601890-3057-46AD-AFC0-07AE33CA9C70}">
@@ -249,6 +263,21 @@
 							</Media>
 						</SwitchContainer>
 					</SwitchContainers>
+				</Event>
+				<Event Id="3573931707" Name="Loading" ObjectPath="\Events\Default Work Unit\Loading" DurationType="Infinite">
+					<IncludedMemoryFiles>
+						<File Id="828680542" Language="SFX">
+							<ShortName>Menu17_11.wav</ShortName>
+							<Path>SFX\Menu17_11_D79FB2B7.wem</Path>
+						</File>
+						<File Id="1035927207" Language="SFX">
+							<ShortName>Transition_M_G_18_111.wav</ShortName>
+							<Path>SFX\Transition_M_G_18_111_D79FB2B7.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+					<ActionSetState>
+						<ActionSetStateEntry Id="3573931707" Name="loading" ObjectPath="\States\Default Work Unit\Musicas\loading"/>
+					</ActionSetState>
 				</Event>
 				<Event Id="2170009971" Name="Menu_Pausa" ObjectPath="\Events\Default Work Unit\Menu_Pausa" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="34185445" Name="Menu_PlayerWins" ObjectPath="\Events\Default Work Unit\Menu_PlayerWins" DurationType="OneShot" DurationMin="1.480000" DurationMax="1.480000">
@@ -371,6 +400,9 @@
 				<StateGroup Id="635455269" Name="Menu_opciones" ObjectPath="\States\Default Work Unit\Musicas\Menu_opciones">
 					<States/>
 				</StateGroup>
+				<StateGroup Id="956887760" Name="Creditos" ObjectPath="\States\Default Work Unit\Musicas\Creditos">
+					<States/>
+				</StateGroup>
 				<StateGroup Id="984691642" Name="InGame" ObjectPath="\States\Default Work Unit\Musicas\InGame">
 					<States/>
 				</StateGroup>
@@ -380,12 +412,15 @@
 				<StateGroup Id="3406505131" Name="Despausar" ObjectPath="\States\Default Work Unit\Pausa\Despausar">
 					<States/>
 				</StateGroup>
+				<StateGroup Id="3573931707" Name="loading" ObjectPath="\States\Default Work Unit\Musicas\loading">
+					<States/>
+				</StateGroup>
 				<StateGroup Id="3830703178" Name="Musicas" ObjectPath="\States\Default Work Unit\Musicas">
 					<States>
 						<State Id="748895195" Name="None" ObjectPath="\States\Default Work Unit\Musicas\None"/>
 						<State Id="984691642" Name="InGame" ObjectPath="\States\Default Work Unit\Musicas\InGame"/>
 						<State Id="635455269" Name="Menu_opciones" ObjectPath="\States\Default Work Unit\Musicas\Menu_opciones"/>
-						<State Id="1933060234" Name="Menu_controles" ObjectPath="\States\Default Work Unit\Musicas\Menu_controles"/>
+						<State Id="3573931707" Name="loading" ObjectPath="\States\Default Work Unit\Musicas\loading"/>
 						<State Id="3306940243" Name="Press_start" ObjectPath="\States\Default Work Unit\Musicas\Press_start"/>
 						<State Id="4148512200" Name="Menu_sel_pers" ObjectPath="\States\Default Work Unit\Musicas\Menu_sel_pers"/>
 						<State Id="307675021" Name="Menu_sel_pantalla" ObjectPath="\States\Default Work Unit\Musicas\Menu_sel_pantalla"/>

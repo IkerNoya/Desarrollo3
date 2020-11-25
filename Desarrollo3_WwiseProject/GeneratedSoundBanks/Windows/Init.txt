@@ -6,13 +6,15 @@ State	ID	Name	State Group			Notes
 	252148545	Pausar	Pausa			
 	748895195	None	Pausa			
 	3406505131	Despausar	Pausa			
-	142468532	Menu_keyboard	Musicas			
+	307675021	Menu_sel_pantalla	Musicas			
 	635455269	Menu_opciones	Musicas			
 	748895195	None	Musicas			
+	956887760	Creditos	Musicas			
 	984691642	InGame	Musicas			
-	1219679298	Menu_Joystic	Musicas			
-	1933060234	Menu_controles	Musicas			
-	2607556080	Menu	Musicas			
+	3306940243	Press_start	Musicas			
+	3573931707	loading	Musicas			
+	4098853164	menu_1	Musicas			
+	4148512200	Menu_sel_pers	Musicas			
 
 Custom State	ID	Name	State Group	Owner		Notes
 	148003326	Pausar	Pausa	\Master-Mixer Hierarchy\Default Work Unit\Master Audio Bus		
