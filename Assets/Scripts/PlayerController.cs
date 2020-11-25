@@ -320,7 +320,7 @@ public class PlayerController : MonoBehaviour
             jumpInWall = true;
             jumpSound.Post(gameObject);
         }
-        if (Input.GetKeyDown(dashButtonKM) || Input.GetKeyDown(dashButtonJoystick) && !isInWall && canDash)
+        if ((Input.GetKeyDown(dashButtonJoystick) || Input.GetKeyDown(dashButtonKM)) && !isInWall && canDash)
         {
             canDash = false;
             isDashing = true;
