@@ -10,6 +10,9 @@ public class CameraMovement : MonoBehaviour
     [SerializeField] float offset;
     [SerializeField] GameObject player1;
     [SerializeField] GameObject player2;
+
+    public AK.Wwise.Event zoomInSound;
+
     Camera cam;
     float wantedSize = 4;
     float originalSize;
@@ -24,7 +27,6 @@ public class CameraMovement : MonoBehaviour
     float t = 0;
     float xPos;
     float speed;
-
     void Awake()
     {
         ParryController.parryEffect += ZoomOnPlayer;
@@ -62,6 +64,7 @@ public class CameraMovement : MonoBehaviour
 
         if (canZoom && !canMove)
         {
+            zoomInSound.Post(Camera.main.gameObject);
             t += Time.deltaTime * lerpInterpolations;
             Vector3 middlePoint;
             middlePoint.x = player1.transform.position.x + (player2.transform.position.x - player1.transform.position.x) / 2;

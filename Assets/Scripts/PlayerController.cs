@@ -39,7 +39,7 @@ public class PlayerController : MonoBehaviour
     #endregion
 
     #region PUBLIC_VARIABLES
-    public SlowMotion slowMotion;
+    public AK.Wwise.Event footstepSound;
     public enum PlayerSelect
     {
         player1, player2

@@ -90,7 +90,7 @@ MonoBehaviour:
     ParentPath: Default Work Unit
     guid: a0e9a5e2bc6a0e43862942f8911e4a7e
     GuidInternal: 
-    m_lastTime: -8585954269932178541
+    m_lastTime: -8585953404808390960
     List:
     - name: Ataque1
       guid: 96b6927ab1fac24091e819404c8ab028
@@ -655,7 +655,7 @@ MonoBehaviour:
     ParentPath: Default Work Unit
     guid: 8999634c1196cd43a53778d425c96be7
     GuidInternal: 
-    m_lastTime: -8585958169372913440
+    m_lastTime: -8585953404806490877
     List:
     - name: Musicas
       guid: db8bdad6bf93c946badcb0eeb1f0ab29
@@ -667,17 +667,23 @@ MonoBehaviour:
         ObjectType: 9
       Path: Default Work Unit\Musicas
       values:
+      - name: Creditos
+        guid: 396550340b1c2b459dbc203e23c6b41d
+        id: 956887760
+        PathAndIcons:
+        - ElementName: Creditos
+          ObjectType: 8
       - name: InGame
         guid: b2b1f50f523183418a5a4d68b54609bc
         id: 984691642
         PathAndIcons:
         - ElementName: InGame
           ObjectType: 8
-      - name: Menu
-        guid: b2156eddd01c554fba1ed509058c9593
-        id: 2607556080
+      - name: menu_1
+        guid: 901860095730ad46afc007ae33ca9c70
+        id: 4098853164
         PathAndIcons:
-        - ElementName: Menu
+        - ElementName: menu_1
           ObjectType: 8
       - name: Menu_controles
         guid: 5f6aee651ef1b849a785ee575e62269b
@@ -685,29 +691,35 @@ MonoBehaviour:
         PathAndIcons:
         - ElementName: Menu_controles
           ObjectType: 8
-      - name: Menu_Joystic
-        guid: 114b48ac47422b4984ec277d8c0ce259
-        id: 1219679298
-        PathAndIcons:
-        - ElementName: Menu_Joystic
-          ObjectType: 8
-      - name: Menu_keyboard
-        guid: 13fc5efd6b9a0c499d9f19c9d6fec622
-        id: 142468532
-        PathAndIcons:
-        - ElementName: Menu_keyboard
-          ObjectType: 8
       - name: Menu_opciones
         guid: 70d8d7840455cb4790d635b02bb4d95b
         id: 635455269
         PathAndIcons:
         - ElementName: Menu_opciones
           ObjectType: 8
+      - name: Menu_sel_pantalla
+        guid: cbb8bd648f37d74fadf5dca07df95b04
+        id: 307675021
+        PathAndIcons:
+        - ElementName: Menu_sel_pantalla
+          ObjectType: 8
+      - name: Menu_sel_pers
+        guid: a34a76ea90433041ac1bed5a24e0706a
+        id: 4148512200
+        PathAndIcons:
+        - ElementName: Menu_sel_pers
+          ObjectType: 8
       - name: None
         guid: 78cf245df3cf134bbfc6d18a49a86d0d
         id: 748895195
         PathAndIcons:
         - ElementName: None
+          ObjectType: 8
+      - name: Press_start
+        guid: aef4b64ace5cdc4c8c49a2cfa24e2fd2
+        id: 3306940243
+        PathAndIcons:
+        - ElementName: Press_start
           ObjectType: 8
       ValueGuids: []
       ValueIcons: []
@@ -765,8 +777,8 @@ MonoBehaviour:
     List: []
   ExpandedItems:
   - /Desarrollo3_WwiseProject
-  - /Desarrollo3_WwiseProject/States
-  - /Desarrollo3_WwiseProject/States/Default Work Unit
-  - /Desarrollo3_WwiseProject/States/Default Work Unit/Musicas
+  - /Desarrollo3_WwiseProject/Events
+  - /Desarrollo3_WwiseProject/Events/Default Work Unit
+  - /Desarrollo3_WwiseProject/Events/Default Work Unit/UI
   autoPopulateEnabled: 1
   CurrentPluginConfig: 

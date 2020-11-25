@@ -668,7 +668,7 @@ GameObject:
   - component: {fileID: 1961036544}
   - component: {fileID: 1961036543}
   m_Layer: 5
-  m_Name: Background_PlaceHolder
+  m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -706,13 +706,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0.26037735, b: 0.3207547, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 89783f71d4a70ca499d0667be90d054d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ffcbcf6cf20c6b4488aa9632b8513347, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

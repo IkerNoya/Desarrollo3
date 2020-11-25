@@ -63,13 +63,15 @@ namespace AK
 
             namespace STATE
             {
+                static const AkUniqueID CREDITOS = 956887760U;
                 static const AkUniqueID INGAME = 984691642U;
-                static const AkUniqueID MENU = 2607556080U;
+                static const AkUniqueID MENU_1 = 4098853164U;
                 static const AkUniqueID MENU_CONTROLES = 1933060234U;
-                static const AkUniqueID MENU_JOYSTIC = 1219679298U;
-                static const AkUniqueID MENU_KEYBOARD = 142468532U;
                 static const AkUniqueID MENU_OPCIONES = 635455269U;
+                static const AkUniqueID MENU_SEL_PANTALLA = 307675021U;
+                static const AkUniqueID MENU_SEL_PERS = 4148512200U;
                 static const AkUniqueID NONE = 748895195U;
+                static const AkUniqueID PRESS_START = 3306940243U;
             } // namespace STATE
         } // namespace MUSICAS
 

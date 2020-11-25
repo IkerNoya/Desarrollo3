@@ -29,7 +29,7 @@
 				</StateGroup>
 			</StateGroups>
 		</SoundBank>
-		<SoundBank Id="3161908922" Language="SFX" Hash="3805977447">
+		<SoundBank Id="3161908922" Language="SFX" Hash="717540315">
 			<ObjectPath>\SoundBanks\Default Work Unit\MAIN</ObjectPath>
 			<ShortName>MAIN</ShortName>
 			<Path>MAIN.bnk</Path>
@@ -118,6 +118,9 @@
 							<Path>SFX\SFX_PasoMetal04_10C4C929.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
+					<ActionSetState>
+						<ActionSetStateEntry Id="984691642" Name="InGame" ObjectPath="\States\Default Work Unit\Musicas\InGame"/>
+					</ActionSetState>
 				</Event>
 				<Event Id="3050044219" Name="Cursor_SobreBoton" ObjectPath="\Events\Default Work Unit\UI\Cursor_SobreBoton" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="3775992878" Name="Damage_Jugador1" ObjectPath="\Events\Default Work Unit\Damage_Jugador1" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
@@ -154,8 +157,8 @@
 				</Event>
 				<Event Id="928907744" Name="Inicia_Menu" ObjectPath="\Events\Default Work Unit\Inicia_Menu" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000">
 					<ActionSetState>
-						<ActionSetStateEntry Id="2607556080" Name="Menu" ObjectPath="\States\Default Work Unit\Musicas\Menu"/>
 						<ActionSetStateEntry Id="3406505131" Name="Despausar" ObjectPath="\States\Default Work Unit\Pausa\Despausar"/>
+						<ActionSetStateEntry Id="4098853164" Name="menu_1" ObjectPath="\States\Default Work Unit\Musicas\menu_1"/>
 					</ActionSetState>
 				</Event>
 				<Event Id="2922467479" Name="Inicia_Opciones" ObjectPath="\Events\Default Work Unit\Inicia_Opciones" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000">
@@ -163,13 +166,25 @@
 						<ActionSetStateEntry Id="635455269" Name="Menu_opciones" ObjectPath="\States\Default Work Unit\Musicas\Menu_opciones"/>
 					</ActionSetState>
 				</Event>
-				<Event Id="1078793336" Name="Inicia_SeleccionDePantalla" ObjectPath="\Events\Default Work Unit\Inicia_SeleccionDePantalla" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
-				<Event Id="1725143731" Name="Inicia_SeleccionDePersonajes" ObjectPath="\Events\Default Work Unit\Inicia_SeleccionDePersonajes" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="1078793336" Name="Inicia_SeleccionDePantalla" ObjectPath="\Events\Default Work Unit\Inicia_SeleccionDePantalla" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000">
+					<ActionSetState>
+						<ActionSetStateEntry Id="307675021" Name="Menu_sel_pantalla" ObjectPath="\States\Default Work Unit\Musicas\Menu_sel_pantalla"/>
+					</ActionSetState>
+				</Event>
+				<Event Id="1725143731" Name="Inicia_SeleccionDePersonajes" ObjectPath="\Events\Default Work Unit\Inicia_SeleccionDePersonajes" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000">
+					<ActionSetState>
+						<ActionSetStateEntry Id="4148512200" Name="Menu_sel_pers" ObjectPath="\States\Default Work Unit\Musicas\Menu_sel_pers"/>
+					</ActionSetState>
+				</Event>
 				<Event Id="2658298240" Name="Inicio" ObjectPath="\Events\Default Work Unit\UI\Inicio" DurationType="Infinite">
 					<IncludedMemoryFiles>
-						<File Id="301701033" Language="SFX">
-							<ShortName>ENTRADA_IMAGE_CAMPUS_3.wav</ShortName>
-							<Path>SFX\ENTRADA_IMAGE_CAMPUS_3_D79FB2B7.wem</Path>
+						<File Id="119708575" Language="SFX">
+							<ShortName>Menu 1.wav</ShortName>
+							<Path>SFX\Menu 1_D79FB2B7.wem</Path>
+						</File>
+						<File Id="678628561" Language="SFX">
+							<ShortName>Menu creditos.wav</ShortName>
+							<Path>SFX\Menu creditos_D79FB2B7.wem</Path>
 						</File>
 						<File Id="828680542" Language="SFX">
 							<ShortName>Menu17_11.wav</ShortName>
@@ -183,6 +198,10 @@
 							<ShortName>Transition_M_G_18_111.wav</ShortName>
 							<Path>SFX\Transition_M_G_18_111_D79FB2B7.wem</Path>
 						</File>
+						<File Id="1052667525" Language="SFX">
+							<ShortName>Start.wav</ShortName>
+							<Path>SFX\Start_D79FB2B7.wem</Path>
+						</File>
 						<File Id="1072181824" Language="SFX">
 							<ShortName>Menu_opciones.wav</ShortName>
 							<Path>SFX\Menu_opciones_D79FB2B7.wem</Path>
@@ -194,17 +213,7 @@
 								<File Id="930660109"/>
 							</Media>
 						</SwitchContainer>
-						<SwitchContainer SwitchValue="{DD6E15B2-1CD0-4F55-BA1E-D509058C9593}">
-							<Media>
-								<File Id="828680542"/>
-							</Media>
-						</SwitchContainer>
 						<SwitchContainer SwitchValue="{84D7D870-5504-47CB-90D6-35B02BB4D95B}">
-							<Media>
-								<File Id="1072181824"/>
-							</Media>
-						</SwitchContainer>
-						<SwitchContainer SwitchValue="{AC484B11-4247-492B-84EC-277D8C0CE259}">
 							<Media>
 								<File Id="1072181824"/>
 							</Media>
@@ -214,15 +223,42 @@
 								<File Id="1072181824"/>
 							</Media>
 						</SwitchContainer>
-						<SwitchContainer SwitchValue="{FD5EFC13-9A6B-490C-9D9F-19C9D6FEC622}">
+						<SwitchContainer SwitchValue="{09601890-3057-46AD-AFC0-07AE33CA9C70}">
 							<Media>
-								<File Id="1072181824"/>
+								<File Id="119708575"/>
+							</Media>
+						</SwitchContainer>
+						<SwitchContainer SwitchValue="{4AB6F4AE-5CCE-4CDC-8C49-A2CFA24E2FD2}">
+							<Media>
+								<File Id="1052667525"/>
+							</Media>
+						</SwitchContainer>
+						<SwitchContainer SwitchValue="{64BDB8CB-378F-4FD7-ADF5-DCA07DF95B04}">
+							<Media>
+								<File Id="828680542"/>
+							</Media>
+						</SwitchContainer>
+						<SwitchContainer SwitchValue="{EA764AA3-4390-4130-AC1B-ED5A24E0706A}">
+							<Media>
+								<File Id="828680542"/>
+							</Media>
+						</SwitchContainer>
+						<SwitchContainer SwitchValue="{34506539-1C0B-452B-9DBC-203E23C6B41D}">
+							<Media>
+								<File Id="678628561"/>
 							</Media>
 						</SwitchContainer>
 					</SwitchContainers>
 				</Event>
 				<Event Id="2170009971" Name="Menu_Pausa" ObjectPath="\Events\Default Work Unit\Menu_Pausa" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
-				<Event Id="34185445" Name="Menu_PlayerWins" ObjectPath="\Events\Default Work Unit\Menu_PlayerWins" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="34185445" Name="Menu_PlayerWins" ObjectPath="\Events\Default Work Unit\Menu_PlayerWins" DurationType="OneShot" DurationMin="1.480000" DurationMax="1.480000">
+					<IncludedMemoryFiles>
+						<File Id="888733065" Language="SFX">
+							<ShortName>SFX_PlayerWins.wav</ShortName>
+							<Path>SFX\SFX_PlayerWins_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
 				<Event Id="2974103762" Name="Mute" ObjectPath="\Events\Default Work Unit\UI\Mute" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="3076648345" Name="Parry" ObjectPath="\Events\Default Work Unit\Parry" DurationType="OneShot" DurationMin="1.648163" DurationMax="2.076555">
 					<IncludedMemoryFiles>
@@ -231,6 +267,9 @@
 							<Path>SFX\SFX_Parry_10C4C929.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
+					<ActionSetState>
+						<ActionSetStateEntry Id="4098853164" Name="menu_1" ObjectPath="\States\Default Work Unit\Musicas\menu_1"/>
+					</ActionSetState>
 				</Event>
 				<Event Id="2660185452" Name="Parry_ZoomIn" ObjectPath="\Events\Default Work Unit\Parry_ZoomIn" DurationType="OneShot" DurationMin="1.590000" DurationMax="1.753438">
 					<IncludedMemoryFiles>
@@ -247,6 +286,9 @@
 							<Path>SFX\SFX_ZoomIn_B_10C4C929.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
+					<ActionSetState>
+						<ActionSetStateEntry Id="984691642" Name="InGame" ObjectPath="\States\Default Work Unit\Musicas\InGame"/>
+					</ActionSetState>
 				</Event>
 				<Event Id="3092587489" Name="Pausa" ObjectPath="\Events\Default Work Unit\UI\Pausa" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000">
 					<ActionSetState>
@@ -268,6 +310,9 @@
 							<Path>SFX\PLAY_9031291B.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
+					<ActionSetState>
+						<ActionSetStateEntry Id="3306940243" Name="Press_start" ObjectPath="\States\Default Work Unit\Musicas\Press_start"/>
+					</ActionSetState>
 				</Event>
 				<Event Id="1203400786" Name="Restart" ObjectPath="\Events\Default Work Unit\UI\Restart" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000">
 					<ActionSetState>
@@ -320,13 +365,16 @@
 				<StateGroup Id="252148545" Name="Pausar" ObjectPath="\States\Default Work Unit\Pausa\Pausar">
 					<States/>
 				</StateGroup>
+				<StateGroup Id="307675021" Name="Menu_sel_pantalla" ObjectPath="\States\Default Work Unit\Musicas\Menu_sel_pantalla">
+					<States/>
+				</StateGroup>
 				<StateGroup Id="635455269" Name="Menu_opciones" ObjectPath="\States\Default Work Unit\Musicas\Menu_opciones">
 					<States/>
 				</StateGroup>
 				<StateGroup Id="984691642" Name="InGame" ObjectPath="\States\Default Work Unit\Musicas\InGame">
 					<States/>
 				</StateGroup>
-				<StateGroup Id="2607556080" Name="Menu" ObjectPath="\States\Default Work Unit\Musicas\Menu">
+				<StateGroup Id="3306940243" Name="Press_start" ObjectPath="\States\Default Work Unit\Musicas\Press_start">
 					<States/>
 				</StateGroup>
 				<StateGroup Id="3406505131" Name="Despausar" ObjectPath="\States\Default Work Unit\Pausa\Despausar">
@@ -335,13 +383,21 @@
 				<StateGroup Id="3830703178" Name="Musicas" ObjectPath="\States\Default Work Unit\Musicas">
 					<States>
 						<State Id="748895195" Name="None" ObjectPath="\States\Default Work Unit\Musicas\None"/>
-						<State Id="2607556080" Name="Menu" ObjectPath="\States\Default Work Unit\Musicas\Menu"/>
 						<State Id="984691642" Name="InGame" ObjectPath="\States\Default Work Unit\Musicas\InGame"/>
 						<State Id="635455269" Name="Menu_opciones" ObjectPath="\States\Default Work Unit\Musicas\Menu_opciones"/>
 						<State Id="1933060234" Name="Menu_controles" ObjectPath="\States\Default Work Unit\Musicas\Menu_controles"/>
-						<State Id="1219679298" Name="Menu_Joystic" ObjectPath="\States\Default Work Unit\Musicas\Menu_Joystic"/>
-						<State Id="142468532" Name="Menu_keyboard" ObjectPath="\States\Default Work Unit\Musicas\Menu_keyboard"/>
+						<State Id="3306940243" Name="Press_start" ObjectPath="\States\Default Work Unit\Musicas\Press_start"/>
+						<State Id="4148512200" Name="Menu_sel_pers" ObjectPath="\States\Default Work Unit\Musicas\Menu_sel_pers"/>
+						<State Id="307675021" Name="Menu_sel_pantalla" ObjectPath="\States\Default Work Unit\Musicas\Menu_sel_pantalla"/>
+						<State Id="4098853164" Name="menu_1" ObjectPath="\States\Default Work Unit\Musicas\menu_1"/>
+						<State Id="956887760" Name="Creditos" ObjectPath="\States\Default Work Unit\Musicas\Creditos"/>
 					</States>
+				</StateGroup>
+				<StateGroup Id="4098853164" Name="menu_1" ObjectPath="\States\Default Work Unit\Musicas\menu_1">
+					<States/>
+				</StateGroup>
+				<StateGroup Id="4148512200" Name="Menu_sel_pers" ObjectPath="\States\Default Work Unit\Musicas\Menu_sel_pers">
+					<States/>
 				</StateGroup>
 			</StateGroups>
 		</SoundBank>

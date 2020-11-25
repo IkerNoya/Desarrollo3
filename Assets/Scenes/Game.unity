@@ -2188,6 +2188,11 @@ MonoBehaviour:
   offset: 1
   player1: {fileID: 1418373337}
   player2: {fileID: 191250276}
+  zoomInSound:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 56e58ba02a9cbc3428af7e575ed1efdb,
+      type: 2}
 --- !u!1 &365324897
 GameObject:
   m_ObjectHideFlags: 0
@@ -8298,6 +8303,11 @@ PrefabInstance:
       propertyPath: parryCooldown
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 1798681329, guid: 9342dd73a39486b4da82c2afa2922bcd, type: 3}
+      propertyPath: parrySound.WwiseObjectReference
+      value: 
+      objectReference: {fileID: 11400000, guid: d0094cd33e8df7d4cbc9b42e83eee20c,
+        type: 2}
     - target: {fileID: 1225701373364830904, guid: 9342dd73a39486b4da82c2afa2922bcd,
         type: 3}
       propertyPath: combos.Array.data[0].comboData.Array.data[0].comboKeyKM
@@ -8423,6 +8433,12 @@ PrefabInstance:
       propertyPath: jumpSound.WwiseObjectReference
       value: 
       objectReference: {fileID: 11400000, guid: 9e77a26882648f24aa19c4b25050eb26,
+        type: 2}
+    - target: {fileID: 1225701374320304568, guid: 9342dd73a39486b4da82c2afa2922bcd,
+        type: 3}
+      propertyPath: footstepSound.WwiseObjectReference
+      value: 
+      objectReference: {fileID: 11400000, guid: 83537a66d7bbe5d4081fb2186e045e05,
         type: 2}
     - target: {fileID: 1225701374430052506, guid: 9342dd73a39486b4da82c2afa2922bcd,
         type: 3}
@@ -8826,6 +8842,12 @@ PrefabInstance:
       propertyPath: parryCooldown
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 4395031986078868597, guid: fc79662f102093c4e99dd88d345bc744,
+        type: 3}
+      propertyPath: parrySound.WwiseObjectReference
+      value: 
+      objectReference: {fileID: 11400000, guid: d0094cd33e8df7d4cbc9b42e83eee20c,
+        type: 2}
     - target: {fileID: 4395031986078868598, guid: fc79662f102093c4e99dd88d345bc744,
         type: 3}
       propertyPath: m_Offset.x
@@ -8958,6 +8980,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 9e77a26882648f24aa19c4b25050eb26,
         type: 2}
+    - target: {fileID: 4395031987110380140, guid: fc79662f102093c4e99dd88d345bc744,
+        type: 3}
+      propertyPath: footstepSound.WwiseObjectReference
+      value: 
+      objectReference: {fileID: 11400000, guid: 83537a66d7bbe5d4081fb2186e045e05,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fc79662f102093c4e99dd88d345bc744, type: 3}
 --- !u!1001 &6182286347763801502
@@ -9027,6 +9055,12 @@ PrefabInstance:
       propertyPath: activeButtonVictoryP2
       value: 
       objectReference: {fileID: 659569129}
+    - target: {fileID: 3127073023320783853, guid: 6294d302383975441b493ebaca397053,
+        type: 3}
+      propertyPath: winSound.WwiseObjectReference
+      value: 
+      objectReference: {fileID: 11400000, guid: b721e06f36557474db7b7046fb1bac01,
+        type: 2}
     - target: {fileID: 7336147402817237382, guid: 6294d302383975441b493ebaca397053,
         type: 3}
       propertyPath: m_LocalPosition.x
