@@ -10,7 +10,7 @@
 							<Position X="0" Y="0"/>
 						</Module>
 						<Module>
-							<ObjectRef Name="Pausa" ID="{A91EB62F-EB44-4D31-AD80-FA9EDE7B4539}" WorkUnitID="{E2A5E9A0-6ABC-430E-8629-42F8911E4A7E}"/>
+							<ObjectRef Name="Ataque1" ID="{7A92B696-FAB1-40C2-91E8-19404C8AB028}" WorkUnitID="{E2A5E9A0-6ABC-430E-8629-42F8911E4A7E}"/>
 							<Position X="0" Y="1"/>
 						</Module>
 						<Module>
@@ -18,32 +18,40 @@
 							<Position X="1" Y="0"/>
 						</Module>
 						<Module>
-							<ObjectRef Name="Despausar" ID="{BD87BFD9-3E42-41EB-A6AA-4B46D58C2EB9}" WorkUnitID="{E2A5E9A0-6ABC-430E-8629-42F8911E4A7E}"/>
+							<ObjectRef Name="Dash" ID="{55101FA1-C841-4A37-8436-C9228D9CC452}" WorkUnitID="{E2A5E9A0-6ABC-430E-8629-42F8911E4A7E}"/>
 							<Position X="1" Y="1"/>
 						</Module>
 						<Module>
-							<ObjectRef Name="Inicia_Juego" ID="{9B202B97-8207-41B8-AB25-36D6E564940F}" WorkUnitID="{E2A5E9A0-6ABC-430E-8629-42F8911E4A7E}"/>
+							<ObjectRef Name="Inicia_Opciones" ID="{F9EF24FC-1425-4635-821B-8A061BEF971C}" WorkUnitID="{E2A5E9A0-6ABC-430E-8629-42F8911E4A7E}"/>
 							<Position X="2" Y="0"/>
 						</Module>
 						<Module>
-							<ObjectRef Name="Inicia_Opciones" ID="{F9EF24FC-1425-4635-821B-8A061BEF971C}" WorkUnitID="{E2A5E9A0-6ABC-430E-8629-42F8911E4A7E}"/>
+							<ObjectRef Name="Pausa" ID="{A91EB62F-EB44-4D31-AD80-FA9EDE7B4539}" WorkUnitID="{E2A5E9A0-6ABC-430E-8629-42F8911E4A7E}"/>
 							<Position X="2" Y="1"/>
 						</Module>
 						<Module>
-							<ObjectRef Name="Ataque1" ID="{7A92B696-FAB1-40C2-91E8-19404C8AB028}" WorkUnitID="{E2A5E9A0-6ABC-430E-8629-42F8911E4A7E}"/>
+							<ObjectRef Name="Inicia_SeleccionDePersonajes" ID="{BCC5B6AD-CD43-4142-B3BF-EB7C6A296B28}" WorkUnitID="{E2A5E9A0-6ABC-430E-8629-42F8911E4A7E}"/>
 							<Position X="3" Y="0"/>
 						</Module>
 						<Module>
-							<ObjectRef Name="CLICK_BOTON" ID="{E2EC233D-3174-41B8-8514-151B5991678E}" WorkUnitID="{16016A4F-AD9D-4A09-AA0F-576A97D5EE42}"/>
+							<ObjectRef Name="Despausar" ID="{BD87BFD9-3E42-41EB-A6AA-4B46D58C2EB9}" WorkUnitID="{E2A5E9A0-6ABC-430E-8629-42F8911E4A7E}"/>
 							<Position X="3" Y="1"/>
 						</Module>
 						<Module>
-							<ObjectRef Name="Dash" ID="{55101FA1-C841-4A37-8436-C9228D9CC452}" WorkUnitID="{E2A5E9A0-6ABC-430E-8629-42F8911E4A7E}"/>
+							<ObjectRef Name="Inicia_SeleccionDePantalla" ID="{452392A2-C469-47BE-A8C1-304E6F506C34}" WorkUnitID="{E2A5E9A0-6ABC-430E-8629-42F8911E4A7E}"/>
 							<Position X="4" Y="0"/>
 						</Module>
 						<Module>
-							<ObjectRef Name="Press_Start" ID="{090F3FFF-17AF-472E-9BFC-66E58C61DC30}" WorkUnitID="{E2A5E9A0-6ABC-430E-8629-42F8911E4A7E}"/>
+							<ObjectRef Name="CLICK_BOTON" ID="{E2EC233D-3174-41B8-8514-151B5991678E}" WorkUnitID="{16016A4F-AD9D-4A09-AA0F-576A97D5EE42}"/>
 							<Position X="4" Y="1"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="Inicia_Juego" ID="{9B202B97-8207-41B8-AB25-36D6E564940F}" WorkUnitID="{E2A5E9A0-6ABC-430E-8629-42F8911E4A7E}"/>
+							<Position X="5" Y="0"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="Press_Start" ID="{090F3FFF-17AF-472E-9BFC-66E58C61DC30}" WorkUnitID="{E2A5E9A0-6ABC-430E-8629-42F8911E4A7E}"/>
+							<Position X="5" Y="1"/>
 						</Module>
 					</ModuleList>
 					<RTPCValueList ShowAll="true"/>
