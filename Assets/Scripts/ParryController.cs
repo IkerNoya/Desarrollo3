@@ -14,6 +14,7 @@ public class ParryController : MonoBehaviour
     [SerializeField] GameObject enemy;
     [SerializeField] SlowMotion slowMotion;
     [SerializeField] float parryCooldown;
+    
 
     public AK.Wwise.Event parrySound;
 
@@ -82,6 +83,7 @@ public class ParryController : MonoBehaviour
         if (collision.gameObject.CompareTag("HitCollider"))
         {
             parrySound.Post(gameObject);
+            anim.SetTrigger("Deflect");
             enemyValues.anim.SetTrigger("Damage");
             StartCoroutine(slowMotion.ActivateSlowMotion(0.5f, 0.5f));
             parryEffect(this);

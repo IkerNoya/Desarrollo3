@@ -8,6 +8,7 @@ public class CombatController : MonoBehaviour
 	[SerializeField] int hitIndex;
 	[SerializeField] float hitCooldown;
 	[SerializeField] string currentComboName;
+	[SerializeField] ParticleSystem shockwave;
 	float damage;
 	bool criticalDamage;
 	[Serializable]

@@ -3429,11 +3429,6 @@ MonoBehaviour:
   captureSprites: {fileID: 404562462}
   captureContent: {fileID: 720310872}
   captureAmmount: 0.25
-  winSound:
-    idInternal: 0
-    valueGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: fa94eb7f985dcf84e834711f50703f5c,
-      type: 2}
 --- !u!1 &657822258
 GameObject:
   m_ObjectHideFlags: 0
@@ -8363,7 +8358,7 @@ PrefabInstance:
     - target: {fileID: 791853959098034312, guid: 36e9a9b6b89f1414d97dd26f69495762,
         type: 3}
       propertyPath: m_SortingOrder
-      value: 8
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 791853959098034312, guid: 36e9a9b6b89f1414d97dd26f69495762,
         type: 3}
