@@ -25,8 +25,16 @@ public class LevelLoader : MonoBehaviour
         loadingProgress = 0;
         timeLoading = 0;
         yield return null;
+        AsyncOperation level = null;
+        if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("RobotSceneLoader"))
+        {
+            level = SceneManager.LoadSceneAsync("RobotLevel");
+        }
+        else if(SceneManager.GetActiveScene() == SceneManager.GetSceneByName("CitySceneLoader"))
+        {
+            level = SceneManager.LoadSceneAsync("CityLevel");
+        }
 
-        AsyncOperation level = SceneManager.LoadSceneAsync("RobotLevel");
         level.allowSceneActivation = false;
 
         while (!level.isDone )
