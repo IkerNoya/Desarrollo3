@@ -26,7 +26,7 @@ public class LevelLoader : MonoBehaviour
         timeLoading = 0;
         yield return null;
 
-        AsyncOperation level = SceneManager.LoadSceneAsync("Game");
+        AsyncOperation level = SceneManager.LoadSceneAsync("RobotLevel");
         level.allowSceneActivation = false;
 
         while (!level.isDone )
