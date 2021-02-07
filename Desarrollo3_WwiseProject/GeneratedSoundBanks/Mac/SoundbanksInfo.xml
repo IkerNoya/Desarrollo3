@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <SoundBanksInfo Platform="Mac" BasePlatform="Mac" SchemaVersion="12" SoundbankVersion="135">
 	<RootPaths>
-		<ProjectRoot>C:\Users\Iker\Desktop\Desarrollo3\Desarrollo3_WwiseProject\</ProjectRoot>
-		<SourceFilesRoot>C:\Users\Iker\Desktop\Desarrollo3\Desarrollo3_WwiseProject\.cache\Mac\</SourceFilesRoot>
-		<SoundBanksRoot>C:\Users\Iker\Desktop\Desarrollo3\Desarrollo3_WwiseProject\GeneratedSoundBanks\Mac\</SoundBanksRoot>
+		<ProjectRoot>C:\Users\delli\Documents\GitHub\tower-of-vertigo\Desarrollo3_WwiseProject\</ProjectRoot>
+		<SourceFilesRoot>C:\Users\delli\Documents\GitHub\tower-of-vertigo\Desarrollo3_WwiseProject\.cache\Mac\</SourceFilesRoot>
+		<SoundBanksRoot>C:\Users\delli\Documents\GitHub\tower-of-vertigo\Desarrollo3_WwiseProject\GeneratedSoundBanks\Mac\</SoundBanksRoot>
 		<ExternalSourcesInputFile></ExternalSourcesInputFile>
-		<ExternalSourcesOutputRoot>C:\Users\Iker\Desktop\Desarrollo3\Desarrollo3_WwiseProject\GeneratedSoundBanks\Mac</ExternalSourcesOutputRoot>
+		<ExternalSourcesOutputRoot>C:\Users\delli\Documents\GitHub\tower-of-vertigo\Desarrollo3_WwiseProject\GeneratedSoundBanks\Mac</ExternalSourcesOutputRoot>
 	</RootPaths>
 	<DialogueEvents/>
 	<StreamedFiles/>
@@ -29,7 +29,7 @@
 				</StateGroup>
 			</StateGroups>
 		</SoundBank>
-		<SoundBank Id="3161908922" Language="SFX" Hash="1447728295">
+		<SoundBank Id="3161908922" Language="SFX" Hash="317533684">
 			<ObjectPath>\SoundBanks\Default Work Unit\MAIN</ObjectPath>
 			<ShortName>MAIN</ShortName>
 			<Path>MAIN.bnk</Path>
@@ -424,6 +424,14 @@
 					</IncludedMemoryFiles>
 				</Event>
 				<Event Id="2156697475" Name="Unmute" ObjectPath="\Events\Default Work Unit\UI\Unmute" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="3115976533" Name="volver_a_jugar" ObjectPath="\Events\Default Work Unit\volver_a_jugar" DurationType="OneShot" DurationMin="3.239726" DurationMax="3.239726">
+					<IncludedMemoryFiles>
+						<File Id="986631320" Language="SFX">
+							<ShortName>volver_a_jugar_largo.wav</ShortName>
+							<Path>SFX\volver_a_jugar_largo_9A756A8C.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
 			</IncludedEvents>
 			<StateGroups>
 				<StateGroup Id="252148545" Name="Pausar" ObjectPath="\States\Default Work Unit\Pausa\Pausar">

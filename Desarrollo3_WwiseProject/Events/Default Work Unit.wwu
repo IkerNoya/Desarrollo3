@@ -478,6 +478,17 @@
 						</Action>
 					</ChildrenList>
 				</Event>
+				<Event Name="volver_a_jugar" ID="{00AFF6C2-0F3C-43FB-8006-C56BA32721F4}">
+					<ChildrenList>
+						<Action Name="" ID="{C2F5D3FB-9864-4F60-B72B-91307CBBDE0C}" ShortID="968336307">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="volver_a_jugar_largo" ID="{E1E64A94-EC8C-47F8-AC04-7F026C699ED1}" WorkUnitID="{16016A4F-AD9D-4A09-AA0F-576A97D5EE42}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>

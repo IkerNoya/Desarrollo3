@@ -545,6 +545,11 @@
 						</Sound>
 						<Sound Name="PLAY" ID="{3936A3D9-C034-4C24-B10D-38EA10D4E70D}" ShortID="79160259">
 							<PropertyList>
+								<Property Name="Inclusion" Type="bool">
+									<ValueList>
+										<Value>False</Value>
+									</ValueList>
+								</Property>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
 										<Value>-9</Value>
@@ -608,6 +613,13 @@
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="ELECCION_MUJER_2" ID="{6458B684-B26A-44BD-8C83-90C54BDC361F}" ShortID="963613712">
+							<PropertyList>
+								<Property Name="Inclusion" Type="bool">
+									<ValueList>
+										<Value>False</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{806D56C7-89DC-4910-BD41-BCACBB474B89}"/>
@@ -686,6 +698,13 @@
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="ATRAS_2" ID="{0E19EF64-99FA-4FED-9BAA-6E9EAB24B0AF}" ShortID="40862153">
+							<PropertyList>
+								<Property Name="Inclusion" Type="bool">
+									<ValueList>
+										<Value>False</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{806D56C7-89DC-4910-BD41-BCACBB474B89}"/>
@@ -708,6 +727,13 @@
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="CLICK_BOTTON_2" ID="{C89DD707-0F43-412C-8E1A-D8348CE2657E}" ShortID="42777362">
+							<PropertyList>
+								<Property Name="Inclusion" Type="bool">
+									<ValueList>
+										<Value>False</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{806D56C7-89DC-4910-BD41-BCACBB474B89}"/>
