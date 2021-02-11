@@ -232,7 +232,17 @@
 						</Action>
 					</ChildrenList>
 				</Event>
-				<Event Name="Deslizamiento_Pared" ID="{5A55E872-3305-47A0-B0AF-F602823E7046}"/>
+				<Event Name="Deslizamiento_Pared" ID="{5A55E872-3305-47A0-B0AF-F602823E7046}">
+					<ChildrenList>
+						<Action Name="" ID="{7B74CD16-1611-410D-8493-4DDC147000A8}" ShortID="508972179">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="deslizamiento sobre tierra" ID="{3768F30D-0F07-4094-8A16-E658761ED70D}" WorkUnitID="{16016A4F-AD9D-4A09-AA0F-576A97D5EE42}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 				<Event Name="Salto_Pared" ID="{FB08CC22-8811-4916-9798-ED1AE6A28A7E}"/>
 				<Event Name="Corrida" ID="{885E3B40-C609-46E0-98C5-69CFFAFC1A46}">
 					<ChildrenList>

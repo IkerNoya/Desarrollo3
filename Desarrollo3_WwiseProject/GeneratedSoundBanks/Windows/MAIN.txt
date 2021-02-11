@@ -29,6 +29,7 @@ Event	ID	Name			Wwise Object Path	Notes
 	2974103762	Mute			\Default Work Unit\UI\Mute	
 	3076648345	Parry			\Default Work Unit\Parry	
 	3092587489	Pausa			\Default Work Unit\UI\Pausa	
+	3115976533	volver_a_jugar			\Default Work Unit\volver_a_jugar	
 	3306940243	Press_Start			\Default Work Unit\UI\Press_Start	
 	3406505131	Despausar			\Default Work Unit\UI\Despausar	
 	3415848950	Deslizamiento_Pared			\Default Work Unit\Deslizamiento_Pared	
@@ -63,46 +64,50 @@ State	ID	Name	State Group			Notes
 	4148512200	Menu_sel_pers	Musicas			
 
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
-	81282929	SFX_PasoMetal05	C:\Users\Iker\Desktop\Desarrollo3\Desarrollo3_WwiseProject\.cache\Windows\SFX\SFX_PasoMetal05_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\CorridaPasos\SFX_PasoMetal05		26704
-	119708575	Menu 1	C:\Users\Iker\Desktop\Desarrollo3\Desarrollo3_WwiseProject\.cache\Windows\SFX\Menu 1_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\Musicas\menu 1\Menu 1\Menu 1		2869236
-	205655953	SFX_Ataque2B	C:\Users\Iker\Desktop\Desarrollo3\Desarrollo3_WwiseProject\.cache\Windows\SFX\SFX_Ataque2B_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ataque2\SFX_Ataque2B		306316
-	207195285	ELECCION_MUJER_MALA	C:\Users\Iker\Desktop\Desarrollo3\Desarrollo3_WwiseProject\.cache\Windows\SFX\eleccion de personaje_mala_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\ELECCION_MUJER_MALA		1017820
-	237385617	SFX_PasoMetal01	C:\Users\Iker\Desktop\Desarrollo3\Desarrollo3_WwiseProject\.cache\Windows\SFX\SFX_PasoMetal01_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\CorridaPasos\SFX_PasoMetal01		26104
-	243701649	SFX_Ataque1	C:\Users\Iker\Desktop\Desarrollo3\Desarrollo3_WwiseProject\.cache\Windows\SFX\SFX_Ataque1_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX_Ataque1		239036
-	246225358	SFX_ZoomIn_C	C:\Users\Iker\Desktop\Desarrollo3\Desarrollo3_WwiseProject\.cache\Windows\SFX\SFX_ZoomIn_C_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\ZoomIn&Out\SFX_ZoomIn_C		322624
-	301701033	ENTRADA_IMAGE_CAMPUS_3	C:\Users\Iker\Desktop\Desarrollo3\Desarrollo3_WwiseProject\.cache\Windows\SFX\ENTRADA_IMAGE_CAMPUS_3_D79FB2B7.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\ENTRADA_IMAGE_CAMPUS_3		1302760
-	305761842	BARRA_VOLUMEN	C:\Users\Iker\Desktop\Desarrollo3\Desarrollo3_WwiseProject\.cache\Windows\SFX\barra volumen_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\BARRA_VOLUMEN		325788
-	337669942	SFX_Dash1	C:\Users\Iker\Desktop\Desarrollo3\Desarrollo3_WwiseProject\.cache\Windows\SFX\SFX_Dash1_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dash\SFX_Dash1		270784
-	358195361	SFX_PasoMetal02	C:\Users\Iker\Desktop\Desarrollo3\Desarrollo3_WwiseProject\.cache\Windows\SFX\SFX_PasoMetal02_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\CorridaPasos\SFX_PasoMetal02		27584
-	400292988	SFX_PasoMetal03	C:\Users\Iker\Desktop\Desarrollo3\Desarrollo3_WwiseProject\.cache\Windows\SFX\SFX_PasoMetal03_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\CorridaPasos\SFX_PasoMetal03		26296
-	494298104	SFX_Dash3	C:\Users\Iker\Desktop\Desarrollo3\Desarrollo3_WwiseProject\.cache\Windows\SFX\SFX_Dash3_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dash\SFX_Dash3		238144
-	497877854	PLAY_2	C:\Users\Iker\Desktop\Desarrollo3\Desarrollo3_WwiseProject\.cache\Windows\SFX\play 2_AEFA2F24.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\PLAY_2		529836
-	542068633	SFX_Ataque3A	C:\Users\Iker\Desktop\Desarrollo3\Desarrollo3_WwiseProject\.cache\Windows\SFX\SFX_Ataque3A_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ataque3\SFX_Ataque3A		161172
-	609115062	SFX_CaeDeCabeza	C:\Users\Iker\Desktop\Desarrollo3\Desarrollo3_WwiseProject\.cache\Windows\SFX\SFX_CaeDeCabeza_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX_CaeDeCabeza		164360
-	621957689	SFX_Salto_01	C:\Users\Iker\Desktop\Desarrollo3\Desarrollo3_WwiseProject\.cache\Windows\SFX\SFX_Salto_A6B74E23.wem		\Actor-Mixer Hierarchy\Default Work Unit\Salto\SFX_Salto_01		37024
-	644458182	SFX_PasoMetal06	C:\Users\Iker\Desktop\Desarrollo3\Desarrollo3_WwiseProject\.cache\Windows\SFX\SFX_PasoMetal06_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\CorridaPasos\SFX_PasoMetal06		26792
-	656649302	SFX_ZoomIn_A	C:\Users\Iker\Desktop\Desarrollo3\Desarrollo3_WwiseProject\.cache\Windows\SFX\SFX_ZoomIn_A_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\ZoomIn&Out\SFX_ZoomIn_A		305344
-	656881652	SFX_PasoMetal04	C:\Users\Iker\Desktop\Desarrollo3\Desarrollo3_WwiseProject\.cache\Windows\SFX\SFX_PasoMetal04_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\CorridaPasos\SFX_PasoMetal04		27072
-	678628561	Menu creditos	C:\Users\Iker\Desktop\Desarrollo3\Desarrollo3_WwiseProject\.cache\Windows\SFX\Menu creditos_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\Musicas\creditos\Menu creditos\Menu creditos		9550980
-	679655236	SFX_Dash2	C:\Users\Iker\Desktop\Desarrollo3\Desarrollo3_WwiseProject\.cache\Windows\SFX\SFX_Dash2_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dash\SFX_Dash2		282304
-	701466231	BOTON_FINALIZAR_PARTIDA	C:\Users\Iker\Desktop\Desarrollo3\Desarrollo3_WwiseProject\.cache\Windows\SFX\BOTON_FINALIZAR_PARTIDA_A532C0AF.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\BOTON_FINALIZAR_PARTIDA		352864
-	731081151	SFX_Salto_03	C:\Users\Iker\Desktop\Desarrollo3\Desarrollo3_WwiseProject\.cache\Windows\SFX\SFX_Salto_C79191F2.wem		\Actor-Mixer Hierarchy\Default Work Unit\Salto\SFX_Salto_03		31450
-	747274110	SFX_Salto_02	C:\Users\Iker\Desktop\Desarrollo3\Desarrollo3_WwiseProject\.cache\Windows\SFX\SFX_Salto_6294ED36.wem		\Actor-Mixer Hierarchy\Default Work Unit\Salto\SFX_Salto_02		24374
-	806087017	SFX_Salto_04	C:\Users\Iker\Desktop\Desarrollo3\Desarrollo3_WwiseProject\.cache\Windows\SFX\SFX_Salto_D68205B3.wem		\Actor-Mixer Hierarchy\Default Work Unit\Salto\SFX_Salto_04		27582
-	828680542	Menu17_11	C:\Users\Iker\Desktop\Desarrollo3\Desarrollo3_WwiseProject\.cache\Windows\SFX\Menu17_11_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\Musicas\Loading\Menu17_11\Menu17_11		3043188
-	873666959	SFX_Salto_06	C:\Users\Iker\Desktop\Desarrollo3\Desarrollo3_WwiseProject\.cache\Windows\SFX\SFX_Salto_40DC6169.wem		\Actor-Mixer Hierarchy\Default Work Unit\Salto\SFX_Salto_06		28230
-	888733065	SFX_PlayerWins	C:\Users\Iker\Desktop\Desarrollo3\Desarrollo3_WwiseProject\.cache\Windows\SFX\SFX_PlayerWins_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\SFX_PlayerWins		284224
-	919981041	SFX_Ataque2A	C:\Users\Iker\Desktop\Desarrollo3\Desarrollo3_WwiseProject\.cache\Windows\SFX\SFX_Ataque2A_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ataque2\SFX_Ataque2A		179872
-	921673452	SFX_ZoomIn_B	C:\Users\Iker\Desktop\Desarrollo3\Desarrollo3_WwiseProject\.cache\Windows\SFX\SFX_ZoomIn_B_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\ZoomIn&Out\SFX_ZoomIn_B		336724
-	930660109	InGame17_11	C:\Users\Iker\Desktop\Desarrollo3\Desarrollo3_WwiseProject\.cache\Windows\SFX\InGame17_11_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\Musicas\InGame\InGame17_11\InGame17_11		6415860
-	955010451	ELECCION_MUJER_	C:\Users\Iker\Desktop\Desarrollo3\Desarrollo3_WwiseProject\.cache\Windows\SFX\ELECCION_MUJER__10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\ELECCION_MUJER_		374916
-	976709489	CLICK_BOTON	C:\Users\Iker\Desktop\Desarrollo3\Desarrollo3_WwiseProject\.cache\Windows\SFX\CLICK_BOTON_9B0CA1C0.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\CLICK_BOTON		114744
-	984583022	SFX_Salto_05	C:\Users\Iker\Desktop\Desarrollo3\Desarrollo3_WwiseProject\.cache\Windows\SFX\SFX_Salto_949E477E.wem		\Actor-Mixer Hierarchy\Default Work Unit\Salto\SFX_Salto_05		32302
-	1021852184	SFX_Ataque3B	C:\Users\Iker\Desktop\Desarrollo3\Desarrollo3_WwiseProject\.cache\Windows\SFX\SFX_Ataque3B_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ataque3\SFX_Ataque3B		129732
-	1035927207	Transition_M_G_18_111	C:\Users\Iker\Desktop\Desarrollo3\Desarrollo3_WwiseProject\.cache\Windows\SFX\Transition_M_G_18_111_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\Musicas\Transition_M_G_18_01\Transition_M_G_18_111		1206768
-	1044100738	SFX_Ataque3C	C:\Users\Iker\Desktop\Desarrollo3\Desarrollo3_WwiseProject\.cache\Windows\SFX\SFX_Ataque3C_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ataque3\SFX_Ataque3C		435688
-	1052667525	Start	C:\Users\Iker\Desktop\Desarrollo3\Desarrollo3_WwiseProject\.cache\Windows\SFX\Start_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\Musicas\Press_start\Start\Start		2839836
-	1069253033	ATRAS	C:\Users\Iker\Desktop\Desarrollo3\Desarrollo3_WwiseProject\.cache\Windows\SFX\ATRAS_2044B4BE.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\ATRAS		95024
-	1072181824	Menu_opciones	C:\Users\Iker\Desktop\Desarrollo3\Desarrollo3_WwiseProject\.cache\Windows\SFX\Menu_opciones_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\Musicas\Menu_opciones\Menu_opciones\Menu_opciones		2869236
-	1072491871	SFX_Parry	C:\Users\Iker\Desktop\Desarrollo3\Desarrollo3_WwiseProject\.cache\Windows\SFX\SFX_Parry_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX_Parry		355264
+	81282929	SFX_PasoMetal05	C:\Users\delli\Documents\GitHub\tower-of-vertigo\Desarrollo3_WwiseProject\.cache\Windows\SFX\SFX_PasoMetal05_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\In game\CorridaPasos\SFX_PasoMetal05		26704
+	119708575	Menu 1	C:\Users\delli\Documents\GitHub\tower-of-vertigo\Desarrollo3_WwiseProject\.cache\Windows\SFX\Menu 1_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\Musicas\menu 1\Menu 1\Menu 1		2869236
+	205655953	SFX_Ataque2B	C:\Users\delli\Documents\GitHub\tower-of-vertigo\Desarrollo3_WwiseProject\.cache\Windows\SFX\SFX_Ataque2B_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\In game\Ataque2\SFX_Ataque2B		306316
+	207195285	ELECCION_MUJER_MALA	C:\Users\delli\Documents\GitHub\tower-of-vertigo\Desarrollo3_WwiseProject\.cache\Windows\SFX\eleccion de personaje_mala_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\UI\ELECCION_MUJER_MALA		1017820
+	237385617	SFX_PasoMetal01	C:\Users\delli\Documents\GitHub\tower-of-vertigo\Desarrollo3_WwiseProject\.cache\Windows\SFX\SFX_PasoMetal01_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\In game\CorridaPasos\SFX_PasoMetal01		26104
+	243701649	SFX_Ataque1	C:\Users\delli\Documents\GitHub\tower-of-vertigo\Desarrollo3_WwiseProject\.cache\Windows\SFX\SFX_Ataque1_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\In game\SFX_Ataque1		239036
+	246225358	SFX_ZoomIn_C	C:\Users\delli\Documents\GitHub\tower-of-vertigo\Desarrollo3_WwiseProject\.cache\Windows\SFX\SFX_ZoomIn_C_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\In game\ZoomIn&Out\SFX_ZoomIn_C		322624
+	301701033	ENTRADA_IMAGE_CAMPUS_3	C:\Users\delli\Documents\GitHub\tower-of-vertigo\Desarrollo3_WwiseProject\.cache\Windows\SFX\ENTRADA_IMAGE_CAMPUS_3_D79FB2B7.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\UI\ENTRADA_IMAGE_CAMPUS_3		1302760
+	305761842	BARRA_VOLUMEN	C:\Users\delli\Documents\GitHub\tower-of-vertigo\Desarrollo3_WwiseProject\.cache\Windows\SFX\barra volumen_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\UI\BARRA_VOLUMEN		325788
+	337669942	SFX_Dash1	C:\Users\delli\Documents\GitHub\tower-of-vertigo\Desarrollo3_WwiseProject\.cache\Windows\SFX\SFX_Dash1_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\In game\Dash\SFX_Dash1		270784
+	358195361	SFX_PasoMetal02	C:\Users\delli\Documents\GitHub\tower-of-vertigo\Desarrollo3_WwiseProject\.cache\Windows\SFX\SFX_PasoMetal02_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\In game\CorridaPasos\SFX_PasoMetal02		27584
+	400292988	SFX_PasoMetal03	C:\Users\delli\Documents\GitHub\tower-of-vertigo\Desarrollo3_WwiseProject\.cache\Windows\SFX\SFX_PasoMetal03_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\In game\CorridaPasos\SFX_PasoMetal03		26296
+	404845938	deslizamiento sobre tierra 1	C:\Users\delli\Documents\GitHub\tower-of-vertigo\Desarrollo3_WwiseProject\.cache\Windows\SFX\deslizamiento sobre tierra_37000EA4.wem		\Actor-Mixer Hierarchy\Default Work Unit\In game\deslizamiento sobre tierra\deslizamiento sobre tierra 1		262440
+	494298104	SFX_Dash3	C:\Users\delli\Documents\GitHub\tower-of-vertigo\Desarrollo3_WwiseProject\.cache\Windows\SFX\SFX_Dash3_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\In game\Dash\SFX_Dash3		238144
+	497877854	PLAY_2	C:\Users\delli\Documents\GitHub\tower-of-vertigo\Desarrollo3_WwiseProject\.cache\Windows\SFX\play 2_AEFA2F24.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\UI\PLAY_2		529836
+	542068633	SFX_Ataque3A	C:\Users\delli\Documents\GitHub\tower-of-vertigo\Desarrollo3_WwiseProject\.cache\Windows\SFX\SFX_Ataque3A_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\In game\Ataque3\SFX_Ataque3A		161172
+	589282136	deslizamiento sobre tierra 2	C:\Users\delli\Documents\GitHub\tower-of-vertigo\Desarrollo3_WwiseProject\.cache\Windows\SFX\deslizamiento sobre tierra_32766B26.wem		\Actor-Mixer Hierarchy\Default Work Unit\In game\deslizamiento sobre tierra\deslizamiento sobre tierra 2		305032
+	609115062	SFX_CaeDeCabeza	C:\Users\delli\Documents\GitHub\tower-of-vertigo\Desarrollo3_WwiseProject\.cache\Windows\SFX\SFX_CaeDeCabeza_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\In game\SFX_CaeDeCabeza		164360
+	621957689	SFX_Salto_01	C:\Users\delli\Documents\GitHub\tower-of-vertigo\Desarrollo3_WwiseProject\.cache\Windows\SFX\SFX_Salto_A6B74E23.wem		\Actor-Mixer Hierarchy\Default Work Unit\In game\Salto\SFX_Salto_01		37024
+	644458182	SFX_PasoMetal06	C:\Users\delli\Documents\GitHub\tower-of-vertigo\Desarrollo3_WwiseProject\.cache\Windows\SFX\SFX_PasoMetal06_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\In game\CorridaPasos\SFX_PasoMetal06		26792
+	656649302	SFX_ZoomIn_A	C:\Users\delli\Documents\GitHub\tower-of-vertigo\Desarrollo3_WwiseProject\.cache\Windows\SFX\SFX_ZoomIn_A_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\In game\ZoomIn&Out\SFX_ZoomIn_A		305344
+	656881652	SFX_PasoMetal04	C:\Users\delli\Documents\GitHub\tower-of-vertigo\Desarrollo3_WwiseProject\.cache\Windows\SFX\SFX_PasoMetal04_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\In game\CorridaPasos\SFX_PasoMetal04		27072
+	678628561	Menu creditos	C:\Users\delli\Documents\GitHub\tower-of-vertigo\Desarrollo3_WwiseProject\.cache\Windows\SFX\Menu creditos_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\Musicas\creditos\Menu creditos\Menu creditos		9550980
+	679655236	SFX_Dash2	C:\Users\delli\Documents\GitHub\tower-of-vertigo\Desarrollo3_WwiseProject\.cache\Windows\SFX\SFX_Dash2_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\In game\Dash\SFX_Dash2		282304
+	701466231	BOTON_FINALIZAR_PARTIDA	C:\Users\delli\Documents\GitHub\tower-of-vertigo\Desarrollo3_WwiseProject\.cache\Windows\SFX\BOTON_FINALIZAR_PARTIDA_A532C0AF.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\UI\BOTON_FINALIZAR_PARTIDA		352864
+	731081151	SFX_Salto_03	C:\Users\delli\Documents\GitHub\tower-of-vertigo\Desarrollo3_WwiseProject\.cache\Windows\SFX\SFX_Salto_C79191F2.wem		\Actor-Mixer Hierarchy\Default Work Unit\In game\Salto\SFX_Salto_03		31450
+	739473157	deslizamiento sobre tierra 3	C:\Users\delli\Documents\GitHub\tower-of-vertigo\Desarrollo3_WwiseProject\.cache\Windows\SFX\deslizamiento sobre tierra_7CFFA25E.wem		\Actor-Mixer Hierarchy\Default Work Unit\In game\deslizamiento sobre tierra\deslizamiento sobre tierra 3		391924
+	747274110	SFX_Salto_02	C:\Users\delli\Documents\GitHub\tower-of-vertigo\Desarrollo3_WwiseProject\.cache\Windows\SFX\SFX_Salto_6294ED36.wem		\Actor-Mixer Hierarchy\Default Work Unit\In game\Salto\SFX_Salto_02		24374
+	806087017	SFX_Salto_04	C:\Users\delli\Documents\GitHub\tower-of-vertigo\Desarrollo3_WwiseProject\.cache\Windows\SFX\SFX_Salto_D68205B3.wem		\Actor-Mixer Hierarchy\Default Work Unit\In game\Salto\SFX_Salto_04		27582
+	828680542	Menu17_11	C:\Users\delli\Documents\GitHub\tower-of-vertigo\Desarrollo3_WwiseProject\.cache\Windows\SFX\Menu17_11_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\Musicas\Loading\Menu17_11\Menu17_11		3043188
+	873666959	SFX_Salto_06	C:\Users\delli\Documents\GitHub\tower-of-vertigo\Desarrollo3_WwiseProject\.cache\Windows\SFX\SFX_Salto_40DC6169.wem		\Actor-Mixer Hierarchy\Default Work Unit\In game\Salto\SFX_Salto_06		28230
+	888733065	SFX_PlayerWins	C:\Users\delli\Documents\GitHub\tower-of-vertigo\Desarrollo3_WwiseProject\.cache\Windows\SFX\SFX_PlayerWins_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\UI\SFX_PlayerWins		284224
+	919981041	SFX_Ataque2A	C:\Users\delli\Documents\GitHub\tower-of-vertigo\Desarrollo3_WwiseProject\.cache\Windows\SFX\SFX_Ataque2A_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\In game\Ataque2\SFX_Ataque2A		179872
+	921673452	SFX_ZoomIn_B	C:\Users\delli\Documents\GitHub\tower-of-vertigo\Desarrollo3_WwiseProject\.cache\Windows\SFX\SFX_ZoomIn_B_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\In game\ZoomIn&Out\SFX_ZoomIn_B		336724
+	930660109	InGame17_11	C:\Users\delli\Documents\GitHub\tower-of-vertigo\Desarrollo3_WwiseProject\.cache\Windows\SFX\InGame17_11_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\Musicas\InGame\InGame17_11\InGame17_11		6415860
+	955010451	ELECCION_MUJER_	C:\Users\delli\Documents\GitHub\tower-of-vertigo\Desarrollo3_WwiseProject\.cache\Windows\SFX\ELECCION_MUJER__10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\UI\ELECCION_MUJER_		374916
+	976709489	CLICK_BOTON	C:\Users\delli\Documents\GitHub\tower-of-vertigo\Desarrollo3_WwiseProject\.cache\Windows\SFX\CLICK_BOTON_9B0CA1C0.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\UI\CLICK_BOTON		114744
+	984583022	SFX_Salto_05	C:\Users\delli\Documents\GitHub\tower-of-vertigo\Desarrollo3_WwiseProject\.cache\Windows\SFX\SFX_Salto_949E477E.wem		\Actor-Mixer Hierarchy\Default Work Unit\In game\Salto\SFX_Salto_05		32302
+	986631320	volver_a_jugar_largo	C:\Users\delli\Documents\GitHub\tower-of-vertigo\Desarrollo3_WwiseProject\.cache\Windows\SFX\volver_a_jugar_largo_9A756A8C.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\UI\volver_a_jugar_largo		571548
+	1021852184	SFX_Ataque3B	C:\Users\delli\Documents\GitHub\tower-of-vertigo\Desarrollo3_WwiseProject\.cache\Windows\SFX\SFX_Ataque3B_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\In game\Ataque3\SFX_Ataque3B		129732
+	1035927207	Transition_M_G_18_111	C:\Users\delli\Documents\GitHub\tower-of-vertigo\Desarrollo3_WwiseProject\.cache\Windows\SFX\Transition_M_G_18_111_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\Musicas\Transition_M_G_18_01\Transition_M_G_18_111		1206768
+	1044100738	SFX_Ataque3C	C:\Users\delli\Documents\GitHub\tower-of-vertigo\Desarrollo3_WwiseProject\.cache\Windows\SFX\SFX_Ataque3C_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\In game\Ataque3\SFX_Ataque3C		435688
+	1052667525	Start	C:\Users\delli\Documents\GitHub\tower-of-vertigo\Desarrollo3_WwiseProject\.cache\Windows\SFX\Start_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\Musicas\Press_start\Start\Start		2839836
+	1069253033	ATRAS	C:\Users\delli\Documents\GitHub\tower-of-vertigo\Desarrollo3_WwiseProject\.cache\Windows\SFX\ATRAS_2044B4BE.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\UI\ATRAS		95024
+	1072181824	Menu_opciones	C:\Users\delli\Documents\GitHub\tower-of-vertigo\Desarrollo3_WwiseProject\.cache\Windows\SFX\Menu_opciones_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\Musicas\Menu_opciones\Menu_opciones\Menu_opciones		2869236
+	1072491871	SFX_Parry	C:\Users\delli\Documents\GitHub\tower-of-vertigo\Desarrollo3_WwiseProject\.cache\Windows\SFX\SFX_Parry_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\In game\SFX_Parry		355264
 
