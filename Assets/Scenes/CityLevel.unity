@@ -181,7 +181,7 @@ GameObject:
   - component: {fileID: 23494864}
   - component: {fileID: 23494866}
   - component: {fileID: 23494865}
-  m_Layer: 0
+  m_Layer: 22
   m_Name: Red_Lights
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -277,7 +277,7 @@ GameObject:
   - component: {fileID: 31510561}
   - component: {fileID: 31510563}
   - component: {fileID: 31510562}
-  m_Layer: 0
+  m_Layer: 22
   m_Name: Colorful_Lights
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -496,7 +496,7 @@ GameObject:
   - component: {fileID: 63719050}
   - component: {fileID: 63719052}
   - component: {fileID: 63719051}
-  m_Layer: 0
+  m_Layer: 22
   m_Name: Right_Green_Lights_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1012,7 +1012,7 @@ GameObject:
   - component: {fileID: 141005130}
   - component: {fileID: 141005132}
   - component: {fileID: 141005131}
-  m_Layer: 0
+  m_Layer: 22
   m_Name: Right_Purple_Lights
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1895,7 +1895,7 @@ GameObject:
   - component: {fileID: 275841339}
   - component: {fileID: 275841341}
   - component: {fileID: 275841340}
-  m_Layer: 0
+  m_Layer: 22
   m_Name: Colorful_Lights
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2192,7 +2192,7 @@ GameObject:
   - component: {fileID: 292047526}
   - component: {fileID: 292047528}
   - component: {fileID: 292047527}
-  m_Layer: 0
+  m_Layer: 22
   m_Name: Right_LightBlue_Lights
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7386,7 +7386,7 @@ GameObject:
   - component: {fileID: 339783849}
   - component: {fileID: 339783851}
   - component: {fileID: 339783850}
-  m_Layer: 0
+  m_Layer: 22
   m_Name: Rigth_Colorful_Lights
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7892,7 +7892,7 @@ GameObject:
   - component: {fileID: 409226629}
   - component: {fileID: 409226631}
   - component: {fileID: 409226630}
-  m_Layer: 0
+  m_Layer: 22
   m_Name: Pink_Lights
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8000,7 +8000,7 @@ GameObject:
   - component: {fileID: 426831497}
   - component: {fileID: 426831499}
   - component: {fileID: 426831498}
-  m_Layer: 0
+  m_Layer: 22
   m_Name: Right_Blue_Lights
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8270,7 +8270,7 @@ GameObject:
   - component: {fileID: 476154598}
   - component: {fileID: 476154600}
   - component: {fileID: 476154599}
-  m_Layer: 0
+  m_Layer: 22
   m_Name: LightGreen_Lights
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8654,7 +8654,7 @@ GameObject:
   - component: {fileID: 551144952}
   - component: {fileID: 551144954}
   - component: {fileID: 551144953}
-  m_Layer: 0
+  m_Layer: 22
   m_Name: Blue_Lights
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8750,7 +8750,7 @@ GameObject:
   - component: {fileID: 583511113}
   - component: {fileID: 583511115}
   - component: {fileID: 583511114}
-  m_Layer: 0
+  m_Layer: 22
   m_Name: Right_Green_Lights_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9472,7 +9472,7 @@ GameObject:
   - component: {fileID: 695747833}
   - component: {fileID: 695747835}
   - component: {fileID: 695747834}
-  m_Layer: 0
+  m_Layer: 22
   m_Name: Green_Lights
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9654,7 +9654,7 @@ GameObject:
   - component: {fileID: 764509741}
   - component: {fileID: 764509743}
   - component: {fileID: 764509742}
-  m_Layer: 0
+  m_Layer: 22
   m_Name: Ambiance_Lights
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10588,7 +10588,7 @@ GameObject:
   - component: {fileID: 1023220351}
   - component: {fileID: 1023220353}
   - component: {fileID: 1023220352}
-  m_Layer: 0
+  m_Layer: 22
   m_Name: Ambiance_Lights
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10885,7 +10885,7 @@ GameObject:
   - component: {fileID: 1125620369}
   - component: {fileID: 1125620371}
   - component: {fileID: 1125620370}
-  m_Layer: 0
+  m_Layer: 22
   m_Name: Mid_LightGreen_Lights
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11488,7 +11488,7 @@ GameObject:
   - component: {fileID: 1278326704}
   - component: {fileID: 1278326706}
   - component: {fileID: 1278326705}
-  m_Layer: 0
+  m_Layer: 22
   m_Name: Green_Lights
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11709,7 +11709,7 @@ GameObject:
   - component: {fileID: 1320704580}
   - component: {fileID: 1320704582}
   - component: {fileID: 1320704581}
-  m_Layer: 0
+  m_Layer: 22
   m_Name: Blue_Lights
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11805,7 +11805,7 @@ GameObject:
   - component: {fileID: 1333159573}
   - component: {fileID: 1333159575}
   - component: {fileID: 1333159574}
-  m_Layer: 0
+  m_Layer: 22
   m_Name: Ambiance_Lights
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12428,7 +12428,7 @@ GameObject:
   - component: {fileID: 1441286334}
   - component: {fileID: 1441286336}
   - component: {fileID: 1441286335}
-  m_Layer: 0
+  m_Layer: 22
   m_Name: Yellow_Lights
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12707,7 +12707,7 @@ GameObject:
   - component: {fileID: 1494953824}
   - component: {fileID: 1494953826}
   - component: {fileID: 1494953825}
-  m_Layer: 0
+  m_Layer: 22
   m_Name: Mid_Green_LIghts
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13069,7 +13069,7 @@ SpriteRenderer:
   m_SortingLayer: -4
   m_SortingOrder: 9
   m_Sprite: {fileID: 21300000, guid: a33f9ac0a7e664f4ab9e06f0d11882ef, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -13561,7 +13561,7 @@ GameObject:
   - component: {fileID: 1744478153}
   - component: {fileID: 1744478155}
   - component: {fileID: 1744478154}
-  m_Layer: 0
+  m_Layer: 22
   m_Name: LightBlue_Lights
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13657,7 +13657,7 @@ GameObject:
   - component: {fileID: 1775341241}
   - component: {fileID: 1775341243}
   - component: {fileID: 1775341242}
-  m_Layer: 0
+  m_Layer: 22
   m_Name: Right_Red_Lights
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13868,7 +13868,7 @@ GameObject:
   - component: {fileID: 1880546972}
   - component: {fileID: 1880546974}
   - component: {fileID: 1880546973}
-  m_Layer: 0
+  m_Layer: 22
   m_Name: Mid_Colorful_Lights
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13962,6 +13962,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1933637351}
+  - component: {fileID: 1933637352}
   m_Layer: 0
   m_Name: Background
   m_TagString: Untagged
@@ -13989,6 +13990,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1933637352
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1933637350}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c86d25cb03679714c87147463ddbe57a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lights:
+  - {fileID: 1023220353}
+  - {fileID: 764509743}
+  - {fileID: 2012051618}
+  - {fileID: 1333159575}
 --- !u!1 &1983162506 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 454065279234788254, guid: bd70e40c08b78a74f92c4ee1258c9d59,
@@ -14039,7 +14057,7 @@ GameObject:
   - component: {fileID: 2012051616}
   - component: {fileID: 2012051618}
   - component: {fileID: 2012051617}
-  m_Layer: 0
+  m_Layer: 22
   m_Name: Ambiance_Lights
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19338,7 +19356,7 @@ GameObject:
   - component: {fileID: 2128224162}
   - component: {fileID: 2128224164}
   - component: {fileID: 2128224163}
-  m_Layer: 0
+  m_Layer: 22
   m_Name: Left_Yellow_Lights
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -82,7 +82,6 @@ public class PlayerController : MonoBehaviour
     bool canDash = true;
     bool isDashing = false;
     bool isPaused = false;
-    bool isMoving = false;
     float walljumpAnimTime = 0.1403281f;
 
     ParryController parryController;
