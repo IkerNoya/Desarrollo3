@@ -90,7 +90,7 @@ MonoBehaviour:
     ParentPath: Default Work Unit
     guid: a0e9a5e2bc6a0e43862942f8911e4a7e
     GuidInternal: 
-    m_lastTime: -8585953235182795904
+    m_lastTime: -8585885225953536204
     List:
     - name: Ataque1
       guid: 96b6927ab1fac24091e819404c8ab028
@@ -298,8 +298,8 @@ MonoBehaviour:
         ObjectType: 3
       Path: Default Work Unit\Deslizamiento_Pared
       maxAttenuation: 0
-      maxDuration: 0
-      minDuration: 0
+      maxDuration: -1
+      minDuration: -1
     - name: Despausar
       guid: d9bf87bd423eeb41a6aa4b46d58c2eb9
       id: 3406505131
@@ -660,6 +660,18 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: 0
       minDuration: 0
+    - name: volver_a_jugar
+      guid: c2f6af003c0ffb438006c56ba32721f4
+      id: 3115976533
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: volver_a_jugar
+        ObjectType: 3
+      Path: Default Work Unit\volver_a_jugar
+      maxAttenuation: 0
+      maxDuration: 3.239726
+      minDuration: 3.239726
   RtpcWwu:
   - PhysicalPath: Game Parameters\Default Work Unit.wwu
     PathAndIcons:
