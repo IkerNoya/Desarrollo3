@@ -34,6 +34,5 @@ public class LightEffect : MonoBehaviour
                 sr.color = alphaValue;
             }
         }
-        Debug.Log(alpha);
     }
 }
