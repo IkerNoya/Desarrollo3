@@ -6,6 +6,7 @@ public class LightEffect : MonoBehaviour
 {
     [Space]
     [SerializeField] List<SpriteRenderer> lights;
+    [SerializeField] List<SpriteRenderer> glitch;
     bool limit = false;
     float alpha = 1f;
     float initialValue = 1f;

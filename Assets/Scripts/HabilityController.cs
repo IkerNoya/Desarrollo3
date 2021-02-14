@@ -9,6 +9,8 @@ public class HabilityController : MonoBehaviour
         healing, chargeAttack, parry
     }
     public Hability hability;
+    [SerializeField] KeyCode habilityKeyKM;
+    [SerializeField] KeyCode habilityKeyJoystick;
     void Start()
     {
         
@@ -16,6 +18,9 @@ public class HabilityController : MonoBehaviour
 
     void Update()
     {
-        
+        if(Input.GetKey(habilityKeyKM) || Input.GetKey(habilityKeyJoystick))
+        {
+            Debug.Log("Activate Hability");
+        }
     }
 }
