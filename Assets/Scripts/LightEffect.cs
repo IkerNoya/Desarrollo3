@@ -10,8 +10,18 @@ public class LightEffect : MonoBehaviour
     bool limit = false;
     float alpha = 1f;
     float initialValue = 1f;
-
+    float timer;
+    float timeLimit;
+    void Start()
+    {
+        timeLimit = Random.Range(10,25);
+    }
     void Update()
+    {
+        AmbianceFade();
+        GlitchEffect();
+    }
+    void AmbianceFade()
     {
         if (limit)
         {
@@ -35,5 +45,34 @@ public class LightEffect : MonoBehaviour
                 sr.color = alphaValue;
             }
         }
+    }
+    void GlitchEffect()
+    {
+        timer += Time.deltaTime;
+        if (timer >= timeLimit)
+        {
+            StartCoroutine(Glitch(0.25f));
+        }
+    }
+    IEnumerator Glitch(float duration)
+    {
+        foreach(SpriteRenderer sr in glitch) 
+        {
+            var alpha = sr.color;
+            alpha.a = 0.5f;
+            sr.color = alpha;
+            yield return new WaitForSeconds(duration);
+            alpha.a = 1;
+            sr.color = alpha;
+            yield return new WaitForSeconds(duration);
+            alpha.a = 0.5f;
+            sr.color = alpha;
+            yield return new WaitForSeconds(duration);
+            alpha.a = 1;
+            sr.color = alpha;
+        }
+        timeLimit = Random.Range(10,25);
+        timer = 0;
+        yield return null;
     }
 }
