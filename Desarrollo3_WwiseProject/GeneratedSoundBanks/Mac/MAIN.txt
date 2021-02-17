@@ -1,49 +1,49 @@
 Event	ID	Name			Wwise Object Path	Notes
-	34185445	Menu_PlayerWins			\Default Work Unit\Menu_PlayerWins	
-	251416149	Corrida			\Default Work Unit\Corrida	
+	34185445	Menu_PlayerWins			\Default Work Unit\UI\Menu_PlayerWins	
+	251416149	Corrida			\Default Work Unit\In game\Corrida	
 	443124334	Barra_volumen			\Default Work Unit\UI\Barra_volumen	
-	622800721	Captura_DeObjetivo			\Default Work Unit\Captura_DeObjetivo	
-	855909871	Ataque1			\Default Work Unit\Ataque1	
-	928907744	Inicia_Menu			\Default Work Unit\Inicia_Menu	
-	998748901	Ataque2A			\Default Work Unit\Ataque2A	
-	998748902	Ataque2B			\Default Work Unit\Ataque2B	
-	1015526516	Ataque3C			\Default Work Unit\Ataque3C	
-	1015526517	Ataque3B			\Default Work Unit\Ataque3B	
-	1015526518	Ataque3A			\Default Work Unit\Ataque3A	
-	1078793336	Inicia_SeleccionDePantalla			\Default Work Unit\Inicia_SeleccionDePantalla	
+	622800721	Captura_DeObjetivo			\Default Work Unit\In game\Captura_DeObjetivo	
+	855909871	Ataque1			\Default Work Unit\In game\Ataque1	
+	928907744	Inicia_Menu			\Default Work Unit\UI\Inicia_Menu	
+	998748901	Ataque2A			\Default Work Unit\In game\Ataque2A	
+	998748902	Ataque2B			\Default Work Unit\In game\Ataque2B	
+	1015526516	Ataque3C			\Default Work Unit\In game\Ataque3C	
+	1015526517	Ataque3B			\Default Work Unit\In game\Ataque3B	
+	1015526518	Ataque3A			\Default Work Unit\In game\Ataque3A	
+	1078793336	Inicia_SeleccionDePantalla			\Default Work Unit\UI\Inicia_SeleccionDePantalla	
 	1171167445	Tirado_Idle			\Default Work Unit\Tirado_Idle	
-	1190877053	Inicia_Juego			\Default Work Unit\Inicia_Juego	
+	1190877053	Inicia_Juego			\Default Work Unit\UI\Inicia_Juego	
 	1203400786	Restart			\Default Work Unit\UI\Restart	
-	1230222675	Salto_Pared			\Default Work Unit\Salto_Pared	
+	1230222675	Salto_Pared			\Default Work Unit\In game\Salto_Pared	
 	1436561225	Tocar_Boton			\Default Work Unit\UI\Tocar_Boton	
-	1560490425	Caida_Plataforma			\Default Work Unit\Caida_Plataforma	
-	1725143731	Inicia_SeleccionDePersonajes			\Default Work Unit\Inicia_SeleccionDePersonajes	
-	1942692385	Dash			\Default Work Unit\Dash	
+	1560490425	Caida_Plataforma			\Default Work Unit\In game\Caida_Plataforma	
+	1725143731	Inicia_SeleccionDePersonajes			\Default Work Unit\UI\Inicia_SeleccionDePersonajes	
+	1942692385	Dash			\Default Work Unit\In game\Dash	
 	2156697475	Unmute			\Default Work Unit\UI\Unmute	
-	2170009971	Menu_Pausa			\Default Work Unit\Menu_Pausa	
+	2170009971	Menu_Pausa			\Default Work Unit\UI\Menu_Pausa	
 	2658298240	Inicio			\Default Work Unit\UI\Inicio	
-	2660185452	Parry_ZoomIn			\Default Work Unit\Parry_ZoomIn	
+	2660185452	Parry_ZoomIn			\Default Work Unit\In game\Parry_ZoomIn	
 	2678843140	Image_Campus			\Default Work Unit\UI\Image_Campus	
-	2922467479	Inicia_Opciones			\Default Work Unit\Inicia_Opciones	
-	2948438984	Salto			\Default Work Unit\Salto	
+	2922467479	Inicia_Opciones			\Default Work Unit\UI\Inicia_Opciones	
+	2948438984	Salto			\Default Work Unit\In game\Salto	
 	2974103762	Mute			\Default Work Unit\UI\Mute	
-	3076648345	Parry			\Default Work Unit\Parry	
+	3076648345	Parry			\Default Work Unit\In game\Parry	
 	3092587489	Pausa			\Default Work Unit\UI\Pausa	
-	3115976533	volver_a_jugar			\Default Work Unit\volver_a_jugar	
+	3115976533	volver_a_jugar			\Default Work Unit\UI\volver_a_jugar	
 	3306940243	Press_Start			\Default Work Unit\UI\Press_Start	
 	3406505131	Despausar			\Default Work Unit\UI\Despausar	
-	3415848950	Deslizamiento_Pared			\Default Work Unit\Deslizamiento_Pared	
+	3415848950	Deslizamiento_Pared			\Default Work Unit\In game\Deslizamiento_Pared	
 	3459005148	Eleccion_perso_2			\Default Work Unit\UI\Eleccion_perso_2	
 	3459005151	Eleccion_perso_1			\Default Work Unit\UI\Eleccion_perso_1	
 	3569082496	Salida_del_juego			\Default Work Unit\UI\Salida_del_juego	
-	3573931707	Loading			\Default Work Unit\Loading	
-	3775992877	Damage_Jugador2			\Default Work Unit\Damage_Jugador2	
-	3775992878	Damage_Jugador1			\Default Work Unit\Damage_Jugador1	
-	3817817792	DamageCritico_Jugador2			\Default Work Unit\DamageCritico_Jugador2	
-	3817817795	DamageCritico_Jugador1			\Default Work Unit\DamageCritico_Jugador1	
+	3573931707	Loading			\Default Work Unit\UI\Loading	
+	3775992877	Damage_Jugador2			\Default Work Unit\In game\Damage_Jugador2	
+	3775992878	Damage_Jugador1			\Default Work Unit\In game\Damage_Jugador1	
+	3817817792	DamageCritico_Jugador2			\Default Work Unit\In game\DamageCritico_Jugador2	
+	3817817795	DamageCritico_Jugador1			\Default Work Unit\In game\DamageCritico_Jugador1	
 	3997145959	Boton_Back			\Default Work Unit\UI\Boton_Back	
-	4126746240	Inicia_Creditos			\Default Work Unit\Inicia_Creditos	
-	4149406826	PopUp_PlayerWins			\Default Work Unit\PopUp_PlayerWins	
+	4126746240	Inicia_Creditos			\Default Work Unit\UI\Inicia_Creditos	
+	4149406826	PopUp_PlayerWins			\Default Work Unit\UI\PopUp_PlayerWins	
 
 State Group	ID	Name			Wwise Object Path	Notes
 	3092587489	Pausa			\Default Work Unit\Pausa	
@@ -69,6 +69,7 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	205655953	SFX_Ataque2B	C:\Users\delli\Documents\GitHub\tower-of-vertigo\Desarrollo3_WwiseProject\.cache\Mac\SFX\SFX_Ataque2B_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\In game\Ataque2\SFX_Ataque2B		306316
 	207195285	ELECCION_MUJER_MALA	C:\Users\delli\Documents\GitHub\tower-of-vertigo\Desarrollo3_WwiseProject\.cache\Mac\SFX\eleccion de personaje_mala_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\UI\ELECCION_MUJER_MALA		1017820
 	237385617	SFX_PasoMetal01	C:\Users\delli\Documents\GitHub\tower-of-vertigo\Desarrollo3_WwiseProject\.cache\Mac\SFX\SFX_PasoMetal01_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\In game\CorridaPasos\SFX_PasoMetal01		26104
+	242793748	New Music Track	C:\Users\delli\Documents\GitHub\tower-of-vertigo\Desarrollo3_WwiseProject\.cache\Mac\SFX\play 2_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\Musicas\Transition_Play\New Music Track		908116
 	243701649	SFX_Ataque1	C:\Users\delli\Documents\GitHub\tower-of-vertigo\Desarrollo3_WwiseProject\.cache\Mac\SFX\SFX_Ataque1_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\In game\SFX_Ataque1		239036
 	246225358	SFX_ZoomIn_C	C:\Users\delli\Documents\GitHub\tower-of-vertigo\Desarrollo3_WwiseProject\.cache\Mac\SFX\SFX_ZoomIn_C_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\In game\ZoomIn&Out\SFX_ZoomIn_C		322624
 	301701033	ENTRADA_IMAGE_CAMPUS_3	C:\Users\delli\Documents\GitHub\tower-of-vertigo\Desarrollo3_WwiseProject\.cache\Mac\SFX\ENTRADA_IMAGE_CAMPUS_3_D79FB2B7.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\UI\ENTRADA_IMAGE_CAMPUS_3		1302760
@@ -76,11 +77,11 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	337669942	SFX_Dash1	C:\Users\delli\Documents\GitHub\tower-of-vertigo\Desarrollo3_WwiseProject\.cache\Mac\SFX\SFX_Dash1_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\In game\Dash\SFX_Dash1		270784
 	358195361	SFX_PasoMetal02	C:\Users\delli\Documents\GitHub\tower-of-vertigo\Desarrollo3_WwiseProject\.cache\Mac\SFX\SFX_PasoMetal02_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\In game\CorridaPasos\SFX_PasoMetal02		27584
 	400292988	SFX_PasoMetal03	C:\Users\delli\Documents\GitHub\tower-of-vertigo\Desarrollo3_WwiseProject\.cache\Mac\SFX\SFX_PasoMetal03_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\In game\CorridaPasos\SFX_PasoMetal03		26296
-	404845938	deslizamiento sobre tierra 1	C:\Users\delli\Documents\GitHub\tower-of-vertigo\Desarrollo3_WwiseProject\.cache\Mac\SFX\deslizamiento sobre tierra_37000EA4.wem		\Actor-Mixer Hierarchy\Default Work Unit\In game\deslizamiento sobre tierra\deslizamiento sobre tierra 1		262440
+	404845938	deslizamiento sobre tierra 1	C:\Users\delli\Documents\GitHub\tower-of-vertigo\Desarrollo3_WwiseProject\.cache\Mac\SFX\deslizamiento sobre tierra_CEAD84D8.wem		\Actor-Mixer Hierarchy\Default Work Unit\In game\deslizamiento sobre tierra\deslizamiento sobre tierra 1		262440
 	494298104	SFX_Dash3	C:\Users\delli\Documents\GitHub\tower-of-vertigo\Desarrollo3_WwiseProject\.cache\Mac\SFX\SFX_Dash3_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\In game\Dash\SFX_Dash3		238144
 	497877854	PLAY_2	C:\Users\delli\Documents\GitHub\tower-of-vertigo\Desarrollo3_WwiseProject\.cache\Mac\SFX\play 2_AEFA2F24.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\UI\PLAY_2		529836
 	542068633	SFX_Ataque3A	C:\Users\delli\Documents\GitHub\tower-of-vertigo\Desarrollo3_WwiseProject\.cache\Mac\SFX\SFX_Ataque3A_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\In game\Ataque3\SFX_Ataque3A		161172
-	589282136	deslizamiento sobre tierra 2	C:\Users\delli\Documents\GitHub\tower-of-vertigo\Desarrollo3_WwiseProject\.cache\Mac\SFX\deslizamiento sobre tierra_32766B26.wem		\Actor-Mixer Hierarchy\Default Work Unit\In game\deslizamiento sobre tierra\deslizamiento sobre tierra 2		305032
+	589282136	deslizamiento sobre tierra 2	C:\Users\delli\Documents\GitHub\tower-of-vertigo\Desarrollo3_WwiseProject\.cache\Mac\SFX\deslizamiento sobre tierra_A12BDD73.wem		\Actor-Mixer Hierarchy\Default Work Unit\In game\deslizamiento sobre tierra\deslizamiento sobre tierra 2		305032
 	609115062	SFX_CaeDeCabeza	C:\Users\delli\Documents\GitHub\tower-of-vertigo\Desarrollo3_WwiseProject\.cache\Mac\SFX\SFX_CaeDeCabeza_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\In game\SFX_CaeDeCabeza		164360
 	621957689	SFX_Salto_01	C:\Users\delli\Documents\GitHub\tower-of-vertigo\Desarrollo3_WwiseProject\.cache\Mac\SFX\SFX_Salto_A6B74E23.wem		\Actor-Mixer Hierarchy\Default Work Unit\In game\Salto\SFX_Salto_01		37024
 	644458182	SFX_PasoMetal06	C:\Users\delli\Documents\GitHub\tower-of-vertigo\Desarrollo3_WwiseProject\.cache\Mac\SFX\SFX_PasoMetal06_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\In game\CorridaPasos\SFX_PasoMetal06		26792
@@ -90,7 +91,7 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	679655236	SFX_Dash2	C:\Users\delli\Documents\GitHub\tower-of-vertigo\Desarrollo3_WwiseProject\.cache\Mac\SFX\SFX_Dash2_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\In game\Dash\SFX_Dash2		282304
 	701466231	BOTON_FINALIZAR_PARTIDA	C:\Users\delli\Documents\GitHub\tower-of-vertigo\Desarrollo3_WwiseProject\.cache\Mac\SFX\BOTON_FINALIZAR_PARTIDA_A532C0AF.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\UI\BOTON_FINALIZAR_PARTIDA		352864
 	731081151	SFX_Salto_03	C:\Users\delli\Documents\GitHub\tower-of-vertigo\Desarrollo3_WwiseProject\.cache\Mac\SFX\SFX_Salto_C79191F2.wem		\Actor-Mixer Hierarchy\Default Work Unit\In game\Salto\SFX_Salto_03		31450
-	739473157	deslizamiento sobre tierra 3	C:\Users\delli\Documents\GitHub\tower-of-vertigo\Desarrollo3_WwiseProject\.cache\Mac\SFX\deslizamiento sobre tierra_7CFFA25E.wem		\Actor-Mixer Hierarchy\Default Work Unit\In game\deslizamiento sobre tierra\deslizamiento sobre tierra 3		391924
+	739473157	deslizamiento sobre tierra 3	C:\Users\delli\Documents\GitHub\tower-of-vertigo\Desarrollo3_WwiseProject\.cache\Mac\SFX\deslizamiento sobre tierra_0043ED69.wem		\Actor-Mixer Hierarchy\Default Work Unit\In game\deslizamiento sobre tierra\deslizamiento sobre tierra 3		391924
 	747274110	SFX_Salto_02	C:\Users\delli\Documents\GitHub\tower-of-vertigo\Desarrollo3_WwiseProject\.cache\Mac\SFX\SFX_Salto_6294ED36.wem		\Actor-Mixer Hierarchy\Default Work Unit\In game\Salto\SFX_Salto_02		24374
 	806087017	SFX_Salto_04	C:\Users\delli\Documents\GitHub\tower-of-vertigo\Desarrollo3_WwiseProject\.cache\Mac\SFX\SFX_Salto_D68205B3.wem		\Actor-Mixer Hierarchy\Default Work Unit\In game\Salto\SFX_Salto_04		27582
 	828680542	Menu17_11	C:\Users\delli\Documents\GitHub\tower-of-vertigo\Desarrollo3_WwiseProject\.cache\Mac\SFX\Menu17_11_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\Musicas\Loading\Menu17_11\Menu17_11		3043188

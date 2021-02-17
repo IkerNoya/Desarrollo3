@@ -800,7 +800,15 @@
 						</Sound>
 						<RandomSequenceContainer Name="deslizamiento sobre tierra" ID="{3768F30D-0F07-4094-8A16-E658761ED70D}" ShortID="540805064">
 							<PropertyList>
+								<Property Name="Lowpass" Type="int16">
+									<ValueList>
+										<Value>20</Value>
+									</ValueList>
+								</Property>
 								<Property Name="Pitch" Type="int32">
+									<ValueList>
+										<Value>-250</Value>
+									</ValueList>
 									<ModifierList>
 										<ModifierInfo>
 											<Modifier Name="" ID="{4CFCC462-3058-48B3-B312-899285F87E6A}">
@@ -819,7 +827,7 @@
 								<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-5</Value>
+										<Value>-15</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
