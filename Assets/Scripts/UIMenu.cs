@@ -15,4 +15,19 @@ public class UIMenu : MonoBehaviour
         newSizePlay = new Vector3(1.2f, 1.2f, 1.2f);
         EventSystem.current.SetSelectedGameObject(PlayButton);
     }
+    void Update()
+    {
+        if(EventSystem.current.currentSelectedGameObject == null)
+        {
+            EventSystem.current.SetSelectedGameObject(PlayButton);
+        }
+        else if(EventSystem.current.currentSelectedGameObject != PlayButton && EventSystem.current.currentSelectedGameObject != null)
+        {
+            EventSystem.current.SetSelectedGameObject(EventSystem.current.currentSelectedGameObject);
+        }
+    }
+    public void MouseOverButton(GameObject go)
+    {
+        EventSystem.current.SetSelectedGameObject(go);
+    }
 }
