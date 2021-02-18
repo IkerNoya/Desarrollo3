@@ -2,6 +2,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class UIManager : MonoBehaviour
 {
@@ -15,5 +16,9 @@ public class UIManager : MonoBehaviour
     public void OnClickQuit()
     {
         Application.Quit();
+    }
+    public void MouseOverButton(GameObject go)
+    {
+        EventSystem.current.SetSelectedGameObject(go);
     }
 }

@@ -25,8 +25,10 @@ public class DataManager : MonoBehaviour
     }
     void Update()
     {
-        Debug.Log(musicVolume);
+
     }
+
+    #region OPTIONS_VALUES
     public float GetMusicVolume()
     {
         return musicVolume;
@@ -47,4 +49,11 @@ public class DataManager : MonoBehaviour
     {
         Destroy(gameObject);
     }
+    #endregion
+
+    #region PLAYER_VALUES
+
+    #endregion
+
 }
+
