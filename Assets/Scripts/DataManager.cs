@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class DataManager : MonoBehaviour
 {
-    float musicVolume;
-    float sfxVolume;
+    float musicVolume = 100;
+    float sfxVolume = 100;
 
     public static DataManager instance;
     public static DataManager Get()
@@ -25,7 +25,7 @@ public class DataManager : MonoBehaviour
     }
     void Update()
     {
-        
+        Debug.Log(musicVolume);
     }
     public float GetMusicVolume()
     {
