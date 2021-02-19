@@ -67,18 +67,40 @@ public class UICharacterSelection : MonoBehaviour
     {
         if (player == Player.player1)
         {
-            avatar1Controller.runtimeAnimatorController = Resources.Load("Animations/UIAvatars/AnimationController/CyberAvatar") as RuntimeAnimatorController;
             data.player1Choice.playerSelection = DataManager.PlayerSelection.CyberBunny;
+        }
+        else
+        {
+            data.player2Choice.playerSelection = DataManager.PlayerSelection.CyberBunny;
+        }
+        if (player == 0)
+            player++;
+    }
+    public void OnHoverNova()
+    {
+        if (player == Player.player1)
+        {
+            avatar1Controller.runtimeAnimatorController = Resources.Load("Animations/UIAvatars/AnimationController/NovaAvatar") as RuntimeAnimatorController;
+            AvatarPlayer1.color = visible;
+        }
+        else
+        {
+            avatar2Controller.runtimeAnimatorController = Resources.Load("Animations/UIAvatars/AnimationController/NovaAvatar") as RuntimeAnimatorController;
+            AvatarPlayer2.color = visible;
+        }
+    }
+    public void OnHoverCyberBunny()
+    {
+        if (player == Player.player1)
+        {
+            avatar1Controller.runtimeAnimatorController = Resources.Load("Animations/UIAvatars/AnimationController/CyberAvatar") as RuntimeAnimatorController;
             AvatarPlayer1.color = visible;
         }
         else
         {
             avatar2Controller.runtimeAnimatorController = Resources.Load("Animations/UIAvatars/AnimationController/CyberAvatar") as RuntimeAnimatorController;
-            data.player2Choice.playerSelection = DataManager.PlayerSelection.CyberBunny;
             AvatarPlayer2.color = visible;
         }
-        if (player == 0)
-            player++;
     }
 
 
