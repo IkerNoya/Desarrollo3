@@ -11,14 +11,16 @@ public class UICharacterSelection : MonoBehaviour
     [SerializeField] Image AvatarPlayer2;
     [SerializeField] Animator avatar1Controller;
     [SerializeField] Animator avatar2Controller;
-    
-    Color visible;
-    Color invisible;
-    public enum PlayerSelection
+    public enum Player
     {
         player1, player2
     }
-    public PlayerSelection playerSelection;
+    public Player player;
+    
+    Color visible;
+    Color invisible;
+    DataManager data;
+
     void Start()
     {
         visible = AvatarPlayer1.color;
@@ -27,6 +29,9 @@ public class UICharacterSelection : MonoBehaviour
 
         AvatarPlayer1.color = invisible;
         AvatarPlayer2.color = invisible;
+
+        data = DataManager.instance;
+
         EventSystem.current.SetSelectedGameObject(ContinueButton);
     }
     void Update()
@@ -39,36 +44,41 @@ public class UICharacterSelection : MonoBehaviour
         {
             EventSystem.current.SetSelectedGameObject(EventSystem.current.currentSelectedGameObject);
         }
+
     }
     public void OnClickNova()
     {
-        if (playerSelection == PlayerSelection.player1)
+        if (player == Player.player1)
         {
             avatar1Controller.runtimeAnimatorController = Resources.Load("Animations/UIAvatars/AnimationController/NovaAvatar") as RuntimeAnimatorController;
+            data.player1Choice.playerSelection = DataManager.PlayerSelection.Nova;
             AvatarPlayer1.color = visible;
         }
         else
         {
             avatar2Controller.runtimeAnimatorController = Resources.Load("Animations/UIAvatars/AnimationController/NovaAvatar") as RuntimeAnimatorController;
+            data.player2Choice.playerSelection = DataManager.PlayerSelection.Nova;
             AvatarPlayer2.color = visible;
         }
-        if(playerSelection==0)
-            playerSelection++;
+        if (player == 0)
+            player++;
     }
     public void OnClickCyber()
     {
-        if (playerSelection == PlayerSelection.player1)
+        if (player == Player.player1)
         {
             avatar1Controller.runtimeAnimatorController = Resources.Load("Animations/UIAvatars/AnimationController/CyberAvatar") as RuntimeAnimatorController;
+            data.player1Choice.playerSelection = DataManager.PlayerSelection.CyberBunny;
             AvatarPlayer1.color = visible;
         }
         else
         {
             avatar2Controller.runtimeAnimatorController = Resources.Load("Animations/UIAvatars/AnimationController/CyberAvatar") as RuntimeAnimatorController;
+            data.player2Choice.playerSelection = DataManager.PlayerSelection.CyberBunny;
             AvatarPlayer2.color = visible;
         }
-        if (playerSelection == 0)
-            playerSelection++;
+        if (player == 0)
+            player++;
     }
 
 

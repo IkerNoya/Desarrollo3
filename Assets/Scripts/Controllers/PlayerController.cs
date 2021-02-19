@@ -26,6 +26,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] GameObject player;
     [SerializeField] Rigidbody2D rigidBody;
     [SerializeField] BoxCollider2D playerCollider;
+    [SerializeField] SpriteRenderer sprite;
     [Space]
     [SerializeField] Vector3 InitialPos;
     [Space]
@@ -106,6 +107,7 @@ public class PlayerController : MonoBehaviour
     Vector3 rightColliderSide;
 
     Camera cam;
+    DataManager data;
     #endregion
 
     #region Actions
@@ -124,6 +126,9 @@ public class PlayerController : MonoBehaviour
         InitialPos = cam.WorldToScreenPoint(transform.localPosition);
         parryController = GetComponentInChildren<ParryController>();
         collider = GetComponent<BoxCollider2D>();
+        data = DataManager.instance;
+        LoadSelectionData();
+
     }
 
     void Update()
@@ -296,6 +301,58 @@ public class PlayerController : MonoBehaviour
     #endregion
 
     #region FUNCTIONS
+
+    void LoadSelectionData()
+    {
+        if(playerSelect == PlayerSelect.player1)
+        {
+            switch (data.player1Choice.tint)
+            {
+                case DataManager.Tint.white:
+                    sprite.color = Color.white;
+                    break;
+                case DataManager.Tint.red:
+                    sprite.color = Color.red;
+                    break;
+                case DataManager.Tint.blue:
+                    sprite.color = Color.blue;
+                    break;
+            }
+            switch (data.player1Choice.playerSelection)
+            {
+                case DataManager.PlayerSelection.Nova:
+                    anim.runtimeAnimatorController = Resources.Load("Animations/AnimatorController/Nova") as RuntimeAnimatorController;
+                    break;
+                case DataManager.PlayerSelection.CyberBunny:
+                    anim.runtimeAnimatorController = Resources.Load("Animations/AnimatorController/CyberBunny") as RuntimeAnimatorController;
+                    break;
+            }
+        }
+        else
+        {
+            switch (data.player2Choice.tint)
+            {
+                case DataManager.Tint.white:
+                    sprite.color = Color.white;
+                    break;
+                case DataManager.Tint.red:
+                    sprite.color = Color.red;
+                    break;
+                case DataManager.Tint.blue:
+                    sprite.color = Color.blue;
+                    break;
+            }
+            switch (data.player2Choice.playerSelection)
+            {
+                case DataManager.PlayerSelection.Nova:
+                    anim.runtimeAnimatorController = Resources.Load("Animations/AnimatorController/Nova") as RuntimeAnimatorController;
+                    break;
+                case DataManager.PlayerSelection.CyberBunny:
+                    anim.runtimeAnimatorController = Resources.Load("Animations/AnimatorController/CyberBunny") as RuntimeAnimatorController;
+                    break;
+            }
+        }
+    }
 
     public void SetCanMove(bool value)
     {

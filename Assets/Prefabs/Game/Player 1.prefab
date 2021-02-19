@@ -126,24 +126,39 @@ MonoBehaviour:
     - cooldown: 0.75
       hitDuration: 0.3
       damage: 10
-      comboKey: 102
+      comboKeyKM: 0
+      comboKeyJoystick: 0
       keyBeingPressed: 0
       clip: {fileID: 7400000, guid: a3dcd7ef378353b4d901685aad3bbf93, type: 2}
       critical: 0
+      hitSound:
+        idInternal: 0
+        valueGuidInternal: 
+        WwiseObjectReference: {fileID: 0}
     - cooldown: 0.75
       hitDuration: 0.4
       damage: 10
-      comboKey: 102
+      comboKeyKM: 0
+      comboKeyJoystick: 0
       keyBeingPressed: 0
       clip: {fileID: 7400000, guid: be97a3c927dd8ed43a00ba53286eaa00, type: 2}
       critical: 0
+      hitSound:
+        idInternal: 0
+        valueGuidInternal: 
+        WwiseObjectReference: {fileID: 0}
     - cooldown: 0.5
       hitDuration: 0.3
       damage: 15
-      comboKey: 102
+      comboKeyKM: 0
+      comboKeyJoystick: 0
       keyBeingPressed: 0
       clip: {fileID: 7400000, guid: 3298dd0f89379ce4589c3decb98a11b7, type: 2}
       critical: 1
+      hitSound:
+        idInternal: 0
+        valueGuidInternal: 
+        WwiseObjectReference: {fileID: 0}
   animator: {fileID: 4395031985313786518}
   overrider: {fileID: 22100000, guid: 2fac2108c1d24444f90ec32b64af85b2, type: 2}
   hitCol: {fileID: 4395031985576335752}
@@ -189,6 +204,13 @@ MonoBehaviour:
   parryKeyJoystick: 352
   duration: 0.2
   enemy: {fileID: 0}
+  slowMotion: {fileID: 0}
+  parryCooldown: 0
+  shockwave: {fileID: 0}
+  parrySound:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 0}
 --- !u!1 &4395031985576335752
 GameObject:
   m_ObjectHideFlags: 0
@@ -328,9 +350,12 @@ MonoBehaviour:
   noOfJumps: 0
   jumpButtonKM: 32
   jumpButtonJoystick: 351
+  dashButtonKM: 0
+  dashButtonJoystick: 0
   player: {fileID: 4395031985313786519}
   rigidBody: {fileID: 4395031986943511727}
   playerCollider: {fileID: 4395031986943511721}
+  sprite: {fileID: 4395031985313786522}
   InitialPos: {x: -3.464544, y: -0.35, z: -5.24609}
   groundLayer:
     serializedVersion: 2
@@ -342,12 +367,25 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 262144
   enemy: {fileID: 0}
-  slowMotion: {fileID: 0}
-  damage: 10
+  knockBackForce: 0
+  criticalKnockBackForce: 0
+  footstepSoundTimer: 0
+  spawner: {fileID: 0}
+  footstepSound:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 0}
   shakeDuration: 0.25
   shakeMagnitude: 0.1
+  dashSound:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 0}
+  jumpSound:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 0}
   comboController: {fileID: 4395031985313786517}
-  cameraShake: {fileID: 0}
   playerSelect: 0
   anim: {fileID: 4395031985313786518}
   hp: 100
