@@ -318,15 +318,6 @@ public class PlayerController : MonoBehaviour
                     sprite.color = Color.blue;
                     break;
             }
-            switch (data.player1Choice.playerSelection)
-            {
-                case DataManager.PlayerSelection.Nova:
-                    anim.runtimeAnimatorController = Resources.Load("Animations/AnimatorController/Nova") as RuntimeAnimatorController;
-                    break;
-                case DataManager.PlayerSelection.CyberBunny:
-                    anim.runtimeAnimatorController = Resources.Load("Animations/AnimatorController/CyberBunny") as RuntimeAnimatorController;
-                    break;
-            }
         }
         else
         {
@@ -340,15 +331,6 @@ public class PlayerController : MonoBehaviour
                     break;
                 case DataManager.Tint.blue:
                     sprite.color = Color.blue;
-                    break;
-            }
-            switch (data.player2Choice.playerSelection)
-            {
-                case DataManager.PlayerSelection.Nova:
-                    anim.runtimeAnimatorController = Resources.Load("Animations/AnimatorController/Nova") as RuntimeAnimatorController;
-                    break;
-                case DataManager.PlayerSelection.CyberBunny:
-                    anim.runtimeAnimatorController = Resources.Load("Animations/AnimatorController/CyberBunny") as RuntimeAnimatorController;
                     break;
             }
         }

@@ -7,9 +7,8 @@ public class CombatController : MonoBehaviour
 {
 	[SerializeField] int hitIndex;
 	[SerializeField] float hitCooldown;
+	[Space]
 	[SerializeField] string currentComboName;
-	float damage;
-	bool criticalDamage;
 	[Serializable]
 	public class Combo
 	{
@@ -17,9 +16,6 @@ public class CombatController : MonoBehaviour
 		public List<ComboHit> comboData;
 	}
 	public List<Combo> combos;
-	private Combo currentCombo;
-
-	private Dictionary<string, Combo> combosByID;
 
 	[Serializable]
 	public class ComboHit
@@ -34,10 +30,19 @@ public class CombatController : MonoBehaviour
 		public bool critical;
 		public AK.Wwise.Event hitSound;
 	}
-
+	[Space]
 	public Animator animator;
 	public AnimatorOverrideController overrider;
 	public GameObject hitCol;
+
+	[Space]
+	[SerializeField] List<AnimationClip> NovaAttackClips;
+	[SerializeField] List<AnimationClip> CyberBunnyAttackClips;
+
+	private Combo currentCombo;
+	float damage;
+	bool criticalDamage;
+	private Dictionary<string, Combo> combosByID;
 
 	bool isAttacking = false;
 	public bool IsAttacking => isAttacking;
@@ -45,21 +50,22 @@ public class CombatController : MonoBehaviour
 	int comboLimit = 3;
 
 	PlayerController player;
+	DataManager data;
 
 	public event Action OnComboCanceled;
 
 	float timer = 0;
-
 	void Start()
 	{
 		combosByID = new Dictionary<string, Combo>();
-
 		player = GetComponentInParent<PlayerController>();
+		data = DataManager.instance;
 
 		foreach (Combo combo in combos)
 		{
 			combosByID.Add(combo.ComboName, combo);
 		}
+		LoadAnimator();
 	}
 
 	void Update()
@@ -105,6 +111,43 @@ public class CombatController : MonoBehaviour
 		hitCooldown -= Time.deltaTime;
 		if (hitCooldown <= 0)
 			CancelCombo();
+	}
+
+	void LoadAnimator()
+	{
+		switch (player.playerSelect)
+		{
+			case PlayerController.PlayerSelect.player1:
+				switch (data.player1Choice.playerSelection)
+				{
+					case DataManager.PlayerSelection.Nova:
+						animator.runtimeAnimatorController = Resources.Load("Animations/AnimatorController/Nova") as RuntimeAnimatorController;
+						overrider = Resources.Load("Animations/AnimatorController/Nova") as AnimatorOverrideController;
+						combos[0].comboData[0].clip = NovaAttackClips[0];
+						break;
+					case DataManager.PlayerSelection.CyberBunny:
+						animator.runtimeAnimatorController = Resources.Load("Animations/AnimatorController/CyberBunny") as RuntimeAnimatorController;
+						overrider = Resources.Load("Animations/AnimatorController/CyberBunny") as AnimatorOverrideController;
+						combos[0].comboData[0].clip = CyberBunnyAttackClips[0];
+						break;
+				}
+				break;
+			case PlayerController.PlayerSelect.player2:
+				switch (data.player2Choice.playerSelection)
+				{
+					case DataManager.PlayerSelection.Nova:
+						animator.runtimeAnimatorController = Resources.Load("Animations/AnimatorController/Nova") as RuntimeAnimatorController;
+						overrider = Resources.Load("Animations/AnimatorController/Nova") as AnimatorOverrideController;
+						combos[0].comboData[0].clip = NovaAttackClips[0];
+						break;
+					case DataManager.PlayerSelection.CyberBunny:
+						animator.runtimeAnimatorController = Resources.Load("Animations/AnimatorController/CyberBunny") as RuntimeAnimatorController;
+						overrider = Resources.Load("Animations/AnimatorController/CyberBunny") as AnimatorOverrideController;
+						combos[0].comboData[0].clip = CyberBunnyAttackClips[0];
+						break;
+				}
+				break;
+		}
 	}
 
 	void StartCombo(Combo combo)
