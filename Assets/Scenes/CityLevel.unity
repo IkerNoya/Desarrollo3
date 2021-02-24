@@ -12603,6 +12603,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: fa94eb7f985dcf84e834711f50703f5c,
         type: 2}
+    - target: {fileID: 3127073023320783853, guid: 6294d302383975441b493ebaca397053,
+        type: 3}
+      propertyPath: player1Damage
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 3127073023320783853, guid: 6294d302383975441b493ebaca397053,
+        type: 3}
+      propertyPath: player2Damage
+      value: 1000
+      objectReference: {fileID: 0}
     - target: {fileID: 7336147402817237382, guid: 6294d302383975441b493ebaca397053,
         type: 3}
       propertyPath: m_LocalPosition.x

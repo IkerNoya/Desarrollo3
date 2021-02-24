@@ -145,7 +145,9 @@ public class PlayerController : MonoBehaviour
             movement = Vector3.zero;
             rigidBody.velocity = Vector3.zero;
         }
-        direction = Input.GetAxis(playerAxis) + Input.GetAxis(joystickAxis);
+        else
+            direction = Input.GetAxis(playerAxis) + Input.GetAxis(joystickAxis);
+
         movement = new Vector2(direction, 0) * speed;
         if(movement.x > runAxisLimit || movement.x < -runAxisLimit)
         {
@@ -208,7 +210,10 @@ public class PlayerController : MonoBehaviour
         else if(!isGroundedCenter && !isGroundedLeft && !isGroundedRight)
             anim.SetBool("Grounded", false);
         anim.SetFloat("VelocityY", rigidBody.velocity.y);
-        anim.SetFloat("VelocityX", Mathf.Abs(direction));
+        if(canMove)
+        {
+            anim.SetFloat("VelocityX", Mathf.Abs(direction));
+        }
         if (wj) anim.SetTrigger("WJ");
         soundTimer += Time.deltaTime;
     }

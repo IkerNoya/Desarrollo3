@@ -116,5 +116,13 @@ public class DataManager : MonoBehaviour
     }
     #endregion
 
+    private void OnDisable()
+    {
+        instance = null;
+    }
+    private void OnDestroy()
+    {
+        instance = null;
+    }
 }
 

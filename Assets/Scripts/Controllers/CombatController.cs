@@ -67,7 +67,6 @@ public class CombatController : MonoBehaviour
 		}
 		LoadAnimator();
 	}
-
 	void Update()
 	{
 		if (player.GetPause())

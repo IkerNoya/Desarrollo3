@@ -15,7 +15,18 @@ public class GameManager : MonoBehaviour
     [Space]
     [SerializeField] PlayerController player1;
     [SerializeField] PlayerController player2;
-
+    [Space]
+    [SerializeField] float player1Damage;
+    [SerializeField] float player2Damage;
+    public static GameManager instance;
+    public static GameManager Get()
+    {
+        return instance;
+    }
+    private void Awake()
+    {
+        instance = this;
+    }
     void Start()
     {
         CapturePoint.VictoryP1 += EndGameEventP1;
@@ -34,11 +45,25 @@ public class GameManager : MonoBehaviour
         StartCoroutine(ActivateVictoryScreen(1.5f, VictoryScreen_P2, activeButtonVictoryP2));
     }
 
-    private void OnDisable()
+    public void Player1DamageDone(float value)
     {
-        CapturePoint.VictoryP1 -= EndGameEventP1;
-        CapturePoint.VictoryP2 -= EndGameEventP2;
+        if(player1Damage>0)
+            player1Damage -= value;
     }
+    public void Player2DamageDone(float value)
+    {
+        if (player2Damage > 0)
+            player2Damage -= value;
+    }
+    public float GetPlayer1Damage()
+    {
+        return player1Damage;
+    }
+    public float GetPlayer2Damage()
+    {
+        return player2Damage;
+    }
+
     IEnumerator ActivateVictoryScreen(float time, GameObject screen, GameObject button)
     {
         StartCoroutine(slowMotion.ActivateSlowMotion(time, 0.5f));
@@ -50,5 +75,15 @@ public class GameManager : MonoBehaviour
         if (button != null)
             EventSystem.current.SetSelectedGameObject(button);
         yield return null;
+    }
+    private void OnDisable()
+    {
+        CapturePoint.VictoryP1 -= EndGameEventP1;
+        CapturePoint.VictoryP2 -= EndGameEventP2;
+        instance = null;
+    }
+    private void OnDestroy()
+    {
+        instance = null;
     }
 }

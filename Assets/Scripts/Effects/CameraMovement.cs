@@ -35,9 +35,6 @@ public class CameraMovement : MonoBehaviour
     float t = 0;
     float xPos;
 
-    float player1Damage = 100;
-    float player2Damage = 100;
-
     void Awake()
     {
         ParryController.parryEffect += ZoomOnPlayer;
