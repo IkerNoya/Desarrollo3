@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections;
+using System.Net.Http.Headers;
 using System.Threading;
+using UnityEditorInternal;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -433,6 +435,15 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.CompareTag("OutofBounds"))
         {
             hp = 0;
+            switch (playerSelect)
+            {
+                case PlayerSelect.player1:
+                    GameManager.instance.Player1DamageDone(100);
+                    break;
+                case PlayerSelect.player2:
+                    GameManager.instance.Player2DamageDone(100);
+                    break;
+            }
             Dead();
             EmptyHP?.Invoke(this);
             StartCoroutine(RespawnPlayer());
@@ -472,9 +483,36 @@ public class PlayerController : MonoBehaviour
             takeDamage?.Invoke(this);
             if (hp <= 0)
             {
+                switch (playerSelect)
+                {
+                    case PlayerSelect.player1:
+                        if(isCriticalHit)
+                            GameManager.instance.Player1DamageDone(collision.gameObject.GetComponentInParent<CombatController>().GetDamage() * 2);
+                        else
+                            GameManager.instance.Player1DamageDone(collision.gameObject.GetComponentInParent<CombatController>().GetDamage() * 4);
+                        break;
+                    case PlayerSelect.player2:
+                        if (isCriticalHit)
+                            GameManager.instance.Player2DamageDone(collision.gameObject.GetComponentInParent<CombatController>().GetDamage() * 2);
+                        else
+                            GameManager.instance.Player2DamageDone(collision.gameObject.GetComponentInParent<CombatController>().GetDamage() * 4);
+                        break;
+                }
                 Dead();
                 EmptyHP?.Invoke(this);
                 StartCoroutine(RespawnPlayer());
+            }
+            else
+            {
+                switch (playerSelect)
+                {
+                    case PlayerSelect.player1:
+                        GameManager.instance.Player1DamageDone(collision.gameObject.GetComponentInParent<CombatController>().GetDamage());
+                        break;
+                    case PlayerSelect.player2:
+                        GameManager.instance.Player2DamageDone(collision.gameObject.GetComponentInParent<CombatController>().GetDamage());
+                        break;
+                }
             }
         }
 

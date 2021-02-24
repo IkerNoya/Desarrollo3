@@ -43,3 +43,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 495f683a001ff2e4191a7598c9769360, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slowMotion: {fileID: 0}
+  offset: 1
+  VictoryScreen_P1: {fileID: 0}
+  VictoryScreen_P2: {fileID: 0}
+  activeButtonVictoryP1: {fileID: 0}
+  activeButtonVictoryP2: {fileID: 0}
+  player1: {fileID: 0}
+  player2: {fileID: 0}
+  player1Damage: 1000
+  player2Damage: 1000
+  cameraMovement: {fileID: 0}

@@ -49,10 +49,12 @@ public class CameraMovement : MonoBehaviour
     }
     void Update()
     {
+#if UNITY_EDITOR
         if (Input.GetKeyDown(KeyCode.Alpha1)) phase = BattlePhase.phase1;
         if (Input.GetKeyDown(KeyCode.Alpha2)) phase = BattlePhase.phase2;
         if (Input.GetKeyDown(KeyCode.Alpha3)) phase = BattlePhase.phase3;
         if (Input.GetKeyDown(KeyCode.Alpha4)) phase = BattlePhase.phase4;
+#endif
     }
     void LateUpdate()
     {
@@ -114,6 +116,14 @@ public class CameraMovement : MonoBehaviour
             lastPos = new Vector3(transform.position.x, transform.position.y, -10);
         }
     }
+    public BattlePhase GetPhase()
+    {
+        return phase;
+    }
+    public void SetPhase(BattlePhase bp)
+    {
+        phase = bp;
+    }
     void ZoomOnPlayer(ParryController pc)
     {
         StartCoroutine(ZoomIn(0.5f));
@@ -141,5 +151,5 @@ public class CameraMovement : MonoBehaviour
     {
         ParryController.parryEffect -= ZoomOnPlayer;
     }
-
+     
 }

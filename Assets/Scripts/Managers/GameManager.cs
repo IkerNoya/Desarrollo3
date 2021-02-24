@@ -18,22 +18,69 @@ public class GameManager : MonoBehaviour
     [Space]
     [SerializeField] float player1Damage;
     [SerializeField] float player2Damage;
+    [SerializeField] CameraMovement cameraMovement;
+
     public static GameManager instance;
     public static GameManager Get()
     {
         return instance;
     }
+
+    float player1DamageInitialValue;
+    float player2DamageInitialValue;
     private void Awake()
     {
         instance = this;
     }
     void Start()
     {
+        player1DamageInitialValue = player1Damage;
+        player2DamageInitialValue = player2Damage;
         CapturePoint.VictoryP1 += EndGameEventP1;
         CapturePoint.VictoryP2 += EndGameEventP2;
         Time.timeScale = 1;
         if (VictoryScreen_P1 != null) VictoryScreen_P1.SetActive(false);
         if (VictoryScreen_P2 != null) VictoryScreen_P2.SetActive(false);
+    }
+
+    void Update()
+    {
+        switch (cameraMovement.GetPhase())
+        {
+            case CameraMovement.BattlePhase.phase1:
+                if (player1Damage <= player1DamageInitialValue - (player1DamageInitialValue / 4))
+                {
+                    cameraMovement.SetPhase(CameraMovement.BattlePhase.phase2);
+                }
+                if (player2Damage <= player2DamageInitialValue - (player2DamageInitialValue / 4))
+                {
+                    cameraMovement.SetPhase(CameraMovement.BattlePhase.phase2);
+                }
+                break;
+            case CameraMovement.BattlePhase.phase2:
+                if (player1Damage <= player1DamageInitialValue - (player1DamageInitialValue / 2))
+                {
+                    cameraMovement.SetPhase(CameraMovement.BattlePhase.phase3);
+                }
+                if (player2Damage <= player2DamageInitialValue - (player2DamageInitialValue / 2))
+                {
+                    cameraMovement.SetPhase(CameraMovement.BattlePhase.phase3);
+                }
+                break;
+            case CameraMovement.BattlePhase.phase3:
+                if (player1Damage <= player1DamageInitialValue - ((player1DamageInitialValue / 2) + (player1DamageInitialValue / 4)))
+                { 
+                    cameraMovement.SetPhase(CameraMovement.BattlePhase.phase4);
+                }
+                if (player2Damage <= player2DamageInitialValue - ((player2DamageInitialValue / 2) + (player2DamageInitialValue / 4)))
+                { 
+                    cameraMovement.SetPhase(CameraMovement.BattlePhase.phase4);
+                }
+                break;
+            case CameraMovement.BattlePhase.phase4:
+                //final phase
+                break;
+        }
     }
 
     void EndGameEventP1(CapturePoint capture)

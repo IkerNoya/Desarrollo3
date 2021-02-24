@@ -12539,44 +12539,9 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3127073023320783853, guid: 6294d302383975441b493ebaca397053,
         type: 3}
-      propertyPath: map_L
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 3127073023320783853, guid: 6294d302383975441b493ebaca397053,
-        type: 3}
-      propertyPath: map_R
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 3127073023320783853, guid: 6294d302383975441b493ebaca397053,
-        type: 3}
-      propertyPath: target
-      value: 
-      objectReference: {fileID: 293373263}
-    - target: {fileID: 3127073023320783853, guid: 6294d302383975441b493ebaca397053,
-        type: 3}
-      propertyPath: offset
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3127073023320783853, guid: 6294d302383975441b493ebaca397053,
-        type: 3}
-      propertyPath: map
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 3127073023320783853, guid: 6294d302383975441b493ebaca397053,
-        type: 3}
       propertyPath: slowMotion
       value: 
       objectReference: {fileID: 1506143536}
-    - target: {fileID: 3127073023320783853, guid: 6294d302383975441b493ebaca397053,
-        type: 3}
-      propertyPath: player1
-      value: 
-      objectReference: {fileID: 1115973151}
-    - target: {fileID: 3127073023320783853, guid: 6294d302383975441b493ebaca397053,
-        type: 3}
-      propertyPath: player2
-      value: 
-      objectReference: {fileID: 233528903}
     - target: {fileID: 3127073023320783853, guid: 6294d302383975441b493ebaca397053,
         type: 3}
       propertyPath: VictoryScreen_P1
@@ -12599,20 +12564,19 @@ PrefabInstance:
       objectReference: {fileID: 659569129}
     - target: {fileID: 3127073023320783853, guid: 6294d302383975441b493ebaca397053,
         type: 3}
-      propertyPath: winSound.WwiseObjectReference
+      propertyPath: player1
       value: 
-      objectReference: {fileID: 11400000, guid: fa94eb7f985dcf84e834711f50703f5c,
-        type: 2}
+      objectReference: {fileID: 1115973151}
     - target: {fileID: 3127073023320783853, guid: 6294d302383975441b493ebaca397053,
         type: 3}
-      propertyPath: player1Damage
-      value: 1000
-      objectReference: {fileID: 0}
+      propertyPath: player2
+      value: 
+      objectReference: {fileID: 233528903}
     - target: {fileID: 3127073023320783853, guid: 6294d302383975441b493ebaca397053,
         type: 3}
-      propertyPath: player2Damage
-      value: 1000
-      objectReference: {fileID: 0}
+      propertyPath: cameraMovement
+      value: 
+      objectReference: {fileID: 357522982}
     - target: {fileID: 7336147402817237382, guid: 6294d302383975441b493ebaca397053,
         type: 3}
       propertyPath: m_LocalPosition.x
