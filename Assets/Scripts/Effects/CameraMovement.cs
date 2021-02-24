@@ -48,7 +48,8 @@ public class CameraMovement : MonoBehaviour
         cam = Camera.main;
         originalSize = cam.orthographicSize;
         xPos = transform.position.x;
-        
+        lastPos = new Vector3(transform.position.x, transform.position.y, -10);
+
     }
     void Update()
     {
@@ -56,6 +57,7 @@ public class CameraMovement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Alpha2)) phase = BattlePhase.phase2;
         if (Input.GetKeyDown(KeyCode.Alpha3)) phase = BattlePhase.phase3;
         if (Input.GetKeyDown(KeyCode.Alpha4)) phase = BattlePhase.phase4;
+            Debug.Log(lastPos.z);
     }
     void LateUpdate()
     {
@@ -103,7 +105,7 @@ public class CameraMovement : MonoBehaviour
         if (transform.position.y < lastY - offset)
         {
             transform.position += direction * speed * Time.deltaTime;
-            lastPos = transform.position;
+            lastPos = new Vector3(transform.position.x, transform.position.y, -10);
         }
     }
     void ZoomOnPlayer(ParryController pc)
