@@ -439,9 +439,11 @@ public class PlayerController : MonoBehaviour
             {
                 case PlayerSelect.player1:
                     GameManager.instance.Player1DamageDone(100);
+                    GameManager.instance.Player2DamageDone(-100);
                     break;
                 case PlayerSelect.player2:
                     GameManager.instance.Player2DamageDone(100);
+                    GameManager.instance.Player1DamageDone(-100);
                     break;
             }
             Dead();
@@ -486,16 +488,28 @@ public class PlayerController : MonoBehaviour
                 switch (playerSelect)
                 {
                     case PlayerSelect.player1:
-                        if(isCriticalHit)
+                        if (isCriticalHit)
+                        {
                             GameManager.instance.Player1DamageDone(collision.gameObject.GetComponentInParent<CombatController>().GetDamage() * 2);
+                            GameManager.instance.Player2DamageDone(-collision.gameObject.GetComponentInParent<CombatController>().GetDamage() * 2);
+                        }
                         else
+                        {
                             GameManager.instance.Player1DamageDone(collision.gameObject.GetComponentInParent<CombatController>().GetDamage() * 4);
+                            GameManager.instance.Player2DamageDone(-collision.gameObject.GetComponentInParent<CombatController>().GetDamage() * 4);
+                        }
                         break;
                     case PlayerSelect.player2:
                         if (isCriticalHit)
+                        {
                             GameManager.instance.Player2DamageDone(collision.gameObject.GetComponentInParent<CombatController>().GetDamage() * 2);
+                            GameManager.instance.Player1DamageDone(-collision.gameObject.GetComponentInParent<CombatController>().GetDamage() * 2);
+                        }
                         else
+                        {
                             GameManager.instance.Player2DamageDone(collision.gameObject.GetComponentInParent<CombatController>().GetDamage() * 4);
+                            GameManager.instance.Player1DamageDone(-collision.gameObject.GetComponentInParent<CombatController>().GetDamage() * 4);
+                        }
                         break;
                 }
                 Dead();
@@ -508,9 +522,11 @@ public class PlayerController : MonoBehaviour
                 {
                     case PlayerSelect.player1:
                         GameManager.instance.Player1DamageDone(collision.gameObject.GetComponentInParent<CombatController>().GetDamage());
+                        GameManager.instance.Player2DamageDone(-collision.gameObject.GetComponentInParent<CombatController>().GetDamage());
                         break;
                     case PlayerSelect.player2:
                         GameManager.instance.Player2DamageDone(collision.gameObject.GetComponentInParent<CombatController>().GetDamage());
+                        GameManager.instance.Player1DamageDone(-collision.gameObject.GetComponentInParent<CombatController>().GetDamage());
                         break;
                 }
             }
