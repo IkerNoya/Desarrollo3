@@ -66,7 +66,6 @@ public class ParryController : MonoBehaviour
             player.SetCanMove(false);
             blockDamage = true;
             cooldownTimer = 0;
-            Debug.Log("True");
         }
         if(Input.GetKeyUp(parryKeyKM) || Input.GetKeyUp(parryKeyJoystick))
         {
@@ -74,7 +73,6 @@ public class ParryController : MonoBehaviour
             anim.SetBool("Block", false);
             player.SetCanMove(true);
             blockDamage = false;
-            Debug.Log("False");
         }
     }
     public bool GetBlockDamage()

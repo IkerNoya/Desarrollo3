@@ -5,7 +5,6 @@ using UnityEngine.EventSystems;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] Transform target;
     [SerializeField] SlowMotion slowMotion;
     [SerializeField] float offset;
     [Space]
@@ -17,17 +16,11 @@ public class GameManager : MonoBehaviour
     [SerializeField] PlayerController player1;
     [SerializeField] PlayerController player2;
 
-    Camera cam;
-    float distanceToGoal;
-
     void Start()
     {
         CapturePoint.VictoryP1 += EndGameEventP1;
         CapturePoint.VictoryP2 += EndGameEventP2;
-        cam = Camera.main;
         Time.timeScale = 1;
-        if(target!=null)
-            distanceToGoal = target.position.y - cam.transform.position.y - offset;
         if (VictoryScreen_P1 != null) VictoryScreen_P1.SetActive(false);
         if (VictoryScreen_P2 != null) VictoryScreen_P2.SetActive(false);
     }
