@@ -26,16 +26,14 @@ public class GameManager : MonoBehaviour
         return instance;
     }
 
-    float player1DamageInitialValue;
-    float player2DamageInitialValue;
+    float initialDamageValue;
     private void Awake()
     {
         instance = this;
     }
     void Start()
     {
-        player1DamageInitialValue = player1Damage;
-        player2DamageInitialValue = player2Damage;
+        initialDamageValue = player1Damage;
         CapturePoint.VictoryP1 += EndGameEventP1;
         CapturePoint.VictoryP2 += EndGameEventP2;
         Time.timeScale = 1;
@@ -48,31 +46,31 @@ public class GameManager : MonoBehaviour
         switch (cameraMovement.GetPhase())
         {
             case CameraMovement.BattlePhase.phase1:
-                if (player1Damage <= player1DamageInitialValue - (player1DamageInitialValue / 4))
+                if (player1Damage <= initialDamageValue - (initialDamageValue / 4))
                 {
                     cameraMovement.SetPhase(CameraMovement.BattlePhase.phase2);
                 }
-                if (player2Damage <= player2DamageInitialValue - (player2DamageInitialValue / 4))
+                if (player2Damage <= initialDamageValue - (initialDamageValue / 4))
                 {
                     cameraMovement.SetPhase(CameraMovement.BattlePhase.phase2);
                 }
                 break;
             case CameraMovement.BattlePhase.phase2:
-                if (player1Damage <= player1DamageInitialValue - (player1DamageInitialValue / 2))
+                if (player1Damage <= initialDamageValue - (initialDamageValue / 2))
                 {
                     cameraMovement.SetPhase(CameraMovement.BattlePhase.phase3);
                 }
-                if (player2Damage <= player2DamageInitialValue - (player2DamageInitialValue / 2))
+                if (player2Damage <= initialDamageValue - (initialDamageValue / 2))
                 {
                     cameraMovement.SetPhase(CameraMovement.BattlePhase.phase3);
                 }
                 break;
             case CameraMovement.BattlePhase.phase3:
-                if (player1Damage <= player1DamageInitialValue - ((player1DamageInitialValue / 2) + (player1DamageInitialValue / 4)))
+                if (player1Damage <= initialDamageValue - ((initialDamageValue / 2) + (initialDamageValue / 4)))
                 { 
                     cameraMovement.SetPhase(CameraMovement.BattlePhase.phase4);
                 }
-                if (player2Damage <= player2DamageInitialValue - ((player2DamageInitialValue / 2) + (player2DamageInitialValue / 4)))
+                if (player2Damage <= initialDamageValue - ((initialDamageValue / 2) + (initialDamageValue / 4)))
                 { 
                     cameraMovement.SetPhase(CameraMovement.BattlePhase.phase4);
                 }
@@ -109,6 +107,10 @@ public class GameManager : MonoBehaviour
     public float GetPlayer2Damage()
     {
         return player2Damage;
+    }
+    public float GetInitialDamageValue()
+    {
+        return initialDamageValue;
     }
 
     IEnumerator ActivateVictoryScreen(float time, GameObject screen, GameObject button)
