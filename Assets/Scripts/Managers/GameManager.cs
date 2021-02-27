@@ -129,10 +129,5 @@ public class GameManager : MonoBehaviour
     {
         CapturePoint.VictoryP1 -= EndGameEventP1;
         CapturePoint.VictoryP2 -= EndGameEventP2;
-        instance = null;
-    }
-    private void OnDestroy()
-    {
-        instance = null;
     }
 }

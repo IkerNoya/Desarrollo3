@@ -122,12 +122,18 @@ public class CombatController : MonoBehaviour
 					case DataManager.PlayerSelection.Nova:
 						animator.runtimeAnimatorController = Resources.Load("Animations/AnimatorController/Nova") as RuntimeAnimatorController;
 						overrider = Resources.Load("Animations/AnimatorController/Nova") as AnimatorOverrideController;
-						combos[0].comboData[0].clip = NovaAttackClips[0];
+						for (int i = 0; i < NovaAttackClips.Count; i++)
+						{
+							combos[0].comboData[i].clip = NovaAttackClips[i];
+						}
 						break;
 					case DataManager.PlayerSelection.CyberBunny:
 						animator.runtimeAnimatorController = Resources.Load("Animations/AnimatorController/CyberBunny") as RuntimeAnimatorController;
 						overrider = Resources.Load("Animations/AnimatorController/CyberBunny") as AnimatorOverrideController;
-						combos[0].comboData[0].clip = CyberBunnyAttackClips[0];
+						for (int i = 0; i < CyberBunnyAttackClips.Count; i++)
+						{
+							combos[0].comboData[i].clip = CyberBunnyAttackClips[i];
+						}
 						break;
 				}
 				break;

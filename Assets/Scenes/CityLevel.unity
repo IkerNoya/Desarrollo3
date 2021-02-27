@@ -10630,6 +10630,11 @@ PrefabInstance:
       propertyPath: player1Choice.playerSelection
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4867223885632345653, guid: 44331738c0764344ea2812f9584a5db3,
+        type: 3}
+      propertyPath: player2Choice.playerSelection
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 44331738c0764344ea2812f9584a5db3, type: 3}
 --- !u!1 &1744478152
@@ -12336,6 +12341,31 @@ PrefabInstance:
       propertyPath: slowMotion
       value: 
       objectReference: {fileID: 1506143536}
+    - target: {fileID: 1225701373364830904, guid: 9342dd73a39486b4da82c2afa2922bcd,
+        type: 3}
+      propertyPath: CyberBunnyAttackClips.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1225701373364830904, guid: 9342dd73a39486b4da82c2afa2922bcd,
+        type: 3}
+      propertyPath: CyberBunnyAttackClips.Array.data[1]
+      value: 
+      objectReference: {fileID: 7400000, guid: c2e5b521385852146ace94cda7dca010, type: 2}
+    - target: {fileID: 1225701373364830904, guid: 9342dd73a39486b4da82c2afa2922bcd,
+        type: 3}
+      propertyPath: CyberBunnyAttackClips.Array.data[2]
+      value: 
+      objectReference: {fileID: 7400000, guid: 320b35e059e7ad442bf7db38d1ec8576, type: 2}
+    - target: {fileID: 1225701373364830904, guid: 9342dd73a39486b4da82c2afa2922bcd,
+        type: 3}
+      propertyPath: combos.Array.data[0].comboData.Array.data[2].clip
+      value: 
+      objectReference: {fileID: 7400000, guid: 3298dd0f89379ce4589c3decb98a11b7, type: 2}
+    - target: {fileID: 1225701373364830904, guid: 9342dd73a39486b4da82c2afa2922bcd,
+        type: 3}
+      propertyPath: combos.Array.data[0].comboData.Array.data[1].clip
+      value: 
+      objectReference: {fileID: 7400000, guid: be97a3c927dd8ed43a00ba53286eaa00, type: 2}
     - target: {fileID: 1225701374320304568, guid: 9342dd73a39486b4da82c2afa2922bcd,
         type: 3}
       propertyPath: enemy
@@ -12600,6 +12630,21 @@ PrefabInstance:
       propertyPath: hability
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 4395031985313786517, guid: fc79662f102093c4e99dd88d345bc744,
+        type: 3}
+      propertyPath: CyberBunnyAttackClips.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4395031985313786517, guid: fc79662f102093c4e99dd88d345bc744,
+        type: 3}
+      propertyPath: CyberBunnyAttackClips.Array.data[1]
+      value: 
+      objectReference: {fileID: 7400000, guid: c2e5b521385852146ace94cda7dca010, type: 2}
+    - target: {fileID: 4395031985313786517, guid: fc79662f102093c4e99dd88d345bc744,
+        type: 3}
+      propertyPath: CyberBunnyAttackClips.Array.data[2]
+      value: 
+      objectReference: {fileID: 7400000, guid: 320b35e059e7ad442bf7db38d1ec8576, type: 2}
     - target: {fileID: 4395031986078868597, guid: fc79662f102093c4e99dd88d345bc744,
         type: 3}
       propertyPath: enemy
