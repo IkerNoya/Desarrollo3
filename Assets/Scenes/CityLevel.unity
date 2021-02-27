@@ -12348,6 +12348,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1225701373364830904, guid: 9342dd73a39486b4da82c2afa2922bcd,
         type: 3}
+      propertyPath: NovaAttackClips.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1225701373364830904, guid: 9342dd73a39486b4da82c2afa2922bcd,
+        type: 3}
       propertyPath: CyberBunnyAttackClips.Array.data[1]
       value: 
       objectReference: {fileID: 7400000, guid: c2e5b521385852146ace94cda7dca010, type: 2}
@@ -12366,6 +12371,16 @@ PrefabInstance:
       propertyPath: combos.Array.data[0].comboData.Array.data[1].clip
       value: 
       objectReference: {fileID: 7400000, guid: be97a3c927dd8ed43a00ba53286eaa00, type: 2}
+    - target: {fileID: 1225701373364830904, guid: 9342dd73a39486b4da82c2afa2922bcd,
+        type: 3}
+      propertyPath: NovaAttackClips.Array.data[1]
+      value: 
+      objectReference: {fileID: 7400000, guid: f3abdf80b53718a4f9e188b6fa856df5, type: 2}
+    - target: {fileID: 1225701373364830904, guid: 9342dd73a39486b4da82c2afa2922bcd,
+        type: 3}
+      propertyPath: NovaAttackClips.Array.data[2]
+      value: 
+      objectReference: {fileID: 7400000, guid: 523f58dad49fd764fac95e84748662d2, type: 2}
     - target: {fileID: 1225701374320304568, guid: 9342dd73a39486b4da82c2afa2922bcd,
         type: 3}
       propertyPath: enemy
@@ -12637,6 +12652,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4395031985313786517, guid: fc79662f102093c4e99dd88d345bc744,
         type: 3}
+      propertyPath: NovaAttackClips.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4395031985313786517, guid: fc79662f102093c4e99dd88d345bc744,
+        type: 3}
       propertyPath: CyberBunnyAttackClips.Array.data[1]
       value: 
       objectReference: {fileID: 7400000, guid: c2e5b521385852146ace94cda7dca010, type: 2}
@@ -12645,6 +12665,16 @@ PrefabInstance:
       propertyPath: CyberBunnyAttackClips.Array.data[2]
       value: 
       objectReference: {fileID: 7400000, guid: 320b35e059e7ad442bf7db38d1ec8576, type: 2}
+    - target: {fileID: 4395031985313786517, guid: fc79662f102093c4e99dd88d345bc744,
+        type: 3}
+      propertyPath: NovaAttackClips.Array.data[1]
+      value: 
+      objectReference: {fileID: 7400000, guid: f3abdf80b53718a4f9e188b6fa856df5, type: 2}
+    - target: {fileID: 4395031985313786517, guid: fc79662f102093c4e99dd88d345bc744,
+        type: 3}
+      propertyPath: NovaAttackClips.Array.data[2]
+      value: 
+      objectReference: {fileID: 7400000, guid: 523f58dad49fd764fac95e84748662d2, type: 2}
     - target: {fileID: 4395031986078868597, guid: fc79662f102093c4e99dd88d345bc744,
         type: 3}
       propertyPath: enemy
