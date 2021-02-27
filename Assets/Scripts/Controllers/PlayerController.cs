@@ -128,7 +128,7 @@ public class PlayerController : MonoBehaviour
         InitialPos = cam.WorldToScreenPoint(transform.localPosition);
         parryController = GetComponentInChildren<ParryController>();
         collider = GetComponent<BoxCollider2D>();
-        data = DataManager.instance;
+        data = DataManager.Instance;
         LoadSelectionData();
 
     }

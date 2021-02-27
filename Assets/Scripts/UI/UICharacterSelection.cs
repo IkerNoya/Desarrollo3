@@ -38,7 +38,7 @@ public class UICharacterSelection : MonoBehaviour
         AvatarPlayer1.color = invisible;
         AvatarPlayer2.color = invisible;
 
-        data = DataManager.instance;
+        data = DataManager.Instance;
 
         colorSelectionLeft.SetActive(false);
         colorSelectionRight.SetActive(false);
@@ -55,7 +55,6 @@ public class UICharacterSelection : MonoBehaviour
         {
             EventSystem.current.SetSelectedGameObject(EventSystem.current.currentSelectedGameObject);
         }
-
     }
     public void OnClickNova()
     {

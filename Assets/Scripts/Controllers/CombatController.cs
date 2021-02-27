@@ -59,7 +59,7 @@ public class CombatController : MonoBehaviour
 	{
 		combosByID = new Dictionary<string, Combo>();
 		player = GetComponentInParent<PlayerController>();
-		data = DataManager.instance;
+		data = DataManager.Instance;
 
 		foreach (Combo combo in combos)
 		{

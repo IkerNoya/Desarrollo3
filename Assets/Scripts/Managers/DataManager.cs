@@ -24,20 +24,19 @@ public class DataManager : MonoBehaviour
     public PlayerChoice player1Choice;
     public PlayerChoice player2Choice;
     public static DataManager instance;
-    public static DataManager Get()
-    {
-       return instance;
-    }
+    public static DataManager Instance { get { return instance; } }
 
     void Awake()
     {
-        if(instance!=null)
+        if(instance != null && instance != this)
         {
             Destroy(gameObject);
-            return;
         }
-        instance = this;
-        DontDestroyOnLoad(gameObject);
+        else
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
     }
     void Start()
     {
@@ -50,7 +49,7 @@ public class DataManager : MonoBehaviour
 
     void Update()
     {
-
+        Debug.Log(instance);
     }
 
     #region OPTIONS_VALUES
@@ -116,13 +115,5 @@ public class DataManager : MonoBehaviour
     }
     #endregion
 
-    private void OnDisable()
-    {
-        instance = null;
-    }
-    private void OnDestroy()
-    {
-        instance = null;
-    }
 }
 
