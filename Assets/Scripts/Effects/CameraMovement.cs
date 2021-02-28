@@ -9,14 +9,19 @@ public class CameraMovement : MonoBehaviour
     [SerializeField] GameObject Phase2Position;
     [SerializeField] GameObject Phase3Position;
     [SerializeField] GameObject Phase4Position;
+    [SerializeField] GameObject Phase5Position;
+    [Space]
     [SerializeField] float speed;
     [SerializeField] float offset;
+    [Space]
     [SerializeField] GameObject player1;
     [SerializeField] GameObject player2;
+    [Space]
+    [SerializeField] Parallax FinalParallax;
 
     public enum BattlePhase
     {
-        phase1, phase2, phase3, phase4
+        phase1, phase2, phase3, phase4, phase5
     }
     public BattlePhase phase;
 
@@ -54,6 +59,7 @@ public class CameraMovement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Alpha2)) phase = BattlePhase.phase2;
         if (Input.GetKeyDown(KeyCode.Alpha3)) phase = BattlePhase.phase3;
         if (Input.GetKeyDown(KeyCode.Alpha4)) phase = BattlePhase.phase4;
+        if (Input.GetKeyDown(KeyCode.Alpha5)) phase = BattlePhase.phase5;
 #endif
     }
     void LateUpdate()
@@ -74,6 +80,9 @@ public class CameraMovement : MonoBehaviour
                     break;
                 case BattlePhase.phase4:
                     MoveToPosition(Phase4Position);
+                    break;
+                case BattlePhase.phase5:
+                    MoveToPosition(Phase5Position);
                     break;
             }
         }

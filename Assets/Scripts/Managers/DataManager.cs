@@ -49,7 +49,6 @@ public class DataManager : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(instance);
     }
 
     #region OPTIONS_VALUES

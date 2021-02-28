@@ -45,6 +45,12 @@ public class PlayerController : MonoBehaviour
     [Space]
     [SerializeField] GameObject spawner;
     [Space]
+    [SerializeField] AnimationClip startRunNova;
+    [SerializeField] AnimationClip endRunNova;
+    [SerializeField] AnimationClip startRunCyber;
+    [SerializeField] AnimationClip endRunCyber;
+    [Space]
+    AnimatorOverrideController overrider;
     #endregion
 
     #region PUBLIC_VARIABLES
@@ -130,7 +136,7 @@ public class PlayerController : MonoBehaviour
         collider = GetComponent<BoxCollider2D>();
         data = DataManager.Instance;
         LoadSelectionData();
-
+        overrider = comboController.overrider;
     }
 
     void Update()
@@ -215,6 +221,45 @@ public class PlayerController : MonoBehaviour
         if(canMove)
         {
             anim.SetFloat("VelocityX", Mathf.Abs(direction));
+            anim.SetFloat("Speed", Mathf.Abs(direction));
+            switch (playerSelect)
+            {
+                case PlayerSelect.player1:
+                    switch (data.player1Choice.playerSelection)
+                    {
+                        case DataManager.PlayerSelection.Nova:
+                            if (anim.GetFloat("VelocityX") < 0.3f)
+                                overrider["Start_Run"] = startRunNova;
+                            else
+                                overrider["Start_Run"] = endRunNova;
+                            break;
+                        case DataManager.PlayerSelection.CyberBunny:
+                            if (anim.GetFloat("VelocityX") < 0.3f)
+                                overrider["Start_Run"] = startRunCyber;
+                            else
+                                overrider["Start_Run"] = endRunCyber;
+                            break;
+                    }
+                    break;
+                case PlayerSelect.player2:
+                    switch (data.player2Choice.playerSelection)
+                    {
+                        case DataManager.PlayerSelection.Nova:
+                            if (anim.GetFloat("VelocityX") < 0.3f)
+                                overrider["Start_Run"] = startRunNova;
+                            else
+                                overrider["Start_Run"] = endRunNova;
+                            break;
+                        case DataManager.PlayerSelection.CyberBunny:
+                            if (anim.GetFloat("VelocityX") < 0.3f)
+                                overrider["Start_Run"] = startRunCyber;
+                            else
+                                overrider["Start_Run"] = endRunCyber;
+                            break;
+                    }
+                    break;
+            }
+
         }
         if (wj) anim.SetTrigger("WJ");
         soundTimer += Time.deltaTime;
