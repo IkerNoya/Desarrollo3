@@ -533,7 +533,6 @@ public class PlayerController : MonoBehaviour
                     StartCoroutine(CameraShake.instance.Shake(Camera.main.gameObject, shakeDuration, shakeMagnitude));
                     anim.ResetTrigger("Damage");
                 }
-                Debug.Log("Aire");
             }
             else
             {
