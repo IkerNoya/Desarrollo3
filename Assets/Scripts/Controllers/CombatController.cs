@@ -48,6 +48,7 @@ public class CombatController : MonoBehaviour
 	public bool IsAttacking => isAttacking;
 
 	int comboLimit = 3;
+	bool isComboCanceled = true;
 
 	PlayerController player;
 	DataManager data;
@@ -108,7 +109,7 @@ public class CombatController : MonoBehaviour
 		}
 
 		hitCooldown -= Time.deltaTime;
-		if (hitCooldown <= 0)
+		if (hitCooldown <= 0 && !isComboCanceled)
 			CancelCombo();
 	}
 
@@ -164,6 +165,7 @@ public class CombatController : MonoBehaviour
 	void StartCombo(Combo combo)
 	{
 		currentCombo = combo;
+		isComboCanceled = false;
 		currentComboName = currentCombo.ComboName;
 		AttackAction();
 	}
@@ -180,6 +182,7 @@ public class CombatController : MonoBehaviour
 
 	public void CancelCombo()
 	{
+		isComboCanceled = true;
 		criticalDamage = false;
 		currentComboName = "";
 		hitIndex = 0;
@@ -206,6 +209,10 @@ public class CombatController : MonoBehaviour
 	{
 		hitCol.SetActive(true);
 		StartCoroutine(DeactivateHitIn(0.1f));
+	}
+	public void ActivateCanMove()
+	{
+		player.SetCanMove(true);
 	}
 
 	IEnumerator DeactivateHitIn(float t)

@@ -2,8 +2,9 @@
 using System.Collections;
 using System.Net.Http.Headers;
 using System.Threading;
-using UnityEditorInternal;
+using UnityEditor.Animations;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -45,10 +46,8 @@ public class PlayerController : MonoBehaviour
     [Space]
     [SerializeField] GameObject spawner;
     [Space]
-    [SerializeField] AnimationClip startRunNova;
-    [SerializeField] AnimationClip endRunNova;
-    [SerializeField] AnimationClip startRunCyber;
-    [SerializeField] AnimationClip endRunCyber;
+    [SerializeField] AnimationClip startRun;
+    [SerializeField] AnimationClip endRun;
     [Space]
     AnimatorOverrideController overrider;
     #endregion
@@ -147,16 +146,25 @@ public class PlayerController : MonoBehaviour
             return;
         rightColliderSide = new Vector3(transform.position.x + collider.bounds.size.x / 2, transform.position.y, transform.position.z);
         leftColliderSide = new Vector3(transform.position.x - collider.bounds.size.x / 2, transform.position.y, transform.position.z);
-        if (!canMove)
+        if (canMove)
+        {
+            direction = Input.GetAxis(playerAxis) + Input.GetAxis(joystickAxis);
+            movement = new Vector2(direction, 0) * speed;
+            anim.SetFloat("VelocityX", Mathf.Abs(direction));
+            anim.SetFloat("Speed", Mathf.Abs(direction));
+            if (Mathf.Abs(rigidBody.velocity.x) < 1f)
+                overrider["Start_Run"] = startRun;
+            else if(Mathf.Abs(rigidBody.velocity.x) >=1 && Mathf.Abs(direction) <= 0.6f)
+                overrider["Start_Run"] = endRun;
+
+        }
+        else
         {
             direction = 0;
             movement = Vector3.zero;
-            rigidBody.velocity = Vector3.zero;
+            rigidBody.velocity = new Vector3(0,rigidBody.velocity.y, 0);
         }
-        else
-            direction = Input.GetAxis(playerAxis) + Input.GetAxis(joystickAxis);
 
-        movement = new Vector2(direction, 0) * speed;
         if(movement.x > runAxisLimit || movement.x < -runAxisLimit)
         {
             if (soundTimer >= footstepSoundTimer && isGroundedCenter)
@@ -218,49 +226,7 @@ public class PlayerController : MonoBehaviour
         else if(!isGroundedCenter && !isGroundedLeft && !isGroundedRight)
             anim.SetBool("Grounded", false);
         anim.SetFloat("VelocityY", rigidBody.velocity.y);
-        if(canMove)
-        {
-            anim.SetFloat("VelocityX", Mathf.Abs(direction));
-            anim.SetFloat("Speed", Mathf.Abs(direction));
-            switch (playerSelect)
-            {
-                case PlayerSelect.player1:
-                    switch (data.player1Choice.playerSelection)
-                    {
-                        case DataManager.PlayerSelection.Nova:
-                            if (anim.GetFloat("VelocityX") < 0.3f)
-                                overrider["Start_Run"] = startRunNova;
-                            else
-                                overrider["Start_Run"] = endRunNova;
-                            break;
-                        case DataManager.PlayerSelection.CyberBunny:
-                            if (anim.GetFloat("VelocityX") < 0.3f)
-                                overrider["Start_Run"] = startRunCyber;
-                            else
-                                overrider["Start_Run"] = endRunCyber;
-                            break;
-                    }
-                    break;
-                case PlayerSelect.player2:
-                    switch (data.player2Choice.playerSelection)
-                    {
-                        case DataManager.PlayerSelection.Nova:
-                            if (anim.GetFloat("VelocityX") < 0.3f)
-                                overrider["Start_Run"] = startRunNova;
-                            else
-                                overrider["Start_Run"] = endRunNova;
-                            break;
-                        case DataManager.PlayerSelection.CyberBunny:
-                            if (anim.GetFloat("VelocityX") < 0.3f)
-                                overrider["Start_Run"] = startRunCyber;
-                            else
-                                overrider["Start_Run"] = endRunCyber;
-                            break;
-                    }
-                    break;
-            }
 
-        }
         if (wj) anim.SetTrigger("WJ");
         soundTimer += Time.deltaTime;
     }
@@ -370,6 +336,17 @@ public class PlayerController : MonoBehaviour
                     sprite.color = Color.blue;
                     break;
             }
+            switch (data.player1Choice.playerSelection)
+            {
+                case DataManager.PlayerSelection.Nova:
+                    startRun = Resources.Load("Animations/Clips/Start_Run_Nova") as AnimationClip;
+                    endRun = Resources.Load("Animations/Clips/End_Run_Nova") as AnimationClip;
+                    break;
+                case DataManager.PlayerSelection.CyberBunny:
+                    startRun = Resources.Load("Animations/Clips/Start_Run_Cyber") as AnimationClip;
+                    endRun = Resources.Load("Animations/Clips/End_Run_Cyber") as AnimationClip;
+                    break;
+            }
         }
         else
         {
@@ -383,6 +360,17 @@ public class PlayerController : MonoBehaviour
                     break;
                 case DataManager.Tint.blue:
                     sprite.color = Color.blue;
+                    break;
+            }
+            switch (data.player2Choice.playerSelection)
+            {
+                case DataManager.PlayerSelection.Nova:
+                    startRun = Resources.Load("Animations/Clips/Start_Run_Nova") as AnimationClip;
+                    endRun = Resources.Load("Animations/Clips/End_Run_Nova") as AnimationClip;
+                    break;
+                case DataManager.PlayerSelection.CyberBunny:
+                    startRun = Resources.Load("Animations/Clips/Start_Run_Cyber") as AnimationClip;
+                    endRun = Resources.Load("Animations/Clips/End_Run_Cyber") as AnimationClip;
                     break;
             }
         }
@@ -457,12 +445,16 @@ public class PlayerController : MonoBehaviour
     }
     public bool GetGrounded()
     {
-        bool grounded = isGroundedCenter;
-        if (isGroundedCenter || isGroundedLeft || isGroundedRight)
-            grounded = true;
+        if (isGroundedCenter && isGroundedLeft && isGroundedRight)
+            return true;
+        else if (isGroundedCenter && isGroundedLeft && !isGroundedRight)
+            return true;
+        else if (isGroundedCenter && !isGroundedLeft && isGroundedRight)
+            return true;
         else if (!isGroundedCenter && !isGroundedLeft && !isGroundedRight)
-            grounded = false;
-        return grounded;
+            return false;
+        else
+            return false;
     }
     public bool GetPause()
     {
@@ -515,7 +507,14 @@ public class PlayerController : MonoBehaviour
             Vector3 direction = collision.gameObject.transform.position - transform.position;
             direction.Normalize();
             anim.SetTrigger("Damage");
-            StartCoroutine(TakeDamage(0.75f));
+            if (GetGrounded())
+            {
+                StartCoroutine(TakeDamage(0.75f));
+            }
+            else
+            {
+                canMove = false;
+            }
             hp -= collision.gameObject.GetComponentInParent<CombatController>().GetDamage();
             if (isCriticalHit)
             {
@@ -526,7 +525,6 @@ public class PlayerController : MonoBehaviour
             {
                 rigidBody.AddForce(new Vector2(-direction.x * knockBackForce, rigidBody.velocity.y));
             }
-            StartCoroutine(HitCooldown());
             takeDamage?.Invoke(this);
             if (hp <= 0)
             {
@@ -605,13 +603,7 @@ public class PlayerController : MonoBehaviour
         Respawn();
         yield break;
     }
-    IEnumerator HitCooldown()
-    {
-        yield return new WaitForSeconds(0.5f);
-        canMove = true;
-       
-        yield return null;
-    }
+
    IEnumerator WallJumpCoolDown(float JumpTimer)
    {
         wj = true;

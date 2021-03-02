@@ -40,11 +40,11 @@ public class DataManager : MonoBehaviour
     }
     void Start()
     {
-        //default values
-        player1Choice.playerSelection = PlayerSelection.Nova;
-        player1Choice.tint = Tint.white;
-        player2Choice.playerSelection = PlayerSelection.CyberBunny;
-        player2Choice.tint = Tint.white;
+        ////default values
+        //player1Choice.playerSelection = PlayerSelection.Nova;
+        //player1Choice.tint = Tint.white;
+        //player2Choice.playerSelection = PlayerSelection.CyberBunny;
+        //player2Choice.tint = Tint.white;
     }
 
     void Update()

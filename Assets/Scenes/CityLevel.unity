@@ -10763,12 +10763,12 @@ PrefabInstance:
     - target: {fileID: 4867223885632345653, guid: 44331738c0764344ea2812f9584a5db3,
         type: 3}
       propertyPath: player1Choice.playerSelection
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4867223885632345653, guid: 44331738c0764344ea2812f9584a5db3,
         type: 3}
       propertyPath: player2Choice.playerSelection
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 44331738c0764344ea2812f9584a5db3, type: 3}
@@ -12495,12 +12495,12 @@ PrefabInstance:
     - target: {fileID: 1225701374430052506, guid: 9342dd73a39486b4da82c2afa2922bcd,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 6.8
+      value: 3.02
       objectReference: {fileID: 0}
     - target: {fileID: 1225701374430052506, guid: 9342dd73a39486b4da82c2afa2922bcd,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.57
+      value: 3.03
       objectReference: {fileID: 0}
     - target: {fileID: 1225701374430052506, guid: 9342dd73a39486b4da82c2afa2922bcd,
         type: 3}
