@@ -35,7 +35,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Deflect
-  m_Speed: -1
+  m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: -4541955729480787109}
@@ -537,7 +537,7 @@ AnimatorStateMachine:
     m_Position: {x: 160, y: 300, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -1785577983732743098}
-    m_Position: {x: 960, y: 270, z: 0}
+    m_Position: {x: 980, y: 280, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 2858389271386755490}
     m_Position: {x: 160, y: -80, z: 0}

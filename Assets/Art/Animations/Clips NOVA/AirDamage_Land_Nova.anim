@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Damage1_Cyber
+  m_Name: AirDamage_Land_Nova
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -20,23 +20,25 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: 21300000, guid: ce33a4b04266f644eaabfed8ed174367, type: 3}
+      value: {fileID: 21300000, guid: 9c46a150de24b814292e34a3ee9e786e, type: 3}
     - time: 0.041666668
-      value: {fileID: 21300000, guid: 422f327a1851e024e94519b6ebcd8c8a, type: 3}
+      value: {fileID: 21300000, guid: 1952742e592351d48a8c72ecc2e9ae79, type: 3}
     - time: 0.083333336
-      value: {fileID: 21300000, guid: 2394aae6a54afeb46b6b4cef5ce6e526, type: 3}
+      value: {fileID: 21300000, guid: f6d2e7d2798b31f4cbc3f55d9ff15bc3, type: 3}
     - time: 0.125
-      value: {fileID: 21300000, guid: faeadddb356718343a3819285acb441a, type: 3}
+      value: {fileID: 21300000, guid: f11654e53e0d46c4e9a82903d0817af4, type: 3}
     - time: 0.16666667
-      value: {fileID: 21300000, guid: 6c9c19bf2aeb80348a29985ece6e053f, type: 3}
+      value: {fileID: 21300000, guid: 0bdaefc4324ed534dbc0a5ece4847872, type: 3}
     - time: 0.20833333
-      value: {fileID: 21300000, guid: 61e6948d8862c614598ae7e1e30d3114, type: 3}
+      value: {fileID: 21300000, guid: eb935d26d4daba34997a84f9996c9aca, type: 3}
     - time: 0.25
-      value: {fileID: 21300000, guid: 5b43fd82961533f408a45032db901ef0, type: 3}
+      value: {fileID: 21300000, guid: 862958f5fb4cee54dbdd9d215847d274, type: 3}
     - time: 0.29166666
-      value: {fileID: 21300000, guid: 80a48823465c6954a99ee51b04f34de4, type: 3}
+      value: {fileID: 21300000, guid: 4ac276211bc983f4a8e28c5509499c5c, type: 3}
     - time: 0.33333334
-      value: {fileID: 21300000, guid: 71f311fae62a26143b26b2a5da18688d, type: 3}
+      value: {fileID: 21300000, guid: ff51c94d840f5fb4ca70380fc8a9f89c, type: 3}
+    - time: 0.375
+      value: {fileID: 21300000, guid: 5c5d51b343915794789341b295026f24, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -56,21 +58,22 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: 21300000, guid: ce33a4b04266f644eaabfed8ed174367, type: 3}
-    - {fileID: 21300000, guid: 422f327a1851e024e94519b6ebcd8c8a, type: 3}
-    - {fileID: 21300000, guid: 2394aae6a54afeb46b6b4cef5ce6e526, type: 3}
-    - {fileID: 21300000, guid: faeadddb356718343a3819285acb441a, type: 3}
-    - {fileID: 21300000, guid: 6c9c19bf2aeb80348a29985ece6e053f, type: 3}
-    - {fileID: 21300000, guid: 61e6948d8862c614598ae7e1e30d3114, type: 3}
-    - {fileID: 21300000, guid: 5b43fd82961533f408a45032db901ef0, type: 3}
-    - {fileID: 21300000, guid: 80a48823465c6954a99ee51b04f34de4, type: 3}
-    - {fileID: 21300000, guid: 71f311fae62a26143b26b2a5da18688d, type: 3}
+    - {fileID: 21300000, guid: 9c46a150de24b814292e34a3ee9e786e, type: 3}
+    - {fileID: 21300000, guid: 1952742e592351d48a8c72ecc2e9ae79, type: 3}
+    - {fileID: 21300000, guid: f6d2e7d2798b31f4cbc3f55d9ff15bc3, type: 3}
+    - {fileID: 21300000, guid: f11654e53e0d46c4e9a82903d0817af4, type: 3}
+    - {fileID: 21300000, guid: 0bdaefc4324ed534dbc0a5ece4847872, type: 3}
+    - {fileID: 21300000, guid: eb935d26d4daba34997a84f9996c9aca, type: 3}
+    - {fileID: 21300000, guid: 862958f5fb4cee54dbdd9d215847d274, type: 3}
+    - {fileID: 21300000, guid: 4ac276211bc983f4a8e28c5509499c5c, type: 3}
+    - {fileID: 21300000, guid: ff51c94d840f5fb4ca70380fc8a9f89c, type: 3}
+    - {fileID: 21300000, guid: 5c5d51b343915794789341b295026f24, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.375
+    m_StopTime: 0.41666666
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -89,11 +92,4 @@ AnimationClip:
   m_EulerEditorCurves: []
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
-  m_Events:
-  - time: 0.33333334
-    functionName: ActivateCanMove
-    data: 
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
+  m_Events: []

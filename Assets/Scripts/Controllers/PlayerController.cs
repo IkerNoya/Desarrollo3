@@ -511,16 +511,9 @@ public class PlayerController : MonoBehaviour
             isCriticalHit = collision.gameObject.GetComponentInParent<CombatController>().GetCriticalDamageValue();
             Vector3 direction = collision.gameObject.transform.position - transform.position;
             direction.Normalize();
-            anim.SetTrigger("Damage");
-            if (GetGrounded())
-            {
-                StartCoroutine(TakeDamage(0.75f));
-            }
-            else
-            {
-                canMove = false;
-            }
+            canMove = false;
             hp -= collision.gameObject.GetComponentInParent<CombatController>().GetDamage();
+            anim.SetBool("Critical", isCriticalHit);
             if (isCriticalHit)
             {
                 rigidBody.AddForce(new Vector2(-direction.x * criticalKnockBackForce, rigidBody.velocity.y));
@@ -530,6 +523,7 @@ public class PlayerController : MonoBehaviour
             {
                 rigidBody.AddForce(new Vector2(-direction.x * knockBackForce, rigidBody.velocity.y));
             }
+            anim.SetTrigger("Damage");
             takeDamage?.Invoke(this);
             if (hp <= 0)
             {
@@ -629,13 +623,6 @@ public class PlayerController : MonoBehaviour
         state = State.Falling;
         wj = false;
         jumpInWall = false;
-        yield return null;
-    }
-    IEnumerator TakeDamage(float time)
-    {
-        canMove = false;
-        yield return new WaitForSeconds(time);
-        canMove = true;
         yield return null;
     }
     #endregion COROUTINES
