@@ -213,6 +213,7 @@ public class CombatController : MonoBehaviour
 	public void ActivateCanMove()
 	{
 		player.SetCanMove(true);
+		Debug.Log("Me puedo mover " + gameObject);
 	}
 
 	IEnumerator DeactivateHitIn(float t)
