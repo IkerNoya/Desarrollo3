@@ -1,10 +1,6 @@
 ﻿using System;
 using System.Collections;
-using System.Net.Http.Headers;
-using System.Threading;
-using UnityEditor.Animations;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -108,6 +104,7 @@ public class PlayerController : MonoBehaviour
     float dashCooldown = 0;
     float dashDuration = 0;
     float soundTimer = 0;
+    float initialGravity;
 
     Vector2 movement;
     Vector3 leftColliderSide;
@@ -126,7 +123,7 @@ public class PlayerController : MonoBehaviour
     #region BASE_FUNCTIONS
     void Start()
     {
-        cam = Camera.main; 
+        cam = Camera.main;
         jumpAmmount = noOfJumps;
         comboController.hitCol.SetActive(false);
         transform.position = new Vector3(InitialPos.x, InitialPos.y, InitialPos.z);
@@ -136,6 +133,7 @@ public class PlayerController : MonoBehaviour
         data = DataManager.Instance;
         LoadSelectionData();
         overrider = comboController.overrider;
+        initialGravity = rigidBody.gravityScale;
     }
 
     void Update()
@@ -154,17 +152,17 @@ public class PlayerController : MonoBehaviour
             anim.SetFloat("Speed", Mathf.Abs(direction));
             if (Mathf.Abs(rigidBody.velocity.x) < 1f)
                 overrider["Start_Run"] = startRun;
-            else if(Mathf.Abs(rigidBody.velocity.x) >=1 && Mathf.Abs(direction) <= 0.6f)
+            else if (Mathf.Abs(rigidBody.velocity.x) >= 1 && Mathf.Abs(direction) <= 0.6f)
                 overrider["Start_Run"] = endRun;
         }
         else
         {
             direction = 0;
             movement = Vector3.zero;
-            rigidBody.velocity = new Vector3(0,rigidBody.velocity.y, 0);
+            rigidBody.velocity = new Vector3(0, rigidBody.velocity.y, 0);
         }
 
-        if(movement.x > runAxisLimit || movement.x < -runAxisLimit)
+        if (movement.x > runAxisLimit || movement.x < -runAxisLimit)
         {
             if (soundTimer >= footstepSoundTimer && isGroundedCenter)
             {
@@ -197,16 +195,16 @@ public class PlayerController : MonoBehaviour
         if (!canDash)
         {
             dashCooldown += Time.deltaTime;
-            if(dashCooldown > 2)
+            if (dashCooldown > 2)
             {
                 dashCooldown = 0;
                 canDash = true;
-            } 
+            }
         }
         if (isDashing)
         {
             dashDuration += Time.deltaTime;
-            if(dashDuration > 0.15f)
+            if (dashDuration > 0.15f)
             {
                 dashDuration = 0;
                 if (isGroundedCenter || isGroundedLeft || isGroundedRight) state = State.Grounded;
@@ -220,9 +218,9 @@ public class PlayerController : MonoBehaviour
         wasGrounded = isGroundedCenter;
         wasGrounded = isGroundedLeft;
         wasGrounded = isGroundedRight;
-        if(isGroundedCenter || isGroundedLeft || isGroundedRight)
+        if (isGroundedCenter || isGroundedLeft || isGroundedRight)
             anim.SetBool("Grounded", true);
-        else if(!isGroundedCenter && !isGroundedLeft && !isGroundedRight)
+        else if (!isGroundedCenter && !isGroundedLeft && !isGroundedRight)
             anim.SetBool("Grounded", false);
         if (anim.GetBool("Grounded") && Mathf.Abs(direction) <= 0.3f)
             anim.SetBool("Stop", true);
@@ -305,7 +303,7 @@ public class PlayerController : MonoBehaviour
                     anim.ResetTrigger("Jump");
                     rigidBody.velocity = new Vector2(0, wallStickiness); // limit movement to the right side
                     StartCoroutine(WallSlideTransition(walljumpAnimTime));
-                    if (jumpInWall && jumpAmmount>0)
+                    if (jumpInWall && jumpAmmount > 0)
                     {
                         StartCoroutine(WallJumpCoolDown(0.2f));
                     }
@@ -327,7 +325,7 @@ public class PlayerController : MonoBehaviour
 
     void LoadSelectionData()
     {
-        if(playerSelect == PlayerSelect.player1)
+        if (playerSelect == PlayerSelect.player1)
         {
             switch (data.player1Choice.tint)
             {
@@ -385,12 +383,12 @@ public class PlayerController : MonoBehaviour
     {
         canMove = value;
     }
-    
+
     void Inputs()
     {
         if ((Input.GetKeyDown(jumpButtonKM) || Input.GetKeyDown(jumpButtonJoystick)) && jumpAmmount > 0 && canMove && !comboController.IsAttacking)
         {
-            state = State.Jumping; 
+            state = State.Jumping;
             isGroundedCenter = false;
             isGroundedLeft = false;
             isGroundedRight = false;
@@ -411,7 +409,7 @@ public class PlayerController : MonoBehaviour
             state = State.Dash;
             dashSound.Post(gameObject);
         }
-        if(Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.JoystickButton9))
+        if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.JoystickButton9))
         {
             isPaused = true;
             Pause?.Invoke(this);
@@ -436,9 +434,10 @@ public class PlayerController : MonoBehaviour
     {
         rigidBody.simulated = true;
         rigidBody.velocity = Vector2.zero;
+        canMove = true;
         hp = 100;
         isDead = false;
-        anim.SetBool("Dead", false);
+        anim.Rebind();
         state = State.Falling;
         isDashing = false;
         transform.position = spawner.transform.position;
@@ -447,6 +446,15 @@ public class PlayerController : MonoBehaviour
     public bool GetCanMove()
     {
         return canMove;
+    }
+    public void SetGravity(float value)
+    {
+        rigidBody.gravityScale = value;
+        rigidBody.velocity = Vector3.zero;
+    }
+    public void SetDefaultGravity()
+    {
+        rigidBody.gravityScale = initialGravity;
     }
     public bool GetGrounded()
     {
@@ -509,21 +517,40 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.CompareTag("HitCollider") && collision.gameObject.layer != gameObject.layer && !parryController.GetBlockDamage() && !isDashing && collision.gameObject != gameObject)
         {
             isCriticalHit = collision.gameObject.GetComponentInParent<CombatController>().GetCriticalDamageValue();
-            Vector3 direction = collision.gameObject.transform.position - transform.position;
-            direction.Normalize();
             canMove = false;
+            Vector3 direction;
             hp -= collision.gameObject.GetComponentInParent<CombatController>().GetDamage();
-            anim.SetBool("Critical", isCriticalHit);
-            if (isCriticalHit)
+            StartCoroutine(GravityChange(0.5f));
+            anim.SetTrigger("Damage");
+            if (!GetGrounded())
             {
-                rigidBody.AddForce(new Vector2(-direction.x * criticalKnockBackForce, rigidBody.velocity.y));
-                StartCoroutine(CameraShake.instance.Shake(Camera.main.gameObject, shakeDuration, shakeMagnitude));
+                if (isCriticalHit)
+                {
+                    direction = collision.gameObject.transform.position - Vector3.down;
+                    direction.Normalize();
+                    rigidBody.gravityScale = initialGravity;
+                    rigidBody.AddForce(new Vector2(rigidBody.velocity.x, direction.x * criticalKnockBackForce));
+                    StartCoroutine(CameraShake.instance.Shake(Camera.main.gameObject, shakeDuration, shakeMagnitude));
+                    anim.ResetTrigger("Damage");
+                }
+                Debug.Log("Aire");
             }
             else
             {
-                rigidBody.AddForce(new Vector2(-direction.x * knockBackForce, rigidBody.velocity.y));
+                anim.SetBool("Critical", isCriticalHit);
+                direction = collision.gameObject.transform.position - transform.position;
+                direction.Normalize();
+                if (isCriticalHit)
+                {
+                    rigidBody.AddForce(new Vector2(-direction.x * criticalKnockBackForce, rigidBody.velocity.y));
+                    StartCoroutine(CameraShake.instance.Shake(Camera.main.gameObject, shakeDuration, shakeMagnitude));
+                }
+                else
+                {
+                    rigidBody.AddForce(new Vector2(-direction.x * knockBackForce, rigidBody.velocity.y));
+                }
             }
-            anim.SetTrigger("Damage");
+            
             takeDamage?.Invoke(this);
             if (hp <= 0)
             {
@@ -603,8 +630,8 @@ public class PlayerController : MonoBehaviour
         yield break;
     }
 
-   IEnumerator WallJumpCoolDown(float JumpTimer)
-   {
+    IEnumerator WallJumpCoolDown(float JumpTimer)
+    {
         wj = true;
         anim.SetTrigger("Jump");
         ResetWallJump();
@@ -623,6 +650,14 @@ public class PlayerController : MonoBehaviour
         state = State.Falling;
         wj = false;
         jumpInWall = false;
+        yield return null;
+    }
+    IEnumerator GravityChange(float time)
+    {
+        rigidBody.velocity = Vector3.zero;
+        rigidBody.gravityScale = 0;
+        yield return new WaitForSeconds(time);
+        rigidBody.gravityScale = initialGravity;
         yield return null;
     }
     #endregion COROUTINES

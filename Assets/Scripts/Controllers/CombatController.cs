@@ -38,11 +38,15 @@ public class CombatController : MonoBehaviour
 	[Space]
 	[SerializeField] List<AnimationClip> NovaAttackClips;
 	[SerializeField] List<AnimationClip> CyberBunnyAttackClips;
+	[SerializeField] AnimationClip AirAttack2_Nova;
+	[SerializeField] AnimationClip AirAttack2_Cyber;
+	[Space]
 
 	private Combo currentCombo;
 	float damage;
 	bool criticalDamage;
 	private Dictionary<string, Combo> combosByID;
+	bool canAirAttack = true;
 
 	bool isAttacking = false;
 	public bool IsAttacking => isAttacking;
@@ -75,20 +79,30 @@ public class CombatController : MonoBehaviour
 		if (currentCombo == null)
 		{
 			timer += Time.deltaTime;
-			foreach (Combo combo in combos)
+			Combo ground = combosByID["Ground_Combo"];
+			Combo air = combosByID["Air_Combo"];
+			ComboHit comboHitGround = ground.comboData[0];
+			ComboHit comboHitAir = air.comboData[0];
+			if ((Input.GetKeyDown(comboHitGround.comboKeyKM) || Input.GetKeyDown(comboHitGround.comboKeyJoystick)) && timer >= comboHitGround.hitDuration && player.GetGrounded())
 			{
-				ComboHit comboHit = combo.comboData[0];
-				if ((Input.GetKeyDown(comboHit.comboKeyKM) || Input.GetKeyDown(comboHit.comboKeyJoystick)) && timer >= comboHit.hitDuration && player.GetGrounded())
-				{
-					timer = 0;
-					player.SetCanMove(false);
-					damage = comboHit.damage;
-					criticalDamage = comboHit.critical;
-					StartCombo(combo);
-					if(comboHit.hitSound!=null)
-						comboHit.hitSound.Post(gameObject);
-					break;
-				}
+				timer = 0;
+				player.SetCanMove(false);
+				damage = comboHitGround.damage;
+				criticalDamage = comboHitGround.critical;
+				StartCombo(ground);
+				if(comboHitGround.hitSound!=null)
+					comboHitGround.hitSound.Post(gameObject);
+			}
+			if ((Input.GetKeyDown(comboHitAir.comboKeyKM) || Input.GetKeyDown(comboHitAir.comboKeyJoystick)) && timer >= comboHitAir.hitDuration && !player.GetGrounded() && canAirAttack)
+			{
+				timer = 0;
+				player.SetCanMove(false);
+				damage = comboHitGround.damage;
+				player.SetGravity(0);
+				criticalDamage = comboHitGround.critical;
+				StartCombo(air);
+				if (comboHitAir.hitSound != null)
+					comboHitAir.hitSound.Post(gameObject);
 			}
 		}
 		else
@@ -96,7 +110,7 @@ public class CombatController : MonoBehaviour
 			if (hitIndex < currentCombo.comboData.Count)
 			{
                 timer += Time.deltaTime;
-				if ((Input.GetKeyDown(currentCombo.comboData[hitIndex].comboKeyKM) || Input.GetKeyDown(currentCombo.comboData[hitIndex].comboKeyJoystick)) && timer >= currentCombo.comboData[hitIndex].hitDuration && player.GetGrounded())
+				if ((Input.GetKeyDown(currentCombo.comboData[hitIndex].comboKeyKM) || Input.GetKeyDown(currentCombo.comboData[hitIndex].comboKeyJoystick)) && timer >= currentCombo.comboData[hitIndex].hitDuration)
 				{
 					timer = 0;
 					damage = currentCombo.comboData[hitIndex].damage;
@@ -107,10 +121,12 @@ public class CombatController : MonoBehaviour
 				}
 			}
 		}
-
+		Debug.Log("Grounded: " + player.GetGrounded());
 		hitCooldown -= Time.deltaTime;
 		if (hitCooldown <= 0 && !isComboCanceled)
 			CancelCombo();
+		if (player.GetGrounded())
+			canAirAttack = true;
 	}
 
 	void LoadAnimator()
@@ -127,6 +143,7 @@ public class CombatController : MonoBehaviour
 						{
 							combos[0].comboData[i].clip = NovaAttackClips[i];
 						}
+						combos[1].comboData[1].clip = AirAttack2_Nova;
 						break;
 					case DataManager.PlayerSelection.CyberBunny:
 						animator.runtimeAnimatorController = Resources.Load("Animations/AnimatorController/CyberBunny") as RuntimeAnimatorController;
@@ -135,6 +152,7 @@ public class CombatController : MonoBehaviour
 						{
 							combos[0].comboData[i].clip = CyberBunnyAttackClips[i];
 						}
+						combos[1].comboData[1].clip = AirAttack2_Cyber;
 						break;
 				}
 				break;
@@ -148,6 +166,7 @@ public class CombatController : MonoBehaviour
 						{
 							combos[0].comboData[i].clip = NovaAttackClips[i];
 						}
+						combos[1].comboData[1].clip = AirAttack2_Nova;
 						break;
 					case DataManager.PlayerSelection.CyberBunny:
 						animator.runtimeAnimatorController = Resources.Load("Animations/AnimatorController/CyberBunny") as RuntimeAnimatorController;
@@ -156,6 +175,7 @@ public class CombatController : MonoBehaviour
 						{
 							combos[0].comboData[i].clip = CyberBunnyAttackClips[i];
 						}
+						combos[1].comboData[1].clip = AirAttack2_Cyber;
 						break;
 				}
 				break;
@@ -188,6 +208,9 @@ public class CombatController : MonoBehaviour
 		hitIndex = 0;
 		currentCombo = null;
 		player.SetCanMove(true);
+		if (!player.GetGrounded())
+			StartCoroutine(WaitForGravityReset(0.25f));
+		canAirAttack = false;
 		OnComboCanceled?.Invoke();
 	}
 
@@ -213,12 +236,17 @@ public class CombatController : MonoBehaviour
 	public void ActivateCanMove()
 	{
 		player.SetCanMove(true);
-		Debug.Log("Me puedo mover " + gameObject);
 	}
 
 	IEnumerator DeactivateHitIn(float t)
 	{
 		yield return new WaitForSeconds(t);
 		hitCol.SetActive(false);
+	}
+	IEnumerator WaitForGravityReset(float time)
+	{
+		yield return new WaitForSeconds(time);
+		player.SetDefaultGravity();
+		yield return null;
 	}
 }
