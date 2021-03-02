@@ -156,7 +156,6 @@ public class PlayerController : MonoBehaviour
                 overrider["Start_Run"] = startRun;
             else if(Mathf.Abs(rigidBody.velocity.x) >=1 && Mathf.Abs(direction) <= 0.6f)
                 overrider["Start_Run"] = endRun;
-
         }
         else
         {
@@ -225,6 +224,12 @@ public class PlayerController : MonoBehaviour
             anim.SetBool("Grounded", true);
         else if(!isGroundedCenter && !isGroundedLeft && !isGroundedRight)
             anim.SetBool("Grounded", false);
+        if (anim.GetBool("Grounded") && Mathf.Abs(direction) <= 0.3f)
+            anim.SetBool("Stop", true);
+        else if (Mathf.Abs(direction) > 0.1f)
+            anim.SetBool("Stop", false);
+        else
+            anim.SetBool("Stop", false);
         anim.SetFloat("VelocityY", rigidBody.velocity.y);
 
         if (wj) anim.SetTrigger("WJ");

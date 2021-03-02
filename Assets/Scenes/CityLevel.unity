@@ -3725,7 +3725,8 @@ MonoBehaviour:
   buttonSound:
     idInternal: 0
     valueGuidInternal: 
-    WwiseObjectReference: {fileID: 0}
+    WwiseObjectReference: {fileID: 11400000, guid: f7350f922cbc25444a4291c27478ccd6,
+      type: 2}
 --- !u!4 &455546206
 Transform:
   m_ObjectHideFlags: 0
@@ -10763,12 +10764,12 @@ PrefabInstance:
     - target: {fileID: 4867223885632345653, guid: 44331738c0764344ea2812f9584a5db3,
         type: 3}
       propertyPath: player1Choice.playerSelection
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4867223885632345653, guid: 44331738c0764344ea2812f9584a5db3,
         type: 3}
       propertyPath: player2Choice.playerSelection
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 44331738c0764344ea2812f9584a5db3, type: 3}
@@ -12462,6 +12463,21 @@ PrefabInstance:
       propertyPath: NovaAttackClips.Array.data[2]
       value: 
       objectReference: {fileID: 7400000, guid: 523f58dad49fd764fac95e84748662d2, type: 2}
+    - target: {fileID: 1225701373364830906, guid: 9342dd73a39486b4da82c2afa2922bcd,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1225701373364830906, guid: 9342dd73a39486b4da82c2afa2922bcd,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1225701373364830906, guid: 9342dd73a39486b4da82c2afa2922bcd,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1225701374320304568, guid: 9342dd73a39486b4da82c2afa2922bcd,
         type: 3}
       propertyPath: enemy
