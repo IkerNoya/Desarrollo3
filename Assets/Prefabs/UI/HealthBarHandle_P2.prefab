@@ -64,7 +64,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 2800000, guid: 21bd27b760c45fa48986f133fb56ddd6, type: 3}
+  m_Texture: {fileID: 2800000, guid: 30e2cdef5ecc5cb40a280df7b3307ea3, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -98,14 +98,14 @@ RectTransform:
   m_GameObject: {fileID: 3267347485172595157}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.4556518, y: 0.4556518, z: 0.4556518}
+  m_LocalScale: {x: 0.22753428, y: 0.22753428, z: 0.22753428}
   m_Children: []
   m_Father: {fileID: 2617527865125740409}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -159.7, y: -89.3}
+  m_AnchoredPosition: {x: -164.2, y: -99.5}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6366242889126452770
@@ -129,13 +129,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.6784314, g: 0.1764706, b: 0.2, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 2800000, guid: 5e5b6b7098112694181cc823e955b458, type: 3}
+  m_Texture: {fileID: 2800000, guid: 0050f831217267e4fbd25ae2f9d8430c, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -176,8 +176,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -105.8, y: -105.6}
-  m_SizeDelta: {x: 83.39319, y: 15}
+  m_AnchoredPosition: {x: -109.33, y: -106.24}
+  m_SizeDelta: {x: 94.240906, y: 16.276474}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &159874772775702836
 CanvasRenderer:
@@ -206,7 +206,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 12d388c9977caf44f8f192db42b2c76a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 790cedee472548b419cd2480f81bafbe, type: 3}
   m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -327,7 +327,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 2800000, guid: db33925883edb7743951b79667bf1b54, type: 3}
+  m_Texture: {fileID: 2800000, guid: 0a0ddcb48021aa1458b9f373eff67d9d, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
