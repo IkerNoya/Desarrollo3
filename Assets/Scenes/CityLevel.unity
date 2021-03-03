@@ -12738,6 +12738,14 @@ PrefabInstance:
       propertyPath: habilityCol
       value: 
       objectReference: {fileID: 1423523712}
+    - target: {fileID: 1132608422, guid: fc79662f102093c4e99dd88d345bc744, type: 3}
+      propertyPath: hability
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1132608422, guid: fc79662f102093c4e99dd88d345bc744, type: 3}
+      propertyPath: healingSpeed
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 4395031986078868597, guid: fc79662f102093c4e99dd88d345bc744,
         type: 3}
       propertyPath: enemy

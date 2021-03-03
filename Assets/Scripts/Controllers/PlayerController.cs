@@ -479,6 +479,10 @@ public class PlayerController : MonoBehaviour
     {
         isPaused = value;
     }
+    public void Heal(float value)
+    {
+        hp += value * Time.deltaTime;
+    }
     #endregion
 
     #region COLLISIONS
@@ -603,7 +607,6 @@ public class PlayerController : MonoBehaviour
         }
         else if (collision.gameObject.CompareTag("HabilityCollider") && collision.gameObject.layer != gameObject.layer && !parryController.GetBlockDamage() && !isDashing && collision.gameObject != gameObject)
         {
-            Debug.Log(collision.gameObject.layer);
             canMove = false;
             Vector3 direction;
             hp -= collision.gameObject.GetComponentInParent<HabilityController>().GetChargeDamage();

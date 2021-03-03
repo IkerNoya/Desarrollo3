@@ -36,9 +36,18 @@ public class HabilityController : MonoBehaviour
         switch (hability)
         {
             case Hability.healing:
-                if (Input.GetKey(habilityKeyKM) || Input.GetKey(habilityKeyJoystick))
+                if ((Input.GetKey(habilityKeyKM) || Input.GetKey(habilityKeyJoystick)) && player.hp < 100)
                 {
-                    player.hp += healingSpeed * Time.deltaTime;
+                    player.SetCanMove(false);
+                    player.Heal(healingSpeed);
+                    player.anim.SetBool("HoldHealing", true);
+                    if (player.hp > 100)
+                        player.hp = 100;
+                }
+                if (Input.GetKeyUp(habilityKeyKM) || Input.GetKeyUp(habilityKeyJoystick))
+                {
+                    player.anim.SetBool("HoldHealing", false);
+                    player.anim.SetTrigger("StopHealing");
                 }
                 break;
             case Hability.chargeAttack:
