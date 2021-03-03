@@ -79,11 +79,11 @@ public class GameManager : MonoBehaviour
             case CameraMovement.BattlePhase.phase4:
                 if (player1Damage <= initialDamageValue - (phaseTransitionValue * 4))
                 {
-                    cameraMovement.SetPhase(CameraMovement.BattlePhase.phase4);
+                    cameraMovement.SetPhase(CameraMovement.BattlePhase.phase5);
                 }
                 if (player2Damage <= initialDamageValue - (phaseTransitionValue * 4))
                 {
-                    cameraMovement.SetPhase(CameraMovement.BattlePhase.phase4);
+                    cameraMovement.SetPhase(CameraMovement.BattlePhase.phase5);
                 }
                 break;
         }

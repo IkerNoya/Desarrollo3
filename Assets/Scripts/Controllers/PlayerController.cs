@@ -453,6 +453,8 @@ public class PlayerController : MonoBehaviour
     void Dead()
     {
         isDead = true;
+        canMove = false;
+        rigidBody.velocity = new Vector3(0, rigidBody.velocity.y, 0);
         anim.SetBool("Dead", true);
         gameObject.GetComponent<BoxCollider2D>().enabled = false;
     }
@@ -551,40 +553,7 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("HitCollider") && collision.gameObject.layer != gameObject.layer && !parryController.GetBlockDamage() && !isDashing && collision.gameObject != gameObject)
         {
-            isCriticalHit = collision.gameObject.GetComponentInParent<CombatController>().GetCriticalDamageValue();
-            canMove = false;
-            Vector3 direction;
             hp -= collision.gameObject.GetComponentInParent<CombatController>().GetDamage();
-            StartCoroutine(GravityChange(0.5f));
-            anim.SetTrigger("Damage");
-            capturing = false;
-            if (!GetGrounded())
-            {
-                if (isCriticalHit)
-                {
-                    direction = collision.gameObject.transform.position - Vector3.down;
-                    direction.Normalize();
-                    rigidBody.gravityScale = initialGravity;
-                    rigidBody.AddForce(new Vector2(rigidBody.velocity.x, direction.x * criticalKnockBackForce));
-                    StartCoroutine(CameraShake.instance.Shake(Camera.main.gameObject, shakeDuration, shakeMagnitude));
-                    anim.ResetTrigger("Damage");
-                }
-            }
-            else
-            {
-                anim.SetBool("Critical", isCriticalHit);
-                direction = collision.gameObject.transform.position - transform.position;
-                direction.Normalize();
-                if (isCriticalHit)
-                {
-                    rigidBody.AddForce(new Vector2(-direction.x * criticalKnockBackForce, rigidBody.velocity.y));
-                    StartCoroutine(CameraShake.instance.Shake(Camera.main.gameObject, shakeDuration, shakeMagnitude));
-                }
-                else
-                {
-                    rigidBody.AddForce(new Vector2(-direction.x * knockBackForce, rigidBody.velocity.y));
-                }
-            }
 
             takeDamage?.Invoke(this);
             if (hp <= 0)
@@ -622,6 +591,39 @@ public class PlayerController : MonoBehaviour
             }
             else
             {
+                isCriticalHit = collision.gameObject.GetComponentInParent<CombatController>().GetCriticalDamageValue();
+                canMove = false;
+                Vector3 direction;
+                StartCoroutine(GravityChange(0.5f));
+                anim.SetTrigger("Damage");
+                capturing = false;
+                if (!GetGrounded())
+                {
+                    if (isCriticalHit)
+                    {
+                        direction = collision.gameObject.transform.position - Vector3.down;
+                        direction.Normalize();
+                        rigidBody.gravityScale = initialGravity;
+                        rigidBody.AddForce(new Vector2(rigidBody.velocity.x, direction.x * criticalKnockBackForce));
+                        StartCoroutine(CameraShake.instance.Shake(Camera.main.gameObject, shakeDuration, shakeMagnitude));
+                        anim.ResetTrigger("Damage");
+                    }
+                }
+                else
+                {
+                    anim.SetBool("Critical", isCriticalHit);
+                    direction = collision.gameObject.transform.position - transform.position;
+                    direction.Normalize();
+                    if (isCriticalHit)
+                    {
+                        rigidBody.AddForce(new Vector2(-direction.x * criticalKnockBackForce, rigidBody.velocity.y));
+                        StartCoroutine(CameraShake.instance.Shake(Camera.main.gameObject, shakeDuration, shakeMagnitude));
+                    }
+                    else
+                    {
+                        rigidBody.AddForce(new Vector2(-direction.x * knockBackForce, rigidBody.velocity.y));
+                    }
+                }
                 switch (playerSelect)
                 {
                     case PlayerSelect.player1:
@@ -637,29 +639,8 @@ public class PlayerController : MonoBehaviour
         }
         else if (collision.gameObject.CompareTag("HabilityCollider") && collision.gameObject.layer != gameObject.layer && !parryController.GetBlockDamage() && !isDashing && collision.gameObject != gameObject)
         {
-            canMove = false;
-            Vector3 direction;
-            capturing = false;
-            if (collision.gameObject.GetComponentInParent<HabilityController>().GetCurrentHablity() == HabilityController.Hability.chargeAttack)
-            {
-                hp -= collision.gameObject.GetComponentInParent<HabilityController>().GetChargeDamage();
-                StartCoroutine(GravityChange(0.5f));
-                anim.SetTrigger("Damage");
-                direction = collision.gameObject.transform.position - transform.position;
-                direction.Normalize();
-                rigidBody.AddForce(new Vector2(-direction.x * knockBackForce, rigidBody.velocity.y));
-                StartCoroutine(CameraShake.instance.Shake(Camera.main.gameObject, shakeDuration, shakeMagnitude));
-            }
-            else if(collision.gameObject.GetComponentInParent<HabilityController>().GetCurrentHablity() == HabilityController.Hability.parry)
-            {
-                hp -= collision.gameObject.GetComponentInParent<HabilityController>().GetParryDamage();
-                anim.SetBool("Critical", true);
-                anim.SetTrigger("Damage");
-                direction = collision.gameObject.transform.position - transform.position;
-                direction.Normalize();
-                rigidBody.AddForce(new Vector2(-direction.x * criticalKnockBackForce, rigidBody.velocity.y));
-                StartCoroutine(CameraShake.instance.Shake(Camera.main.gameObject, shakeDuration, shakeMagnitude));
-            }
+            hp -= collision.gameObject.GetComponentInParent<HabilityController>().GetChargeDamage();
+           
             takeDamage?.Invoke(this);
             if (hp <= 0)
             {
@@ -680,6 +661,28 @@ public class PlayerController : MonoBehaviour
             }
             else
             {
+                canMove = false;
+                Vector3 direction;
+                capturing = false;
+                if (collision.gameObject.GetComponentInParent<HabilityController>().GetCurrentHablity() == HabilityController.Hability.chargeAttack)
+                {
+                    StartCoroutine(GravityChange(0.5f));
+                    anim.SetTrigger("Damage");
+                    direction = collision.gameObject.transform.position - transform.position;
+                    direction.Normalize();
+                    rigidBody.AddForce(new Vector2(-direction.x * knockBackForce, rigidBody.velocity.y));
+                    StartCoroutine(CameraShake.instance.Shake(Camera.main.gameObject, shakeDuration, shakeMagnitude));
+                }
+                else if (collision.gameObject.GetComponentInParent<HabilityController>().GetCurrentHablity() == HabilityController.Hability.parry)
+                {
+                    hp -= collision.gameObject.GetComponentInParent<HabilityController>().GetParryDamage();
+                    anim.SetBool("Critical", true);
+                    anim.SetTrigger("Damage");
+                    direction = collision.gameObject.transform.position - transform.position;
+                    direction.Normalize();
+                    rigidBody.AddForce(new Vector2(-direction.x * criticalKnockBackForce, rigidBody.velocity.y));
+                    StartCoroutine(CameraShake.instance.Shake(Camera.main.gameObject, shakeDuration, shakeMagnitude));
+                }
                 switch (playerSelect)
                 {
                     case PlayerSelect.player1:

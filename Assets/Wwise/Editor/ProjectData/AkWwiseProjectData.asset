@@ -90,7 +90,7 @@ MonoBehaviour:
     ParentPath: Default Work Unit
     guid: a0e9a5e2bc6a0e43862942f8911e4a7e
     GuidInternal: 
-    m_lastTime: -8585880098925684623
+    m_lastTime: -8585868685781244159
     List:
     - name: Ataque1
       guid: 96b6927ab1fac24091e819404c8ab028
@@ -216,8 +216,8 @@ MonoBehaviour:
         ObjectType: 3
       Path: Default Work Unit\In game\Caida_Plataforma
       maxAttenuation: 0
-      maxDuration: 0.855708
-      minDuration: 0.855708
+      maxDuration: 0.9605
+      minDuration: 0.762349
     - name: Captura_DeObjetivo
       guid: c111beb836464640b6a0d7bb9faa0f95
       id: 622800721
@@ -232,6 +232,20 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: 0
       minDuration: 0
+    - name: Carga_Vida
+      guid: c8bbc71c3243334bb3f343dbf6de58f3
+      id: 3629526154
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: In game
+        ObjectType: 4
+      - ElementName: Carga_Vida
+        ObjectType: 3
+      Path: Default Work Unit\In game\Carga_Vida
+      maxAttenuation: 0
+      maxDuration: 8.009615
+      minDuration: 8.009615
     - name: Corrida
       guid: 403b5e8809c6e04698c569cffafc1a46
       id: 251416149
