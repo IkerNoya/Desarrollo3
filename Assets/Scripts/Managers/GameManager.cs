@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] float player1Damage;
     [SerializeField] float player2Damage;
     [SerializeField] CameraMovement cameraMovement;
+    float phaseTransitionValue = 200;
 
     public static GameManager instance;
     public static GameManager Get()
@@ -46,37 +47,44 @@ public class GameManager : MonoBehaviour
         switch (cameraMovement.GetPhase())
         {
             case CameraMovement.BattlePhase.phase1:
-                if (player1Damage <= initialDamageValue - (initialDamageValue / 4))
+                if (player1Damage <= initialDamageValue - phaseTransitionValue)
                 {
                     cameraMovement.SetPhase(CameraMovement.BattlePhase.phase2);
                 }
-                if (player2Damage <= initialDamageValue - (initialDamageValue / 4))
+                if (player2Damage <= initialDamageValue - phaseTransitionValue)
                 {
                     cameraMovement.SetPhase(CameraMovement.BattlePhase.phase2);
                 }
                 break;
             case CameraMovement.BattlePhase.phase2:
-                if (player1Damage <= initialDamageValue - (initialDamageValue / 2))
+                if (player1Damage <= initialDamageValue - (phaseTransitionValue*2))
                 {
                     cameraMovement.SetPhase(CameraMovement.BattlePhase.phase3);
                 }
-                if (player2Damage <= initialDamageValue - (initialDamageValue / 2))
+                if (player2Damage <= initialDamageValue - (phaseTransitionValue*2))
                 {
                     cameraMovement.SetPhase(CameraMovement.BattlePhase.phase3);
                 }
                 break;
             case CameraMovement.BattlePhase.phase3:
-                if (player1Damage <= initialDamageValue - ((initialDamageValue / 2) + (initialDamageValue / 4)))
+                if (player1Damage <= initialDamageValue - (phaseTransitionValue * 3))
                 { 
                     cameraMovement.SetPhase(CameraMovement.BattlePhase.phase4);
                 }
-                if (player2Damage <= initialDamageValue - ((initialDamageValue / 2) + (initialDamageValue / 4)))
+                if (player2Damage <= initialDamageValue - (phaseTransitionValue * 3))
                 { 
                     cameraMovement.SetPhase(CameraMovement.BattlePhase.phase4);
                 }
                 break;
             case CameraMovement.BattlePhase.phase4:
-                //final phase
+                if (player1Damage <= initialDamageValue - (phaseTransitionValue * 4))
+                {
+                    cameraMovement.SetPhase(CameraMovement.BattlePhase.phase4);
+                }
+                if (player2Damage <= initialDamageValue - (phaseTransitionValue * 4))
+                {
+                    cameraMovement.SetPhase(CameraMovement.BattlePhase.phase4);
+                }
                 break;
         }
     }

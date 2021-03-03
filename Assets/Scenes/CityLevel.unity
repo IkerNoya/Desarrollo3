@@ -12443,6 +12443,31 @@ PrefabInstance:
       propertyPath: habilityCol
       value: 
       objectReference: {fileID: 2017634799}
+    - target: {fileID: 1649500002, guid: 9342dd73a39486b4da82c2afa2922bcd, type: 3}
+      propertyPath: healingSpeed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1649500002, guid: 9342dd73a39486b4da82c2afa2922bcd, type: 3}
+      propertyPath: chargeCooldown
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1649500002, guid: 9342dd73a39486b4da82c2afa2922bcd, type: 3}
+      propertyPath: parryCooldown
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1649500002, guid: 9342dd73a39486b4da82c2afa2922bcd, type: 3}
+      propertyPath: parryDamage
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 1649500002, guid: 9342dd73a39486b4da82c2afa2922bcd, type: 3}
+      propertyPath: healingSound.WwiseObjectReference
+      value: 
+      objectReference: {fileID: 11400000, guid: e1701c2842a9c9c4895bd32a690ad4e9,
+        type: 2}
+    - target: {fileID: 1798681329, guid: 9342dd73a39486b4da82c2afa2922bcd, type: 3}
+      propertyPath: slowMotionIntensity.m_Curve.Array.size
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 1798681329, guid: 9342dd73a39486b4da82c2afa2922bcd, type: 3}
       propertyPath: enemy
       value: 
@@ -12451,6 +12476,50 @@ PrefabInstance:
       propertyPath: slowMotion
       value: 
       objectReference: {fileID: 1506143536}
+    - target: {fileID: 1798681329, guid: 9342dd73a39486b4da82c2afa2922bcd, type: 3}
+      propertyPath: slowMotionIntensity.m_Curve.Array.data[0].value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1798681329, guid: 9342dd73a39486b4da82c2afa2922bcd, type: 3}
+      propertyPath: slowMotionIntensity.m_Curve.Array.data[0].tangentMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1798681329, guid: 9342dd73a39486b4da82c2afa2922bcd, type: 3}
+      propertyPath: slowMotionIntensity.m_Curve.Array.data[1].time
+      value: 0.9833374
+      objectReference: {fileID: 0}
+    - target: {fileID: 1798681329, guid: 9342dd73a39486b4da82c2afa2922bcd, type: 3}
+      propertyPath: slowMotionIntensity.m_Curve.Array.data[1].value
+      value: 0.50001526
+      objectReference: {fileID: 0}
+    - target: {fileID: 1798681329, guid: 9342dd73a39486b4da82c2afa2922bcd, type: 3}
+      propertyPath: slowMotionIntensity.m_Curve.Array.data[1].tangentMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1798681329, guid: 9342dd73a39486b4da82c2afa2922bcd, type: 3}
+      propertyPath: slowMotionIntensity.m_Curve.Array.data[0].inSlope
+      value: -1.151249
+      objectReference: {fileID: 0}
+    - target: {fileID: 1798681329, guid: 9342dd73a39486b4da82c2afa2922bcd, type: 3}
+      propertyPath: slowMotionIntensity.m_Curve.Array.data[0].outSlope
+      value: -1.151249
+      objectReference: {fileID: 0}
+    - target: {fileID: 1798681329, guid: 9342dd73a39486b4da82c2afa2922bcd, type: 3}
+      propertyPath: slowMotionIntensity.m_Curve.Array.data[0].outWeight
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 1798681329, guid: 9342dd73a39486b4da82c2afa2922bcd, type: 3}
+      propertyPath: slowMotionIntensity.m_Curve.Array.data[1].inSlope
+      value: 0.006766469
+      objectReference: {fileID: 0}
+    - target: {fileID: 1798681329, guid: 9342dd73a39486b4da82c2afa2922bcd, type: 3}
+      propertyPath: slowMotionIntensity.m_Curve.Array.data[1].outSlope
+      value: 0.006766469
+      objectReference: {fileID: 0}
+    - target: {fileID: 1798681329, guid: 9342dd73a39486b4da82c2afa2922bcd, type: 3}
+      propertyPath: slowMotionIntensity.m_Curve.Array.data[1].inWeight
+      value: 0.5333333
+      objectReference: {fileID: 0}
     - target: {fileID: 1225701374320304568, guid: 9342dd73a39486b4da82c2afa2922bcd,
         type: 3}
       propertyPath: enemy
@@ -12740,11 +12809,33 @@ PrefabInstance:
       objectReference: {fileID: 1423523712}
     - target: {fileID: 1132608422, guid: fc79662f102093c4e99dd88d345bc744, type: 3}
       propertyPath: hability
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1132608422, guid: fc79662f102093c4e99dd88d345bc744, type: 3}
       propertyPath: healingSpeed
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1132608422, guid: fc79662f102093c4e99dd88d345bc744, type: 3}
+      propertyPath: parryCooldown
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1132608422, guid: fc79662f102093c4e99dd88d345bc744, type: 3}
+      propertyPath: chargeCooldown
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1132608422, guid: fc79662f102093c4e99dd88d345bc744, type: 3}
+      propertyPath: parryDamage
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 1132608422, guid: fc79662f102093c4e99dd88d345bc744, type: 3}
+      propertyPath: healingSound.WwiseObjectReference
+      value: 
+      objectReference: {fileID: 11400000, guid: e1701c2842a9c9c4895bd32a690ad4e9,
+        type: 2}
+    - target: {fileID: 4395031986078868597, guid: fc79662f102093c4e99dd88d345bc744,
+        type: 3}
+      propertyPath: slowMotionIntensity.m_Curve.Array.size
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4395031986078868597, guid: fc79662f102093c4e99dd88d345bc744,
         type: 3}
@@ -12756,6 +12847,61 @@ PrefabInstance:
       propertyPath: slowMotion
       value: 
       objectReference: {fileID: 1506143536}
+    - target: {fileID: 4395031986078868597, guid: fc79662f102093c4e99dd88d345bc744,
+        type: 3}
+      propertyPath: slowMotionIntensity.m_Curve.Array.data[0].value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4395031986078868597, guid: fc79662f102093c4e99dd88d345bc744,
+        type: 3}
+      propertyPath: slowMotionIntensity.m_Curve.Array.data[0].tangentMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4395031986078868597, guid: fc79662f102093c4e99dd88d345bc744,
+        type: 3}
+      propertyPath: slowMotionIntensity.m_Curve.Array.data[1].time
+      value: 0.9833374
+      objectReference: {fileID: 0}
+    - target: {fileID: 4395031986078868597, guid: fc79662f102093c4e99dd88d345bc744,
+        type: 3}
+      propertyPath: slowMotionIntensity.m_Curve.Array.data[1].value
+      value: 0.50001526
+      objectReference: {fileID: 0}
+    - target: {fileID: 4395031986078868597, guid: fc79662f102093c4e99dd88d345bc744,
+        type: 3}
+      propertyPath: slowMotionIntensity.m_Curve.Array.data[1].tangentMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4395031986078868597, guid: fc79662f102093c4e99dd88d345bc744,
+        type: 3}
+      propertyPath: slowMotionIntensity.m_Curve.Array.data[0].inSlope
+      value: -1.151249
+      objectReference: {fileID: 0}
+    - target: {fileID: 4395031986078868597, guid: fc79662f102093c4e99dd88d345bc744,
+        type: 3}
+      propertyPath: slowMotionIntensity.m_Curve.Array.data[0].outSlope
+      value: -1.151249
+      objectReference: {fileID: 0}
+    - target: {fileID: 4395031986078868597, guid: fc79662f102093c4e99dd88d345bc744,
+        type: 3}
+      propertyPath: slowMotionIntensity.m_Curve.Array.data[0].outWeight
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 4395031986078868597, guid: fc79662f102093c4e99dd88d345bc744,
+        type: 3}
+      propertyPath: slowMotionIntensity.m_Curve.Array.data[1].inSlope
+      value: 0.006766469
+      objectReference: {fileID: 0}
+    - target: {fileID: 4395031986078868597, guid: fc79662f102093c4e99dd88d345bc744,
+        type: 3}
+      propertyPath: slowMotionIntensity.m_Curve.Array.data[1].outSlope
+      value: 0.006766469
+      objectReference: {fileID: 0}
+    - target: {fileID: 4395031986078868597, guid: fc79662f102093c4e99dd88d345bc744,
+        type: 3}
+      propertyPath: slowMotionIntensity.m_Curve.Array.data[1].inWeight
+      value: 0.5333333
+      objectReference: {fileID: 0}
     - target: {fileID: 4395031986078868598, guid: fc79662f102093c4e99dd88d345bc744,
         type: 3}
       propertyPath: m_Offset.y

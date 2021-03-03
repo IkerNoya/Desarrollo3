@@ -9,6 +9,8 @@ public class HabilityController : MonoBehaviour
     }
     PlayerController player;
     public Hability hability;
+    public AK.Wwise.Event healingSound;
+    public AK.Wwise.Event ChargeAttackSound;
 
     [SerializeField] KeyCode habilityKeyKM;
     [SerializeField] KeyCode habilityKeyJoystick;
@@ -20,10 +22,12 @@ public class HabilityController : MonoBehaviour
     [SerializeField] float parryCooldown;
     [Space]
     [SerializeField] float chargeAttackDamage;
+    [SerializeField] float parryDamage;
     [SerializeField] GameObject habilityCol;
     [Space]
     CombatController combatController;
     float timer;
+    bool canParry = false;
     void Start()
     {
         player = GetComponentInParent<PlayerController>();
@@ -41,6 +45,8 @@ public class HabilityController : MonoBehaviour
                     player.SetCanMove(false);
                     player.Heal(healingSpeed);
                     player.anim.SetBool("HoldHealing", true);
+                    if(healingSound!=null)
+                        healingSound.Post(gameObject);
                     if (player.hp > 100)
                         player.hp = 100;
                 }
@@ -57,6 +63,8 @@ public class HabilityController : MonoBehaviour
                     {
                         player.SetCanMove(false);
                         player.anim.SetBool("HoldCharge", true);
+                        if (ChargeAttackSound != null)
+                            ChargeAttackSound.Post(gameObject);
                     }
                     else if(Input.GetKeyUp(habilityKeyKM) || Input.GetKeyUp(habilityKeyJoystick))
                     {
@@ -69,11 +77,7 @@ public class HabilityController : MonoBehaviour
             case Hability.parry:
                 if (timer <= 0)
                 {
-                    if (Input.GetKeyDown(habilityKeyKM) || Input.GetKeyDown(habilityKeyJoystick))
-                    {
-                        //parry + animation
-                        timer = parryCooldown;
-                    }
+                    canParry = true;
                 }
                 break;
         }
@@ -83,9 +87,21 @@ public class HabilityController : MonoBehaviour
     {
         return hability;
     }
+    public void SetCanParry(bool value)
+    {
+        canParry = value;
+    }
+    public bool GetCanParry()
+    {
+        return canParry;
+    }
     public float GetChargeDamage()
     {
         return chargeAttackDamage;
+    }
+    public float GetParryDamage()
+    {
+        return parryDamage;
     }
     public void ActivateHabilityCollider()
     {
@@ -96,5 +112,10 @@ public class HabilityController : MonoBehaviour
     {
         yield return new WaitForSeconds(t);
         habilityCol.SetActive(false);
+    }
+    public void SetParryCooldown()
+    {
+        canParry = false;
+        timer = parryCooldown;
     }
 }

@@ -609,13 +609,26 @@ public class PlayerController : MonoBehaviour
         {
             canMove = false;
             Vector3 direction;
-            hp -= collision.gameObject.GetComponentInParent<HabilityController>().GetChargeDamage();
-            StartCoroutine(GravityChange(0.5f));
-            anim.SetTrigger("Damage");
-            direction = collision.gameObject.transform.position - transform.position;
-            direction.Normalize();
-            rigidBody.AddForce(new Vector2(-direction.x * knockBackForce, rigidBody.velocity.y));
-            StartCoroutine(CameraShake.instance.Shake(Camera.main.gameObject, shakeDuration, shakeMagnitude));
+            if(collision.gameObject.GetComponentInParent<HabilityController>().GetCurrentHablity() == HabilityController.Hability.chargeAttack)
+            {
+                hp -= collision.gameObject.GetComponentInParent<HabilityController>().GetChargeDamage();
+                StartCoroutine(GravityChange(0.5f));
+                anim.SetTrigger("Damage");
+                direction = collision.gameObject.transform.position - transform.position;
+                direction.Normalize();
+                rigidBody.AddForce(new Vector2(-direction.x * knockBackForce, rigidBody.velocity.y));
+                StartCoroutine(CameraShake.instance.Shake(Camera.main.gameObject, shakeDuration, shakeMagnitude));
+            }
+            else if(collision.gameObject.GetComponentInParent<HabilityController>().GetCurrentHablity() == HabilityController.Hability.parry)
+            {
+                hp -= collision.gameObject.GetComponentInParent<HabilityController>().GetParryDamage();
+                anim.SetBool("Critical", true);
+                anim.SetTrigger("Damage");
+                direction = collision.gameObject.transform.position - transform.position;
+                direction.Normalize();
+                rigidBody.AddForce(new Vector2(-direction.x * criticalKnockBackForce, rigidBody.velocity.y));
+                StartCoroutine(CameraShake.instance.Shake(Camera.main.gameObject, shakeDuration, shakeMagnitude));
+            }
             takeDamage?.Invoke(this);
             if (hp <= 0)
             {
