@@ -112,6 +112,7 @@ public class PlayerController : MonoBehaviour
 
     Camera cam;
     DataManager data;
+    GameManager manager;
     #endregion
 
     #region Actions
@@ -134,6 +135,7 @@ public class PlayerController : MonoBehaviour
         LoadSelectionData();
         overrider = comboController.overrider;
         initialGravity = rigidBody.gravityScale;
+        manager = GameManager.Get();
     }
 
     void Update()
@@ -549,7 +551,7 @@ public class PlayerController : MonoBehaviour
                     rigidBody.AddForce(new Vector2(-direction.x * knockBackForce, rigidBody.velocity.y));
                 }
             }
-            
+
             takeDamage?.Invoke(this);
             if (hp <= 0)
             {
@@ -558,25 +560,25 @@ public class PlayerController : MonoBehaviour
                     case PlayerSelect.player1:
                         if (isCriticalHit)
                         {
-                            GameManager.instance.Player1DamageDone(collision.gameObject.GetComponentInParent<CombatController>().GetDamage() * 2);
-                            GameManager.instance.Player2DamageDone(-collision.gameObject.GetComponentInParent<CombatController>().GetDamage() * 2);
+                            manager.Player1DamageDone(collision.gameObject.GetComponentInParent<CombatController>().GetDamage() * 2);
+                            manager.Player2DamageDone(-collision.gameObject.GetComponentInParent<CombatController>().GetDamage() * 2);
                         }
                         else
                         {
-                            GameManager.instance.Player1DamageDone(collision.gameObject.GetComponentInParent<CombatController>().GetDamage() * 4);
-                            GameManager.instance.Player2DamageDone(-collision.gameObject.GetComponentInParent<CombatController>().GetDamage() * 4);
+                            manager.Player1DamageDone(collision.gameObject.GetComponentInParent<CombatController>().GetDamage() * 4);
+                            manager.Player2DamageDone(-collision.gameObject.GetComponentInParent<CombatController>().GetDamage() * 4);
                         }
                         break;
                     case PlayerSelect.player2:
                         if (isCriticalHit)
                         {
-                            GameManager.instance.Player2DamageDone(collision.gameObject.GetComponentInParent<CombatController>().GetDamage() * 2);
-                            GameManager.instance.Player1DamageDone(-collision.gameObject.GetComponentInParent<CombatController>().GetDamage() * 2);
+                            manager.Player2DamageDone(collision.gameObject.GetComponentInParent<CombatController>().GetDamage() * 2);
+                            manager.Player1DamageDone(-collision.gameObject.GetComponentInParent<CombatController>().GetDamage() * 2);
                         }
                         else
                         {
-                            GameManager.instance.Player2DamageDone(collision.gameObject.GetComponentInParent<CombatController>().GetDamage() * 4);
-                            GameManager.instance.Player1DamageDone(-collision.gameObject.GetComponentInParent<CombatController>().GetDamage() * 4);
+                            manager.Player2DamageDone(collision.gameObject.GetComponentInParent<CombatController>().GetDamage() * 4);
+                            manager.Player1DamageDone(-collision.gameObject.GetComponentInParent<CombatController>().GetDamage() * 4);
                         }
                         break;
                 }
@@ -589,12 +591,57 @@ public class PlayerController : MonoBehaviour
                 switch (playerSelect)
                 {
                     case PlayerSelect.player1:
-                        GameManager.instance.Player1DamageDone(collision.gameObject.GetComponentInParent<CombatController>().GetDamage());
-                        GameManager.instance.Player2DamageDone(-collision.gameObject.GetComponentInParent<CombatController>().GetDamage());
+                        manager.Player1DamageDone(collision.gameObject.GetComponentInParent<CombatController>().GetDamage());
+                        manager.Player2DamageDone(-collision.gameObject.GetComponentInParent<CombatController>().GetDamage());
                         break;
                     case PlayerSelect.player2:
-                        GameManager.instance.Player2DamageDone(collision.gameObject.GetComponentInParent<CombatController>().GetDamage());
-                        GameManager.instance.Player1DamageDone(-collision.gameObject.GetComponentInParent<CombatController>().GetDamage());
+                        manager.Player2DamageDone(collision.gameObject.GetComponentInParent<CombatController>().GetDamage());
+                        manager.Player1DamageDone(-collision.gameObject.GetComponentInParent<CombatController>().GetDamage());
+                        break;
+                }
+            }
+        }
+        else if (collision.gameObject.CompareTag("HabilityCollider") && collision.gameObject.layer != gameObject.layer && !parryController.GetBlockDamage() && !isDashing && collision.gameObject != gameObject)
+        {
+            Debug.Log(collision.gameObject.layer);
+            canMove = false;
+            Vector3 direction;
+            hp -= collision.gameObject.GetComponentInParent<HabilityController>().GetChargeDamage();
+            StartCoroutine(GravityChange(0.5f));
+            anim.SetTrigger("Damage");
+            direction = collision.gameObject.transform.position - transform.position;
+            direction.Normalize();
+            rigidBody.AddForce(new Vector2(-direction.x * knockBackForce, rigidBody.velocity.y));
+            StartCoroutine(CameraShake.instance.Shake(Camera.main.gameObject, shakeDuration, shakeMagnitude));
+            takeDamage?.Invoke(this);
+            if (hp <= 0)
+            {
+                switch (playerSelect)
+                {
+                    case PlayerSelect.player1:
+                        manager.Player1DamageDone(collision.gameObject.GetComponentInParent<HabilityController>().GetChargeDamage() * 2);
+                        manager.Player2DamageDone(-collision.gameObject.GetComponentInParent<HabilityController>().GetChargeDamage() * 2);
+                        break;
+                    case PlayerSelect.player2:
+                        manager.Player2DamageDone(collision.gameObject.GetComponentInParent<HabilityController>().GetChargeDamage() * 2);
+                        manager.Player1DamageDone(-collision.gameObject.GetComponentInParent<HabilityController>().GetChargeDamage() * 2);
+                        break;
+                }
+                Dead();
+                EmptyHP?.Invoke(this);
+                StartCoroutine(RespawnPlayer());
+            }
+            else
+            {
+                switch (playerSelect)
+                {
+                    case PlayerSelect.player1:
+                        manager.Player1DamageDone(collision.gameObject.GetComponentInParent<HabilityController>().GetChargeDamage());
+                        manager.Player2DamageDone(-collision.gameObject.GetComponentInParent<HabilityController>().GetChargeDamage());
+                        break;
+                    case PlayerSelect.player2:
+                        manager.Player2DamageDone(collision.gameObject.GetComponentInParent<HabilityController>().GetChargeDamage());
+                        manager.Player1DamageDone(-collision.gameObject.GetComponentInParent<HabilityController>().GetChargeDamage());
                         break;
                 }
             }

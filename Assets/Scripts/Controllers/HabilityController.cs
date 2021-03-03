@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class HabilityController : MonoBehaviour
@@ -20,11 +19,16 @@ public class HabilityController : MonoBehaviour
     [SerializeField] float chargeCooldown;
     [SerializeField] float parryCooldown;
     [Space]
-
+    [SerializeField] float chargeAttackDamage;
+    [SerializeField] GameObject habilityCol;
+    [Space]
+    CombatController combatController;
     float timer;
     void Start()
     {
         player = GetComponentInParent<PlayerController>();
+        combatController = GetComponent<CombatController>();
+        habilityCol.SetActive(false);
     }
 
     void Update()
@@ -42,11 +46,13 @@ public class HabilityController : MonoBehaviour
                 {
                     if (Input.GetKey(habilityKeyKM) || Input.GetKey(habilityKeyJoystick))
                     {
-                        //chargeAttack + animation
+                        player.SetCanMove(false);
+                        player.anim.SetBool("HoldCharge", true);
                     }
                     else if(Input.GetKeyUp(habilityKeyKM) || Input.GetKeyUp(habilityKeyJoystick))
                     {
-                        //attack + animation
+                        player.anim.SetBool("HoldCharge", false);
+                        player.anim.SetTrigger("ReleaseCharge");
                         timer = chargeCooldown;
                     }
                 }
@@ -63,5 +69,23 @@ public class HabilityController : MonoBehaviour
                 break;
         }
         timer -= Time.deltaTime;
+    }
+    public Hability GetCurrentHablity()
+    {
+        return hability;
+    }
+    public float GetChargeDamage()
+    {
+        return chargeAttackDamage;
+    }
+    public void ActivateHabilityCollider()
+    {
+        habilityCol.SetActive(true);
+        StartCoroutine(DeactivateHitIn(0.05f));
+    }
+    IEnumerator DeactivateHitIn(float t)
+    {
+        yield return new WaitForSeconds(t);
+        habilityCol.SetActive(false);
     }
 }

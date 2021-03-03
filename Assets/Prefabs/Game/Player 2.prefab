@@ -4789,6 +4789,7 @@ Transform:
   m_Children:
   - {fileID: 1225701374215469158}
   - {fileID: 337709309}
+  - {fileID: 7311949471052825397}
   m_Father: {fileID: 1225701374430052506}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4832,7 +4833,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 10
   m_Sprite: {fileID: 21300000, guid: 06aa6ce465a737c44b202d9b206fc87d, type: 3}
-  m_Color: {r: 0.6792453, g: 0.17621931, b: 0.19813785, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -4903,7 +4904,7 @@ MonoBehaviour:
   hitCooldown: 10
   currentComboName: 
   combos:
-  - ComboName: 
+  - ComboName: Ground_Combo
     comboData:
     - cooldown: 0.75
       hitDuration: 0.3
@@ -4944,13 +4945,47 @@ MonoBehaviour:
         valueGuidInternal: 
         WwiseObjectReference: {fileID: 11400000, guid: 757556c8b2ea45f43bc35e2ff5c5605f,
           type: 2}
+  - ComboName: Air_Combo
+    comboData:
+    - cooldown: 0.75
+      hitDuration: 0.3
+      damage: 10
+      comboKeyKM: 305
+      comboKeyJoystick: 370
+      keyBeingPressed: 0
+      clip: {fileID: 7400000, guid: 12306be91d85fb342b2d03f349dc021f, type: 2}
+      critical: 0
+      hitSound:
+        idInternal: 0
+        valueGuidInternal: 
+        WwiseObjectReference: {fileID: 11400000, guid: 7e224486d26fbd044891bbb8c1dab1ba,
+          type: 2}
+    - cooldown: 0.75
+      hitDuration: 0.3
+      damage: 15
+      comboKeyKM: 305
+      comboKeyJoystick: 370
+      keyBeingPressed: 0
+      clip: {fileID: 7400000, guid: 7e3fc3b279cebdf4d9092c607fa940d6, type: 2}
+      critical: 1
+      hitSound:
+        idInternal: 0
+        valueGuidInternal: 
+        WwiseObjectReference: {fileID: 11400000, guid: afb5cda99c393ad4e8daa890b9718325,
+          type: 2}
   animator: {fileID: 1225701373364830908}
   overrider: {fileID: 22100000, guid: 98f734826625fe046a0fa149fb1c8841, type: 2}
   hitCol: {fileID: 1225701374215469159}
   NovaAttackClips:
   - {fileID: 7400000, guid: cc49d5d30eef96c43ae468f8641bc8ac, type: 2}
+  - {fileID: 7400000, guid: f3abdf80b53718a4f9e188b6fa856df5, type: 2}
+  - {fileID: 7400000, guid: 523f58dad49fd764fac95e84748662d2, type: 2}
   CyberBunnyAttackClips:
   - {fileID: 7400000, guid: 3268defd18ce4e54a910fb89c32b21a4, type: 2}
+  - {fileID: 7400000, guid: c2e5b521385852146ace94cda7dca010, type: 2}
+  - {fileID: 7400000, guid: 320b35e059e7ad442bf7db38d1ec8576, type: 2}
+  AirAttack2_Nova: {fileID: 7400000, guid: f087fb95863a03542a6fafff204258cc, type: 2}
+  AirAttack2_Cyber: {fileID: 7400000, guid: 00cf48cf1347e90449132bb116bb2e82, type: 2}
 --- !u!114 &1798681329
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4990,6 +5025,11 @@ MonoBehaviour:
   hability: 0
   habilityKeyKM: 257
   habilityKeyJoystick: 375
+  healingSpeed: 0
+  chargeSpeed: 0
+  chargeCooldown: 0
+  parryCooldown: 0
+  chargeAttackDamage: 0
 --- !u!1 &1225701374215469159
 GameObject:
   m_ObjectHideFlags: 0
@@ -5150,6 +5190,8 @@ MonoBehaviour:
   criticalKnockBackForce: 3000
   footstepSoundTimer: 0.3
   spawner: {fileID: 0}
+  startRun: {fileID: 0}
+  endRun: {fileID: 0}
   footstepSound:
     idInternal: 0
     valueGuidInternal: 
@@ -5218,3 +5260,82 @@ Rigidbody2D:
   m_SleepingMode: 0
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!1 &3121876604350636265
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7311949471052825397}
+  - component: {fileID: 523874694575533611}
+  - component: {fileID: 8913165525874664634}
+  m_Layer: 20
+  m_Name: HabilityCollider
+  m_TagString: HitCollider
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7311949471052825397
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3121876604350636265}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.77, y: -0.207, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1225701373364830905}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &523874694575533611
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3121876604350636265}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.86103106, y: -0.88886213}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 3.8204813, y: 0.39429188}
+  m_EdgeRadius: 0
+--- !u!50 &8913165525874664634
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3121876604350636265}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 7

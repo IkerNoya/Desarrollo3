@@ -12,6 +12,7 @@ TagManager:
   - Crown
   - Walls
   - ParryCol
+  - HabilityCollider
   layers:
   - Default
   - TransparentFX
@@ -36,8 +37,8 @@ TagManager:
   - HitCollider_P2
   - ParryCol_P2
   - Lights
-  - 
-  - 
+  - HabilityCollider_P1
+  - HabilityCollider_P2
   - 
   - 
   - 

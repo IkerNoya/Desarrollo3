@@ -121,7 +121,6 @@ public class CombatController : MonoBehaviour
 				}
 			}
 		}
-		Debug.Log("Grounded: " + player.GetGrounded());
 		hitCooldown -= Time.deltaTime;
 		if (hitCooldown <= 0 && !isComboCanceled)
 			CancelCombo();
