@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections;
+using System.Diagnostics.Eventing.Reader;
+using System.Text.RegularExpressions;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -21,6 +23,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] KeyCode jumpButtonJoystick;
     [SerializeField] KeyCode dashButtonKM;
     [SerializeField] KeyCode dashButtonJoystick;
+    [SerializeField] KeyCode CaptureButtonJoystick;
+    [SerializeField] KeyCode CaptureButtonKM;
     [Space]
     [SerializeField] GameObject player;
     [SerializeField] Rigidbody2D rigidBody;
@@ -89,6 +93,7 @@ public class PlayerController : MonoBehaviour
     bool canDash = true;
     bool isDashing = false;
     bool isPaused = false;
+    bool capturing = false;
     float walljumpAnimTime = 0.1403281f;
 
     ParryController parryController;
@@ -431,6 +436,14 @@ public class PlayerController : MonoBehaviour
             isPaused = true;
             Pause?.Invoke(this);
         }
+        if(Input.GetKey(CaptureButtonJoystick) || Input.GetKey(CaptureButtonKM) && GetGrounded())
+        {
+            capturing = true;
+        }
+        if(Input.GetKeyUp(CaptureButtonJoystick) || Input.GetKeyUp(CaptureButtonKM) && GetGrounded())
+        {
+            capturing = false;
+        }
     }
     void ResetWallJump()
     {
@@ -485,6 +498,10 @@ public class PlayerController : MonoBehaviour
             return false;
         else
             return false;
+    }
+    public bool GetCaptureBool()
+    {
+        return capturing;
     }
     public bool GetPause()
     {
@@ -543,6 +560,7 @@ public class PlayerController : MonoBehaviour
             hp -= collision.gameObject.GetComponentInParent<CombatController>().GetDamage();
             StartCoroutine(GravityChange(0.5f));
             anim.SetTrigger("Damage");
+            capturing = false;
             if (!GetGrounded())
             {
                 if (isCriticalHit)
@@ -624,7 +642,8 @@ public class PlayerController : MonoBehaviour
         {
             canMove = false;
             Vector3 direction;
-            if(collision.gameObject.GetComponentInParent<HabilityController>().GetCurrentHablity() == HabilityController.Hability.chargeAttack)
+            capturing = false;
+            if (collision.gameObject.GetComponentInParent<HabilityController>().GetCurrentHablity() == HabilityController.Hability.chargeAttack)
             {
                 hp -= collision.gameObject.GetComponentInParent<HabilityController>().GetChargeDamage();
                 StartCoroutine(GravityChange(0.5f));

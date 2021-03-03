@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text.RegularExpressions;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,13 +11,16 @@ public class CapturePoint : MonoBehaviour
     bool p1Capturing;
     bool p2Capturing;
 
+    float p1CaptureAmmount = 0;
+    float p2CaptureAmmount = 0;
+
     public static event Action<CapturePoint> VictoryP1;
     public static event Action<CapturePoint> VictoryP2;
 
 
     enum State
     {
-        Capturing, Blocked, Empty
+        Capturing, Blocked
     }
     State state;
     void Start()
@@ -24,65 +28,74 @@ public class CapturePoint : MonoBehaviour
         captureContent.fillAmount = 0;
         p1Capturing = false;
         p2Capturing = false;
-        state = State.Empty;
+        state = State.Blocked;
     }
 
     
     void Update()
     {
-        switch (state)
+        if(p1Capturing && !p2Capturing && p2CaptureAmmount <= 0)
         {
-            case State.Capturing:
-                captureSprites.SetActive(true);
-                if (p1Capturing && p2Capturing) state = State.Blocked;
-                if (!p1Capturing && !p2Capturing) state = State.Empty;
-                captureContent.fillAmount += captureAmmount * Time.deltaTime;
-                if (captureContent.fillAmount >= 1 && p1Capturing)
-                {
-                    VictoryP1?.Invoke(this);
-                }
-                if (captureContent.fillAmount >= 1 && p2Capturing)
-                {
-                    VictoryP2?.Invoke(this);
-                }
-                break;
-
-            case State.Blocked:
-                captureSprites.SetActive(true);
-                if ((p1Capturing && !p2Capturing) || (!p1Capturing && p2Capturing)) state = State.Capturing;
-                if (!p1Capturing && !p2Capturing) state = State.Empty;
-                break;
-
-            case State.Empty:
-                captureSprites.SetActive(false);
-                if ((p1Capturing && !p2Capturing) || (!p1Capturing && p2Capturing)) state = State.Capturing;
-                captureContent.fillAmount = 0;
-                break;
+            p1CaptureAmmount += captureAmmount * Time.deltaTime;
+            captureContent.fillAmount = p1CaptureAmmount;
+        }
+        else if(p1CaptureAmmount > 0 && !p1Capturing && p2Capturing)
+        {
+            p1CaptureAmmount -= captureAmmount * Time.deltaTime;
+            captureContent.fillAmount = p1CaptureAmmount;
+        }
+        if(!p1Capturing && p2Capturing && p1CaptureAmmount <=0)
+        {
+            p2CaptureAmmount += captureAmmount * Time.deltaTime;
+            captureContent.fillAmount = p2CaptureAmmount;
+        }
+        else if (p2CaptureAmmount > 0 && p1Capturing && !p2Capturing)
+        {
+            p2CaptureAmmount -= captureAmmount * Time.deltaTime;
+            captureContent.fillAmount = p2CaptureAmmount;
+        }
+        if (p1CaptureAmmount >= 1)
+        {
+            VictoryP1?.Invoke(this);
+        }
+        if (p2CaptureAmmount >= 1)
+        {
+            VictoryP2?.Invoke(this);
         }
     }
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
         
         if (collision.gameObject.CompareTag("Player_1"))
         {
-            p1Capturing = true;
-            captureContent.color = Color.cyan;
+            if (collision.gameObject.GetComponent<PlayerController>().GetCaptureBool())
+            {
+                p1Capturing = true;
+                collision.gameObject.GetComponent<PlayerController>().anim.SetBool("HoldCapture", true);
+                collision.gameObject.GetComponent<PlayerController>().SetCanMove(false);
+            }
+            else
+            {
+                p1Capturing = false;
+                collision.gameObject.GetComponent<PlayerController>().anim.SetBool("HoldCapture", false);
+                collision.gameObject.GetComponent<PlayerController>().anim.SetTrigger("EndCapture");
+            }
+
         }
         if (collision.gameObject.CompareTag("Player_2"))
         {
-            p2Capturing = true;
-            captureContent.color = Color.red;
-        }
-    }
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.gameObject.CompareTag("Player_1"))
-        {
-            p1Capturing = false;
-        }
-        if (collision.gameObject.CompareTag("Player_2"))
-        {
-            p2Capturing = false;
+            if (collision.gameObject.GetComponent<PlayerController>().GetCaptureBool())
+            {
+                p2Capturing = true;
+                collision.gameObject.GetComponent<PlayerController>().anim.SetBool("HoldCapture", true);
+                collision.gameObject.GetComponent<PlayerController>().SetCanMove(false);
+            }
+            else 
+            { 
+                p2Capturing = false;
+                collision.gameObject.GetComponent<PlayerController>().anim.SetBool("HoldCapture", false);
+                collision.gameObject.GetComponent<PlayerController>().anim.SetTrigger("EndCapture");
+            }
         }
     }
 }
