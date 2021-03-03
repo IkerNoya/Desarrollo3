@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections;
-using System.Diagnostics.Eventing.Reader;
-using System.Text.RegularExpressions;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -456,7 +454,6 @@ public class PlayerController : MonoBehaviour
     {
         isDead = true;
         anim.SetBool("Dead", true);
-        rigidBody.simulated = false;
         gameObject.GetComponent<BoxCollider2D>().enabled = false;
     }
 
