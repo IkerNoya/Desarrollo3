@@ -947,7 +947,7 @@
 								</Sound>
 							</ChildrenList>
 						</RandomSequenceContainer>
-						<Sound Name="Carga vida" ID="{2E099ED3-CF76-415B-A965-03708D0F4E27}" ShortID="171525338">
+						<Sound Name="Captura_DeObjetivo" ID="{0772E44D-54B9-442D-AF29-E9A0E78A17AF}" ShortID="163814998">
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{806D56C7-89DC-4910-BD41-BCACBB474B89}"/>
@@ -957,7 +957,36 @@
 								</Reference>
 							</ReferenceList>
 							<ChildrenList>
-								<AudioFileSource Name="Vertigo_chargement de la vie" ID="{A64613B8-F6C1-4944-B7A5-2F13717A35E8}">
+								<AudioFileSource Name="Vertigo_Objectif" ID="{AA9E4791-8369-4981-9345-53ECFE9BD8FB}">
+									<Language>SFX</Language>
+									<AudioFile>Vertigo_Objectif.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="255146250"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Vertigo_Objectif" ID="{AA9E4791-8369-4981-9345-53ECFE9BD8FB}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="Carga_Vida" ID="{E77B295D-4F40-4880-8C7D-44E0905B3D05}" ShortID="636346399">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-10</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{806D56C7-89DC-4910-BD41-BCACBB474B89}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0159F99E-D8EC-44F5-82B8-9D5327BE8D95}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Vertigo_chargement de la vie" ID="{92F139EF-823E-4C95-B827-39F8B69C9B21}">
 									<Language>SFX</Language>
 									<AudioFile>Vertigo_chargement de la vie.wav</AudioFile>
 									<MediaIDList>
@@ -966,7 +995,7 @@
 								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="Vertigo_chargement de la vie" ID="{A64613B8-F6C1-4944-B7A5-2F13717A35E8}" Platform="Linked"/>
+								<ActiveSource Name="Vertigo_chargement de la vie" ID="{92F139EF-823E-4C95-B827-39F8B69C9B21}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 					</ChildrenList>

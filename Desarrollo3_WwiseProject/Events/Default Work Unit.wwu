@@ -343,7 +343,17 @@
 								</Action>
 							</ChildrenList>
 						</Event>
-						<Event Name="Captura_DeObjetivo" ID="{B8BE11C1-4636-4046-B6A0-D7BB9FAA0F95}"/>
+						<Event Name="Captura_DeObjetivo" ID="{B8BE11C1-4636-4046-B6A0-D7BB9FAA0F95}">
+							<ChildrenList>
+								<Action Name="" ID="{5E696F1E-ED30-4069-B65E-B384916DA47D}" ShortID="487079206">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Captura_DeObjetivo" ID="{0772E44D-54B9-442D-AF29-E9A0E78A17AF}" WorkUnitID="{16016A4F-AD9D-4A09-AA0F-576A97D5EE42}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
 						<Event Name="Caida_Plataforma" ID="{0C1A7EB0-9CD2-4885-B35B-54E8DC6F041E}">
 							<ChildrenList>
 								<Action Name="" ID="{5E453926-5896-421A-8813-F045BA17DD8C}" ShortID="48732684">
@@ -492,10 +502,10 @@
 						</Event>
 						<Event Name="Carga_Vida" ID="{1CC7BBC8-4332-4B33-B3F3-43DBF6DE58F3}">
 							<ChildrenList>
-								<Action Name="" ID="{C53CE03E-1A7A-482B-90BD-70852847957C}" ShortID="839518837">
+								<Action Name="" ID="{18D19231-8E2C-4771-9A3D-CED18C58D0D3}" ShortID="434801960">
 									<ReferenceList>
 										<Reference Name="Target">
-											<ObjectRef Name="Carga vida" ID="{2E099ED3-CF76-415B-A965-03708D0F4E27}" WorkUnitID="{16016A4F-AD9D-4A09-AA0F-576A97D5EE42}"/>
+											<ObjectRef Name="Carga_Vida" ID="{E77B295D-4F40-4880-8C7D-44E0905B3D05}" WorkUnitID="{16016A4F-AD9D-4A09-AA0F-576A97D5EE42}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>
