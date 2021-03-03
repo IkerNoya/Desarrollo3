@@ -45,6 +45,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] AnimationClip startRun;
     [SerializeField] AnimationClip endRun;
     [Space]
+    [SerializeField] AnimationClip startJump;
+    [SerializeField] AnimationClip startFall;
+    [Space]
     AnimatorOverrideController overrider;
     #endregion
 
@@ -156,6 +159,10 @@ public class PlayerController : MonoBehaviour
                 overrider["Start_Run"] = startRun;
             else if (Mathf.Abs(rigidBody.velocity.x) >= 1 && Mathf.Abs(direction) <= 0.6f)
                 overrider["Start_Run"] = endRun;
+            if (rigidBody.velocity.y >= 0.5f && !GetGrounded())
+                overrider["StartJump"] = startJump;
+            else if(rigidBody.velocity.y < 0.5f && !GetGrounded())
+                overrider["StartJump"] = startFall;
         }
         else
         {
@@ -346,10 +353,14 @@ public class PlayerController : MonoBehaviour
                 case DataManager.PlayerSelection.Nova:
                     startRun = Resources.Load("Animations/Clips/Start_Run_Nova") as AnimationClip;
                     endRun = Resources.Load("Animations/Clips/End_Run_Nova") as AnimationClip;
+                    startJump = Resources.Load("Animations/Clips/Start_Jump_Nova") as AnimationClip;
+                    startFall = Resources.Load("Animations/Clips/Start_Fall_Nova") as AnimationClip;
                     break;
                 case DataManager.PlayerSelection.CyberBunny:
                     startRun = Resources.Load("Animations/Clips/Start_Run_Cyber") as AnimationClip;
                     endRun = Resources.Load("Animations/Clips/End_Run_Cyber") as AnimationClip;
+                    startJump = Resources.Load("Animations/Clips/Start_Jump_Cyber") as AnimationClip;
+                    startFall = Resources.Load("Animations/Clips/Start_Fall_Cyber") as AnimationClip;
                     break;
             }
         }
@@ -372,10 +383,14 @@ public class PlayerController : MonoBehaviour
                 case DataManager.PlayerSelection.Nova:
                     startRun = Resources.Load("Animations/Clips/Start_Run_Nova") as AnimationClip;
                     endRun = Resources.Load("Animations/Clips/End_Run_Nova") as AnimationClip;
+                    startJump = Resources.Load("Animations/Clips/Start_Jump_Nova") as AnimationClip;
+                    startFall = Resources.Load("Animations/Clips/Start_Fall_Nova") as AnimationClip;
                     break;
                 case DataManager.PlayerSelection.CyberBunny:
                     startRun = Resources.Load("Animations/Clips/Start_Run_Cyber") as AnimationClip;
                     endRun = Resources.Load("Animations/Clips/End_Run_Cyber") as AnimationClip;
+                    startJump = Resources.Load("Animations/Clips/Start_Jump_Cyber") as AnimationClip;
+                    startFall = Resources.Load("Animations/Clips/Start_Fall_Cyber") as AnimationClip;
                     break;
             }
         }
