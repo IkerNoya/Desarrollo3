@@ -8298,6 +8298,11 @@ MonoBehaviour:
   rayP1: {fileID: 966166518}
   rayCircleP2: {fileID: 1484939497}
   rayP2: {fileID: 396796733}
+  CaptureSound:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 2498e7b50b1ac9b42ae3a39611f6fdda,
+      type: 2}
 --- !u!61 &1721516938
 BoxCollider2D:
   m_ObjectHideFlags: 0

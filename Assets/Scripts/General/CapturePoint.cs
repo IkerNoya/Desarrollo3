@@ -24,6 +24,8 @@ public class CapturePoint : MonoBehaviour
 
     public static event Action<CapturePoint> VictoryP1;
     public static event Action<CapturePoint> VictoryP2;
+
+    public AK.Wwise.Event CaptureSound;
     void Start()
     {
         captureContent.fillAmount = 0;
@@ -87,6 +89,7 @@ public class CapturePoint : MonoBehaviour
                 collision.gameObject.GetComponent<PlayerController>().anim.SetBool("HoldCapture", true);
                 rayP1Anim.SetBool("HoldRay", true);
                 collision.gameObject.GetComponent<PlayerController>().SetCanMove(false);
+                CaptureSound.Post(gameObject);
             }
             else
             {
@@ -97,6 +100,7 @@ public class CapturePoint : MonoBehaviour
                 rayP1Anim.SetBool("HoldRay", false);
                 collision.gameObject.GetComponent<PlayerController>().anim.SetTrigger("EndCapture");
                 rayP1Anim.SetTrigger("EndRay");
+                CaptureSound.Stop(gameObject);
             }
 
         }
@@ -110,6 +114,7 @@ public class CapturePoint : MonoBehaviour
                 collision.gameObject.GetComponent<PlayerController>().anim.SetBool("HoldCapture", true);
                 rayP2Anim.SetBool("HoldRay", true);
                 collision.gameObject.GetComponent<PlayerController>().SetCanMove(false);
+                CaptureSound.Post(gameObject);
             }
             else 
             {
@@ -120,6 +125,7 @@ public class CapturePoint : MonoBehaviour
                 rayP2Anim.SetBool("HoldRay", false);
                 collision.gameObject.GetComponent<PlayerController>().anim.SetTrigger("EndCapture");
                 rayP2Anim.SetTrigger("EndRay");
+                CaptureSound.Stop(gameObject);
             }
         }
     }
