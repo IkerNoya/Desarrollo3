@@ -29,7 +29,7 @@
 				</StateGroup>
 			</StateGroups>
 		</SoundBank>
-		<SoundBank Id="3161908922" Language="SFX" Hash="4099560190">
+		<SoundBank Id="3161908922" Language="SFX" Hash="2877935306">
 			<ObjectPath>\SoundBanks\Default Work Unit\MAIN</ObjectPath>
 			<ShortName>MAIN</ShortName>
 			<Path>MAIN.bnk</Path>
@@ -98,7 +98,7 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="1560490425" Name="Caida_Plataforma" ObjectPath="\Events\Default Work Unit\In game\Caida_Plataforma" DurationType="OneShot" DurationMin="0.855708" DurationMax="0.855708">
+				<Event Id="1560490425" Name="Caida_Plataforma" ObjectPath="\Events\Default Work Unit\In game\Caida_Plataforma" DurationType="OneShot" DurationMin="0.762349" DurationMax="0.960500">
 					<IncludedMemoryFiles>
 						<File Id="609115062" Language="SFX">
 							<ShortName>SFX_CaeDeCabeza.wav</ShortName>
@@ -107,6 +107,14 @@
 					</IncludedMemoryFiles>
 				</Event>
 				<Event Id="622800721" Name="Captura_DeObjetivo" ObjectPath="\Events\Default Work Unit\In game\Captura_DeObjetivo" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="3629526154" Name="Carga_Vida" ObjectPath="\Events\Default Work Unit\In game\Carga_Vida" DurationType="OneShot" DurationMin="8.009615" DurationMax="8.009615">
+					<IncludedMemoryFiles>
+						<File Id="870459698" Language="SFX">
+							<ShortName>Vertigo_chargement de la vie.wav</ShortName>
+							<Path>SFX\Vertigo_chargement de la vie_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
 				<Event Id="251416149" Name="Corrida" ObjectPath="\Events\Default Work Unit\In game\Corrida" DurationType="OneShot" DurationMin="0.271250" DurationMax="0.286667">
 					<IncludedMemoryFiles>
 						<File Id="81282929" Language="SFX">
