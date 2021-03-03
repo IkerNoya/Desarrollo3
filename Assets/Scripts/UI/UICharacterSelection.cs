@@ -19,6 +19,12 @@ public class UICharacterSelection : MonoBehaviour
     [Space]
     [SerializeField] GameObject colorSelectionRight;
     [SerializeField] GameObject rightWhiteButton;
+    [Space]
+    [SerializeField] GameObject leftHabilityColection;
+    [SerializeField] GameObject rightHabilityColection;
+    [Space]
+    [SerializeField] GameObject LeftHabilityButton;
+    [SerializeField] GameObject RightHabilityButton;
     public enum Player
     {
         player1, player2
@@ -42,6 +48,9 @@ public class UICharacterSelection : MonoBehaviour
 
         colorSelectionLeft.SetActive(false);
         colorSelectionRight.SetActive(false);
+
+        leftHabilityColection.SetActive(false);
+        rightHabilityColection.SetActive(false);
 
         EventSystem.current.SetSelectedGameObject(ContinueButton);
     }
@@ -92,17 +101,18 @@ public class UICharacterSelection : MonoBehaviour
         {
             data.player1Choice.tint = DataManager.Tint.white;
             colors.SetActive(false);
+            leftHabilityColection.SetActive(true);
         }
         else
         {
             data.player2Choice.tint = DataManager.Tint.white;
             colors.SetActive(false);
+            rightHabilityColection.SetActive(true);
         }
-        if (player <= 0)
-        {
-            player++;
-        }
-        EventSystem.current.SetSelectedGameObject(ContinueButton);
+        if(player<=0)
+            EventSystem.current.SetSelectedGameObject(LeftHabilityButton);
+        else
+            EventSystem.current.SetSelectedGameObject(RightHabilityButton);
     }
     public void OnClickRed(GameObject colors)
     {
@@ -110,17 +120,18 @@ public class UICharacterSelection : MonoBehaviour
         {
             data.player1Choice.tint = DataManager.Tint.red;
             colors.SetActive(false);
+            leftHabilityColection.SetActive(true);
         }
         else
         {
             data.player2Choice.tint = DataManager.Tint.red;
             colors.SetActive(false);
+            rightHabilityColection.SetActive(true);
         }
         if (player <= 0)
-        {
-            player++;
-        }
-        EventSystem.current.SetSelectedGameObject(ContinueButton);
+            EventSystem.current.SetSelectedGameObject(LeftHabilityButton);
+        else
+            EventSystem.current.SetSelectedGameObject(RightHabilityButton);
 
     }
     public void OnClickBlue(GameObject colors)
@@ -129,17 +140,18 @@ public class UICharacterSelection : MonoBehaviour
         {
             data.player1Choice.tint = DataManager.Tint.blue;
             colors.SetActive(false);
+            leftHabilityColection.SetActive(true);
         }
         else
         {
             data.player2Choice.tint = DataManager.Tint.blue;
             colors.SetActive(false);
+            rightHabilityColection.SetActive(true);
         }
         if (player <= 0)
-        {
-            player++;
-        }
-        EventSystem.current.SetSelectedGameObject(ContinueButton);
+            EventSystem.current.SetSelectedGameObject(LeftHabilityButton);
+        else
+            EventSystem.current.SetSelectedGameObject(RightHabilityButton);
     }
     public void OnHoverNova()
     {
@@ -199,6 +211,54 @@ public class UICharacterSelection : MonoBehaviour
         {
             AvatarPlayer2.color = Color.blue;
         }
+    }
+    public void OnClickHeal(GameObject habilities)
+    {
+        if (player == Player.player1)
+        {
+            data.SetPlayer1Hability(DataManager.Hability.heal);
+            habilities.SetActive(false);
+        }
+        else
+        {
+            data.SetPlayer2Hability(DataManager.Hability.heal);
+            habilities.SetActive(false);
+        }
+        if (player <= 0)
+            player++;
+        EventSystem.current.SetSelectedGameObject(ContinueButton);
+    }
+    public void OnClickBurst(GameObject habilities)
+    {
+        if (player == Player.player1)
+        {
+            data.SetPlayer1Hability(DataManager.Hability.burst);
+            habilities.SetActive(false);
+        }
+        else
+        {
+            data.SetPlayer2Hability(DataManager.Hability.burst);
+            habilities.SetActive(false);
+        }
+        if (player <= 0)
+            player++;
+        EventSystem.current.SetSelectedGameObject(ContinueButton);
+    }
+    public void OnClickParry(GameObject habilities)
+    {
+        if (player == Player.player1)
+        {
+            data.SetPlayer1Hability(DataManager.Hability.parry);
+            habilities.SetActive(false);
+        }
+        else
+        {
+            data.SetPlayer2Hability(DataManager.Hability.parry);
+            habilities.SetActive(false);
+        }
+        if (player <= 0)
+            player++;
+        EventSystem.current.SetSelectedGameObject(ContinueButton);
     }
 
 

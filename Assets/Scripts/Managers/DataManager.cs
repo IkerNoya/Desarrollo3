@@ -15,11 +15,16 @@ public class DataManager : MonoBehaviour
     {
         white, red, blue
     }
+    public enum Hability
+    {
+        heal, burst, parry
+    }
     [Serializable]
     public class PlayerChoice
     {
         public PlayerSelection playerSelection;
         public Tint tint;
+        public Hability selectedHability;
     }
     public PlayerChoice player1Choice;
     public PlayerChoice player2Choice;
@@ -80,18 +85,34 @@ public class DataManager : MonoBehaviour
     {
         player1Choice.playerSelection = value;
     }
+    public void SetPlayer1Hability(Hability value)
+    {
+        player1Choice.selectedHability= value;
+    }
     public PlayerSelection GetPlayer1Choice()
     {
         return player1Choice.playerSelection;
+    }
+    public Hability GetPlayer1Hability()
+    {
+        return player1Choice.selectedHability;
     }
 
     public void SetPlayer2Choice(PlayerSelection value)
     {
         player2Choice.playerSelection = value;
     }
+    public void SetPlayer2Hability(Hability value)
+    {
+        player2Choice.selectedHability = value;
+    }
     public PlayerSelection GetPlayer2Choice()
     {
         return player2Choice.playerSelection;
+    }
+    public Hability GetPlayer2Hability()
+    {
+        return player2Choice.selectedHability;
     }
 
     //character color

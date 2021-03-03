@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Net.Http.Headers;
 using UnityEngine;
 
 public class HabilityController : MonoBehaviour
@@ -25,14 +26,19 @@ public class HabilityController : MonoBehaviour
     [SerializeField] float parryDamage;
     [SerializeField] GameObject habilityCol;
     [Space]
+    [SerializeField] ParticleSystem healingParticles;
+    [Space]
     CombatController combatController;
     float timer;
     bool canParry = false;
+    DataManager data;
     void Start()
     {
         player = GetComponentInParent<PlayerController>();
         combatController = GetComponent<CombatController>();
         habilityCol.SetActive(false);
+        data = DataManager.instance;
+        LoadHabilities();
     }
 
     void Update()
@@ -49,11 +55,15 @@ public class HabilityController : MonoBehaviour
                         healingSound.Post(gameObject);
                     if (player.hp > 100)
                         player.hp = 100;
+                    healingParticles.Play();
                 }
                 if (Input.GetKeyUp(habilityKeyKM) || Input.GetKeyUp(habilityKeyJoystick))
                 {
                     player.anim.SetBool("HoldHealing", false);
                     player.anim.SetTrigger("StopHealing");
+                    if(healingSound!=null)
+                        healingSound.Stop(gameObject);
+                    healingParticles.Stop();
                 }
                 break;
             case Hability.chargeAttack:
@@ -82,6 +92,40 @@ public class HabilityController : MonoBehaviour
                 break;
         }
         timer -= Time.deltaTime;
+    }
+    void LoadHabilities()
+    {
+        switch (player.playerSelect)
+        {
+            case PlayerController.PlayerSelect.player1:
+                switch (data.GetPlayer1Hability())
+                {
+                    case DataManager.Hability.heal:
+                        hability = Hability.healing;
+                        break;
+                    case DataManager.Hability.burst:
+                        hability = Hability.chargeAttack;
+                        break;
+                    case DataManager.Hability.parry:
+                        hability = Hability.parry;
+                        break;
+                }
+                break;
+            case PlayerController.PlayerSelect.player2:
+                switch (data.GetPlayer2Hability())
+                {
+                    case DataManager.Hability.heal:
+                        hability = Hability.healing;
+                        break;
+                    case DataManager.Hability.burst:
+                        hability = Hability.chargeAttack;
+                        break;
+                    case DataManager.Hability.parry:
+                        hability = Hability.parry;
+                        break;
+                }
+                break;
+        }
     }
     public Hability GetCurrentHablity()
     {

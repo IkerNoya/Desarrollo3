@@ -10024,6 +10024,7 @@ MonoBehaviour:
   chargeAttackDamage: 10
   parryDamage: 25
   habilityCol: {fileID: 3121876604350636265}
+  healingParticles: {fileID: 1980157470}
 --- !u!1 &1225701374215469159
 GameObject:
   m_ObjectHideFlags: 0
