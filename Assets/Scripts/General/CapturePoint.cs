@@ -11,24 +11,27 @@ public class CapturePoint : MonoBehaviour
     bool p1Capturing;
     bool p2Capturing;
 
+    [SerializeField] GameObject rayCircleP1;
+    [SerializeField] GameObject rayP1;
+    [SerializeField] GameObject rayCircleP2;
+    [SerializeField] GameObject rayP2;
+
+    Animator rayP1Anim;
+    Animator rayP2Anim;
+
     float p1CaptureAmmount = 0;
     float p2CaptureAmmount = 0;
 
     public static event Action<CapturePoint> VictoryP1;
     public static event Action<CapturePoint> VictoryP2;
-
-
-    enum State
-    {
-        Capturing, Blocked
-    }
-    State state;
     void Start()
     {
         captureContent.fillAmount = 0;
         p1Capturing = false;
         p2Capturing = false;
-        state = State.Blocked;
+        rayP1Anim = rayP1.GetComponent<Animator>();
+        rayP2Anim = rayP2.GetComponent<Animator>();
+        SetCaptureEffectState(false);
     }
 
     
@@ -63,6 +66,14 @@ public class CapturePoint : MonoBehaviour
             VictoryP2?.Invoke(this);
         }
     }
+
+    void SetCaptureEffectState(bool value)
+    {
+        rayCircleP1.SetActive(false);
+        rayP1.SetActive(false);
+        rayCircleP2.SetActive(false);
+        rayP2.SetActive(false);
+    }
     private void OnTriggerStay2D(Collider2D collision)
     {
         
@@ -70,15 +81,22 @@ public class CapturePoint : MonoBehaviour
         {
             if (collision.gameObject.GetComponent<PlayerController>().GetCaptureBool())
             {
+                rayCircleP1.SetActive(true);
+                rayP1.SetActive(true);
                 p1Capturing = true;
                 collision.gameObject.GetComponent<PlayerController>().anim.SetBool("HoldCapture", true);
+                rayP1Anim.SetBool("HoldRay", true);
                 collision.gameObject.GetComponent<PlayerController>().SetCanMove(false);
             }
             else
             {
+                rayCircleP1.SetActive(false);
+                rayP1.SetActive(false);
                 p1Capturing = false;
                 collision.gameObject.GetComponent<PlayerController>().anim.SetBool("HoldCapture", false);
+                rayP1Anim.SetBool("HoldRay", false);
                 collision.gameObject.GetComponent<PlayerController>().anim.SetTrigger("EndCapture");
+                rayP1Anim.SetTrigger("EndRay");
             }
 
         }
@@ -86,15 +104,22 @@ public class CapturePoint : MonoBehaviour
         {
             if (collision.gameObject.GetComponent<PlayerController>().GetCaptureBool())
             {
+                rayCircleP2.SetActive(true);
+                rayP2.SetActive(true);
                 p2Capturing = true;
                 collision.gameObject.GetComponent<PlayerController>().anim.SetBool("HoldCapture", true);
+                rayP2Anim.SetBool("HoldRay", true);
                 collision.gameObject.GetComponent<PlayerController>().SetCanMove(false);
             }
             else 
-            { 
+            {
+                rayCircleP2.SetActive(false);
+                rayP2.SetActive(false);
                 p2Capturing = false;
                 collision.gameObject.GetComponent<PlayerController>().anim.SetBool("HoldCapture", false);
+                rayP2Anim.SetBool("HoldRay", false);
                 collision.gameObject.GetComponent<PlayerController>().anim.SetTrigger("EndCapture");
+                rayP2Anim.SetTrigger("EndRay");
             }
         }
     }

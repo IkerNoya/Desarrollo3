@@ -67,7 +67,7 @@ public class UIGame : MonoBehaviour
         if (deactivatePauseEffect != null)
             deactivatePauseEffect.Post(Camera.main.gameObject);
         Time.timeScale = 1.0f;
-        SceneManager.LoadScene("Game");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         if (PauseScreen != null)
             PauseScreen.SetActive(false);
         if(p1!=null) p1.SetPause(false);
