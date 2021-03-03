@@ -37,6 +37,7 @@ Event	ID	Name			Wwise Object Path	Notes
 	3459005151	Eleccion_perso_1			\Default Work Unit\UI\Eleccion_perso_1	
 	3569082496	Salida_del_juego			\Default Work Unit\UI\Salida_del_juego	
 	3573931707	Loading			\Default Work Unit\UI\Loading	
+	3629526154	Carga_Vida			\Default Work Unit\In game\Carga_Vida	
 	3775992877	Damage_Jugador2			\Default Work Unit\In game\Damage_Jugador2	
 	3775992878	Damage_Jugador1			\Default Work Unit\In game\Damage_Jugador1	
 	3817817792	DamageCritico_Jugador2			\Default Work Unit\In game\DamageCritico_Jugador2	
@@ -95,6 +96,7 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	747274110	SFX_Salto_02	C:\Users\delli\Documents\GitHub\tower-of-vertigo\Desarrollo3_WwiseProject\.cache\Mac\SFX\SFX_Salto_6294ED36.wem		\Actor-Mixer Hierarchy\Default Work Unit\In game\Salto\SFX_Salto_02		24374
 	806087017	SFX_Salto_04	C:\Users\delli\Documents\GitHub\tower-of-vertigo\Desarrollo3_WwiseProject\.cache\Mac\SFX\SFX_Salto_D68205B3.wem		\Actor-Mixer Hierarchy\Default Work Unit\In game\Salto\SFX_Salto_04		27582
 	828680542	Menu17_11	C:\Users\delli\Documents\GitHub\tower-of-vertigo\Desarrollo3_WwiseProject\.cache\Mac\SFX\Menu17_11_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\Musicas\Loading\Menu17_11\Menu17_11		3043188
+	870459698	Carga vida	C:\Users\delli\Documents\GitHub\tower-of-vertigo\Desarrollo3_WwiseProject\.cache\Mac\SFX\Vertigo_chargement de la vie_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\In game\Carga vida		1413024
 	873666959	SFX_Salto_06	C:\Users\delli\Documents\GitHub\tower-of-vertigo\Desarrollo3_WwiseProject\.cache\Mac\SFX\SFX_Salto_40DC6169.wem		\Actor-Mixer Hierarchy\Default Work Unit\In game\Salto\SFX_Salto_06		28230
 	888733065	SFX_PlayerWins	C:\Users\delli\Documents\GitHub\tower-of-vertigo\Desarrollo3_WwiseProject\.cache\Mac\SFX\SFX_PlayerWins_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\UI\SFX_PlayerWins		284224
 	919981041	SFX_Ataque2A	C:\Users\delli\Documents\GitHub\tower-of-vertigo\Desarrollo3_WwiseProject\.cache\Mac\SFX\SFX_Ataque2A_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\In game\Ataque2\SFX_Ataque2A		179872

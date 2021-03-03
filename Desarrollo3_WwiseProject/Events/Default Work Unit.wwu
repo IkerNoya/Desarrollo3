@@ -490,6 +490,17 @@
 								</Action>
 							</ChildrenList>
 						</Event>
+						<Event Name="Carga_Vida" ID="{1CC7BBC8-4332-4B33-B3F3-43DBF6DE58F3}">
+							<ChildrenList>
+								<Action Name="" ID="{C53CE03E-1A7A-482B-90BD-70852847957C}" ShortID="839518837">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Carga vida" ID="{2E099ED3-CF76-415B-A965-03708D0F4E27}" WorkUnitID="{16016A4F-AD9D-4A09-AA0F-576A97D5EE42}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
 					</ChildrenList>
 				</Folder>
 				<Event Name="Tirado_Idle" ID="{BAE26CD6-210A-418B-9C99-0BEC731C77B0}"/>
